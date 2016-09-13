@@ -1,11 +1,7 @@
  /*------------------------------------*\
   #TEXT_COLOR
 \*------------------------------------*/
- 
- .text-dark {
-     color: $main-color-dark;
- }
- 
+  
  .text-darkest {
      color: black;
  }
@@ -17,22 +13,11 @@
  .text-lightest {
      color: white;
  }
- 
- .text-main {
-     color: $main-color;
- }
- 
- .text-grey {
-     color: $grey;
- }
- 
+  
  .text-bold {
      font-weight: 700;
  }
  
- .text-tracking {
-     letter-spacing: 1.5px;
- }
  
  .text-left {
      text-align: left;
@@ -42,66 +27,14 @@
      text-align: right;
  }
  
- .text-center {
-     text-align: center;
- }
  
  
- .break-word {
-     word-wrap: break-word;
- } 
- 
- /*------------------------------------*\
-  #OPACITY
-\*------------------------------------*/
- 
- .opacity-1 {
-     opacity: 1;
- }
- 
- .opacity-0 {
-     opacity: 0;
- }
  /*------------------------------------*\
   #ALIGNMENTS_AND_MARGINS
 \*------------------------------------*/
- 
- .full-height {
-     height: 100%;
- }
- 
- .full-width {
-     width: 100%;
- }
- 
- .u-blockify {
-     display: block;
-     margin-top: 10px;
- }
- 
- .no-margin {
-     margin: 0px;
- }
- 
- .no-padding {
-     padding: 0px;
- }
- 
- .no-margin-top {
-     margin-top: 0px;
- }
- 
- .margin-top-10 {
-     margin-top: 10vh;
- }
-
-.margin-left-20px{
-    margin-left: 20px;
-}
-
+  
 .margin-top-neg {
      margin-top: -4.5vh;
-   
     
  }
  

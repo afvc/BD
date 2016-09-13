@@ -2,7 +2,6 @@
  * BASE STYLES
  * ================================ */
     
-    //box-sizing model = margin and paddgin inside element so they don't increase width of component.
     html {
         box-sizing: border-box;
     }
@@ -39,12 +38,6 @@
         list-style-type: none;
         margin: 5px;
     }
-    
-    
-    
-    .hidden {
-        display: none;
-    }
     /*------------------------------------*\
   #LINKS
 \*------------------------------------*/
@@ -58,104 +51,40 @@
             text-decoration: none;
             color: $light;
         }
-        
-        
     }
-    /* ---------------#section_colors--------------*/
-    
-    .section-color {
-        width: 100vw;
-        height: 100vh;
-    }
-    /* ---------------#responsiveness--------------*/
-    /* ---------------#section_sizes--------------*/
-
+    /*------------------------------------*\
+  #SECTION_SIZES
+\*------------------------------------*/
     
     .section-size {
-        // padding-top: $nav-size*2;
-        padding-bottom: 100px;
         width: 960px;
         max-width: 100%;
         margin: auto;
-        @include breakpoint ($min: xs) {
-            width: 350px;
+        @media (max-width: 320px) {
+            width: 250px;
             max-width: 100%;
+            
         }
-        @include breakpoint ($min: sm) {
-            width: 620px;
-            max-width: 100%;
+        @media (min-width:320px) and (max-width:768px) {
+            width: 80%;
+           
         }
-        @include breakpoint ($min: md) {
-            width: 720px;
-            max-width: 100%;
+        @include respond-to('lg') {
+           width: 70%;
         }
-        @include breakpoint ($min: lg) {
-            width: 1100px;
-            max-width: 100%;
-        }
-        @include breakpoint ($min: xl) {
-            width: 1240px;
-            max-width: 100%;
-        }
+    }
+    /*------------------------------------*\
+  #IMAGE BLOCKS
+\*------------------------------------*/
+    
+    .img-block {
+        position: relative;
+        width: 70%;
+        margin-left: 15%;
     }
     
-    .section-size-extra {
-        @extend .section-size;
-        padding-bottom: 138px;
-        @include breakpoint ($min: md) {
-            padding-bottom: 193px;
-        }
+    .img-block__text {
+        position: relative;
+        bottom: -8%;
+        left: 14.7%;
     }
-    
-    .section-size-extra-plus {
-        @extend .section-size;
-        padding-bottom: 149px;
-        @include breakpoint ($min: xs) {
-            padding-bottom: 212px;
-        }
-        @include breakpoint ($min:sm) {
-            padding-bottom: 219px;
-        }
-        @include breakpoint ($min:md) {
-            padding-bottom: 232px;
-        }
-        @include breakpoint ($min:lg) {
-            padding-bottom: 160px;
-        }
-    }
-    /*
-    Default Headings 
-    ----
-
-    h1,h2,h3,h4,h5,h6
-*/
-    
-    @for $i from 1 to 7 {
-        h#{$i} {
-            margin: 0;
-            // font-size: 1em; 
-            // font-weight: getFontWeight('semibold');
-        }
-    }
-    /*
-  TABLE
-  ----
-
-  Ensure tables fill up as much space as possible.
-*/
-    
-    table {
-        width: 100%;
-    }
-    
-    hr {
-        margin: 0 auto;
-        width: 100%;
-        height: 1px;
-        background: currentColor;
-        opacity: 0.18;
-        padding: 8px 0px;
-    }
-
-
-

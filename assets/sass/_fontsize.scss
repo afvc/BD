@@ -1,100 +1,56 @@
   /*----------font_responsiveness------------*/
-    
-    .title {
-        color: $black;
-        font-family: BoldFont;
-        @include breakpoint($min: xs) {
-            font-size: map-deep-get($typescale, 'heading1', 'xs');
-        }
-        @include breakpoint($min:sm) {
-            font-size: map-deep-get($typescale, 'heading1', 'sm');
-        }
-        @include breakpoint($min:md) {
-            font-size: map-deep-get($typescale, 'heading1', 'md');
-        }
-        @include breakpoint($min:lg) {
-            font-size: map-deep-get($typescale, 'heading1', 'lg');
-        }
-        @include breakpoint($min:xl) {
-            font-size: map-deep-get($typescale, 'heading1', 'lg');
-        }
-       line-height: 1.2;
-    }
-
-
-.medium {
-        color: $black;
-        font-family: BoldFont;
-        @include breakpoint($min: xs) {
-            font-size: map-deep-get($typescale, 'medium1', 'xs');
-        }
-        @include breakpoint($min:sm) {
-            font-size: map-deep-get($typescale, 'medium1', 'sm');
-        }
-        @include breakpoint($min:md) {
-            font-size: map-deep-get($typescale, 'medium1', 'md');
-        }
-        @include breakpoint($min:lg) {
-            font-size: map-deep-get($typescale, 'medium1', 'lg');
-        }
-        @include breakpoint($min:xl) {
-            font-size: map-deep-get($typescale, 'medium1', 'lg');
-        }
-       line-height: 1.2;
-    }
-
-
-    
-    .subtitle {
-        color: $black;
-        font-family: SemiBoldFont;
-        @include breakpoint($min: xs) {
-            font-size: map-deep-get($typescale, 'sub1', 'xs');
-        }
-        @include breakpoint($min:sm) {
-            font-size: map-deep-get($typescale, 'sub1', 'sm');
-        }
-        @include breakpoint($min:md) {
-            font-size: map-deep-get($typescale, 'sub1', 'md');
-        }
-        @include breakpoint($min:lg) {
-            font-size: map-deep-get($typescale, 'sub1', 'lg');
-        }
-    }
-    
-    .text {
-        color: $main-color50;
-         font-family: TextFont;
-        @include breakpoint($min: xs) {
-            font-size: map-deep-get($typescale, 'text1', 'xs');
-        }
-        @include breakpoint($min:sm) {
-            font-size: map-deep-get($typescale, 'text1', 'sm');
-        }
-        @include breakpoint($min:md) {
-            font-size: map-deep-get($typescale, 'text1', 'md');
-        }
-        @include breakpoint($min:lg) {
-            font-size: map-deep-get($typescale, 'text1', 'lg');
-        }
-    }
-    
-    .smalltext {
-         font-family: LightFont;
-        @include breakpoint($min: xs) {
-            font-size: map-deep-get($typescale, 'smalltext1', 'xs');
-        }
-        @include breakpoint($min:sm) {
-            font-size: map-deep-get($typescale, 'smalltext1', 'sm');
-        }
-        @include breakpoint($min:md) {
-            font-size: map-deep-get($typescale, 'smalltext1', 'md');
-        }
-        @include breakpoint($min:lg) {
-            font-size: map-deep-get($typescale, 'smalltext1', 'lg');
-        }
-        
-         @include breakpoint($min:xl) {
-            font-size: map-deep-get($typescale, 'smalltext1', 'lg');
-        }
-    }
+  
+  .title {
+      color: $black;
+      font-family: BoldFont;
+      @include respond-to('xs') {
+          font-size: map-deep-get($typescale, 'heading1', 'xs');
+      }
+      @include respond-to('md') {
+          font-size: map-deep-get($typescale, 'heading1', 'md');
+      }
+      @include respond-to('lg') {
+          font-size: map-deep-get($typescale, 'heading1', 'lg');
+      }
+      line-height: 1.2;
+  }
+  
+  .subtitle {
+      color: $black;
+      font-family: SemiBoldFont;
+      @include respond-to('xs') {
+          font-size: map-deep-get($typescale, 'sub1', 'xs');
+      }
+      @include respond-to('md') {
+          font-size: map-deep-get($typescale, 'sub1', 'md');
+      }
+      @include respond-to('lg') {
+          font-size: map-deep-get($typescale, 'sub1', 'lg');
+      }
+  }
+  
+  .text {
+      font-family: TextFont;
+      @include respond-to('xs') {
+          font-size: map-deep-get($typescale, 'text1', 'xs');
+      }
+      @include respond-to('md') {
+          font-size: map-deep-get($typescale, 'text1', 'md');
+      }
+      @include respond-to('lg') {
+          font-size: map-deep-get($typescale, 'text1', 'lg');
+      }
+  }
+  
+  .smalltext {
+      font-family: LightFont;
+      @include respond-to('xs') {
+          font-size: map-deep-get($typescale, 'smalltext1', 'xs');
+      }
+      @include respond-to('md') {
+          font-size: map-deep-get($typescale, 'smalltext1', 'md');
+      }
+      @include respond-to('lg') {
+          font-size: map-deep-get($typescale, 'smalltext1', 'lg');
+      }
+  }
