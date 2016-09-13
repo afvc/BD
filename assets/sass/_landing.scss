@@ -35,160 +35,25 @@
 
 .img-block{
     
-    @extend .text-left;
-    @extend .element-skew;
-    
-    img{
+ 
         position: relative;
         width: 70%;
         margin-left: 15%;
-        box-shadow: -20px -20px 0px #b3b3b3;
-        -webkit-filter: grayscale(100%);
-                filter: grayscale(100%); 
         
-        @extend .transition-ease;
-    }
+       
     
-    h1,h2{
-       @extend .gradient-blu-gre__text;
-        @extend .transition-ease;
-    }
-    
-    
-    h2{
-        
-        text-shadow: 2px 2px #fff;
-    }
-    
-    
-    &:hover{
-        img{
-            box-shadow: -10px -10px 0px #b3b3b9;
-            
-            -webkit-filter: grayscale(0%);
-                    filter: grayscale(0%);
-        }
-        
-        h1, h2{
-            opacity: 0;
-        }
-        
-    }
+ 
     
 }
 
 .img-block__text{
-        position: absolute;
-        bottom: 10%;
-        left: 20%;
-        @extend .transition-ease;
-}
-
-.img-block-ac{
-
-
-
-@extend .text-left;
-    @extend .element-skew;
-    
-    img{
         position: relative;
-        width: 60%;
-        margin-left: 20%;
-        box-shadow: -20px -20px 0px #b3b3b3;
-        -webkit-filter: grayscale(100%);
-                filter: grayscale(100%);   
-        @extend .transition-ease;
-    }
-    
-    h1{
-        @extend .gradient-blu-gre__text;
-        @extend .transition-ease;
-        padding: 5px 20px 10px 20px;
-        line-height: 1.3;
-    }
-    
-    h2{
-        color:black;
-        padding: 20px 20px 0 20px;}
-    
-    
-    
-    &:hover{
-        img{
-            box-shadow: -10px -10px 0px #b3b3b9;
-            -webkit-filter: grayscale(0%);
-            filter: grayscale(0%);   }
-   
-    }
-
-
+        bottom: -8%;
+        left: 15%;
+         
 }
-
-.img-block__text-ac{
-        position: absolute;
-        bottom: -40%;
-        left: 20%;
-        @extend .transition-ease;
-    
-        @include breakpoint ($min: sm) {
-            background: #fff;
-            bottom: 20%;
-            left: 30%;
-        }
-    
-        @include breakpoint ($min: xs) {
-            background: #fff;
-            bottom: 20%;
-            left: 30%;
-        }
-}
-
-
-/*--------------------------
-------TITLE BORDERS---------
---------------------------*/
-
-
-.dashed-vector {
-  position: relative;
-  padding: 2vh;
-}
-svg {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 100%;
-  width: 100%;
-    
-      @include breakpoint ($min: xs) {
-    left: 10%;
-  height: 100%;
-  width: 80%;
-        }
-}
-path{
-  fill: none;
-  stroke: rgba(36, 229, 112, 0.4); 
-}
-
-
-.border-big{
-    stroke-width: 15;
-    stroke-dasharray:1, 1;
-}
-
-.border-medium{
-    stroke-width: 18;
-    stroke-dasharray:1, 1;
-}
-
-.border-small{
-    stroke-width: 25;
-    stroke-dasharray:2, 2;
-}
-
-
+ 
+ 
 /*--------------------------
 -----TOP PAGE GRADIENT------
 --------------------------*/
@@ -203,28 +68,4 @@ path{
     padding-bottom: 50px;
 }
 
-
-/*--------------------------
-------------LOGOS-----------
---------------------------*/
-
-.logos-partner{
-    height: 100px;
-    float: left;
-}
-
-
-.logos-partner-long{
-    height: 30px;
-    float: left;
-}
-
-.logos-partner-long-1{
-    height: 60px;
-    float: left;
-}
-
-.logos-partner-big{
-    height: 140px;
-    float: left; 
-}
+ 

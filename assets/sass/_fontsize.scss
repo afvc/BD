@@ -93,4 +93,8 @@
         @include breakpoint($min:lg) {
             font-size: map-deep-get($typescale, 'smalltext1', 'lg');
         }
+        
+         @include breakpoint($min:xl) {
+            font-size: map-deep-get($typescale, 'smalltext1', 'lg');
+        }
     }
