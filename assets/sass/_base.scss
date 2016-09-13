@@ -69,7 +69,8 @@
             width: 80%;
            
         }
-        @include respond-to('lg') {
+      
+        @media (min-width: 768px) {
            width: 70%;
         }
     }

@@ -1,56 +1,64 @@
-  /*----------font_responsiveness------------*/
-  
-  .title {
-      color: $black;
-      font-family: BoldFont;
-      @include respond-to('xs') {
-          font-size: map-deep-get($typescale, 'heading1', 'xs');
-      }
-      @include respond-to('md') {
-          font-size: map-deep-get($typescale, 'heading1', 'md');
-      }
-      @include respond-to('lg') {
-          font-size: map-deep-get($typescale, 'heading1', 'lg');
-      }
-      line-height: 1.2;
-  }
-  
-  .subtitle {
-      color: $black;
-      font-family: SemiBoldFont;
-      @include respond-to('xs') {
-          font-size: map-deep-get($typescale, 'sub1', 'xs');
-      }
-      @include respond-to('md') {
-          font-size: map-deep-get($typescale, 'sub1', 'md');
-      }
-      @include respond-to('lg') {
-          font-size: map-deep-get($typescale, 'sub1', 'lg');
-      }
-  }
-  
-  .text {
-      font-family: TextFont;
-      @include respond-to('xs') {
-          font-size: map-deep-get($typescale, 'text1', 'xs');
-      }
-      @include respond-to('md') {
-          font-size: map-deep-get($typescale, 'text1', 'md');
-      }
-      @include respond-to('lg') {
-          font-size: map-deep-get($typescale, 'text1', 'lg');
-      }
-  }
-  
-  .smalltext {
-      font-family: LightFont;
-      @include respond-to('xs') {
-          font-size: map-deep-get($typescale, 'smalltext1', 'xs');
-      }
-      @include respond-to('md') {
-          font-size: map-deep-get($typescale, 'smalltext1', 'md');
-      }
-      @include respond-to('lg') {
-          font-size: map-deep-get($typescale, 'smalltext1', 'lg');
-      }
-  }
+/*----------font_responsiveness------------*/
+
+.title {
+    color: $black;
+    font-family: BoldFont;
+    
+    @media (max-width: 320px) {
+        font-size: map-deep-get($typescale, 'heading1', 'xs');
+    }
+    @media (min-width:320px) and (max-width:768px) {
+        font-size: map-deep-get($typescale, 'heading1', 'md');
+    }
+    @media (min-width: 768px) {
+        font-size: map-deep-get($typescale, 'heading1', 'lg');
+    }
+    line-height: 1.2;
+}
+
+.subtitle {
+    color: $black;
+    font-family: SemiBoldFont;
+ 
+    @media (max-width: 320px) {
+        font-size: map-deep-get($typescale, 'sub1', 'xs');
+    }
+    @media (min-width:320px) and (max-width:768px) {
+        font-size: map-deep-get($typescale, 'sub1', 'md');
+    }
+    @media (min-width: 768px) {
+        font-size: map-deep-get($typescale, 'sub1', 'lg');
+    }
+    
+    
+}
+
+.text {
+    font-family: TextFont;
+    @media (max-width: 320px) {
+        font-size: map-deep-get($typescale, 'text1', 'xs');
+    }
+    @media (min-width:320px) and (max-width:768px) {
+        font-size: map-deep-get($typescale, 'text1', 'md');
+    }
+    @media (min-width: 768px) {
+        font-size: map-deep-get($typescale, 'text1', 'lg');
+    }
+}
+
+
+}
+.smalltext {
+    font-family: LightFont;
+    
+     @media (max-width: 320px) {
+        font-size: map-deep-get($typescale, 'smalltext1', 'xs');
+    }
+    @media (min-width:320px) and (max-width:768px) {
+        font-size: map-deep-get($typescale, 'smalltext1', 'md');
+    }
+    @media (min-width: 768px) {
+        font-size: map-deep-get($typescale, 'smalltext1', 'lg');
+    }
+     
+}
