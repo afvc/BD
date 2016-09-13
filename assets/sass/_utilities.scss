@@ -1,0 +1,316 @@
+ /*------------------------------------*\
+  #TEXT_COLOR
+\*------------------------------------*/
+ 
+ .text-dark {
+     color: $main-color-dark;
+ }
+ 
+ .text-darkest {
+     color: black;
+ }
+ 
+ .text-light {
+     color: $light;
+ }
+ 
+ .text-lightest {
+     color: white;
+ }
+ 
+ .text-main {
+     color: $main-color;
+ }
+ 
+ .text-grey {
+     color: $grey;
+ }
+ 
+ .text-bold {
+     font-weight: 700;
+ }
+ 
+ .text-tracking {
+     letter-spacing: 1.5px;
+ }
+ 
+ .text-left {
+     text-align: left;
+ }
+ 
+ .text-right {
+     text-align: right;
+ }
+ 
+ .text-center {
+     text-align: center;
+ }
+ 
+ .text-note {
+     color: $grey;
+     font-style: italic;
+     font-size: 0.9286rem;
+ }
+ 
+ .text-by {
+     color: $main-color-dark;
+     margin: 20px 0px 0px;
+ }
+ 
+ .break-word {
+     word-wrap: break-word;
+ }
+ /*------------------------------------*\
+  #SECTION_COLOR
+\*------------------------------------*/
+ 
+ .section-color-grad {
+     @extend .section-color;
+     background: white;
+     /* For browsers that do not support gradients */
+     background: -webkit-linear-gradient(rgba(36, 229, 112, 0.26), rgba(5, 176, 240, 0.26));
+     /* For Safari 5.1 to 6.0 */
+     background: -o-linear-gradient(rgba(36, 229, 112, 0.26), rgba(5, 176, 240, 0.26));
+     /* For Opera 11.1 to 12.0 */
+     background: -moz-linear-gradient(rgba(36, 229, 112, 0.26), rgba(5, 176, 240, 0.26));
+     /* For Firefox 3.6 to 15 */
+     background: linear-gradient(rgba(36, 229, 112, 0.26), rgba(5, 176, 240, 0.26));
+     /* Standard syntax */
+ }
+ 
+ .section-color-light {
+     @extend .section-color;
+     background-color: white;
+ }
+ 
+ .section-color-medium {
+     @extend .section-color;
+     background-color: $grey;
+ }
+ 
+ .section-color-dark {
+     @extend .section-color;
+     background-color: $black;
+ }
+ /*------------------------------------*\
+  #GRADIENT COLORS
+\*------------------------------------*/
+ 
+
+  
+
+ .gradient-blu-gre__text {
+     background: -webkit-linear-gradient(left, #20C26B, #279BCD);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+ }
+ 
+ .gradient-blu-gre__border {
+     border: solid 10px #00C5EC;
+     -moz-border-image: -moz-linear-gradient(left, #20C26B 0%, #279BCD 100%);
+     -webkit-border-image: -webkit-linear-gradient(left, #20C26B 0%, #279BCD 100%);
+     border-image-slice: 1;
+ }
+
+.border-black{
+    border: solid 10px #000;
+}
+ /*------------------------------------*\
+  #ELEMENT SKEW
+\*------------------------------------*/
+ 
+ .element-skew {
+     -webkit-transform: skewY(-5deg);
+     -ms-transform: skewY(-5deg);
+     transform: skewY(-5deg);
+ }
+ /*------------------------------------*\
+  #OPACITY
+\*------------------------------------*/
+ 
+ .opacity-1 {
+     opacity: 1;
+ }
+ 
+ .opacity-0 {
+     opacity: 0;
+ }
+ /*------------------------------------*\
+  #ALIGNMENTS_AND_MARGINS
+\*------------------------------------*/
+ 
+ .full-height {
+     height: 100%;
+ }
+ 
+ .full-width {
+     width: 100%;
+ }
+ 
+ .u-blockify {
+     display: block;
+     margin-top: 10px;
+ }
+ 
+ .no-margin {
+     margin: 0px;
+ }
+ 
+ .no-padding {
+     padding: 0px;
+ }
+ 
+ .no-margin-top {
+     margin-top: 0px;
+ }
+ 
+ .margin-top-10 {
+     margin-top: 10vh;
+ }
+
+.margin-left-20px{
+    margin-left: 20px;
+}
+
+.margin-top-neg {
+     margin-top: -4vh;
+    margin-bottom: 3vh;
+    
+ }
+
+.margin-neg {
+     margin-top: -1vh;
+    margin-bottom: -1vh;
+    
+ }
+
+.margin-l-t-8vh{
+    margin-left: 4vh;
+    margin-right: 4vh;
+    margin-top: 4vh;
+}
+.margin-t-8vh{
+    margin-top: 4vh;
+}
+
+
+
+
+.margin-2 {
+     margin-top: 2vh;
+    margin-bottom: 3vh;
+    
+ }
+
+.margin-bottom-4 {
+   
+    margin-bottom: 6vh;
+    
+ }
+ 
+.margin-top-small {
+     margin-top: 2vh;
+ }
+
+
+.row-margin-bot{
+    margin-bottom: 6vh;
+}
+
+
+
+ .top-page {
+     padding-top: 40vh;
+ }
+
+ .top-page-title {
+     padding-top: 30vh;
+ }
+ 
+ 
+.top-page-pull {
+   margin-top:-250px;}
+
+
+
+ .bottom-page {
+     padding-bottom: 25vh;
+ }
+ 
+ .top-page-small {
+     padding-top: 3vh;
+     @include breakpoint($min: xs) {
+         padding-top: 15vh;
+     }
+ }
+ 
+ .top-page-half {
+     padding-top: 10vh;
+ }
+ 
+ .padding-1-5vh {
+     padding: 1.5vh 1.5vh;
+ }
+
+ .padding-1vh {
+     padding: 1vh 1vh;
+ }
+
+ .padding-2vh {
+     padding: 2vh 2vh;
+ }
+
+.padding-4vh-2vh{
+    padding: 4vh 2vh;
+}
+
+ .padding-top-bottom{
+     padding: 1.5vh 0 1.5vh;
+ }
+
+ 
+ .padding-bottom{
+     padding: 0 0 3vh;
+ }
+
+.padding-bottom-none{
+    padding-bottom: 0;
+}
+
+ .transition-ease {
+     -webkit-transition: 0.3s ease;
+     transition: 0.3s ease;
+ }
+
+ /*------------------------------------*\
+  #Z-INDEX
+\*------------------------------------*/
+
+.z-index-999{
+    z-index: 999;
+}
+
+ /*------------------------------------*\
+  #COL_XXS_AND_ORDER
+\*------------------------------------*/
+ 
+ .col-xxs-12 {
+     @media (max-width: 640px) {
+         flex-basis: 100%;
+         max-width: 100%;
+     }
+ }
+ 
+ .order-xs-1st {
+     order: 1;
+     @media (min-width: 768px) {
+         order: 2;
+     }
+ }
+ 
+ .order-xs-2nd {
+     order: 2;
+     @media (min-width: 768px) {
+         order: 1;
+     }
+ }
