@@ -5,15 +5,12 @@
  .text-darkest {
      color: black;
  }
+
+.caption{
+color:rgba(48, 48, 48, 0.77);
+
+}
  
- .text-light {
-     color: $light;
- }
- 
- .text-lightest {
-     color: white;
- }
-  
  .text-bold {
      font-weight: 700;
  }
@@ -27,7 +24,10 @@
      text-align: right;
  }
  
- 
+.wrap{
+word-wrap: break-word;
+
+}
  
  /*------------------------------------*\
   #ALIGNMENTS_AND_MARGINS

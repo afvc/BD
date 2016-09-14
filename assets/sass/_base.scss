@@ -1,6 +1,4 @@
-    /*
- * BASE STYLES
- * ================================ */
+    /* BASE STYLES*/
     
     html {
         box-sizing: border-box;
@@ -63,24 +61,27 @@
         @media (max-width: 320px) {
             width: 250px;
             max-width: 100%;
-            
         }
         @media (min-width:320px) and (max-width:768px) {
             width: 80%;
-           
         }
-      
         @media (min-width: 768px) {
-           width: 70%;
+            width: 70%;
         }
     }
     /*------------------------------------*\
   #IMAGE BLOCKS
 \*------------------------------------*/
     
+    .img-container {
+        width: 75%;
+        position: relative;
+        margin-left: 12,5%;
+    }
+    
     .img-block {
         position: relative;
-        width: 70%;
+        width: 100%;
         margin-left: 15%;
     }
     
