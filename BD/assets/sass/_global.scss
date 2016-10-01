@@ -1,0 +1,86 @@
+/* COLOR VARIABLES */
+
+ 
+$black: #171719;
+$grey: #696969;
+$light: #E0E0E0;
+$white: #ececec;
+$blue: #4ca7af;
+
+/*ALERTS */
+
+$success-color: #3c763d;
+$success-back: #dff0d8;
+$success-border: #d6e9c6;
+$warning-color: #8a6d3b;
+$warning-back: #fcf8e3;
+$warning-border: #faebcc;
+$error-color: #a94442;
+$error-back: #f2dede;
+$error-border: #ebccd1;
+
+/**/
+
+$nav-size: 50px;
+$footer-size: 50px;
+$form-width: 350px;
+
+//SPACING//
+$spacing--x-small: 0.3125rem; //5px;
+$spacing--small: 0.6250rem; //10px
+$spacing--medium: 0.9375rem; //15px
+$spacing--large: 1.250rem; //20px
+$spacing--x-large: 1.5625rem; //25px
+$spacing--xx-large: 1.875rem; //30px
+
+/*TEXT */
+
+
+ 
+ @font-face {
+    font-family: BoldFont;
+    src: url(Poppins-Bold.ttf);
+}
+
+ @font-face {
+    font-family: SemiBoldFont;
+    src: url(Poppins-SemiBold.ttf);
+}
+
+
+ @font-face {
+    font-family: MediumFont;
+    src: url(Poppins-Medium.ttf);
+}
+
+
+ @font-face {
+    font-family: TextFont;
+    src: url(Poppins-Regular.ttf);
+}
+
+
+
+ @font-face {
+    font-family: LightFont;
+    src: url(Poppins-Light.ttf);
+}
+
+ 
+/// Map deep get
+/// @author Hugo Giraudel
+/// @access public
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Key chain
+/// @return {*} - Desired value
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+$typescale:( heading1: ( xs: 1.7rem, sm: 1.9rem, md: 2.1rem, lg: 2.3rem),
+    sub1: ( xs: 1rem, sm: 1.05rem, md: 1.1rem, lg: 1.2rem, xl: 1.5rem), 
+	text1: ( xs: 0.75rem, sm: 0.79rem, md: 0.82rem, lg: 0.85rem, xl: 0.9rem),
+    smalltext1: ( xs: 0.72rem, sm: 0.75rem, md: 0.77rem, lg: 0.78rem), );
