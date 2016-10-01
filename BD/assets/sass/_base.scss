@@ -43,7 +43,7 @@
     max-width: 100%;
     margin: auto;
     @include breakpoint ($min: xs) {
-        width: 350px;
+        width: 300px;
         max-width: 100%;
     }
     @include breakpoint ($min: sm) {
@@ -73,17 +73,7 @@
 /*------------------------------------*\
 #FONTS
 \*------------------------------------*/
-    @font-face {
-        font-family: BoldFont;
-        src: url(../fonts/Exo-SemiBold.ttf);
-        font-weight: bold;
-    }
-
-    @font-face {
-        font-family: TextFont;
-        src: url(../fonts/Ayuthaya.ttf);
-        font-weight: regular;
-    }
+     
 
     //responsive font sizes
     .title {
@@ -128,7 +118,7 @@
     
     .text {
         font-family: TextFont;
-        color: $main-color50;
+        //color: $main-color50;
         @include breakpoint($min: xs) {
             font-size: map-deep-get($typescale, 'text1', 'xs');
         }
@@ -179,7 +169,7 @@
 \*------------------------------------*/
     
     a {
-        color: $main-color;
+       // color: $main-color;
         text-decoration: none;
         transition: all 0.2s ease-in-out;
         cursor: pointer;

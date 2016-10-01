@@ -14,14 +14,14 @@
 }
 
 .icon--hamburger{
-    margin: 2px;
+    margin: 10px 20px 10px;
 }
 .icon--hamburger,
 .icon--hamburger:before,
 .icon--hamburger:after{
     width: 18px;
     height: 2px;
-    background: currentColor;
+    background: $light;
     transition: all 0.2s;
 }
 

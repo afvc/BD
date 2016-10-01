@@ -33,11 +33,40 @@ $spacing--large: 1.250rem; //20px
 $spacing--x-large: 1.5625rem; //25px
 $spacing--xx-large: 1.875rem; //30px
 
-/*TEXT SIZE */
+/*TEXT */
 
-$big-text-size:18px;
-$medium-text-size:13px;
-$small-text-size:11px;
+
+ 
+ @font-face {
+    font-family: BoldFont;
+    src: url(Poppins-Bold.ttf);
+}
+
+ @font-face {
+    font-family: SemiBoldFont;
+    src: url(Poppins-SemiBold.ttf);
+}
+
+
+ @font-face {
+    font-family: MediumFont;
+    src: url(Poppins-Medium.ttf);
+}
+
+
+ @font-face {
+    font-family: TextFont;
+    src: url(Poppins-Regular.ttf);
+}
+
+
+
+ @font-face {
+    font-family: LightFont;
+    src: url(Poppins-Light.ttf);
+}
+
+ 
 /// Map deep get
 /// @author Hugo Giraudel
 /// @access public

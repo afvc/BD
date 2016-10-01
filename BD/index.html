@@ -7,7 +7,7 @@
 
     <!-- META TAGS -->
     <meta charset="UTF-8" />
-    <title>Git Dashboard</title>
+    <title>Spotlight</title>
 
 
     <!-- STYLESHEETS -->
@@ -25,26 +25,71 @@
 <body>
 
 
-    <section class="section-size">
 
-        <div class="row">
-            <div class="center-xs col-xs-2">
-                <img src="assets/images/icon.png" class="img-block__small" alt="repo-icon">
+
+
+
+    <!------------#NAVBAR_BIG------------>
+    <div class="smalltext nav-big">
+
+        <nav class="navbar">
+            <div class="row middle-xs full-height">
+
+                <ul class="smalltext col-xs-8 end-xs  col-sm-10 col-lg-10 text-bold">
+                    <li class="navbar__link"><a href="index.html" class="menu-selected">HOME</a></li>
+                    <li class="navbar__link"><a href="#">HOW IT WORKS</a></li>
+
+                    <li class="navbar__link"><a href="#">TOP 25 OST </a></li>
+                    <li class="navbar__link"><a href="#">HELP US GROW</a></li>
+                    <li class="navbar__link"><a href="#">CONTACT US</a></li>
+                </ul>
+
 
             </div>
-
-            <div class="smalltext start-xs col-xs-10">
-                <br> Luís Ramos
-
-                <br> HashtagRandom
-                <br> Main Folder </div>
-        </div>
+        </nav>
+    </div>
 
 
+    <!------------#NAVBAR_SMALL------------>
+
+    <div class="nav-small text-bold">
+
+        <input type="checkbox" id="nav-trigger" class="nav-controller" />
+
+        <header class="header-bar">
+            <label class="" for="nav-trigger" tabindex="-1">
+                <div class="button--icon-container">
+                    <span class="icon icon--hamburger"></span>
+                </div>
+            </label>
+
+        </header>
+
+        <aside class="nav">
+            <label class="overlay" for="nav-trigger"></label>
+            <div class="nav__body">
+
+
+                <ul class="  nav__list col-xs-12 subtitle">
+                    <label class="nav__item" for="nav-trigger">
+                        <li><a class="nav__link start-xs" href="#" class="menu-selected">HOME</a></li>
+                        <li><a class="nav__link start-xs" href="#">HOW IT WORKS</a></li>
+
+                        <li><a class="nav__link start-xs" href="#">TOP 25 OST </a></li>
+                        <li><a class="nav__link start-xs" href="#">HELP US GROW</a></li>
+                        <li><a class="nav__link start-xs" href="#">CONTACT US</a></li>
+                    </label>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+
+    <section class="section-resized">
         <div class="row">
 
             <div class="subtitle start-xs">
-                <p>Repository Description</p>
+                <p>HOW IT WORKS</p>
             </div>
 
             <p class="text text-darkest text-justify">
@@ -55,87 +100,120 @@
             </p>
         </div>
 
-        <div class="row row-wrap ">
-            <div class="center-xs col-xs-3 row-wrap-right">
-                <p class="text-fire"> Commits</p>
 
-            </div>
-            <div class="center-xs col-xs-3 row-wrap-right">
-                <p> Branches</p>
-
-            </div>
-            <div class="center-xs col-xs-3 row-wrap-right">
-
-                <p> Contributors</p>
-            </div>
-            <div class="center-xs col-xs-3 ">
-                <p> License</p>
-
+        <div class="row">
+            <div class="subtitle start-xs">
+                <p class="subtitle start-xs">25 BEST MOVIE OFICIAL SOUNDTRACKS</p>
             </div>
 
 
-            <br>
+
+            <ul class="  nav__list col-xs-12  subtitle">
+
+                <li>
+                    <div class="row center-xs start-md">
+                        <div class="col-xs-4 col-sm-2">
+
+
+                            <a class="nav__link center-xs" href="#" class="menu-selected"> #1 <img src="assets/images/p1.jpg" class="logo"> </a>
+                        </div>
+                        <div class="col-xs-6 ">
+                            <p class="text text-left middle-xs">
+                                <br>Tile, year
+                                <br> Producers
+                                <br>Writers
+                                <br>Main actors
+                                <br>Ratings </p>
+
+                        </div>
+                    </div>
+                </li>
+
+
+                <li>
+                    <div class="row center-xs start-md">
+                        <div class="col-xs-4 col-sm-2">
+
+
+                            <a class="nav__link center-xs" href="#" class="menu-selected"> #2 <img src="assets/images/p1.jpg" class="logo"> </a>
+                        </div>
+                        <div class="col-xs-6 ">
+                            <p class="text text-left middle-xs">
+                                <br>Tile, year
+                                <br> Producers
+                                <br>Writers
+                                <br>Main actors
+                                <br>Ratings </p>
+
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="row center-xs start-md">
+                        <div class="col-xs-4 col-sm-2">
+
+
+                            <a class="nav__link center-xs" href="#" class="menu-selected"> #3 <img src="assets/images/p1.jpg" class="logo"> </a>
+                        </div>
+                        <div class="col-xs-6 ">
+                            <p class="text text-left middle-xs">
+                                <br>Tile, year
+                                <br> Producers
+                                <br>Writers
+                                <br>Main actors
+                                <br>Ratings </p>
+
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
         </div>
+
+
 
         <div class="row">
 
+
+            <button class="btn-default  md-trigger" data-modal="modal-login">HELP US GROW</button>
+
+<div class="md-modal-xs md-effect-1 " id="modal-login">
+  <div class="md-content-xs ">
+    <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
+    <div class="row start-xs">
+      <form class="login smalltext text-darkest" id="login-form-js" method="POST" action="">
+        <div class="col-xs-12">
+          <h3 class="title ">ADD MOVIE</h3>
+          <p>If you have not created an account yet, then please 
+          <p>  sas</p>
+          
+          <br>
+          <div class="login-or">
+            <p>   using your email address:</p>
+          </div>
+         
+          <p>If you have not created an account yet, then please <a class="md-trigger" data-modal="modal-signup">sign up</a> first</p>
+        
            
-                <div class="col-xs-3 start-xs margin-top-sm">
-                    <div class="select-style">
+        <div class="col-xs-12">
+          <button class="primaryAction btn-default md-trigger" data-modal="modal-login" type="submit"> ssss</button>
+        </div>
+        <div class="col-xs-12 text-lightest">
+          <a class="smalltext secondaryAction u-blockify text-left" href="#"> xbn</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+        </div>
 
-                        <select class="subtitle uppercase">
-                            <option selected disabled>Branch</option>
-                            <option value="master">Master</option>
-                            <option value="dev">Development</option>
-                            <option value="des">Design</option>
-                            <option value="test">Testing</option>
-                        </select>
-                    </div>
-                    
-                </div>
-                 <div class="col-xs-3 start-xs margin-top-sm ">
-                    <div class="select-style">
-
-                        <select class="subtitle uppercase">
-                            <option selected disabled >Manage Files</option>
-                            <option value="master">Master</option>
-                            <option value="dev">Development</option>
-                            <option value="des">Design</option>
-                            <option value="test">Testing</option>
-                        </select>
-                    </div>
-                    
-                </div>
-                 <div class="col-xs-3 start-xs margin-top-sm">
-                    <div class="select-style">
-
-                       <select class="subtitle uppercase">
-                            <option selected disabled>Branch</option>
-                            <option value="master">Master</option>
-                            <option value="dev">Development</option>
-                            <option value="des">Design</option>
-                            <option value="test">Testing</option>
-                        </select>
-                    </div>
-                    
-                </div>
-                 <div class="col-xs-3 start-xs margin-top-sm">
-                    <div class="select-style">
-
-                        <select class="subtitle uppercase">
-                            <option selected disabled>Branch</option>
-                            <option value="master">Master</option>
-                            <option value="dev">Development</option>
-                            <option value="des">Design</option>
-                            <option value="test">Testing</option>
-                        </select>
-                    </div>
-                    
-                </div>
-            </div>
-            
-    
     </section>
+    <div class="md-overlay"></div>
+     <script type="text/javascript" src="assets/js/classie.js"></script>
+  <script type="text/javascript" src="assets/js/modalEffects.js"></script>
+  <script src="assets/js/cssParser.js"></script>
+		<script src="assets/js/css-filters-polyfill.js"
 </body>
 
 

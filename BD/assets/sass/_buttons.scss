@@ -3,6 +3,10 @@
  #BUTTONS
  \*------------------------------------*/
 
+ *:focus{
+     outline: none;
+     }
+
 .btn-modal {
      @extend .btn-default;
      max-width: 200px;
@@ -24,6 +28,9 @@
     transition: all 0.2s ease-in-out;
    opacity: 0.7;
  }
+     *:focus{
+     outline: none;
+     }
 }
 
  
@@ -46,7 +53,7 @@
  }
 }
 
-. 
+ 
 
 .url_btn{
 	margin:0;
