@@ -7,7 +7,7 @@
 
     <!-- META TAGS -->
     <meta charset="UTF-8" />
-    <title>Spotlight</title>
+    <title>Git Dashboard Login</title>
 
 
     <!-- STYLESHEETS -->
@@ -25,66 +25,6 @@
 <body>
 
 
-
-
-
-
-    <!------------#NAVBAR_BIG------------>
-    <div class="smalltext nav-big">
-
-        <nav class="navbar">
-            <div class="row middle-xs full-height">
-
-                <ul class="smalltext col-xs-8 end-xs  col-sm-10 col-lg-10 text-bold">
-                    <li class="navbar__link"><a href="index.html" class="menu-selected">HOME</a></li>
-                    <li class="navbar__link"><a href="#">HOW IT WORKS</a></li>
-
-                    <li class="navbar__link"><a href="#">TOP 25 OST </a></li>
-                    <li class="navbar__link"><a href="#">HELP US GROW</a></li>
-                    <li class="navbar__link"><a href="#">CONTACT US</a></li>
-                </ul>
-
-
-            </div>
-        </nav>
-    </div>
-
-
-    <!------------#NAVBAR_SMALL------------>
-
-    <div class="nav-small text-bold">
-
-        <input type="checkbox" id="nav-trigger" class="nav-controller" />
-
-        <header class="header-bar">
-            <label class="" for="nav-trigger" tabindex="-1">
-                <div class="button--icon-container">
-                    <span class="icon icon--hamburger"></span>
-                </div>
-            </label>
-
-        </header>
-
-        <aside class="nav">
-            <label class="overlay" for="nav-trigger"></label>
-            <div class="nav__body">
-
-
-                <ul class="  nav__list col-xs-12 subtitle">
-                    <label class="nav__item" for="nav-trigger">
-                        <li><a class="nav__link start-xs" href="#" class="menu-selected">HOME</a></li>
-                        <li><a class="nav__link start-xs" href="#">HOW IT WORKS</a></li>
-
-                        <li><a class="nav__link start-xs" href="#">TOP 25 OST </a></li>
-                        <li><a class="nav__link start-xs" href="#">HELP US GROW</a></li>
-                        <li><a class="nav__link start-xs" href="#">CONTACT US</a></li>
-                    </label>
-                </ul>
-            </div>
-        </aside>
-
-    </div>
-
     <section class="section-size">
 
         
@@ -101,27 +41,31 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id molestie ex. Curabitur tempus semper lectus vestibulum viverra. Aliquam consequat dolor dolor, eu lobortis felis tempus quis. Maecenas finibus dignissim volutpat. Quisque nisi lorem, consectetur quis imperdiet ac, mattis id elit. Nulla pharetra fringilla mauris ac ullamcorper. Mauris neque nisl, aliquam auctor diam sed, tristique tincidunt nibh. Nam vel venenatis est, ac aliquam neque. Integer tristique risus vitae velit faucibus condimentum. Maecenas imperdiet ullamcorper nisl, sit amet sollicitudin elit malesuada sit amet. Nulla id tellus vitae magna vehicula tristique. Ut non maximus ligula.
             </p>
         </div>
-        <div class="row">
+        <div class="row center-xs">
 
 
-            <button class=" col-xs-6 center-xs btn-default  md-trigger" data-modal="modal-1">LOGIN</button>
+            <button class=" col-xs-6  btn-default  md-trigger" data-modal="modal-1">LOGIN</button>
 
             <div class="md-modal-xs md-effect-1" id="modal-1">
                 <div class="md-content-xs">
                     <button class="md-close btn-default">Close me!</button>
 
                     <div>
-                        <form action="demo_form.asp">
+                        <form action="action_page.php">
+                           <br>
+                           <br>
                             <label class="input-anim" for="">
                                 <span class="label__info">  User Name </span>
-                                <input class="input-anim" type="text" name="user">
+                                <input class="input-anim" type="text" name="user" required>
                                 <br> </label>
-
+ <br>
+                           <br>
                             <label class="input-anim" for="">
                                 <span class="label__info"> Password </span>
-                                <input type="text" name="password">
+                                <input type="password" name="pass" required>
                                 <br>
-                            </label>
+                            </label> <br>
+                           <br>
  
                             <br>
                             <input type="submit" class=" btn-default" value="Submit">
