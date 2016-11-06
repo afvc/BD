@@ -35,12 +35,21 @@
         list-style-type: none;
         margin: 5px;
     }
+
+
+
+.person .images{
+width:50px;
+
+
+}
     /*------------------------------------*\
   #LINKS
 \*------------------------------------*/
     
     a {
-        color: $blue;
+        color: $black;
+        font-weight: 800;
         text-decoration: none;
         transition: all 0.2s ease-in-out;
         cursor: pointer;
@@ -119,6 +128,20 @@ background-color: rgba(211, 211, 211, 0.35);
 }
 
 
+    .row-wrap-top {
+       
+        border-top-style: solid;
+        border-width: 2px;
+        border-color: firebrick;
+    }
+
+body{
+background-color: rgba(211, 211, 211, 0.35);
+
+
+}
+
+
 .select-style {
     position: relative;
     padding: 0;
@@ -148,3 +171,9 @@ background-color: rgba(211, 211, 211, 0.35);
 .uppercase {
     text-transform: uppercase;
 }
+
+
+
+
+
+
