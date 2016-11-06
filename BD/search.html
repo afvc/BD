@@ -3,8 +3,6 @@
 
 <head>
 
-
-
     <!-- META TAGS -->
     <meta charset="UTF-8" />
     <title>Spotlight</title>
@@ -18,13 +16,10 @@
 
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
-
 </head>
 
 
 <body>
-
-
 
     <!------------#NAVBAR_BIG------------>
     <div class="smalltext nav-big">
@@ -34,11 +29,11 @@
 
                 <ul class="smalltext col-xs-8 end-xs  col-sm-10 col-lg-10 text-bold">
                     <li class="navbar__link"><a href="index.html" class="menu-selected">HOME</a></li>
-                     
+
                     <li class="navbar__link"><a href="tops.html">TOPS</a></li>
                     <li class="navbar__link"><a href="slist.html">SONG LIST</a></li>
                     <li class="navbar__link"> <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">CONTACT US</a></li>
-                     <li class="navbar__link"><a href="search.html">SEARCH</a></li>
+                    <li class="navbar__link"><a href="search.html">SEARCH</a></li>
                 </ul>
 
 
@@ -70,7 +65,7 @@
                 <ul class="  nav__list col-xs-12 subtitle">
                     <label class="nav__item" for="nav-trigger">
                         <li><a class="nav__link start-xs" href="index.html" class="menu-selected">HOME</a></li>
-                        
+
 
                         <li><a class="nav__link start-xs" href="tops.html">TOPS </a></li>
                         <li><a class="nav__link start-xs" href="slist.html">SONG LIST</a></li>
@@ -84,49 +79,52 @@
     </div>
 
     <section class="section-resized">
-  
+
 
         <div class="row">
 
             <div class=" col-xs-12 subtitle start-xs">
                 <p>SEARCH</p>
-            </div></div>
-           
-        <div class="row">      
-        <div class="col-xs-6 start-xs">     
-            
-           <label for="country">FILTER</label>
-    <select id="filter" name="Filter">
-     <option value="all" selected> </option>
-      <option value="name">Movie Name</option>
-      <option value="ageR">Age rating</option>
-      <option value="producer">Producer</option>
-        <option value="actor">Actor</option>
-      <option value="genre">Genre</option>
-      <option value="song">Song</option>
-      <option value="band">Singer/Band</option>
-      <option value="imdb">Imdb Rating</option>
-      <option value="ost">OST Rating</option>
-    </select>
-   
-    
-     
- 
-  </div>
-  
-  <div class="col-xs-6 end-xs">   Your Option<br>
-  <input type="text" name="entry"><br>
-   
- 
-</div>
-            
-  
-            </div>    
-            
-       
-      <!--   ------------MODAL--------     -->
-              
-             <div class="row">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6 start-xs">
+
+                <label for="country">FILTER</label>
+                <select id="filter" name="Filter">
+                    <option value="all" selected> </option>
+                    <option value="name">Movie Name</option>
+                    <option value="ageR">Age rating</option>
+                    <option value="producer">Producer</option>
+                    <option value="actor">Actor</option>
+                    <option value="genre">Genre</option>
+                    <option value="song">Song</option>
+                    <option value="band">Singer/Band</option>
+                    <option value="imdb">Imdb Rating</option>
+                    <option value="ost">OST Rating</option>
+                </select>
+
+
+
+
+            </div>
+
+            <div class="col-xs-6 end-xs"> Your Option
+                <br>
+                <input type="text" name="entry">
+                <br>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!--   ------------MODAL--------     -->
+
+        <div class="row">
 
 
             <button class="btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
@@ -163,28 +161,27 @@
                                 <input type="text" name="agerating">
                                 <br>
                             </label>
-                            
-                             </label>
+
                             <label class="input-anim" for="">
                                 <span class="label__info">  IMDB Rating </span>
                                 <input type="text" name="imdb">
                                 <br>
                             </label>
-                            
+
                             <label class="input-anim" for="">
                                 <span class="label__info">  OST Rating </span>
                                 <input type="text" name="ost">
                                 <br>
                             </label>
-                            
-                                
+
+
                             <label class="input-anim" for="">
                                 <span class="label__info">  Singer/Band </span>
                                 <input type="text" name="ost">
                                 <br>
                             </label>
-                            
-                                
+
+
                             <label class="input-anim" for="">
                                 <span class="label__info">  Song </span>
                                 <input type="text" name="ost">
@@ -194,38 +191,26 @@
                             <input type="submit" class=" btn-default" value="Submit">
                         </form>
 
-
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
 
-           
-             
-       <div class="col-xs-12 end-xs">
-                 <br>  <br>  <br> <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">CONTACT US</a>
-                 
-                   </div>
-         
+        <div class="col-xs-12 end-xs">
+            <br>
+            <br>
+            <br> <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">CONTACT US</a>
 
+        </div>
 
-
-            </div>
-            
-            
-          
-               
-              
-        
     </section>
+    
     <div class="md-overlay"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script type="text/javascript" src="assets/js/classie.js"></script>
     <script type="text/javascript" src="assets/js/modalEffects.js"></script>
     <script src="assets/js/cssParser.js"></script>
-    <script src="assets/js/css-filters-polyfill.js" </script>
-        < /body>
 
+</body>
 
-
-        < /html>
+</html>
