@@ -47,11 +47,11 @@
         max-width: 100%;
     }
     @include breakpoint ($min: sm) {
-        width: 620px;
+        width: 550px;
         max-width: 100%;
     }
     @include breakpoint ($min: md) {
-        width: 720px;
+        width: 640px;
         max-width: 100%;
     }
     @include breakpoint ($min: lg) {
@@ -183,12 +183,37 @@
         padding:0;
     }
 
+
+    /*------------------------------------*\
+  #IMAGE-POSTER_EXTRA
+\*------------------------------------*/
 .logo-m{
 
     max-width: 800px;
     width: 100%;
     height: auto;
     
+}
 
 
+
+
+    /*------------------------------------*\
+  #TABLES
+\*------------------------------------*/
+
+table {
+   
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
