@@ -6,6 +6,8 @@ $grey: #696969;
 $light: #E0E0E0;
 $white: #ececec;
 $blue: #4ca7af;
+$yellow: #e3dc1c;
+$shadow:rgba(0,0,0,0.2);
 
 /*ALERTS */
 
@@ -86,21 +88,3 @@ $typescale:( heading1: ( xs: 1.7rem, sm: 1.9rem, md: 2.1rem, lg: 2.3rem),
     smalltext1: ( xs: 0.72rem, sm: 0.75rem, md: 0.77rem, lg: 0.78rem), );
 
 
-
-
-
-table {
-   
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
