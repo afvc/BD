@@ -1,18 +1,7 @@
 <!---- Acesso à base de bados --->
-<?php 
-    $servername = "localhost";
-    $username = "root";
-    $password = "root";
-    $dbname = "spotlight"; // Pasta do sql
-    
-    // Create connection
-    $conn = new mysqli($servername, $username, $password,$dbname);
+<?php
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
-    echo "Connected successfully" . "<br>";
+    include 'connection.php';  
 
     //Impressão dos dados da BD no html
     $sql = "SELECT * FROM filmes";

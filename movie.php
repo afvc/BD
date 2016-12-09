@@ -1,19 +1,9 @@
 <!---- Acesso à base de bados --->
 <?php 
-    $servername = "localhost";
-    $username = "root";
-    $password = "root";
-    $dbname = "spotlight"; // Pasta do sql
+
+    include 'connection.php';  
+
     $contador = 0;
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password,$dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
-    echo "Connected successfully" . "<br>";
 
     //Impressão dos dados da BD no html
     $sql = "SELECT filme FROM filmes";
@@ -23,17 +13,17 @@
     // output data of each row
         
         while($row = $result->fetch_assoc()) {
-/*            $movie = $row["filme"];
+
+            /*            $movie = $row["filme"];
 */
            /* $var = $row["data_lanc"] . "<br>" . "Director: " . $row["realizador"] . "<br><br>" . "Age rating: " . $row["classif"] . "<br><br>" . "IMDB rating: " . $row["imdb_rating"] . "/10" . "<br>" . "OST rating: " . $row["ost_rating"]  . "/100". "<br>";
             */
             
-            $cenas[$contador] = array("filme"=>$row["filme"]);
+            $cenas[$contador] = array("movie"=>$row["filme"]); //mostra linhas da col 'filme'
             
             $contador++;
         }
         
-
     } else {
         echo "0 results"; 
     }
@@ -347,10 +337,10 @@
             for (i = 0; i < 5; i++) {
                 console.log("teste" + i);
                 var palmas = <?php echo json_encode($cenas); ?>;
-                $('.dbresult').append("filme: " + palmas[i].filme + "<br>");
+                $('.dbresult').append("filme " + i + ": " + palmas[i].movie + "<br>");
 
             }
-            $('.dbresult').append("idrevista: " + palmas[2].filme);
+            $('.dbresult').append("filme 2: " + palmas[2].movie);
         </script>
 
     </body>
