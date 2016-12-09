@@ -3,6 +3,8 @@
 
 <head>
 
+
+
     <!-- META TAGS -->
     <meta charset="UTF-8" />
     <title>Spotlight</title>
@@ -16,6 +18,7 @@
 
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
+
 </head>
 
 
@@ -28,12 +31,13 @@
             <div class="row middle-xs full-height">
 
                 <ul class="smalltext col-xs-8 end-xs  col-sm-10 col-lg-10 text-bold">
-                    <li class="navbar__link"><a href="index.html" class="menu-selected">HOME</a></li>
 
-                    <li class="navbar__link"><a href="tops.html">TOPS</a></li>
-                    <li class="navbar__link"><a href="slist.html">SONG LIST</a></li>
+                    <li class="navbar__link"><a href="index.php" class="menu-selected">HOME</a></li>
+                    <li class="navbar__link"><a href="tops.php">TOPS</a></li>
+                    <li class="navbar__link"><a href="slist.php">SONG LIST</a></li>
                     <li class="navbar__link"> <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">CONTACT US</a></li>
-                    <li class="navbar__link"><a href="search.html">SEARCH</a></li>
+                    <li class="navbar__link"><a href="search.php">SEARCH</a></li>
+
                 </ul>
 
             </div>
@@ -63,21 +67,80 @@
 
                 <ul class="  nav__list col-xs-12 subtitle">
                     <label class="nav__item" for="nav-trigger">
-                        <li><a class="nav__link start-xs" href="index.html" class="menu-selected">HOME</a></li>
 
+                        <li><a class="nav__link start-xs" href="index.php" class="menu-selected">HOME</a></li>
+                        <li><a class="nav__link start-xs" href="tops.php">TOPS </a></li>
+                        <li><a class="nav__link start-xs" href="slist.php">SONG LIST</a></li>
+                        <li><a class="nav__link start-xs" href="search.php">SEARCH</a></li>
 
-                        <li><a class="nav__link start-xs" href="tops.html">TOPS </a></li>
-                        <li><a class="nav__link start-xs" href="slist.html">SONG LIST</a></li>
-                        
-                        <li><a class="nav__link start-xs" href="search.html">SEARCH</a></li>
                     </label>
                 </ul>
             </div>
         </aside>
-
     </div>
 
     <section class="section-resized">
+
+
+        <div class="row">
+
+            <div class="subtitle start-xs">
+                <p>IMDB RATING TOP 25 MOVIES</p>
+            </div>
+
+            <ul class="  nav__list col-xs-12  subtitle">
+
+                <li>
+                    <div class="row center-xs start-md">
+                        <div class="col-xs-4 col-sm-2">
+
+
+                            <a class="nav__link center-xs" href="#" class="menu-selected"> #1 <img src="assets/images/p1.jpg" class="logo"> </a>
+                        </div>
+                        <div class="col-xs-6 ">
+                            <p class="text text-left middle-xs">
+                                <br>Title, year
+                                <br>Producers
+                                <br>Main actors
+                                <br>Ratings </p>
+
+                        </div>
+                    </div>
+                </li>
+
+
+                <li>
+                    <div class="row center-xs start-md">
+                        <div class="col-xs-4 col-sm-2">
+
+
+                            <a class="nav__link center-xs" href="#" class="menu-selected"> #2 <img src="assets/images/p1.jpg" class="logo"> </a>
+                        </div>
+                        <div class="col-xs-6 ">
+                            <p class="text text-left middle-xs">
+                                <br>Title, year
+                                <br>Producers
+                                <br>Main actors
+                                <br>Ratings </p>
+
+                        </div>
+                    </div>
+                </li>
+
+
+            </ul>
+
+            <div class="end-xs col-xs-12 ">
+                <a href="tops-imdb.html">
+                    <button class="btn-modal">SHOW MORE</button>
+                </a>
+            </div>
+
+
+
+
+
+        </div>
 
 
         <div class="row">
@@ -125,189 +188,69 @@
                     </div>
                 </li>
 
-                <li>
-                    <div class="row center-xs start-md">
-                        <div class="col-xs-4 col-sm-2">
-
-
-                            <a class="nav__link center-xs" href="#" class="menu-selected"> #3 <img src="assets/images/p1.jpg" class="logo"> </a>
-                        </div>
-                        <div class="col-xs-6 ">
-                            <p class="text text-left middle-xs">
-                                <br>Title, year
-                                <br>Producers
-                                <br>Main actors
-                                <br>Ratings </p>
-
-                        </div>
-                    </div>
-                </li>
-
-
-                <li>
-                    <div class="row center-xs start-md">
-                        <div class="col-xs-4 col-sm-2">
-
-
-                            <a class="nav__link center-xs" href="#" class="menu-selected"> #4 <img src="assets/images/p1.jpg" class="logo"> </a>
-                        </div>
-                        <div class="col-xs-6 ">
-                            <p class="text text-left middle-xs">
-                                <br>Title, year
-                                <br>Producers
-                                <br>Main actors
-                                <br>Ratings </p>
-
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row center-xs start-md">
-                        <div class="col-xs-4 col-sm-2">
-
-
-                            <a class="nav__link center-xs" href="#" class="menu-selected"> #5 <img src="assets/images/p1.jpg" class="logo"> </a>
-                        </div>
-                        <div class="col-xs-6 ">
-                            <p class="text text-left middle-xs">
-                                <br>Title, year
-                                <br>Producers
-                                <br>Main actors
-                                <br>Ratings </p>
-
-                        </div>
-                    </div>
-                </li>
-
-
-                <li>
-                    <div class="row center-xs start-md">
-                        <div class="col-xs-4 col-sm-2">
-
-
-                            <a class="nav__link center-xs" href="#" class="menu-selected"> #6 <img src="assets/images/p1.jpg" class="logo"> </a>
-                        </div>
-                        <div class="col-xs-6 ">
-                            <p class="text text-left middle-xs">
-                                <br>Title, year
-                                <br>Producers
-                                <br>Main actors
-                                <br>Ratings </p>
-
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row center-xs start-md">
-                        <div class="col-xs-4 col-sm-2">
-
-
-                            <a class="nav__link center-xs" href="#" class="menu-selected"> #7 <img src="assets/images/p1.jpg" class="logo"> </a>
-                        </div>
-                        <div class="col-xs-6 ">
-                            <p class="text text-left middle-xs">
-                                <br>Title, year
-                                <br>Producers
-                                <br>Main actors
-                                <br>Ratings </p>
-
-                        </div>
-                    </div>
-                </li>
-
-
-                <li>
-                    <div class="row center-xs start-md">
-                        <div class="col-xs-4 col-sm-2">
-
-
-                            <a class="nav__link center-xs" href="#" class="menu-selected"> #8 <img src="assets/images/p1.jpg" class="logo"> </a>
-                        </div>
-                        <div class="col-xs-6 ">
-                            <p class="text text-left middle-xs">
-                                <br>Title, year
-                                <br>Producers
-                                <br>Main actors
-                                <br>Ratings </p>
-
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row center-xs start-md">
-                        <div class="col-xs-4 col-sm-2">
-
-
-                            <a class="nav__link center-xs" href="#" class="menu-selected"> #9 <img src="assets/images/p1.jpg" class="logo"> </a>
-                        </div>
-                        <div class="col-xs-6 ">
-                            <p class="text text-left middle-xs">
-                                <br>Title, year
-                                <br>Producers
-                                <br>Main actors
-                                <br>Ratings </p>
-
-                        </div>
-                    </div>
-                </li>
-
-
-                <li>
-                    <div class="row center-xs start-md">
-                        <div class="col-xs-4 col-sm-2">
-
-
-                            <a class="nav__link center-xs" href="#" class="menu-selected"> #10 <img src="assets/images/p1.jpg" class="logo"> </a>
-                        </div>
-                        <div class="col-xs-6 ">
-                            <p class="text text-left middle-xs">
-                                <br>Title, year
-                                <br>Producers
-                                <br>Main actors
-                                <br>Ratings </p>
-
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row center-xs start-md">
-                        <div class="col-xs-4 col-sm-2">
-
-
-                            <a class="nav__link center-xs" href="#" class="menu-selected"> #11 <img src="assets/images/p1.jpg" class="logo"> </a>
-                        </div>
-                        <div class="col-xs-6 ">
-                            <p class="text text-left middle-xs">
-                                <br>Title, year
-                                <br>Producers
-                                <br>Main actors
-                                <br>Ratings </p>
-
-                        </div>
-                    </div>
-                </li>
-
-
-                <li>
-                    <div class="row center-xs start-md">
-                        <div class="col-xs-4 col-sm-2">
-
-
-                            <a class="nav__link center-xs" href="#" class="menu-selected"> #12 <img src="assets/images/p1.jpg" class="logo"> </a>
-                        </div>
-                        <div class="col-xs-6 ">
-                            <p class="text text-left middle-xs">
-                                <br>Title, year
-                                <br>Producers
-                                <br>Main actors
-                                <br>Ratings</p>
-
-                        </div>
-                    </div>
-                </li>
 
             </ul>
 
+            <div class="end-xs col-xs-12 ">
+                <a href="tops-site.html">
+                    <button class="btn-modal">SHOW MORE</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="subtitle start-xs">
+                <p>TOP 25 BEST OST</p>
+            </div>
+
+            <ul class="  nav__list col-xs-12  subtitle">
+
+                <li>
+                    <div class="row center-xs start-md">
+                        <div class="col-xs-4 col-sm-2">
+
+
+                            <a class="nav__link center-xs" href="#" class="menu-selected"> #1 <img src="assets/images/p1.jpg" class="logo"> </a>
+                        </div>
+                        <div class="col-xs-6 ">
+                            <p class="text text-left middle-xs">
+                                <br>Title, year
+                                <br>Producers
+                                <br>Main actors
+                                <br>Ratings </p>
+
+                        </div>
+                    </div>
+                </li>
+
+
+                <li>
+                    <div class="row center-xs start-md">
+                        <div class="col-xs-4 col-sm-2">
+
+
+                            <a class="nav__link center-xs" href="#" class="menu-selected"> #2 <img src="assets/images/p1.jpg" class="logo"> </a>
+                        </div>
+                        <div class="col-xs-6 ">
+                            <p class="text text-left middle-xs">
+                                <br>Title, year
+                                <br>Producers
+                                <br>Main actors
+                                <br>Ratings </p>
+
+                        </div>
+                    </div>
+                </li>
+
+
+            </ul>
+
+            <div class="end-xs col-xs-12 ">
+                <a href="tops-OST.html">
+                    <button class="btn-modal">SHOW MORE</button>
+                </a>
+            </div>
             <div class="col-xs-12 end-xs">
                 <br>
                 <br>
@@ -318,7 +261,7 @@
         </div>
 
     </section>
-    
+
     <div class="md-overlay"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script type="text/javascript" src="assets/js/classie.js"></script>
