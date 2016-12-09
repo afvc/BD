@@ -4,7 +4,8 @@
     $username = "root";
     $password = "root";
     $dbname = "spotlight"; // Pasta do sql
-    
+    $contador = 0;
+
     // Create connection
     $conn = new mysqli($servername, $username, $password,$dbname);
 
@@ -15,17 +16,21 @@
     echo "Connected successfully" . "<br>";
 
     //Impressão dos dados da BD no html
-    $sql = "SELECT * FROM filmes";
+    $sql = "SELECT filme FROM filmes";
     $result = $conn->query($sql);
    
     if ($result->num_rows > 0) {
     // output data of each row
         
-    
         while($row = $result->fetch_assoc()) {
-            $movie = $row["filme"];
-
-            $var = $row["data_lanc"] . "<br>" . "Director: " . $row["realizador"] . "<br><br>" . "Age rating: " . $row["classif"] . "<br><br>" . "IMDB rating: " . $row["imdb_rating"] . "/10" . "<br>" . "OST rating: " . $row["ost_rating"]  . "/100". "<br>";
+/*            $movie = $row["filme"];
+*/
+           /* $var = $row["data_lanc"] . "<br>" . "Director: " . $row["realizador"] . "<br><br>" . "Age rating: " . $row["classif"] . "<br><br>" . "IMDB rating: " . $row["imdb_rating"] . "/10" . "<br>" . "OST rating: " . $row["ost_rating"]  . "/100". "<br>";
+            */
+            
+            $cenas[$contador] = array("filme"=>$row["filme"]);
+            
+            $contador++;
         }
         
 
@@ -52,6 +57,7 @@
         <link rel="stylesheet" href="assets/css/_font-awesome.min.css.scss" type="text/css">
 
         <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+
 
     </head>
 
@@ -135,9 +141,16 @@
                             <div class="col-sm-6 col-xs-12">
                                 <p class="text text-left middle-xs">
                                     <?php echo $var; ?>
-                                        <br>Main actors
+                                        <?php echo $cenas[$contador]; ?>
 
-                                        <!--
+                                            <div class="dbresult"></div>
+
+
+
+
+                                            <br>Main actors
+
+                                            <!--
                                         <br>Bacon ipsum dolor amet meatball tail picanha cupim shoulder, chicken ball tip bresaola meatloaf sausage jerky pork chop hamburger t-bone. Bacon meatball hamburger short ribs drumstick ball tip fatback andouille, brisket bresaola. Venison jerky ground round drumstick, sirloin sausage swine burgdoggen. Picanha ribeye bacon, cow tri-tip strip steak turducken burgdoggen pork loin ham meatball spare ribs shankle. Picanha boudin tongue turkey sausage, jerky biltong capicola kevin landjaeger bacon beef prosciutto frankfurter venison.
                                         -->
                                 </p>
@@ -324,10 +337,21 @@
 
         </section>
         <div class="md-overlay"></div>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
         <script type="text/javascript" src="assets/js/classie.js"></script>
         <script type="text/javascript" src="assets/js/modalEffects.js"></script>
-        <script src="assets/js/cssParser.js"></script>
+        <script src="assets/js/cssParser.js"></script>-->
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+        <script type="text/javascript" language="javascript">
+            for (i = 0; i < 5; i++) {
+                console.log("teste" + i);
+                var palmas = <?php echo json_encode($cenas); ?>;
+                $('.dbresult').append("filme: " + palmas[i].filme + "<br>");
+
+            }
+            $('.dbresult').append("idrevista: " + palmas[2].filme);
+        </script>
 
     </body>
 
