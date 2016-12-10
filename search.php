@@ -1,26 +1,34 @@
 <!---- Acesso à base de bados --->
 <?php
 
+    $option = $_POST["option"];
+    $filters = $_POST["filters"];
+        
     include 'connection.php';  
 
+    $contador = 0;
+
     //Impressão dos dados da BD no html
-    $sql = "SELECT * FROM filmes";
+    //$sql = "SELECT * FROM filmes, filmes_atores, atores WHERE $filters LIKE '%$option%'";
+    $sql = "SELECT * FROM filmes, atores, musicas WHERE $filters LIKE '%$option%'";
+
     $result = $conn->query($sql);
-   
+
     if ($result->num_rows > 0) {
     // output data of each row
-        
     
         while($row = $result->fetch_assoc()) {
-            $var = $row["filme"] . ", " . $row["data_lanc"] .  "<br>" . "Director: " . $row["realizador"] . "<br><br>" . "Age rating: " . $row["classif"] . ", IMDB rating: " . $row["imdb_rating"]. ", OST rating: " . $row["ost_rating"] . "<br><br>";            
-        }
-        
-        /*
-        SELECT * FROM atores WHERE nome_ator LIKE '%...%'
-        */
 
-    } else {
-        echo "0 results"; 
+/*            $movie = $row["filme"];
+*/
+           /* $var = $row["data_lanc"] . "<br>" . "Director: " . $row["realizador"] . "<br><br>" . "Age rating: " . $row["classif"] . "<br><br>" . "IMDB rating: " . $row["imdb_rating"] . "/10" . "<br>" . "OST rating: " . $row["ost_rating"]  . "/100". "<br>";
+            */
+            
+            $cenas[$contador] = array("movie"=>$row["filme"], "director"=>$row["realizador"], "nome_ator"=>$row["nome_ator"], "song"=>$row["_nome_musica"]); //mostra linhas da col 'filme'
+            
+            $contador++;
+        }
+
     }
 
 ?>
@@ -116,31 +124,32 @@
 
 
             <div class="row">
-                <div class="col-xs-6 start-xs">
 
-                    <label for="country">FILTER</label>
-                    <select id="filter" name="Filter">
-                        <option value="all" selected> </option>
-                        <option value="name">Movie Name</option>
-                        <option value="ageR">Age rating</option>
-                        <option value="producer">Producer</option>
-                        <option value="actor">Actor</option>
-                        <option value="genre">Genre</option>
-                        <option value="song">Song</option>
-                        <option value="band">Singer/Band</option>
-                        <option value="imdb">Imdb Rating</option>
-                        <option value="ost">OST Rating</option>
-                    </select>
+                <div class="col-xs-12 start-xs">
+
+                    <form method="post">
+
+                        <label for="filters">FILTER</label>
+                        <select id="filter" name="filters">
+                            <option name="filters" value="filme" selected>Movie Name</option>
+                            <option name="filters" value="classif">Age rating</option>
+                            <option name="filters" value="realizador">Director</option>
+                            <option name="filters" value="nome_ator">Actor</option>
+                            <option name="filters" value="_nome_genero">Genre</option>
+                            <option name="filters" value="_nome_musica">Song</option>
+                            <option name="filters" value="cantor">Singer/Band</option>
+                            <option name="filters" value="imdb_rating">Imdb Rating</option>
+                            <option name="filters" value="ost_rating">OST Rating</option>
+                        </select>
+
+                        <br> Your Option:
+                        <input type="text" name="option">
+                        <br>
+                        <input type="submit">
+                    </form>
 
                 </div>
 
-                <div class="col-xs-6 end-xs"> Your Option
-                    <br>
-                    <input type="text" name="entry">
-                    <br>
-                    <br>
-                    <br>
-                </div>
                 <div class="col-xs-12 start-xs">Results:
 
                     <!--#1-->
@@ -153,10 +162,22 @@
                         <div class="col-xs-6 ">
                             <p class="text text-left middle-xs">
 
-                                <?php echo $var; ?>
+                                <?php
+                                    if (!$result->num_rows > 0) {
+                                    echo "0 results "; 
+                                    }
+                                
+                                    echo "<br>" . $_POST["filters"] . "<br>";
+                                    echo $_POST["option"];
+                                ?>
 
-                                    <br>Main actors
-                                    <br>Ratings </p>
+                                    <?php echo $var; ?>
+
+                                        <div class="dbresult"></div>
+
+
+                                        <br>Main actors
+                                        <br>Ratings </p>
                         </div>
                     </div>
 
@@ -268,6 +289,21 @@
         <script type="text/javascript" src="assets/js/modalEffects.js"></script>
         <script src="assets/js/cssParser.js"></script>
 
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+        <script type="text/javascript" language="javascript">
+
+            for (i = 0; i < 8; i++) {
+                console.log("teste" + i);
+                var palmas = <?php echo json_encode($cenas); ?>;
+                $('.dbresult').append("Filme " + i + ": " + palmas[i].movie + "<br>");
+                $('.dbresult').append("Realizador " + i + ": " + palmas[i].director + "<br>");
+                $('.dbresult').append("Ator " + i + ": " + palmas[i].nome_ator + "<br>");
+                $('.dbresult').append("Música " + i + ": " + palmas[i].song + "<br><br>");
+
+            }
+            
+        </script>
     </body>
 
     </html>

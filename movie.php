@@ -6,7 +6,7 @@
     $contador = 0;
 
     //Impressão dos dados da BD no html
-    $sql = "SELECT filme FROM filmes";
+    $sql = "SELECT * FROM filmes ORDER BY RAND()";
     $result = $conn->query($sql);
    
     if ($result->num_rows > 0) {
@@ -14,7 +14,7 @@
         
         while($row = $result->fetch_assoc()) {
 
-            /*            $movie = $row["filme"];
+/*            $movie = $row["filme"];
 */
            /* $var = $row["data_lanc"] . "<br>" . "Director: " . $row["realizador"] . "<br><br>" . "Age rating: " . $row["classif"] . "<br><br>" . "IMDB rating: " . $row["imdb_rating"] . "/10" . "<br>" . "OST rating: " . $row["ost_rating"]  . "/100". "<br>";
             */
@@ -135,9 +135,6 @@
 
                                             <div class="dbresult"></div>
 
-
-
-
                                             <br>Main actors
 
                                             <!--
@@ -161,7 +158,7 @@
 
                     <ul>
                         <div class="subtitle  center-xs start-sm">
-                            <p>OFICIAL SOUNDTRACK</p>
+                            <p>OFFICIAL SOUNDTRACK</p>
                         </div>
                         <li>
                             <div class="row center-xs start-md">
@@ -340,7 +337,7 @@
                 $('.dbresult').append("filme " + i + ": " + palmas[i].movie + "<br>");
 
             }
-            $('.dbresult').append("filme 2: " + palmas[2].movie);
+            $('.dbresult').append("filme 0: " + palmas[0].movie);
         </script>
 
     </body>
