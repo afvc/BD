@@ -21,6 +21,7 @@
 
 <body>
 
+
     <!------------#NAVBAR_BIG------------>
     <div class="smalltext nav-big">
 
@@ -28,12 +29,13 @@
             <div class="row middle-xs full-height">
 
                 <ul class="smalltext col-xs-8 end-xs  col-sm-10 col-lg-10 text-bold">
-                    <li class="navbar__link"><a href="index.html" class="menu-selected">HOME</a></li>
 
-                    <li class="navbar__link"><a href="tops.html">TOPS</a></li>
-                    <li class="navbar__link"><a href="slist.html">SONG LIST</a></li>
+                    <li class="navbar__link"><a href="index.php" class="menu-selected">HOME</a></li>
+                    <li class="navbar__link"><a href="tops.php">TOPS</a></li>
+                    <li class="navbar__link"><a href="slist.php">SONG LIST</a></li>
                     <li class="navbar__link"> <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">CONTACT US</a></li>
-                    <li class="navbar__link"><a href="search.html">SEARCH</a></li>
+                    <li class="navbar__link"><a href="search.php">SEARCH</a></li>
+
                 </ul>
 
             </div>
@@ -63,18 +65,16 @@
 
                 <ul class="  nav__list col-xs-12 subtitle">
                     <label class="nav__item" for="nav-trigger">
-                        <li><a class="nav__link start-xs" href="index.html" class="menu-selected">HOME</a></li>
 
+                        <li><a class="nav__link start-xs" href="index.php" class="menu-selected">HOME</a></li>
+                        <li><a class="nav__link start-xs" href="tops.php">TOPS </a></li>
+                        <li><a class="nav__link start-xs" href="slist.php">SONG LIST</a></li>
+                        <li><a class="nav__link start-xs" href="search.php">SEARCH</a></li>
 
-                        <li><a class="nav__link start-xs" href="tops.html">TOPS </a></li>
-                        <li><a class="nav__link start-xs" href="slist.html">SONG LIST</a></li>
-                        
-                        <li><a class="nav__link start-xs" href="search.html">SEARCH</a></li>
                     </label>
                 </ul>
             </div>
         </aside>
-
     </div>
 
     <section class="section-resized">
@@ -83,7 +83,7 @@
         <div class="row">
 
             <div class="subtitle start-xs">
-                <p>TOP 25 OST</p>
+                <p>MOST POPULAR MOVIES AROUND HERE</p>
             </div>
 
             <ul class="  nav__list col-xs-12  subtitle">
@@ -300,7 +300,7 @@
                                 <br>Title, year
                                 <br>Producers
                                 <br>Main actors
-                                <br>Ratings </p>
+                                <br>Ratings</p>
 
                         </div>
                     </div>
@@ -318,7 +318,7 @@
         </div>
 
     </section>
-    
+
     <div class="md-overlay"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script type="text/javascript" src="assets/js/classie.js"></script>
