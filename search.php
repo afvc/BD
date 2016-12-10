@@ -1,4 +1,3 @@
-<!---- Acesso à base de bados --->
 <?php
 
     $option = $_POST["option"];
@@ -8,9 +7,9 @@
 
     $contador = 0;
 
-    //Impressão dos dados da BD no html
-    //$sql = "SELECT * FROM filmes, filmes_atores, atores WHERE $filters LIKE '%$option%'";
-    $sql = "SELECT * FROM filmes, atores, musicas WHERE $filters LIKE '%$option%'";
+    $sql = "SELECT filme FROM filmes WHERE $filters LIKE '%$option%'";
+
+    //$sql = "SELECT filme, nome_ator FROM filmes, filmes_atores, atores WHERE _id_filmes = filmes_id_filmes AND _id_ator = atores_id_ator AND $filters LIKE '%$option%'";
 
     $result = $conn->query($sql);
 
@@ -19,12 +18,10 @@
     
         while($row = $result->fetch_assoc()) {
 
-/*            $movie = $row["filme"];
-*/
            /* $var = $row["data_lanc"] . "<br>" . "Director: " . $row["realizador"] . "<br><br>" . "Age rating: " . $row["classif"] . "<br><br>" . "IMDB rating: " . $row["imdb_rating"] . "/10" . "<br>" . "OST rating: " . $row["ost_rating"]  . "/100". "<br>";
             */
             
-            $cenas[$contador] = array("movie"=>$row["filme"], "director"=>$row["realizador"], "nome_ator"=>$row["nome_ator"], "song"=>$row["_nome_musica"]); //mostra linhas da col 'filme'
+            $cenas[$contador] = array("movie"=>$row["filme"], "director"=>$row["realizador"], "nome_ator"=>$row["nome_ator"], "song"=>$row["_nome_musica"]);
             
             $contador++;
         }
@@ -210,7 +207,7 @@
                 <div class="md-modal-xs md-effect-1" id="modal-1">
                     <div class="md-content-xs">
                         <button class="md-close btn-default">Close me!</button>
-
+<!--
                         <div>
                             <form action="demo_form.asp">
                                 <label class="input-anim" for="">
@@ -270,6 +267,8 @@
                             </form>
 
                         </div>
+-->
+
                     </div>
                 </div>
             </div>
@@ -293,14 +292,14 @@
 
         <script type="text/javascript" language="javascript">
 
-            for (i = 0; i < 8; i++) {
+            for (i = 0; i < 20; i++) {
                 console.log("teste" + i);
                 var palmas = <?php echo json_encode($cenas); ?>;
                 $('.dbresult').append("Filme " + i + ": " + palmas[i].movie + "<br>");
-                $('.dbresult').append("Realizador " + i + ": " + palmas[i].director + "<br>");
-                $('.dbresult').append("Ator " + i + ": " + palmas[i].nome_ator + "<br>");
-                $('.dbresult').append("Música " + i + ": " + palmas[i].song + "<br><br>");
-
+//                $('.dbresult').append("Realizador " + i + ": " + palmas[i].director + "<br>");
+//                $('.dbresult').append("Ator " + i + ": " + palmas[i].nome_ator + "<br>");
+//                $('.dbresult').append("Música " + i + ": " + palmas[i].song + "<br><br>");
+//
             }
             
         </script>
