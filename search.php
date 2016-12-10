@@ -7,9 +7,9 @@
 
     $contador = 0;
 
-    $sql = "SELECT filme FROM filmes WHERE $filters LIKE '%$option%'";
+    //$sql = "SELECT filme FROM filmes WHERE $filters LIKE '%$option%'";
 
-    //$sql = "SELECT filme, nome_ator FROM filmes, filmes_atores, atores WHERE _id_filmes = filmes_id_filmes AND _id_ator = atores_id_ator AND $filters LIKE '%$option%'";
+    $sql = "SELECT filme, nome_ator FROM filmes, filmes_atores, atores WHERE _id_filmes = filmes_id_filmes AND _id_ator = atores_id_ator AND $filters LIKE '%$option%'";
 
     $result = $conn->query($sql);
 
@@ -18,10 +18,7 @@
     
         while($row = $result->fetch_assoc()) {
 
-           /* $var = $row["data_lanc"] . "<br>" . "Director: " . $row["realizador"] . "<br><br>" . "Age rating: " . $row["classif"] . "<br><br>" . "IMDB rating: " . $row["imdb_rating"] . "/10" . "<br>" . "OST rating: " . $row["ost_rating"]  . "/100". "<br>";
-            */
-            
-            $cenas[$contador] = array("movie"=>$row["filme"], "director"=>$row["realizador"], "nome_ator"=>$row["nome_ator"], "song"=>$row["_nome_musica"]);
+            $cenas[$contador] = array("movie"=>$row["filme"], "agerating"=>$row["classif"], "releasedate"=>$row["data_lanc"], "data_lanc"=>$row["realizador"], "imdb_rat"=>$row["imdb_rat"], "ost_rating"=>$row["ost_rating"], "nome_ator"=>$row["nome_ator"], "genero"=>$row["_nome_genero"], "song"=>$row["_nome_musica"], "singer"=>$row["cantor"]);
             
             $contador++;
         }
@@ -297,7 +294,7 @@
                 var palmas = <?php echo json_encode($cenas); ?>;
                 $('.dbresult').append("Filme " + i + ": " + palmas[i].movie + "<br>");
 //                $('.dbresult').append("Realizador " + i + ": " + palmas[i].director + "<br>");
-//                $('.dbresult').append("Ator " + i + ": " + palmas[i].nome_ator + "<br>");
+                $('.dbresult').append("Ator " + i + ": " + palmas[i].nome_ator + "<br>");
 //                $('.dbresult').append("Música " + i + ": " + palmas[i].song + "<br><br>");
 //
             }
