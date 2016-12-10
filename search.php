@@ -9,7 +9,17 @@
 
     //$sql = "SELECT filme FROM filmes WHERE $filters LIKE '%$option%'";
 
-    $sql = "SELECT filme, nome_ator FROM filmes, filmes_atores, atores WHERE _id_filmes = filmes_id_filmes AND _id_ator = atores_id_ator AND $filters LIKE '%$option%'";
+  $sql = "SELECT filme, nome_ator, nome_genero, nome_musica, cantor
+    
+    FROM filmes, filmes_atores, atores, filmes_generos, generos, filmes_musicas, musicas
+    
+    WHERE filmes._id_filmes = filmes_atores.filmes_id_filmes AND _id_ator = atores_id_ator AND 
+    
+    filmes._id_filmes = filmes_generos.filmes_id_filmes AND _id_genero = generos_id_genero AND 
+    
+    filmes._id_filmes = filmes_musicas.filmes_id_filmes AND _id_musica = musicas_id_musica
+    
+    AND $filters LIKE '%$option%'";
 
     $result = $conn->query($sql);
 
@@ -18,7 +28,13 @@
     
         while($row = $result->fetch_assoc()) {
 
-            $cenas[$contador] = array("movie"=>$row["filme"], "agerating"=>$row["classif"], "releasedate"=>$row["data_lanc"], "data_lanc"=>$row["realizador"], "imdb_rat"=>$row["imdb_rat"], "ost_rating"=>$row["ost_rating"], "nome_ator"=>$row["nome_ator"], "genero"=>$row["_nome_genero"], "song"=>$row["_nome_musica"], "singer"=>$row["cantor"]);
+            $filme[$contador] = array("movie"=>$row["filme"], "agerating"=>$row["classif"], "releasedate"=>$row["data_lanc"], "data_lanc"=>$row["realizador"], "imdb_rat"=>$row["imdb_rat"], "ost_rating"=>$row["ost_rating"]);
+            
+            $ator[$contador] = array("ator"=>$row["nome_ator"]);
+
+            $genero[$contador] = array("genero"=>$row["nome_genero"]);
+
+            $musica[$contador] = array("song"=>$row["nome_musica"], "singer"=>$row["cantor"]);
             
             $contador++;
         }
@@ -129,8 +145,8 @@
                             <option name="filters" value="classif">Age rating</option>
                             <option name="filters" value="realizador">Director</option>
                             <option name="filters" value="nome_ator">Actor</option>
-                            <option name="filters" value="_nome_genero">Genre</option>
-                            <option name="filters" value="_nome_musica">Song</option>
+                            <option name="filters" value="nome_genero">Genre</option>
+                            <option name="filters" value="nome_musica">Song</option>
                             <option name="filters" value="cantor">Singer/Band</option>
                             <option name="filters" value="imdb_rating">Imdb Rating</option>
                             <option name="filters" value="ost_rating">OST Rating</option>
@@ -291,12 +307,19 @@
 
             for (i = 0; i < 20; i++) {
                 console.log("teste" + i);
-                var palmas = <?php echo json_encode($cenas); ?>;
-                $('.dbresult').append("Filme " + i + ": " + palmas[i].movie + "<br>");
+                var show_filme = <?php echo json_encode($filme); ?>;
+                $('.dbresult').append("Filme " + i + ": " + show_filme[i].movie + "<br>");
 //                $('.dbresult').append("Realizador " + i + ": " + palmas[i].director + "<br>");
-                $('.dbresult').append("Ator " + i + ": " + palmas[i].nome_ator + "<br>");
-//                $('.dbresult').append("Música " + i + ": " + palmas[i].song + "<br><br>");
-//
+                
+/*                var show_ator = <?php echo json_encode($ator); ?>;
+                $('.dbresult').append("Ator " + i + ": " + show_ator[i].ator + "<br>");
+                
+                var show_genero = <?php echo json_encode($genero); ?>;
+                $('.dbresult').append("Género " + i + ": " + show_genero[i].genero + "<br>");
+                
+                var show_musica = <?php echo json_encode($musica); ?>;
+                $('.dbresult').append("Música " + i + ": " + show_musica[i].song + "<br><br>");
+*/
             }
             
         </script>
