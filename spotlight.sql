@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 10, 2016 at 08:36 PM
+-- Generation Time: Dec 10, 2016 at 11:43 PM
 -- Server version: 5.6.28
 -- PHP Version: 7.0.10
 
@@ -197,14 +197,14 @@ INSERT INTO `filmes_musicas` (`filmes_id_filmes`, `musicas_id_musica`) VALUES
 
 CREATE TABLE `generos` (
   `_id_genero` int(255) NOT NULL,
-  `_nome_genero` varchar(255) DEFAULT NULL
+  `nome_genero` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `generos`
 --
 
-INSERT INTO `generos` (`_id_genero`, `_nome_genero`) VALUES
+INSERT INTO `generos` (`_id_genero`, `nome_genero`) VALUES
 (1, 'Drama'),
 (2, 'Crime'),
 (3, 'Action'),
@@ -219,7 +219,7 @@ INSERT INTO `generos` (`_id_genero`, `_nome_genero`) VALUES
 
 CREATE TABLE `musicas` (
   `_id_musica` int(255) NOT NULL,
-  `_nome_musica` varchar(255) NOT NULL,
+  `nome_musica` varchar(255) NOT NULL,
   `m_generos` varchar(255) DEFAULT NULL,
   `m_ano` year(4) DEFAULT NULL,
   `cantor` varchar(255) DEFAULT NULL,
@@ -231,7 +231,7 @@ CREATE TABLE `musicas` (
 -- Dumping data for table `musicas`
 --
 
-INSERT INTO `musicas` (`_id_musica`, `_nome_musica`, `m_generos`, `m_ano`, `cantor`, `flag_musicas_novas`, `Utilizadoruser_name`) VALUES
+INSERT INTO `musicas` (`_id_musica`, `nome_musica`, `m_generos`, `m_ano`, `cantor`, `flag_musicas_novas`, `Utilizadoruser_name`) VALUES
 (1, 'Main Title (The Godfather Waltz)', NULL, NULL, NULL, 1, 'gestor'),
 (2, 'I Have But One Heart', NULL, NULL, 'Al Martino', 1, 'gestor'),
 (3, 'The Pickup', NULL, NULL, NULL, 1, 'gestor'),

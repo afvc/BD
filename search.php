@@ -9,11 +9,15 @@
 
     //$sql = "SELECT filme FROM filmes WHERE $filters LIKE '%$option%'";
 
-    $sql = "SELECT filme, nome_ator, nome_genero, nome_musica, cantor
+  $sql = "SELECT filme, nome_ator, nome_genero, nome_musica, cantor
     
     FROM filmes, filmes_atores, atores, filmes_generos, generos, filmes_musicas, musicas
     
-    WHERE filmes._id_filmes = filmes_atores.filmes_id_filmes AND _id_ator = atores_id_ator AND  filmes._id_filmes = filmes_generos.filmes_id_filmes AND _id_genero = generos_id_genero AND  filmes._id_filmes = filmes_musicas.filmes_id_filmes AND _id_musica = musicas_id_musica
+    WHERE filmes._id_filmes = filmes_atores.filmes_id_filmes AND _id_ator = atores_id_ator AND 
+    
+    filmes._id_filmes = filmes_generos.filmes_id_filmes AND _id_genero = generos_id_genero AND 
+    
+    filmes._id_filmes = filmes_musicas.filmes_id_filmes AND _id_musica = musicas_id_musica
     
     AND $filters LIKE '%$option%'";
 
@@ -307,7 +311,7 @@
                 $('.dbresult').append("Filme " + i + ": " + show_filme[i].movie + "<br>");
 //                $('.dbresult').append("Realizador " + i + ": " + palmas[i].director + "<br>");
                 
-                var show_ator = <?php echo json_encode($ator); ?>;
+/*                var show_ator = <?php echo json_encode($ator); ?>;
                 $('.dbresult').append("Ator " + i + ": " + show_ator[i].ator + "<br>");
                 
                 var show_genero = <?php echo json_encode($genero); ?>;
@@ -315,7 +319,7 @@
                 
                 var show_musica = <?php echo json_encode($musica); ?>;
                 $('.dbresult').append("Música " + i + ": " + show_musica[i].song + "<br><br>");
-
+*/
             }
             
         </script>
