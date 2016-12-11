@@ -8,9 +8,11 @@
 
     $contador = 0;
 
-    $sql = "SELECT filme FROM filmes WHERE $filters LIKE '%$option%'";
+    //$sql = "SELECT filme FROM filmes WHERE $filters LIKE '%$option%'";
 
-/*    $sql = "SELECT filme, nome_ator, nome_genero, nome_musica, cantor
+    //$sql = "SELECT filme, nome_ator, nome_genero, nome_musica, cantor
+
+    $sql = "SELECT DISTINCT filme, data_lanc, realizador, image
     
     FROM filmes, filmes_atores, atores, filmes_generos, generos, filmes_musicas, musicas
     
@@ -22,9 +24,8 @@
     
     AND $filters LIKE '%$option%'";
 
-*/    $result = $conn->query($sql);
 
-    
+    $result = $conn->query($sql);
 
 ?>
 
@@ -152,67 +153,29 @@
                         //imprime o que foi pesquisado
                         echo $result->num_rows . " Results for <b>" . $_POST["filters"] . " <i>";   //imprime o filtro usado
                         echo $_POST["option"] . "</i></b> :<br>"; //imprime o que foi escrito no filtro
+                    
+                    //---------------------------------RESULTADOS-------------------------------//
+
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+
+                            while($row = $result->fetch_assoc()) {
+
+                                echo "
+                                <div class=" . "row center-xs start-md" . ">
+                                    <div class=" . "col-xs-3 col-sm-2" . ">
+                                        <a class=" . "nav__link center-xs" . " href=" . "movie.php" . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
+                                    </div>
+                                    <div class=" . "col-xs-6" . ">
+                                        <p class=" . "text text-left middle-xs" .">
+                                        <br>" . $row["filme"] . 
+                                        "<br><br>Release date: " . $row["data_lanc"] .
+                                        "<br>Director: " . $row["realizador"] . "</p>
+                                    </div>
+                                </div><br>";
+                            }
+                        }
                     ?>
-
-
-                        <?php
-    
-    if ($result->num_rows > 0) {
-    // output data of each row
-    
-        while($row = $result->fetch_assoc()) {
-
-            
-            $filme[$contador] = array("movie"=>$row["filme"], "agerating"=>$row["classif"], "releasedate"=>$row["data_lanc"], "data_lanc"=>$row["realizador"], "imdb_rat"=>$row["imdb_rat"], "ost_rating"=>$row["ost_rating"]);
-            
-            $ator[$contador] = array("ator"=>$row["nome_ator"]);
-
-            $genero[$contador] = array("genero"=>$row["nome_genero"]);
-
-            $musica[$contador] = array("song"=>$row["nome_musica"], "singer"=>$row["cantor"]);
-            
-            $contador++;
-        }
-
-    }
-                    ?>
-
-                            <!--#1-->
-
-                            <div class="row center-xs start-md">
-                                <div class="col-xs-4 col-sm-2">
-                                    <a class="nav__link center-xs" href="movie.php" class="menu-selected"><img src="assets/images/p1.jpg" class="logo"> </a>
-                                </div>
-
-                                <div class="col-xs-6 ">
-                                    <p class="text text-left middle-xs">
-
-
-
-
-                                        <div class="dbresult"></div>
-
-
-                                        <br>Main actors
-                                        <br>Ratings </p>
-                                </div>
-                            </div>
-
-                            <!--#2-->
-
-                            <div class="row center-xs start-md">
-                                <div class="col-xs-4 col-sm-2">
-                                    <a class="nav__link center-xs" href="movie.php" class="menu-selected"><img src="assets/images/p1.jpg" class="logo"> </a>
-                                </div>
-
-                                <div class="col-xs-6 ">
-                                    <p class="text text-left middle-xs">
-                                        <br>Title, year
-                                        <br>Producers
-                                        <br>Main actors
-                                        <br>Ratings </p>
-                                </div>
-                            </div>
 
                 </div>
 
@@ -308,27 +271,9 @@
         <script type="text/javascript" src="assets/js/modalEffects.js"></script>
         <script src="assets/js/cssParser.js"></script>
 
+        <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-        <script type="text/javascript" language="javascript">
-            for (i = 0; i < 10; i++) {
-                console.log("teste" + i);
-
-                var show_filme = <?php echo json_encode($filme); ?>;
-                $('.dbresult').append("Filme " + i + ": " + show_filme[i].movie + "<br>");
-                //                $('.dbresult').append("Realizador " + i + ": " + palmas[i].director + "<br>");
-
-                /*                var show_ator = <?php echo json_encode($ator); ?>;
-                                $('.dbresult').append("Ator " + i + ": " + show_ator[i].ator + "<br>");
-                                
-                                var show_genero = <?php echo json_encode($genero); ?>;
-                                $('.dbresult').append("Género " + i + ": " + show_genero[i].genero + "<br>");
-                                
-                                var show_musica = <?php echo json_encode($musica); ?>;
-                                $('.dbresult').append("Música " + i + ": " + show_musica[i].song + "<br><br>");
-                */
-            }
-        </script>
     </body>
 
     </html>
