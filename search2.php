@@ -1,15 +1,16 @@
 <?php
+                            
+    //para usar nos selects
+    $filters = $_POST["filters"];   //o filtro usado
+    $option = $_POST["option"];     //o que foi escrito no filtro
 
-    $option = $_POST["option"];
-    $filters = $_POST["filters"];
-        
     include 'connection.php';  
 
     $contador = 0;
 
     //$sql = "SELECT filme FROM filmes WHERE $filters LIKE '%$option%'";
 
-  $sql = "SELECT filme, nome_ator, nome_genero, nome_musica, cantor
+    $sql = "SELECT filme, nome_ator, nome_genero, nome_musica, cantor
     
     FROM filmes, filmes_atores, atores, filmes_generos, generos, filmes_musicas, musicas
     
@@ -25,9 +26,11 @@
 
     if ($result->num_rows > 0) {
     // output data of each row
-    
-        while($row = $result->fetch_assoc()) {
 
+        while($row = $result->fetch_assoc()) {
+            
+//            echo $row["filme"] . $row["classif"];
+                
             $filme[$contador] = array("movie"=>$row["filme"], "agerating"=>$row["classif"], "releasedate"=>$row["data_lanc"], "data_lanc"=>$row["realizador"], "imdb_rat"=>$row["imdb_rat"], "ost_rating"=>$row["ost_rating"]);
             
             $ator[$contador] = array("ator"=>$row["nome_ator"]);
@@ -39,6 +42,8 @@
             $contador++;
         }
 
+    } else {
+        echo "0 results ";
     }
 
 ?>
@@ -141,15 +146,15 @@
 
                         <label for="filters">FILTER</label>
                         <select id="filter" name="filters">
-                            <option name="filters" value="filme" selected>Movie Name</option>
-                            <option name="filters" value="classif">Age rating</option>
-                            <option name="filters" value="realizador">Director</option>
-                            <option name="filters" value="nome_ator">Actor</option>
-                            <option name="filters" value="nome_genero">Genre</option>
-                            <option name="filters" value="nome_musica">Song</option>
-                            <option name="filters" value="cantor">Singer/Band</option>
-                            <option name="filters" value="imdb_rating">Imdb Rating</option>
-                            <option name="filters" value="ost_rating">OST Rating</option>
+                            <option name="filters" value="movie" selected>Movie Name</option>
+                            <option name="filters" value="age rating">Age rating</option>
+                            <option name="filters" value="director">Director</option>
+                            <option name="filters" value="actor">Actor</option>
+                            <option name="filters" value="genre">Genre</option>
+                            <option name="filters" value="song">Song</option>
+                            <option name="filters" value="singer/band">Singer/Band</option>
+                            <option name="filters" value="IMDB rating">IMDB Rating</option>
+                            <option name="filters" value="OST rating">OST Rating</option>
                         </select>
 
                         <br> Your Option:
@@ -160,54 +165,48 @@
 
                 </div>
 
-                <div class="col-xs-12 start-xs">Results:
+                <div class="col-xs-12 start-xs">
 
-                    <!--#1-->
+                    <?php
+                        //imprime o que foi pesquisado
+                        echo "<br> Your results for <b>" . $_POST["filters"] . " <i>";   //imprime o filtro usado
+                        echo $_POST["option"] . "</i></b> :<br>"; //imprime o que foi escrito no filtro
 
-                    <div class="row center-xs start-md">
-                        <div class="col-xs-4 col-sm-2">
-                            <a class="nav__link center-xs" href="movie.php" class="menu-selected"><img src="assets/images/p1.jpg" class="logo"> </a>
+                    ?>
+
+                        <!--#1-->
+
+                        <div class="row center-xs start-md">
+                            <div class="col-xs-4 col-sm-2">
+                                <a class="nav__link center-xs" href="movie.php" class="menu-selected"><img src="assets/images/p1.jpg" class="logo"> </a>
+                            </div>
+
+                            <div class="col-xs-6 ">
+                                <p class="text text-left middle-xs">
+
+                                        <div class="dbresult"></div>
+
+
+                                        <br>Main actors
+                                        <br>Ratings </p>
+                            </div>
                         </div>
 
-                        <div class="col-xs-6 ">
-                            <p class="text text-left middle-xs">
+                        <!--#2-->
 
-                                
-                                
-                                
-                                <?php
-                                    if (!$result->num_rows > 0) {
-                                    echo "0 results "; 
-                                    }
-                                
-                                    echo "<br>" . $_POST["filters"] . "<br>";
-                                    echo $_POST["option"];
-                                ?>
+                        <div class="row center-xs start-md">
+                            <div class="col-xs-4 col-sm-2">
+                                <a class="nav__link center-xs" href="movie.php" class="menu-selected"><img src="assets/images/p1.jpg" class="logo"> </a>
+                            </div>
 
-
-                                    <div class="dbresult"></div>
-
-
+                            <div class="col-xs-6 ">
+                                <p class="text text-left middle-xs">
+                                    <br>Title, year
+                                    <br>Producers
                                     <br>Main actors
                                     <br>Ratings </p>
+                            </div>
                         </div>
-                    </div>
-
-                    <!--#2-->
-
-                    <div class="row center-xs start-md">
-                        <div class="col-xs-4 col-sm-2">
-                            <a class="nav__link center-xs" href="movie.php" class="menu-selected"><img src="assets/images/p1.jpg" class="logo"> </a>
-                        </div>
-
-                        <div class="col-xs-6 ">
-                            <p class="text text-left middle-xs">
-                                <br>Title, year
-                                <br>Producers
-                                <br>Main actors
-                                <br>Ratings </p>
-                        </div>
-                    </div>
 
                 </div>
 
@@ -308,20 +307,20 @@
         <script type="text/javascript" language="javascript">
             for (i = 0; i < 20; i++) {
                 console.log("teste" + i);
-                
+
                 var show_filme = <?php echo json_encode($filme); ?>;
                 $('.dbresult').append("Filme " + i + ": " + show_filme[i].movie + "<br>");
                 //                $('.dbresult').append("Realizador " + i + ": " + palmas[i].director + "<br>");
 
-                /*                var show_ator = <?php echo json_encode($ator); ?>;
-                                $('.dbresult').append("Ator " + i + ": " + show_ator[i].ator + "<br>");
-                                
-                                var show_genero = <?php echo json_encode($genero); ?>;
-                                $('.dbresult').append("Género " + i + ": " + show_genero[i].genero + "<br>");
-                                
-                                var show_musica = <?php echo json_encode($musica); ?>;
-                                $('.dbresult').append("Música " + i + ": " + show_musica[i].song + "<br><br>");
-                */
+                var show_ator = <?php echo json_encode($ator); ?>;
+                $('.dbresult').append("Ator " + i + ": " + show_ator[i].ator + "<br>");
+
+                var show_genero = <?php echo json_encode($genero); ?>;
+                $('.dbresult').append("Género " + i + ": " + show_genero[i].genero + "<br>");
+
+                var show_musica = <?php echo json_encode($musica); ?>;
+                $('.dbresult').append("Música " + i + ": " + show_musica[i].song + "<br><br>");
+
             }
         </script>
     </body>
