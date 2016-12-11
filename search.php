@@ -1,15 +1,16 @@
 <?php
 
-    $option = $_POST["option"];
-    $filters = $_POST["filters"];
+    //para usar nos selects
+    $filters = $_POST["filters"];   //o filtro usado
+    $option = $_POST["option"];     //o que foi escrito no filtro
         
     include 'connection.php';  
 
     $contador = 0;
 
-    //$sql = "SELECT filme FROM filmes WHERE $filters LIKE '%$option%'";
+    $sql = "SELECT filme FROM filmes WHERE $filters LIKE '%$option%'";
 
-  $sql = "SELECT filme, nome_ator, nome_genero, nome_musica, cantor
+/*    $sql = "SELECT filme, nome_ator, nome_genero, nome_musica, cantor
     
     FROM filmes, filmes_atores, atores, filmes_generos, generos, filmes_musicas, musicas
     
@@ -21,25 +22,9 @@
     
     AND $filters LIKE '%$option%'";
 
-    $result = $conn->query($sql);
+*/    $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-    // output data of each row
     
-        while($row = $result->fetch_assoc()) {
-
-            $filme[$contador] = array("movie"=>$row["filme"], "agerating"=>$row["classif"], "releasedate"=>$row["data_lanc"], "data_lanc"=>$row["realizador"], "imdb_rat"=>$row["imdb_rat"], "ost_rating"=>$row["ost_rating"]);
-            
-            $ator[$contador] = array("ator"=>$row["nome_ator"]);
-
-            $genero[$contador] = array("genero"=>$row["nome_genero"]);
-
-            $musica[$contador] = array("song"=>$row["nome_musica"], "singer"=>$row["cantor"]);
-            
-            $contador++;
-        }
-
-    }
 
 ?>
 
@@ -111,8 +96,9 @@
                         <label class="nav__item" for="nav-trigger">
 
                             <li><a class="nav__link start-xs" href="index.php" class="menu-selected">HOME</a></li>
-                            <li><a class="nav__link start-xs" href="tops.php">TOPS </a></li>
+                            <li><a class="nav__link start-xs" href="tops.php">TOPS</a></li>
                             <li><a class="nav__link start-xs" href="slist.php">SONG LIST</a></li>
+                            <li><a class="nav__link start-xs" href="mailto:someone@example.com?Subject=Hello%20again" target="_top">CONTACT US</a></li>
                             <li><a class="nav__link start-xs" href="search.php">SEARCH</a></li>
 
                         </label>
@@ -160,54 +146,73 @@
 
                 </div>
 
-                <div class="col-xs-12 start-xs">Results:
+                <div class="col-xs-12 start-xs">
 
-                    <!--#1-->
-
-                    <div class="row center-xs start-md">
-                        <div class="col-xs-4 col-sm-2">
-                            <a class="nav__link center-xs" href="movie.php" class="menu-selected"><img src="assets/images/p1.jpg" class="logo"> </a>
-                        </div>
-
-                        <div class="col-xs-6 ">
-                            <p class="text text-left middle-xs">
-
-                                
-                                
-                                
-                                <?php
-                                    if (!$result->num_rows > 0) {
-                                    echo "0 results "; 
-                                    }
-                                
-                                    echo "<br>" . $_POST["filters"] . "<br>";
-                                    echo $_POST["option"];
-                                ?>
+                    <?php
+                        //imprime o que foi pesquisado
+                        echo $result->num_rows . " Results for <b>" . $_POST["filters"] . " <i>";   //imprime o filtro usado
+                        echo $_POST["option"] . "</i></b> :<br>"; //imprime o que foi escrito no filtro
+                    ?>
 
 
-                                    <div class="dbresult"></div>
+                        <?php
+    
+    if ($result->num_rows > 0) {
+    // output data of each row
+    
+        while($row = $result->fetch_assoc()) {
+
+            
+            $filme[$contador] = array("movie"=>$row["filme"], "agerating"=>$row["classif"], "releasedate"=>$row["data_lanc"], "data_lanc"=>$row["realizador"], "imdb_rat"=>$row["imdb_rat"], "ost_rating"=>$row["ost_rating"]);
+            
+            $ator[$contador] = array("ator"=>$row["nome_ator"]);
+
+            $genero[$contador] = array("genero"=>$row["nome_genero"]);
+
+            $musica[$contador] = array("song"=>$row["nome_musica"], "singer"=>$row["cantor"]);
+            
+            $contador++;
+        }
+
+    }
+                    ?>
+
+                            <!--#1-->
+
+                            <div class="row center-xs start-md">
+                                <div class="col-xs-4 col-sm-2">
+                                    <a class="nav__link center-xs" href="movie.php" class="menu-selected"><img src="assets/images/p1.jpg" class="logo"> </a>
+                                </div>
+
+                                <div class="col-xs-6 ">
+                                    <p class="text text-left middle-xs">
 
 
-                                    <br>Main actors
-                                    <br>Ratings </p>
-                        </div>
-                    </div>
 
-                    <!--#2-->
 
-                    <div class="row center-xs start-md">
-                        <div class="col-xs-4 col-sm-2">
-                            <a class="nav__link center-xs" href="movie.php" class="menu-selected"><img src="assets/images/p1.jpg" class="logo"> </a>
-                        </div>
+                                        <div class="dbresult"></div>
 
-                        <div class="col-xs-6 ">
-                            <p class="text text-left middle-xs">
-                                <br>Title, year
-                                <br>Producers
-                                <br>Main actors
-                                <br>Ratings </p>
-                        </div>
-                    </div>
+
+                                        <br>Main actors
+                                        <br>Ratings </p>
+                                </div>
+                            </div>
+
+                            <!--#2-->
+
+                            <div class="row center-xs start-md">
+                                <div class="col-xs-4 col-sm-2">
+                                    <a class="nav__link center-xs" href="movie.php" class="menu-selected"><img src="assets/images/p1.jpg" class="logo"> </a>
+                                </div>
+
+                                <div class="col-xs-6 ">
+                                    <p class="text text-left middle-xs">
+                                        <br>Title, year
+                                        <br>Producers
+                                        <br>Main actors
+                                        <br>Ratings </p>
+                                </div>
+                            </div>
 
                 </div>
 
@@ -306,9 +311,9 @@
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
         <script type="text/javascript" language="javascript">
-            for (i = 0; i < 20; i++) {
+            for (i = 0; i < 10; i++) {
                 console.log("teste" + i);
-                
+
                 var show_filme = <?php echo json_encode($filme); ?>;
                 $('.dbresult').append("Filme " + i + ": " + show_filme[i].movie + "<br>");
                 //                $('.dbresult').append("Realizador " + i + ": " + palmas[i].director + "<br>");
