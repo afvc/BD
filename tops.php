@@ -69,8 +69,9 @@
                     <label class="nav__item" for="nav-trigger">
 
                         <li><a class="nav__link start-xs" href="index.php" class="menu-selected">HOME</a></li>
-                        <li><a class="nav__link start-xs" href="tops.php">TOPS </a></li>
+                        <li><a class="nav__link start-xs" href="tops.php">TOPS</a></li>
                         <li><a class="nav__link start-xs" href="slist.php">SONG LIST</a></li>
+                        <li><a class="nav__link start-xs" href="mailto:someone@example.com?Subject=Hello%20again" target="_top">CONTACT US</a></li>
                         <li><a class="nav__link start-xs" href="search.php">SEARCH</a></li>
 
                     </label>
