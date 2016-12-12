@@ -2,8 +2,8 @@
 -- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Dec 11, 2016 at 07:38 PM
+-- Host: localhost
+-- Generation Time: Dec 12, 2016 at 02:03 AM
 -- Server version: 5.6.28
 -- PHP Version: 7.0.10
 
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `atores` (
-  `_id_ator` decimal(19,0) NOT NULL,
+  `_id_ator` serial NOT NULL,
   `nome_ator` varchar(255) DEFAULT NULL,
   `nasc_ator` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -67,7 +67,7 @@ CREATE TABLE `comentario_forum` (
 --
 
 CREATE TABLE `filmes` (
-  `_id_filmes` decimal(19,0) NOT NULL,
+  `_id_filmes` serial NOT NULL,
   `filme` varchar(255) DEFAULT NULL,
   `image` varchar(500) DEFAULT NULL,
   `classif` decimal(19,0) DEFAULT NULL,
@@ -197,7 +197,7 @@ INSERT INTO `filmes_musicas` (`filmes_id_filmes`, `musicas_id_musica`) VALUES
 --
 
 CREATE TABLE `generos` (
-  `_id_genero` int(255) NOT NULL,
+  `_id_genero` serial NOT NULL,
   `nome_genero` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -219,11 +219,30 @@ INSERT INTO `generos` (`_id_genero`, `nome_genero`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `id` int(10) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `passwd` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`id`, `username`, `passwd`) VALUES
+(1, 'afvc', 'afvc');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `musicas`
 --
 
 CREATE TABLE `musicas` (
-  `_id_musica` int(255) NOT NULL,
+  `_id_musica` serial NOT NULL,
   `nome_musica` varchar(255) NOT NULL,
   `m_generos` varchar(255) DEFAULT NULL,
   `m_ano` year(4) DEFAULT NULL,
@@ -283,196 +302,22 @@ CREATE TABLE `Utilizador` (
   `tipo_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `Utilizador_comentario_forum`
---
-
-CREATE TABLE `Utilizador_comentario_forum` (
-  `Utilizadoruser_name` varchar(255) NOT NULL,
-  `comentario_forumID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `Utilizador_filmes`
---
-
-CREATE TABLE `Utilizador_filmes` (
-  `Utilizadoruser_name` varchar(255) NOT NULL,
-  `filmes_id_filmes` decimal(19,0) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `Utilizador_musicas`
---
-
-CREATE TABLE `Utilizador_musicas` (
-  `Utilizadoruser_name` varchar(255) NOT NULL,
-  `musicas_id_musica` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `atores`
+-- Indexes for table `login`
 --
-ALTER TABLE `atores`
-  ADD PRIMARY KEY (`_id_ator`);
-
---
--- Indexes for table `comentario_forum`
---
-ALTER TABLE `comentario_forum`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `FKcomentario221201` (`topico_forumnome_topico`);
-
---
--- Indexes for table `filmes`
---
-ALTER TABLE `filmes`
-  ADD PRIMARY KEY (`_id_filmes`);
-
---
--- Indexes for table `filmes_atores`
---
-ALTER TABLE `filmes_atores`
-  ADD PRIMARY KEY (`filmes_id_filmes`,`atores_id_ator`),
-  ADD KEY `FKfilmes_ato74742` (`atores_id_ator`),
-  ADD KEY `FKfilmes_ato505080` (`filmes_id_filmes`);
-
---
--- Indexes for table `filmes_generos`
---
-ALTER TABLE `filmes_generos`
-  ADD PRIMARY KEY (`filmes_id_filmes`,`generos_id_genero`),
-  ADD KEY `FKfilmes_gen927761` (`generos_id_genero`),
-  ADD KEY `FKfilmes_gen194323` (`filmes_id_filmes`);
-
---
--- Indexes for table `filmes_musicas`
---
-ALTER TABLE `filmes_musicas`
-  ADD PRIMARY KEY (`filmes_id_filmes`,`musicas_id_musica`),
-  ADD KEY `FKfilmes_mus916856` (`filmes_id_filmes`),
-  ADD KEY `FKfilmes_mus944708` (`musicas_id_musica`);
-
---
--- Indexes for table `generos`
---
-ALTER TABLE `generos`
-  ADD PRIMARY KEY (`_id_genero`);
-
---
--- Indexes for table `musicas`
---
-ALTER TABLE `musicas`
-  ADD PRIMARY KEY (`_id_musica`);
-
---
--- Indexes for table `topico_forum`
---
-ALTER TABLE `topico_forum`
-  ADD PRIMARY KEY (`nome_topico`),
-  ADD KEY `FKtopico_for602173` (`Utilizadoruser_name`);
-
---
--- Indexes for table `Utilizador`
---
-ALTER TABLE `Utilizador`
-  ADD PRIMARY KEY (`user_name`);
-
---
--- Indexes for table `Utilizador_comentario_forum`
---
-ALTER TABLE `Utilizador_comentario_forum`
-  ADD PRIMARY KEY (`Utilizadoruser_name`,`comentario_forumID`),
-  ADD KEY `FKUtilizador363396` (`Utilizadoruser_name`),
-  ADD KEY `FKUtilizador57121` (`comentario_forumID`);
-
---
--- Indexes for table `Utilizador_filmes`
---
-ALTER TABLE `Utilizador_filmes`
-  ADD PRIMARY KEY (`Utilizadoruser_name`,`filmes_id_filmes`),
-  ADD KEY `FKUtilizador890718` (`Utilizadoruser_name`),
-  ADD KEY `FKUtilizador537025` (`filmes_id_filmes`);
-
---
--- Indexes for table `Utilizador_musicas`
---
-ALTER TABLE `Utilizador_musicas`
-  ADD PRIMARY KEY (`Utilizadoruser_name`,`musicas_id_musica`),
-  ADD KEY `FKUtilizador436455` (`Utilizadoruser_name`);
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `comentario_forum`
+-- AUTO_INCREMENT for table `login`
 --
-ALTER TABLE `comentario_forum`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `comentario_forum`
---
-ALTER TABLE `comentario_forum`
-  ADD CONSTRAINT `FKcomentario221201` FOREIGN KEY (`topico_forumnome_topico`) REFERENCES `topico_forum` (`nome_topico`);
-
---
--- Constraints for table `filmes_atores`
---
-ALTER TABLE `filmes_atores`
-  ADD CONSTRAINT `FKfilmes_ato505080` FOREIGN KEY (`filmes_id_filmes`) REFERENCES `filmes` (`_id_filmes`),
-  ADD CONSTRAINT `FKfilmes_ato74742` FOREIGN KEY (`atores_id_ator`) REFERENCES `atores` (`_id_ator`);
-
---
--- Constraints for table `filmes_generos`
---
-ALTER TABLE `filmes_generos`
-  ADD CONSTRAINT `FKfilmes_gen194323` FOREIGN KEY (`filmes_id_filmes`) REFERENCES `filmes` (`_id_filmes`),
-  ADD CONSTRAINT `FKfilmes_gen927761` FOREIGN KEY (`generos_id_genero`) REFERENCES `generos` (`_id_genero`);
-
---
--- Constraints for table `filmes_musicas`
---
-ALTER TABLE `filmes_musicas`
-  ADD CONSTRAINT `FKfilmes_mus916856` FOREIGN KEY (`filmes_id_filmes`) REFERENCES `filmes` (`_id_filmes`),
-  ADD CONSTRAINT `FKfilmes_mus944708` FOREIGN KEY (`musicas_id_musica`) REFERENCES `musicas` (`_id_musica`);
-
---
--- Constraints for table `topico_forum`
---
-ALTER TABLE `topico_forum`
-  ADD CONSTRAINT `FKtopico_for602173` FOREIGN KEY (`Utilizadoruser_name`) REFERENCES `Utilizador` (`user_name`);
-
---
--- Constraints for table `Utilizador_comentario_forum`
---
-ALTER TABLE `Utilizador_comentario_forum`
-  ADD CONSTRAINT `FKUtilizador363396` FOREIGN KEY (`Utilizadoruser_name`) REFERENCES `Utilizador` (`user_name`),
-  ADD CONSTRAINT `FKUtilizador57121` FOREIGN KEY (`comentario_forumID`) REFERENCES `comentario_forum` (`ID`);
-
---
--- Constraints for table `Utilizador_filmes`
---
-ALTER TABLE `Utilizador_filmes`
-  ADD CONSTRAINT `FKUtilizador537025` FOREIGN KEY (`filmes_id_filmes`) REFERENCES `filmes` (`_id_filmes`),
-  ADD CONSTRAINT `FKUtilizador890718` FOREIGN KEY (`Utilizadoruser_name`) REFERENCES `Utilizador` (`user_name`);
-
---
--- Constraints for table `Utilizador_musicas`
---
-ALTER TABLE `Utilizador_musicas`
-  ADD CONSTRAINT `FKUtilizador436455` FOREIGN KEY (`Utilizadoruser_name`) REFERENCES `Utilizador` (`user_name`);
+ALTER TABLE `login`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
