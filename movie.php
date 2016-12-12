@@ -156,13 +156,14 @@
                                 echo "<p>" . $row["filme"] . "</p>
                                 
                                     </div>
-                                        <ul class=" . "nav__list col-xs-12 subtitle" . ">
+                                        <ul class = " . "nav__list col-xs-12 subtitle" . ">
 
                                         <li>
-                                            <div class= " . "row center-xs start-md middle-xs" . ">
+                                            <div class = " . "row center-xs start-md middle-xs" . ">
                                                 <div class= " . "col-sm-6 col-xs-12" . ">
-                                                    <a class= " . "nav__link center-xs menu-selected" . ">
-                                                    <img src= " . $row["image"] . " class=" . "logo" . "> </a></div>";
+                                                    <a class = " . "nav__link center-xs menu-selected" . ">
+                                                    <img src = " . $row["image"] . " class = " . "logo" . "> </a>
+                                                </div>";
                             }
                         }
                     ?>
@@ -191,12 +192,7 @@
                                             echo "<br>" . $row["nome_ator"];
                                         }
                                 
-                                        echo "<br><br><b>Genres: </b>";
-
-                                        while($row = $result_generos->fetch_assoc()) {
-
-                                            echo "<br>" . $row["nome_genero"];
-                                        }
+                                        //GENERO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
                                     ?>
                             </p>
@@ -206,6 +202,7 @@
 
                 </ul>
             </div>
+        
             <div class="row center-xs start-md">
                 <div class="col-xs-12 col-sm-6 order-xs-1st">
 
