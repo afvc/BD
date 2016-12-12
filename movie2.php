@@ -122,7 +122,6 @@
                 <label class="overlay" for="nav-trigger"></label>
                 <div class="nav__body">
 
-                    <!-----------------------NOME DO FILME----------------------->
 
                     <ul class="  nav__list col-xs-12 subtitle">
                         <label class="nav__item" for="nav-trigger">
@@ -145,77 +144,74 @@
             <div class="row">
 
                 <div class="subtitle col-xs-12  start-xs">
+                    <?php echo $movie; ?>
 
-                    <?php 
-                    
-                    //-------------------------------RESULTADOS-----------------------------//
-
-                        if ($result_filme->num_rows > 0) {
-                            while($row = $result_filme->fetch_assoc()) {
-
-                                echo "<p>" . $row["filme"] . "</p>
-                                
-                                    </div>
-                                        <ul class=" . "nav__list col-xs-12 subtitle" . ">
-
-                                        <li>
-                                            <div class= " . "row center-xs start-md middle-xs" . ">
-                                                <div class= " . "col-sm-6 col-xs-12" . ">
-                                                    <a class= " . "nav__link center-xs menu-selected" . ">
-                                                    <img src= " . $row["image"] . " class=" . "logo" . "> </a></div>";
-                            }
-                        }
-                    ?>
-
-                        <div class="col-sm-6 col-xs-12">
-
-                            <p class="text text-left middle-xs">
-
-                                <?php 
-                    
-                                    //-------------------------------RESULTADOS-----------------------------//
-
-                                        while($row = $result_filme_more->fetch_assoc()) {
-
-                                            echo $row["data_lanc"] . "<br>";
-                                            echo "<br><b>Age rating: </b>" . $row["classif"];
-                                            echo "<br><b>Director: </b>" . $row["realizador"];
-                                            echo "<br><b>IMDB rating: </b>" . $row["imdb_rating"] . "/10";
-                                            echo "<br><b>OST rating: </b>" . $row["ost_rating"] . "/100" . "<br><br>";
-                                        }
-                                    
-                                        echo "<b>Main actors: </b>";
-                                        
-                                        while($row = $result_atores->fetch_assoc()) {
-
-                                            echo "<br>" . $row["nome_ator"];
-                                        }
-                                
-                                        echo "<br><br><b>Genres: </b>";
-
-                                        while($row = $result_generos->fetch_assoc()) {
-
-                                            echo "<br>" . $row["nome_genero"];
-                                        }
-
-                                    ?>
-                            </p>
-                        </div>
                 </div>
-                </li>
+
+                <ul class="  nav__list col-xs-12  subtitle">
+
+                    <li>
+                        <div class="row center-xs start-md middle-xs">
+                            <div class="col-sm-6 col-xs-12">
+
+
+                                <a class="nav__link center-xs" href="#" class="menu-selected"> <img src="assets/images/p1.jpg" class="logo"> </a>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <p class="text text-left middle-xs">
+                                    <?php echo $var; ?>
+                                        <?php echo $cenas[$contador]; ?>
+
+                                            <div class="dbresult"></div>
+
+                                            <br>Main actors
+
+                                            <!--
+                                        <br>Bacon ipsum dolor amet meatball tail picanha cupim shoulder, chicken ball tip bresaola meatloaf sausage jerky pork chop hamburger t-bone. Bacon meatball hamburger short ribs drumstick ball tip fatback andouille, brisket bresaola. Venison jerky ground round drumstick, sirloin sausage swine burgdoggen. Picanha ribeye bacon, cow tri-tip strip steak turducken burgdoggen pork loin ham meatball spare ribs shankle. Picanha boudin tongue turkey sausage, jerky biltong capicola kevin landjaeger bacon beef prosciutto frankfurter venison.
+                                        -->
+                                </p>
+                                <br>
+                                <br>
+
+                            </div>
+                        </div>
+                    </li>
+
 
                 </ul>
             </div>
             <div class="row center-xs start-md">
                 <div class="col-xs-12 col-sm-6 order-xs-1st">
 
+
+
                     <ul>
                         <div class="subtitle  center-xs start-sm">
                             <p>OFFICIAL SOUNDTRACK</p>
                         </div>
+                        <li>
+                            <div class="row center-xs start-md">
+                                <div class="col-xs-12 col-sm-7 ">
+                                    <!--
+                                <a class="nav__link start-xs" href="#" class="menu-selected"> <img src="assets/images/p1.jpg" class="logo"> </a>
+                                -->
+                                </div>
+                                <div class="col-xs-12 col-sm-7 ">
+                                    <p class="text text-left middle-xs">
+                                        <br>Song
+                                        <br>Singer / Band </p>
+
+                                </div>
+                            </div>
+                        </li>
 
                         <li>
                             <div class="row center-xs start-md">
+                                <div class="col-xs-12 col-sm-7">
+                                    <!--
+                                <a class="nav__link start-xs" href="#" class="menu-selected"> <img src="assets/images/p1.jpg" class="logo"> </a>
+                                -->
+                                </div>
                                 <div class="col-xs-12 col-sm-7 ">
                                     <p class="text text-left middle-xs">
                                         <br>Song
@@ -228,20 +224,14 @@
                         <li>
                             <div class="row center-xs start-md">
                                 <div class="col-xs-12 col-sm-7 ">
-                                    <p class="text text-left middle-xs">
-                                        <br>Song
-                                        <br>Singer / Band </p>
-
+                                    <!--
+                                <a class="nav__link start-xs" href="#" class="menu-selected"> <img src="assets/images/p1.jpg" class="logo"> </a>
+                                -->
                                 </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="row center-xs start-md">
                                 <div class="col-xs-12 col-sm-7 ">
                                     <p class="text text-left middle-xs">
                                         <br>Song
-                                        <br>Singer/Band </p>
+                                        <br>Singer / Band </p>
 
                                 </div>
                             </div>
@@ -251,6 +241,8 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-6 order-xs-2nd padding-big">
+
+
 
                     <ul>
                         <div class="subtitle center-xs start-sm">
@@ -274,9 +266,15 @@
 
                 </div>
 
+
+
             </div>
 
-            <!--------------MODAL---------->
+
+
+
+
+            <!--   ------------MODAL--------     -->
 
             <div class="row">
 
@@ -354,15 +352,22 @@
             </div>
 
         </section>
-
         <div class="md-overlay"></div>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
         <script type="text/javascript" src="assets/js/classie.js"></script>
         <script type="text/javascript" src="assets/js/modalEffects.js"></script>
-        <script src="assets/js/cssParser.js"></script>
-
-        <!-- jQuery -->
+        <script src="assets/js/cssParser.js"></script>-->
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+        <script type="text/javascript" language="javascript">
+            for (i = 0; i < 5; i++) {
+                console.log("teste" + i);
+                var palmas = <?php echo json_encode($cenas); ?>;
+                $('.dbresult').append("filme " + i + ": " + palmas[i].movie + "<br>");
+
+            }
+            $('.dbresult').append("filme 0: " + palmas[0].movie);
+        </script>
 
     </body>
 
