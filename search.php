@@ -1,3 +1,4 @@
+<!---- Acesso à base de bados --->
 <?php
 
     //para usar nos selects
@@ -6,26 +7,7 @@
         
     include 'connection.php';  
 
-    $contador = 0;
-
-    //$sql = "SELECT filme FROM filmes WHERE $filters LIKE '%$option%'";
-
     //$sql = "SELECT filme, nome_ator, nome_genero, nome_musica, cantor
-
-    $sql = "SELECT DISTINCT filme, data_lanc, realizador, image
-    
-    FROM filmes, filmes_atores, atores, filmes_generos, generos, filmes_musicas, musicas
-    
-    WHERE filmes._id_filmes = filmes_atores.filmes_id_filmes AND _id_ator = atores_id_ator AND 
-    
-    filmes._id_filmes = filmes_generos.filmes_id_filmes AND _id_genero = generos_id_genero AND 
-    
-    filmes._id_filmes = filmes_musicas.filmes_id_filmes AND _id_musica = musicas_id_musica
-    
-    AND $filters LIKE '%$option%'";
-
-
-    $result = $conn->query($sql);
 
 ?>
 
@@ -142,7 +124,7 @@
                         <br> Your Option:
                         <input type="text" name="option">
                         <br>
-                        <input type="submit">
+                        <input type="submit" value="Search">
                     </form>
 
                 </div>
@@ -150,14 +132,33 @@
                 <div class="col-xs-12 start-xs">
 
                     <?php
-                        //imprime o que foi pesquisado
-                        echo $result->num_rows . " Results for <b>" . $_POST["filters"] . " <i>";   //imprime o filtro usado
-                        echo $_POST["option"] . "</i></b> :<br>"; //imprime o que foi escrito no filtro
                     
-                    //---------------------------------RESULTADOS-------------------------------//
+                        //---------------------------------SELECT-------------------------------//
 
-                    if ($result->num_rows > 0) {
+                        $select_filme = "SELECT DISTINCT filme, data_lanc, realizador, image
+    
+                        FROM filmes, filmes_atores, atores, filmes_generos, generos, filmes_musicas, musicas
+    
+                        WHERE filmes._id_filmes = filmes_atores.filmes_id_filmes AND _id_ator = atores_id_ator AND 
+    
+                        filmes._id_filmes = filmes_generos.filmes_id_filmes AND _id_genero = generos_id_genero AND 
+    
+                        filmes._id_filmes = filmes_musicas.filmes_id_filmes AND _id_musica = musicas_id_musica
+    
+                        AND $filters LIKE '%$option%'";
+
+                        $result = $conn->query($select_filme);
+                    
+                        //-------------------------------RESULTADOS-----------------------------//
+
+                        if ($result->num_rows == 0) {
+                            echo " No results";
+                        }
+
+                        if ($result->num_rows > 0) {
                         // output data of each row
+                            echo $result->num_rows . " Results for <b>" . $_POST["filters"] . " <i>";   //imprime o filtro usado
+                            echo $_POST["option"] . "</i></b> :<br>"; //imprime o que foi escrito no filtro
 
                             while($row = $result->fetch_assoc()) {
 
@@ -167,9 +168,9 @@
                                         <a class=" . "nav__link center-xs" . " href=" . "movie.php" . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
                                     </div>
                                     <div class=" . "col-xs-6" . ">
-                                        <p class=" . "text text-left middle-xs" .">
-                                        <br>" . $row["filme"] . 
-                                        "<br><br>Release date: " . $row["data_lanc"] .
+                                        <p class=" . "subtitle text-left middle-xs" .">
+                                        <br>" . $row["filme"] . "</p>" .
+                                        "<p class=" . "text text-left middle-xs> Release date: " . $row["data_lanc"] .
                                         "<br>Director: " . $row["realizador"] . "</p>
                                     </div>
                                 </div><br>";
@@ -181,7 +182,7 @@
 
             </div>
 
-            <!--   ------------MODAL--------     -->
+            <!--------------MODAL---------->
 
             <div class="row">
 
@@ -190,78 +191,77 @@
                 <div class="md-modal-xs md-effect-1" id="modal-1">
                     <div class="md-content-xs">
                         <button class="md-close btn-default">Close me!</button>
-                        <!--
+
                         <div>
                             <form action="demo_form.asp">
                                 <label class="input-anim" for="">
-                                    <span class="label__info">  Movie Name </span>
+                                    <span class="label__info">Movie Name</span>
                                     <input class="input-anim" type="text" name="movie">
                                     <br> </label>
 
                                 <label class="input-anim" for="">
-                                    <span class="label__info"> Release date </span>
-                                    <input type="text" name="year">
-                                    <br>
-                                </label>
-
-                                <label class="input-anim" for="">
-                                    <span class="label__info">  Genre </span>
-                                    <input type="text" name="genre">
-                                    <br>
-                                </label>
-                                <label class="input-anim" for="">
-                                    <span class="label__info"> Producer </span>
-                                    <input type="text" name="producer">
-                                    <br>
-                                </label>
-                                <label class="input-anim" for="">
-                                    <span class="label__info">  Age Rating </span>
+                                    <span class="label__info">Age rating</span>
                                     <input type="text" name="agerating">
                                     <br>
                                 </label>
 
                                 <label class="input-anim" for="">
-                                    <span class="label__info">  IMDB Rating </span>
+                                    <span class="label__info">Release date</span>
+                                    <input type="text" name="year">
+                                    <br>
+                                </label>
+
+                                <label class="input-anim" for="">
+                                    <span class="label__info">Director</span>
+                                    <input type="text" name="director">
+                                    <br>
+                                </label>
+
+                                <label class="input-anim" for="">
+                                    <span class="label__info">IMDB Rating</span>
                                     <input type="text" name="imdb">
                                     <br>
                                 </label>
 
                                 <label class="input-anim" for="">
-                                    <span class="label__info">  OST Rating </span>
+                                    <span class="label__info">OST Rating</span>
                                     <input type="text" name="ost">
                                     <br>
                                 </label>
-
+                                <label class="input-anim" for="">
+                                    <span class="label__info">Genre</span>
+                                    <input type="text" name="genre">
+                                    <br>
+                                </label>
 
                                 <label class="input-anim" for="">
-                                    <span class="label__info">  Singer/Band </span>
-                                    <input type="text" name="ost">
+                                    <span class="label__info">Song</span>
+                                    <input type="text" name="song">
                                     <br>
                                 </label>
-
 
                                 <label class="input-anim" for="">
-                                    <span class="label__info">  Song </span>
-                                    <input type="text" name="ost">
+                                    <span class="label__info">Singer/Band</span>
+                                    <input type="text" name="band">
                                     <br>
                                 </label>
+
+                                <label class="input-anim" for="">
+                                    <span class="label__info">Actor</span>
+                                    <input type="text" name="actor">
+                                    <br>
+                                </label>
+
                                 <br>
-                                <input type="submit" class=" btn-default" value="Submit">
+                                <input type="submit" class="btn-default" value="Submit">
                             </form>
 
                         </div>
--->
 
                     </div>
                 </div>
             </div>
 
-            <div class="col-xs-12 end-xs">
-                <br>
-                <br>
-                <br> <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">CONTACT US</a>
-
-            </div>
 
         </section>
 

@@ -1,32 +1,11 @@
 <!---- Acesso à base de bados --->
-<?php 
+<?php
 
+    //para usar nos selects
+    $filters = $_POST["filters"];   //o filtro usado
+    $option = $_POST["option"];     //o que foi escrito no filtro
+        
     include 'connection.php';  
-
-    $contador = 0;
-
-    //Impressão dos dados da BD no html
-    $sql = "SELECT * FROM filmes ORDER BY RAND()";
-    $result = $conn->query($sql);
-   
-    if ($result->num_rows > 0) {
-    // output data of each row
-        
-        while($row = $result->fetch_assoc()) {
-
-/*            $movie = $row["filme"];
-*/
-           /* $var = $row["data_lanc"] . "<br>" . "Director: " . $row["realizador"] . "<br><br>" . "Age rating: " . $row["classif"] . "<br><br>" . "IMDB rating: " . $row["imdb_rating"] . "/10" . "<br>" . "OST rating: " . $row["ost_rating"]  . "/100". "<br>";
-            */
-            
-            $cenas[$contador] = array("movie"=>$row["filme"]); //mostra linhas da col 'filme'
-            
-            $contador++;
-        }
-        
-    } else {
-        echo "0 results"; 
-    }
 
 ?>
 
@@ -94,6 +73,7 @@
                 <label class="overlay" for="nav-trigger"></label>
                 <div class="nav__body">
 
+                    <!-----------------------NOME DO FILME----------------------->
 
                     <ul class="  nav__list col-xs-12 subtitle">
                         <label class="nav__item" for="nav-trigger">
@@ -131,16 +111,60 @@
                             </div>
                             <div class="col-sm-6 col-xs-12">
                                 <p class="text text-left middle-xs">
-                                    <?php echo $var; ?>
-                                        <?php echo $cenas[$contador]; ?>
 
-                                            <div class="dbresult"></div>
+                                    <!----------------------------CENAS--------------------------------->
 
-                                            <br>Main actors
 
-                                            <!--
-                                        <br>Bacon ipsum dolor amet meatball tail picanha cupim shoulder, chicken ball tip bresaola meatloaf sausage jerky pork chop hamburger t-bone. Bacon meatball hamburger short ribs drumstick ball tip fatback andouille, brisket bresaola. Venison jerky ground round drumstick, sirloin sausage swine burgdoggen. Picanha ribeye bacon, cow tri-tip strip steak turducken burgdoggen pork loin ham meatball spare ribs shankle. Picanha boudin tongue turkey sausage, jerky biltong capicola kevin landjaeger bacon beef prosciutto frankfurter venison.
-                                        -->
+                                    <br>Main actors
+
+
+<?php
+
+    //---------------------------------SELECT-------------------------------//
+
+    $select_filme = "SELECT filme, data_lanc, realizador, image, nome_ator, nome_genero, nome_musica, cantor
+
+    FROM filmes, filmes_atores, atores, filmes_generos, generos, filmes_musicas, musicas
+
+    WHERE filmes._id_filmes = filmes_atores.filmes_id_filmes AND _id_ator = atores_id_ator AND 
+
+    filmes._id_filmes = filmes_generos.filmes_id_filmes AND _id_genero = generos_id_genero AND 
+
+    filmes._id_filmes = filmes_musicas.filmes_id_filmes AND _id_musica = musicas_id_musica
+
+    AND $filters LIKE '%$option%'";
+
+    $result = $conn->query($select_filme);
+
+    //-------------------------------RESULTADOS-----------------------------//
+
+    if ($result->num_rows == 0) {
+        echo " No results";
+    }
+
+    if ($result->num_rows > 0) {
+    // output data of each row
+        echo $result->num_rows . " Results for <b>" . $_POST["filters"] . " <i>";   //imprime o filtro usado
+        echo $_POST["option"] . "</i></b> :<br>"; //imprime o que foi escrito no filtro
+
+        while($row = $result->fetch_assoc()) {
+
+            echo "
+            <div class=" . "row center-xs start-md" . ">
+                <div class=" . "col-xs-3 col-sm-2" . ">
+                    <a class=" . "nav__link center-xs" . " href=" . "movie.php" . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
+                </div>
+                <div class=" . "col-xs-6" . ">
+                    <p class=" . "subtitle text-left middle-xs" .">
+                    <br>" . $row["filme"] . "</p>" .
+                    "<p class=" . "text text-left middle-xs> Release date: " . $row["data_lanc"] .
+                    "<br>Director: " . $row["realizador"] . "</p>
+                </div>
+            </div><br>";
+        }
+    }
+?>
+
                                 </p>
                                 <br>
                                 <br>
@@ -154,8 +178,6 @@
             </div>
             <div class="row center-xs start-md">
                 <div class="col-xs-12 col-sm-6 order-xs-1st">
-
-
 
                     <ul>
                         <div class="subtitle  center-xs start-sm">
@@ -203,7 +225,7 @@
                                 <div class="col-xs-12 col-sm-7 ">
                                     <p class="text text-left middle-xs">
                                         <br>Song
-                                        <br>Singer / Band </p>
+                                        <br>Singer/Band </p>
 
                                 </div>
                             </div>
@@ -213,8 +235,6 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-6 order-xs-2nd padding-big">
-
-
 
                     <ul>
                         <div class="subtitle center-xs start-sm">
@@ -238,15 +258,9 @@
 
                 </div>
 
-
-
             </div>
 
-
-
-
-
-            <!--   ------------MODAL--------     -->
+            <!--------------MODAL---------->
 
             <div class="row">
 
@@ -324,22 +338,15 @@
             </div>
 
         </section>
+
         <div class="md-overlay"></div>
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
         <script type="text/javascript" src="assets/js/classie.js"></script>
         <script type="text/javascript" src="assets/js/modalEffects.js"></script>
-        <script src="assets/js/cssParser.js"></script>-->
+        <script src="assets/js/cssParser.js"></script>
+
+        <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
-        <script type="text/javascript" language="javascript">
-            for (i = 0; i < 5; i++) {
-                console.log("teste" + i);
-                var palmas = <?php echo json_encode($cenas); ?>;
-                $('.dbresult').append("filme " + i + ": " + palmas[i].movie + "<br>");
-
-            }
-            $('.dbresult').append("filme 0: " + palmas[0].movie);
-        </script>
 
     </body>
 
