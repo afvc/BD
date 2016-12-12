@@ -3,14 +3,14 @@
 
     include 'connection.php';  
 
+    $f = 3;
     //---------------------------------SELECT-------------------------------//
-
 
     $select_filme = "SELECT filme, image
 
     FROM filmes
 
-    WHERE _id_filmes LIKE '1'";
+    WHERE _id_filmes LIKE '$f'";
 
     $result_filme = $conn->query($select_filme);
 
@@ -19,7 +19,7 @@
 
     FROM filmes
 
-    WHERE _id_filmes LIKE '1'";
+    WHERE _id_filmes LIKE '$f'";
 
     $result_filme_more = $conn->query($select_filme_more);
 
@@ -30,7 +30,7 @@
 
     WHERE filmes._id_filmes = filmes_atores.filmes_id_filmes AND _id_ator = atores_id_ator
 
-    AND _id_filmes LIKE '1'";
+    AND _id_filmes LIKE '$f'";
 
     $result_atores = $conn->query($select_atores);
 
@@ -39,9 +39,9 @@
 
     FROM filmes, filmes_generos, generos
 
-    WHERE filmes._id_filmes = filmes_generos.filmes_id_filmes AND _id_genero = generos_id_genero AND 
+    WHERE filmes._id_filmes = filmes_generos.filmes_id_filmes AND _id_genero = generos_id_genero
 
-    AND _id_filmes LIKE '1'";
+    AND _id_filmes LIKE '$f'";
 
     $result_generos = $conn->query($select_generos);
 
@@ -52,7 +52,7 @@
 
     WHERE filmes._id_filmes = filmes_musicas.filmes_id_filmes AND _id_musica = musicas_id_musica
 
-    AND _id_filmes LIKE '1'";
+    AND _id_filmes LIKE '$f'";
 
     $result_musicas = $conn->query($select_musicas);
 
@@ -178,7 +178,7 @@
 
                                         while($row = $result_filme_more->fetch_assoc()) {
 
-                                            echo $row["data_lanc"] . "<br>";
+                                            echo "<br><b>Release date: </b>" . $row["data_lanc"] . "<br>";
                                             echo "<br><b>Age rating: </b>" . $row["classif"];
                                             echo "<br><b>Director: </b>" . $row["realizador"];
                                             echo "<br><b>IMDB rating: </b>" . $row["imdb_rating"] . "/10";
@@ -192,8 +192,13 @@
                                             echo "<br>" . $row["nome_ator"];
                                         }
                                 
-                                        //GENERO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                        echo "<br><br><b>Genres: </b>";
+                                        
+                                        while($row = $result_generos->fetch_assoc()) {
 
+                                            echo "<br>" . $row["nome_genero"];
+                                        }
+                                
                                     ?>
                             </p>
                         </div>
@@ -202,49 +207,30 @@
 
                 </ul>
             </div>
-        
+
             <div class="row center-xs start-md">
                 <div class="col-xs-12 col-sm-6 order-xs-1st">
 
-                    <ul>
-                        <div class="subtitle  center-xs start-sm">
-                            <p>OFFICIAL SOUNDTRACK</p>
-                        </div>
+                    <div class="subtitle  center-xs start-sm">
+                        <p>OFFICIAL SOUNDTRACK</p>
+                    </div>
+                    <?php 
 
-                        <li>
-                            <div class="row center-xs start-md">
-                                <div class="col-xs-12 col-sm-7 ">
-                                    <p class="text text-left middle-xs">
-                                        <br>Song
-                                        <br>Singer / Band </p>
+                            //-------------------------------RESULTADOS-----------------------------//
 
-                                </div>
-                            </div>
-                        </li>
+                                while($row = $result_musicas->fetch_assoc()) {
 
-                        <li>
-                            <div class="row center-xs start-md">
-                                <div class="col-xs-12 col-sm-7 ">
-                                    <p class="text text-left middle-xs">
-                                        <br>Song
-                                        <br>Singer / Band </p>
 
-                                </div>
-                            </div>
-                        </li>
+                                    echo "<div class=" . "row center-xs start-md" . ">
+                                            <div class=" . "col-xs-12 col-sm-7" . ">
+                                                <p class=" . "text text-left middle-xs" ."><b>Song: </b>" . $row["nome_musica"] . "
+                                                <br><b>Singer/Band: </b>" . $row["cantor"] . "</p>
+                                            </div>
+                                        </div>";
+                                }
 
-                        <li>
-                            <div class="row center-xs start-md">
-                                <div class="col-xs-12 col-sm-7 ">
-                                    <p class="text text-left middle-xs">
-                                        <br>Song
-                                        <br>Singer/Band </p>
+                            ?>
 
-                                </div>
-                            </div>
-                        </li>
-
-                    </ul>
                 </div>
 
                 <div class="col-xs-12 col-sm-6 order-xs-2nd padding-big">
@@ -276,8 +262,21 @@
             <!--------------MODAL---------->
 
             <div class="row">
+                
+                            
+                <?php
+                    
+                    /*
+                    $max = SELECT MAX(_id_musica) FROM musicas;
 
+                    INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
 
+                    VALUES ('$max+1', 'musica', NULL, NULL, 'cantor', '1', 'user');
+                    
+                    */
+                ?>
+                
+                
                 <button class="btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
 
                 <div class="md-modal-xs md-effect-1" id="modal-1">
@@ -286,58 +285,19 @@
 
                         <div>
                             <form action="demo_form.asp">
-                                <label class="input-anim" for="">
-                                    <span class="label__info">  Movie Name </span>
-                                    <input class="input-anim" type="text" name="movie">
-                                    <br> </label>
 
                                 <label class="input-anim" for="">
-                                    <span class="label__info"> Year </span>
-                                    <input type="text" name="year">
+                                    <span class="label__info">Song</span>
+                                    <input type="text" name="nome_musica">
                                     <br>
                                 </label>
 
                                 <label class="input-anim" for="">
-                                    <span class="label__info">  Genre </span>
-                                    <input type="text" name="genre">
-                                    <br>
-                                </label>
-                                <label class="input-anim" for="">
-                                    <span class="label__info"> Producer </span>
-                                    <input type="text" name="producer">
-                                    <br>
-                                </label>
-                                <label class="input-anim" for="">
-                                    <span class="label__info">  Age Rating </span>
-                                    <input type="text" name="agerating">
+                                    <span class="label__info">Singer/Band</span>
+                                    <input type="text" name="cantor">
                                     <br>
                                 </label>
 
-                                <label class="input-anim" for="">
-                                    <span class="label__info">  IMDB Rating </span>
-                                    <input type="text" name="imdb">
-                                    <br>
-                                </label>
-
-                                <label class="input-anim" for="">
-                                    <span class="label__info">  OST Rating </span>
-                                    <input type="text" name="ost">
-                                    <br>
-                                </label>
-
-
-                                <label class="input-anim" for="">
-                                    <span class="label__info">  Singer/Band </span>
-                                    <input type="text" name="ost">
-                                    <br>
-                                </label>
-
-
-                                <label class="input-anim" for="">
-                                    <span class="label__info">  Song </span>
-                                    <input type="text" name="ost">
-                                    <br>
-                                </label>
                                 <br>
                                 <input type="submit" class=" btn-default" value="Submit">
                             </form>

@@ -4,13 +4,10 @@
     //para usar nos selects
     $filters = $_POST["filters"];   //o filtro usado
     $option = $_POST["option"];     //o que foi escrito no filtro
-        
+    
     include 'connection.php';  
 
-    //$sql = "SELECT filme, nome_ator, nome_genero, nome_musica, cantor
-
-
-//---------------------------------SELECT-------------------------------//
+    //---------------------------------SELECT-------------------------------//
 
     $select_filme = "SELECT DISTINCT _id_filmes, filme, data_lanc, realizador, image
 
