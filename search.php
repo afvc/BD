@@ -126,21 +126,23 @@
 
                         <label for="filters">FILTER</label>
                         <select id="filter" name="filters">
-                            <option name="filters" value="filme" selected>Movie Name</option>
-                            <option name="filters" value="classif">Age rating</option>
-                            <option name="filters" value="realizador">Director</option>
-                            <option name="filters" value="nome_ator">Actor</option>
-                            <option name="filters" value="nome_genero">Genre</option>
-                            <option name="filters" value="nome_musica">Song</option>
-                            <option name="filters" value="cantor">Singer/Band</option>
-                            <option name="filters" value="imdb_rating">Imdb Rating</option>
-                            <option name="filters" value="ost_rating">OST Rating</option>
+                            <option value="filme" selected>Movie Name</option>
+                            <option value="classif">Age rating</option>
+                            <option value="realizador">Director</option>
+                            <option value="nome_ator">Actor</option>
+                            <option value="nome_genero">Genre</option>
+                            <option value="nome_musica">Song</option>
+                            <option value="cantor">Singer/Band</option>
+                            <option value="imdb_rating">Imdb Rating</option>
+                            <option value="ost_rating">OST Rating</option>
                         </select>
-
-                        <br> Your Option:
+                        
+                        <br>Your Option:
                         <input type="text" name="option">
                         <br>
                         <input type="submit" value="Search">
+                        <br>
+                        <br>
                     </form>
 
                 </div>
@@ -157,7 +159,7 @@
 
                         if ($result_filme->num_rows > 0) {
                         // output data of each row
-                            echo $result->num_rows . " Results for <b>" . $_POST["filters"] . " <i>";   //imprime o filtro usado
+                            echo $result_filme->num_rows . " results for <b>" . $_POST["filters"] . " <i>";   //imprime o filtro usado
                             echo $_POST["option"] . "</i></b> :<br>"; //imprime o que foi escrito no filtro
 
                             while($row = $result_filme->fetch_assoc()) {
@@ -165,13 +167,13 @@
                                 echo "
                                     <div class=" . "row center-xs start-md" . ">
                                         <div class=" . "col-xs-3 col-sm-2" . ">
-                                            <a class=" . "nav__link center-xs" . " href=" . "movie.php" . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
+                                            <a class=" . "nav__link center-xs" . " href=" . "movie.php#" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
                                         </div>
                                         <div class=" . "col-xs-6" . ">
                                             <p class=" . "subtitle text-left middle-xs" .">
                                             <br>" . $row["filme"] . "</p>" .
-                                            "<p class=" . "text text-left middle-xs> Release date: " . $row["data_lanc"] .
-                                            "<br>Director: " . $row["realizador"] . "</p>
+                                            "<p class=" . "text text-left middle-xs> <b>Release date: </b>" . $row["data_lanc"] .
+                                            "<br><b>Director: </b>" . $row["realizador"] . "</p>
                                         </div>
                                     </div><br>";                                
                                 

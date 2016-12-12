@@ -1,9 +1,20 @@
+<script>
+
+window.onload = getInfo();
+
+function getInfo() {
+    var type = location.hash.substr(1);
+    console.log(type);
+}
+
+</script>
+
 <!---- Acesso à base de bados --->
 <?php
 
     include 'connection.php';  
-
-    $f = 3;
+    
+    $f = '2';
     //---------------------------------SELECT-------------------------------//
 
     $select_filme = "SELECT filme, image
@@ -216,20 +227,19 @@
                     </div>
                     <?php 
 
-                            //-------------------------------RESULTADOS-----------------------------//
+                    //-------------------------------RESULTADOS-----------------------------//
 
-                                while($row = $result_musicas->fetch_assoc()) {
+                        while($row = $result_musicas->fetch_assoc()) {
 
+                            echo "<div class=" . "row center-xs start-md" . ">
+                                    <div class=" . "col-xs-12 col-sm-7" . ">
+                                    <p class=" . "text text-left middle-xs" ."><b>Song: </b>" . $row["nome_musica"] . "
+                                    <br><b>Singer/Band: </b>" . $row["cantor"] . "</p>
+                                    </div>
+                                    </div>";
+                        }
 
-                                    echo "<div class=" . "row center-xs start-md" . ">
-                                            <div class=" . "col-xs-12 col-sm-7" . ">
-                                                <p class=" . "text text-left middle-xs" ."><b>Song: </b>" . $row["nome_musica"] . "
-                                                <br><b>Singer/Band: </b>" . $row["cantor"] . "</p>
-                                            </div>
-                                        </div>";
-                                }
-
-                            ?>
+                    ?>
 
                 </div>
 
@@ -262,21 +272,7 @@
             <!--------------MODAL---------->
 
             <div class="row">
-                
-                            
-                <?php
-                    
-                    /*
-                    $max = SELECT MAX(_id_musica) FROM musicas;
 
-                    INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
-
-                    VALUES ('$max+1', 'musica', NULL, NULL, 'cantor', '1', 'user');
-                    
-                    */
-                ?>
-                
-                
                 <button class="btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
 
                 <div class="md-modal-xs md-effect-1" id="modal-1">
@@ -284,29 +280,45 @@
                         <button class="md-close btn-default">Close me!</button>
 
                         <div>
-                            <form action="demo_form.asp">
+                            <!--  <form action="demo_form.asp">  -->
 
-                                <label class="input-anim" for="">
-                                    <span class="label__info">Song</span>
-                                    <input type="text" name="nome_musica">
+                            <form method="post">
+                                <label name="filters" class="input-anim" for="">
+                                    <span class="label__info" value="nome_musica">Song</span>
+                                    <input type="text" name="option">
                                     <br>
                                 </label>
 
-                                <label class="input-anim" for="">
-                                    <span class="label__info">Singer/Band</span>
-                                    <input type="text" name="cantor">
+                                <label name="filters" class="input-anim" for="">
+                                    <span class="label__info" value="cantor">Singer/Band</span>
+                                    <input type="text" name="option">
                                     <br>
                                 </label>
 
                                 <br>
                                 <input type="submit" class=" btn-default" value="Submit">
                             </form>
-
                         </div>
-
                     </div>
-
                 </div>
+
+                <?php
+                    
+                    $filters = $_POST["filters"];   //o filtro usado
+                    $option = $_POST["option"];     //o que foi escrito no filtro
+
+                    /* $max = "SELECT MAX(_id_musica) FROM musicas"; */
+
+                    $insert = "INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
+
+                    VALUES ('20', 'musica', NULL, NULL, 'cantor', '0', 'user')";
+                    
+                    if ($conn->query($insert) === TRUE) {
+                        echo "New music inserted";
+                    }
+
+                    
+                ?>
 
             </div>
 
@@ -320,6 +332,8 @@
 
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+        <script src="assets/js/script-movie.js"></script>
 
     </body>
 
