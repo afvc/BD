@@ -12,16 +12,21 @@ function getInfo() {
 <!---- Acesso à base de bados --->
 <?php
 
-    include 'connection.php';  
+    $url = $_SERVER['REQUEST_URI'];
+
+    $movieid = substr($url, -1);
+
+    //echo $rest;
     
-    $f = '2';
+    include 'connection.php';
+        
     //---------------------------------SELECT-------------------------------//
 
     $select_filme = "SELECT filme, image
 
     FROM filmes
 
-    WHERE _id_filmes LIKE '$f'";
+    WHERE _id_filmes LIKE '$movieid'";
 
     $result_filme = $conn->query($select_filme);
 
@@ -30,7 +35,7 @@ function getInfo() {
 
     FROM filmes
 
-    WHERE _id_filmes LIKE '$f'";
+    WHERE _id_filmes LIKE '$movieid'";
 
     $result_filme_more = $conn->query($select_filme_more);
 
@@ -41,7 +46,7 @@ function getInfo() {
 
     WHERE filmes._id_filmes = filmes_atores.filmes_id_filmes AND _id_ator = atores_id_ator
 
-    AND _id_filmes LIKE '$f'";
+    AND _id_filmes LIKE '$movieid'";
 
     $result_atores = $conn->query($select_atores);
 
@@ -52,7 +57,7 @@ function getInfo() {
 
     WHERE filmes._id_filmes = filmes_generos.filmes_id_filmes AND _id_genero = generos_id_genero
 
-    AND _id_filmes LIKE '$f'";
+    AND _id_filmes LIKE '$movieid'";
 
     $result_generos = $conn->query($select_generos);
 
@@ -63,7 +68,7 @@ function getInfo() {
 
     WHERE filmes._id_filmes = filmes_musicas.filmes_id_filmes AND _id_musica = musicas_id_musica
 
-    AND _id_filmes LIKE '$f'";
+    AND _id_filmes LIKE '$movieid'";
 
     $result_musicas = $conn->query($select_musicas);
 

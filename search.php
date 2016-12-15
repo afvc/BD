@@ -167,7 +167,7 @@
                                 echo "
                                     <div class=" . "row center-xs start-md" . ">
                                         <div class=" . "col-xs-3 col-sm-2" . ">
-                                            <a class=" . "nav__link center-xs" . " href=" . "movie.php#" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
+                                            <a class=" . "nav__link center-xs" . " href=" . "movie.php?" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
                                         </div>
                                         <div class=" . "col-xs-6" . ">
                                             <p class=" . "subtitle text-left middle-xs" .">
