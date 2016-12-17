@@ -45,7 +45,7 @@ $_SESSION['login_user']=$userdb; // Initializing Session
                                  
 header("Location:search.php"); // Redirecting To Other Page
    echo "log";
-exit; 
+
  
     
 } else {

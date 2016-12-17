@@ -67,7 +67,7 @@ CREATE TABLE `comentario_forum` (
 --
 
 CREATE TABLE `filmes` (
-  `_id_filmes` decimal(19,0) NOT NULL,
+  `_id_filmes` serial NOT NULL,
   `filme` varchar(255) DEFAULT NULL,
   `image` varchar(500) DEFAULT NULL,
   `classif` decimal(19,0) DEFAULT NULL,
@@ -242,7 +242,7 @@ INSERT INTO `login` (`id`, `username`, `passwd`) VALUES
 --
 
 CREATE TABLE `musicas` (
-  `_id_musica` int(255) NOT NULL,
+  `_id_musica` serial NOT NULL,
   `nome_musica` varchar(255) NOT NULL,
   `m_generos` varchar(255) DEFAULT NULL,
   `m_ano` year(4) DEFAULT NULL,
