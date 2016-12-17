@@ -1,12 +1,10 @@
 <script>
+    window.onload = getInfo();
 
-window.onload = getInfo();
-
-function getInfo() {
-    var type = location.hash.substr(1);
-    console.log(type);
-}
-
+    function getInfo() {
+        var type = location.hash.substr(1);
+        console.log(type);
+    }
 </script>
 
 <!---- Acesso à base de bados --->
@@ -159,35 +157,33 @@ function getInfo() {
 
             <div class="row">
 
-                <div class="subtitle col-xs-12  start-xs">
+                <div class="title col-xs-12 start-xs">
+                    <p>
 
-                    <?php 
+                        <?php 
 
-                    //-----------------------RESULTADOS - NOME DO FILME e IMAGEM-----------------------//
+                        //-----------------------RESULTADOS - NOME DO FILME e IMAGEM-----------------------//
 
                         if ($result_filme->num_rows > 0) {
                             while($row = $result_filme->fetch_assoc()) {
-
-                                echo "<p>" . $row["filme"] . "</p>
+                                
+                                echo $row["filme"] . "</p>
                                 
                                     </div>
-                                        <ul class = " . "nav__list col-xs-12 subtitle" . ">
-
-                                        <li>
-                                            <div class = " . "row center-xs start-md middle-xs" . ">
-                                                <div class= " . "col-sm-6 col-xs-12" . ">
-                                                    <a class = " . "nav__link center-xs menu-selected" . ">
-                                                    <img src = " . $row["image"] . " class = " . "logo" . "> </a>
-                                                </div>";
+                                    <div class = " . "row center-xs start-md middle-xs" . ">
+                                        <div class= " . "col-sm-6 col-xs-12" . ">
+                                            <a class = " . "nav__link center-xs menu-selected" . ">
+                                            <img src = " . $row["image"] . " class = " . "logo" . "> </a>
+                                        </div>";
                             }
                         }
                     ?>
 
-                        <div class="col-sm-6 col-xs-12">
+                            <div class="col-sm-6 col-xs-12">
 
-                            <p class="text text-left middle-xs">
+                                <p class="text text-left middle-xs">
 
-                                <?php 
+                                    <?php 
                     
                                     //--------------RESULTADOS - INFO FILME e ATORES e GÉNERO----------------//
 
@@ -215,12 +211,10 @@ function getInfo() {
                                         }
                                 
                                     ?>
-                            </p>
-                        </div>
+                                </p>
+                            </div>
                 </div>
-                </li>
 
-                </ul>
             </div>
 
             <div class="row center-xs start-md">
@@ -244,30 +238,6 @@ function getInfo() {
                         }
 
                     ?>
-
-                </div>
-
-                <div class="col-xs-12 col-sm-6 order-xs-2nd padding-big">
-
-                    <ul>
-                        <div class="subtitle center-xs start-sm">
-                            <p>EXCLUSIVE POSTERS</p>
-                        </div>
-                        <li>
-                            <div class="row center-xs start-md">
-                                <div class="col-xs-12 ">
-
-
-                                    <a class="nav__link start-xs" href="#" class="menu-selected"> <img src="assets/images/p1.jpg" class="logo-m">
-
-                                        <p class="text ">Caption</p>
-                                    </a>
-
-                                </div>
-                            </div>
-                        </li>
-
-                    </ul>
 
                 </div>
 
