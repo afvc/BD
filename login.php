@@ -13,44 +13,28 @@ else
 $userdb=$_POST['user'];
 $passdb=$_POST['pass'];
     
+    include 'connection.php';  
     
-$servername = "localhost";
-    $username = "root";
-    $password = "root";
-    $dbname = "spotlight"; // Pasta do sql
-    
-    // Create connection
-    $conn = new mysqli($servername, $username, $password,$dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
-    echo "Connected successfully";
-    
-    
-$userdb = stripslashes($userdb);
-$passdb = stripslashes($passdb);
+//$userdb = stripslashes($userdb);
+//$passdb = stripslashes($passdb);
     
     
 // Selecting Database
+  
     
- 
+$log = $conn->query("select * from Utilizador where passw='$passdb' AND user_name='$userdb'");
     
-$result = $conn->query("select * from login where passwd='$passdb' AND username='$userdb'");
-    
-if ($result->num_rows ==1) {
-                         
-$_SESSION['login_user']=$userdb; // Initializing Session
-                                 
-header("Location:search.php"); // Redirecting To Other Page
-   echo "log";
+if ($log->num_rows ==1) {
+                   echo $passdb;      
+    $_SESSION['login_user']=$userdb; // Initializing Session
+         
+   header("Location:index.php"); // Redirecting To Other Page 
+  
 
- 
-    
 } else {
     
 $error = 'Username or Password is invalid';
+     echo $error;
 }
     
 mysql_close($conn); // Closing Connection
