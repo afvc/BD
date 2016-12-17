@@ -1,19 +1,19 @@
 {
-  "name": "Hawkpost",
+  "name": " ",
   "version": "9000.0.1",
-  "description": "Festa das Latas e Imposição de Insígnias 2016",
+  "description": " ",
   "main": "",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/afvc/latada_2016.git"
+    "url": " "
   },
-  "author": "Whitesmith Co",
+  "author": " ",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/afvc/latada_2016/issues"
+    "url": " "
   },
-  "homepage": "https://hawkpost.co",
+  "homepage": " ",
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.11.2",

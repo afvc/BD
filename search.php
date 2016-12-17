@@ -9,7 +9,7 @@
 
     //----------------------SELECT FILME------------------------//
 
-    $select_filme = "SELECT DISTINCT _id_filmes, filme, data_lanc, realizador, image
+    $select_filme = "SELECT DISTINCT _id_filmes, filme, image, data_lanc, realizador, imdb_rating, ost_rating
 
     FROM filmes, filmes_atores, atores, filmes_generos, generos, filmes_musicas, musicas
 
@@ -42,8 +42,6 @@
     <link rel="stylesheet" href="assets/css/_font-awesome.min.css.scss" type="text/css">
 
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-
-    <script type="text/javascript" src='assets/js/script-search.js'></script>
 
 </head>
 
@@ -159,27 +157,29 @@
                     // output data of each row
                         echo $result_filme->num_rows . " results for <b>" . $_POST["filters"] . " <i>";   //imprime o filtro usado
                         echo $_POST["option"] . "</i></b> :<br>"; //imprime o que foi escrito no filtro
-
+                        
+                        echo "<div class=" . "row center-xs start-md" . ">";
                         while($row = $result_filme->fetch_assoc()) {
 
                             echo "
-                                <div class=" . "row center-xs start-md" . ">
-                                    <div class=" . "col-xs-3 col-sm-2" . ">
+                                    <div class=" . "col-xs-5 col-md-2" . ">
                                         <a class=" . "nav__link center-xs" . " href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
                                     </div>
-                                    <div class=" . "col-xs-6" . ">
-                                        <p class=" . "subtitle text-left middle-xs" .">
-                                        <br>" . $row["filme"] . "</p>" .
+                                    <div class=" . "col-xs-7 col-md-4" . ">
+                                        <p class=" . "subtitle text-left middle-xs" .">" . $row["filme"] . "</p>" .
                                         "<p class=" . "text text-left middle-xs> <b>Release date: </b>" . $row["data_lanc"] .
-                                        "<br><b>Director: </b>" . $row["realizador"] . "</p>
+                                        "<br><b>Director: </b>" . $row["realizador"] . "
+                                        <br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10
+                                        <br><b>OST Rating: </b>" . $row["ost_rating"] . "/100</p>
                                     </div>
-                                </div><br>";                                
+                                <br>";
 
                         }
 
                     }
                 ?>
 
+            </div>
             </div>
 
         </div>
