@@ -3,8 +3,6 @@
 
 <head>
 
-
-
     <!-- META TAGS -->
     <meta charset="UTF-8" />
     <title>Spotlight</title>
@@ -132,7 +130,7 @@
             </ul>
 
             <div class="end-xs col-xs-12 ">
-                <a href="tops-imdb.html">
+                <a href="tops-imdb.php">
                     <button class="btn-modal">SHOW MORE</button>
                 </a>
             </div>
@@ -193,7 +191,7 @@
             </ul>
 
             <div class="end-xs col-xs-12 ">
-                <a href="tops-site.html">
+                <a href="tops-site.php">
                     <button class="btn-modal">SHOW MORE</button>
                 </a>
             </div>
@@ -244,21 +242,14 @@
                     </div>
                 </li>
 
-
             </ul>
 
             <div class="end-xs col-xs-12 ">
-                <a href="tops-OST.html">
+                <a href="tops-OST.php">
                     <button class="btn-modal">SHOW MORE</button>
                 </a>
             </div>
-            <div class="col-xs-12 end-xs">
-                <br>
-                <br>
-                <br> <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">CONTACT US</a>
-
-            </div>
-
+            
         </div>
 
     </section>

@@ -1,11 +1,76 @@
+<script>
+
+window.onload = getInfo();
+
+function getInfo() {
+    var type = location.hash.substr(1);
+    console.log(type);
+}
+
+</script>
+
 <!---- Acesso à base de bados --->
 <?php
 
-    //para usar nos selects
-    $filters = $_POST["filters"];   //o filtro usado
-    $option = $_POST["option"];     //o que foi escrito no filtro
+    $url = $_SERVER['REQUEST_URI'];
+
+    $movieid = substr($url, -1);
+
+    //echo $rest;
+    
+    include 'connection.php';
         
-    include 'connection.php';  
+    //---------------------------------SELECT-------------------------------//
+
+    $select_filme = "SELECT filme, image
+
+    FROM filmes
+
+    WHERE _id_filmes LIKE '$movieid'";
+
+    $result_filme = $conn->query($select_filme);
+
+
+    $select_filme_more = "SELECT data_lanc, realizador, classif, imdb_rating, ost_rating
+
+    FROM filmes
+
+    WHERE _id_filmes LIKE '$movieid'";
+
+    $result_filme_more = $conn->query($select_filme_more);
+
+
+    $select_atores = "SELECT nome_ator
+
+    FROM filmes, filmes_atores, atores
+
+    WHERE filmes._id_filmes = filmes_atores.filmes_id_filmes AND _id_ator = atores_id_ator
+
+    AND _id_filmes LIKE '$movieid'";
+
+    $result_atores = $conn->query($select_atores);
+
+
+    $select_generos = "SELECT nome_genero
+
+    FROM filmes, filmes_generos, generos
+
+    WHERE filmes._id_filmes = filmes_generos.filmes_id_filmes AND _id_genero = generos_id_genero
+
+    AND _id_filmes LIKE '$movieid'";
+
+    $result_generos = $conn->query($select_generos);
+
+
+    $select_musicas = "SELECT nome_musica, cantor
+
+    FROM filmes, filmes_musicas, musicas
+
+    WHERE filmes._id_filmes = filmes_musicas.filmes_id_filmes AND _id_musica = musicas_id_musica
+
+    AND _id_filmes LIKE '$movieid'";
+
+    $result_musicas = $conn->query($select_musicas);
 
 ?>
 
@@ -73,7 +138,6 @@
                 <label class="overlay" for="nav-trigger"></label>
                 <div class="nav__body">
 
-                    <!-----------------------NOME DO FILME----------------------->
 
                     <ul class="  nav__list col-xs-12 subtitle">
                         <label class="nav__item" for="nav-trigger">
@@ -96,142 +160,91 @@
             <div class="row">
 
                 <div class="subtitle col-xs-12  start-xs">
-                    <?php echo $movie; ?>
 
-                </div>
+                    <?php 
 
-                <ul class="  nav__list col-xs-12  subtitle">
+                    //-----------------------RESULTADOS - NOME DO FILME e IMAGEM-----------------------//
 
-                    <li>
-                        <div class="row center-xs start-md middle-xs">
-                            <div class="col-sm-6 col-xs-12">
+                        if ($result_filme->num_rows > 0) {
+                            while($row = $result_filme->fetch_assoc()) {
 
+                                echo "<p>" . $row["filme"] . "</p>
+                                
+                                    </div>
+                                        <ul class = " . "nav__list col-xs-12 subtitle" . ">
 
-                                <a class="nav__link center-xs" href="#" class="menu-selected"> <img src="assets/images/p1.jpg" class="logo"> </a>
-                            </div>
-                            <div class="col-sm-6 col-xs-12">
-                                <p class="text text-left middle-xs">
+                                        <li>
+                                            <div class = " . "row center-xs start-md middle-xs" . ">
+                                                <div class= " . "col-sm-6 col-xs-12" . ">
+                                                    <a class = " . "nav__link center-xs menu-selected" . ">
+                                                    <img src = " . $row["image"] . " class = " . "logo" . "> </a>
+                                                </div>";
+                            }
+                        }
+                    ?>
 
-                                    <!----------------------------CENAS--------------------------------->
+                        <div class="col-sm-6 col-xs-12">
 
+                            <p class="text text-left middle-xs">
 
-                                    <br>Main actors
+                                <?php 
+                    
+                                    //--------------RESULTADOS - INFO FILME e ATORES e GÉNERO----------------//
 
+                                        while($row = $result_filme_more->fetch_assoc()) {
 
-<?php
+                                            echo "<br><b>Release date: </b>" . $row["data_lanc"] . "<br>";
+                                            echo "<br><b>Age rating: </b>" . $row["classif"];
+                                            echo "<br><b>Director: </b>" . $row["realizador"];
+                                            echo "<br><b>IMDB rating: </b>" . $row["imdb_rating"] . "/10";
+                                            echo "<br><b>OST rating: </b>" . $row["ost_rating"] . "/100" . "<br><br>";
+                                        }
+                                    
+                                        echo "<b>Main actors: </b>";
+                                        
+                                        while($row = $result_atores->fetch_assoc()) {
 
-    //---------------------------------SELECT-------------------------------//
+                                            echo "<br>" . $row["nome_ator"];
+                                        }
+                                
+                                        echo "<br><br><b>Genres: </b>";
+                                        
+                                        while($row = $result_generos->fetch_assoc()) {
 
-    $select_filme = "SELECT filme, data_lanc, realizador, image, nome_ator, nome_genero, nome_musica, cantor
-
-    FROM filmes, filmes_atores, atores, filmes_generos, generos, filmes_musicas, musicas
-
-    WHERE filmes._id_filmes = filmes_atores.filmes_id_filmes AND _id_ator = atores_id_ator AND 
-
-    filmes._id_filmes = filmes_generos.filmes_id_filmes AND _id_genero = generos_id_genero AND 
-
-    filmes._id_filmes = filmes_musicas.filmes_id_filmes AND _id_musica = musicas_id_musica
-
-    AND $filters LIKE '%$option%'";
-
-    $result = $conn->query($select_filme);
-
-    //-------------------------------RESULTADOS-----------------------------//
-
-    if ($result->num_rows == 0) {
-        echo " No results";
-    }
-
-    if ($result->num_rows > 0) {
-    // output data of each row
-        echo $result->num_rows . " Results for <b>" . $_POST["filters"] . " <i>";   //imprime o filtro usado
-        echo $_POST["option"] . "</i></b> :<br>"; //imprime o que foi escrito no filtro
-
-        while($row = $result->fetch_assoc()) {
-
-            echo "
-            <div class=" . "row center-xs start-md" . ">
-                <div class=" . "col-xs-3 col-sm-2" . ">
-                    <a class=" . "nav__link center-xs" . " href=" . "movie.php" . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
-                </div>
-                <div class=" . "col-xs-6" . ">
-                    <p class=" . "subtitle text-left middle-xs" .">
-                    <br>" . $row["filme"] . "</p>" .
-                    "<p class=" . "text text-left middle-xs> Release date: " . $row["data_lanc"] .
-                    "<br>Director: " . $row["realizador"] . "</p>
-                </div>
-            </div><br>";
-        }
-    }
-?>
-
-                                </p>
-                                <br>
-                                <br>
-
-                            </div>
+                                            echo "<br>" . $row["nome_genero"];
+                                        }
+                                
+                                    ?>
+                            </p>
                         </div>
-                    </li>
-
+                </div>
+                </li>
 
                 </ul>
             </div>
+
             <div class="row center-xs start-md">
                 <div class="col-xs-12 col-sm-6 order-xs-1st">
 
-                    <ul>
-                        <div class="subtitle  center-xs start-sm">
-                            <p>OFFICIAL SOUNDTRACK</p>
-                        </div>
-                        <li>
-                            <div class="row center-xs start-md">
-                                <div class="col-xs-12 col-sm-7 ">
-                                    <!--
-                                <a class="nav__link start-xs" href="#" class="menu-selected"> <img src="assets/images/p1.jpg" class="logo"> </a>
-                                -->
-                                </div>
-                                <div class="col-xs-12 col-sm-7 ">
-                                    <p class="text text-left middle-xs">
-                                        <br>Song
-                                        <br>Singer / Band </p>
+                    <div class="subtitle  center-xs start-sm">
+                        <p>OFFICIAL SOUNDTRACK</p>
+                    </div>
+                    <?php 
 
-                                </div>
-                            </div>
-                        </li>
+                    //--------------------------RESULTADOS - MUSICAS--------------------------//
 
-                        <li>
-                            <div class="row center-xs start-md">
-                                <div class="col-xs-12 col-sm-7">
-                                    <!--
-                                <a class="nav__link start-xs" href="#" class="menu-selected"> <img src="assets/images/p1.jpg" class="logo"> </a>
-                                -->
-                                </div>
-                                <div class="col-xs-12 col-sm-7 ">
-                                    <p class="text text-left middle-xs">
-                                        <br>Song
-                                        <br>Singer / Band </p>
+                        while($row = $result_musicas->fetch_assoc()) {
 
-                                </div>
-                            </div>
-                        </li>
+                            echo "<div class=" . "row center-xs start-md" . ">
+                                    <div class=" . "col-xs-12 col-sm-7" . ">
+                                    <p class=" . "text text-left middle-xs" ."><b>Song: </b>" . $row["nome_musica"] . "
+                                    <br><b>Singer/Band: </b>" . $row["cantor"] . "</p>
+                                    </div>
+                                    </div>";
+                        }
 
-                        <li>
-                            <div class="row center-xs start-md">
-                                <div class="col-xs-12 col-sm-7 ">
-                                    <!--
-                                <a class="nav__link start-xs" href="#" class="menu-selected"> <img src="assets/images/p1.jpg" class="logo"> </a>
-                                -->
-                                </div>
-                                <div class="col-xs-12 col-sm-7 ">
-                                    <p class="text text-left middle-xs">
-                                        <br>Song
-                                        <br>Singer/Band </p>
+                    ?>
 
-                                </div>
-                            </div>
-                        </li>
-
-                    </ul>
                 </div>
 
                 <div class="col-xs-12 col-sm-6 order-xs-2nd padding-big">
@@ -264,7 +277,6 @@
 
             <div class="row">
 
-
                 <button class="btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
 
                 <div class="md-modal-xs md-effect-1" id="modal-1">
@@ -272,68 +284,45 @@
                         <button class="md-close btn-default">Close me!</button>
 
                         <div>
-                            <form action="demo_form.asp">
-                                <label class="input-anim" for="">
-                                    <span class="label__info">  Movie Name </span>
-                                    <input class="input-anim" type="text" name="movie">
-                                    <br> </label>
+                            <!--  <form action="demo_form.asp">  -->
 
-                                <label class="input-anim" for="">
-                                    <span class="label__info"> Year </span>
-                                    <input type="text" name="year">
+                            <form method="post">
+                                <label name="filters" class="input-anim" for="">
+                                    <span class="label__info" value="nome_musica">Song</span>
+                                    <input type="text" name="option">
                                     <br>
                                 </label>
 
-                                <label class="input-anim" for="">
-                                    <span class="label__info">  Genre </span>
-                                    <input type="text" name="genre">
-                                    <br>
-                                </label>
-                                <label class="input-anim" for="">
-                                    <span class="label__info"> Producer </span>
-                                    <input type="text" name="producer">
-                                    <br>
-                                </label>
-                                <label class="input-anim" for="">
-                                    <span class="label__info">  Age Rating </span>
-                                    <input type="text" name="agerating">
+                                <label name="filters" class="input-anim" for="">
+                                    <span class="label__info" value="cantor">Singer/Band</span>
+                                    <input type="text" name="option">
                                     <br>
                                 </label>
 
-                                <label class="input-anim" for="">
-                                    <span class="label__info">  IMDB Rating </span>
-                                    <input type="text" name="imdb">
-                                    <br>
-                                </label>
-
-                                <label class="input-anim" for="">
-                                    <span class="label__info">  OST Rating </span>
-                                    <input type="text" name="ost">
-                                    <br>
-                                </label>
-
-
-                                <label class="input-anim" for="">
-                                    <span class="label__info">  Singer/Band </span>
-                                    <input type="text" name="ost">
-                                    <br>
-                                </label>
-
-
-                                <label class="input-anim" for="">
-                                    <span class="label__info">  Song </span>
-                                    <input type="text" name="ost">
-                                    <br>
-                                </label>
                                 <br>
                                 <input type="submit" class=" btn-default" value="Submit">
                             </form>
-
                         </div>
-
                     </div>
-
                 </div>
+
+                <?php
+                    
+                    $filters = $_POST["filters"];   //o filtro usado
+                    $option = $_POST["option"];     //o que foi escrito no filtro
+
+                    /* $max = "SELECT MAX(_id_musica) FROM musicas"; */
+
+                    $insert = "INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
+
+                    VALUES ('20', 'musica', NULL, NULL, 'cantor', '0', 'user')";
+                    
+                    if ($conn->query($insert) === TRUE) {
+                        echo "New music inserted";
+                    }
+
+                    
+                ?>
 
             </div>
 
@@ -347,6 +336,8 @@
 
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+        <script src="assets/js/script-movie.js"></script>
 
     </body>
 
