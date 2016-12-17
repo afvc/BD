@@ -138,7 +138,6 @@ function getInfo() {
                 <label class="overlay" for="nav-trigger"></label>
                 <div class="nav__body">
 
-                    <!-----------------------NOME DO FILME----------------------->
 
                     <ul class="  nav__list col-xs-12 subtitle">
                         <label class="nav__item" for="nav-trigger">
@@ -163,8 +162,8 @@ function getInfo() {
                 <div class="subtitle col-xs-12  start-xs">
 
                     <?php 
-                    
-                    //-------------------------------RESULTADOS-----------------------------//
+
+                    //-----------------------RESULTADOS - NOME DO FILME e IMAGEM-----------------------//
 
                         if ($result_filme->num_rows > 0) {
                             while($row = $result_filme->fetch_assoc()) {
@@ -190,7 +189,7 @@ function getInfo() {
 
                                 <?php 
                     
-                                    //-------------------------------RESULTADOS-----------------------------//
+                                    //--------------RESULTADOS - INFO FILME e ATORES e GÉNERO----------------//
 
                                         while($row = $result_filme_more->fetch_assoc()) {
 
@@ -232,7 +231,7 @@ function getInfo() {
                     </div>
                     <?php 
 
-                    //-------------------------------RESULTADOS-----------------------------//
+                    //--------------------------RESULTADOS - MUSICAS--------------------------//
 
                         while($row = $result_musicas->fetch_assoc()) {
 
