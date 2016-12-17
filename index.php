@@ -1,3 +1,8 @@
+<?php  include('login.php');
+
+ include('logx.php');
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -80,6 +85,20 @@
 
     <section class="section-resized">
 
+       <div class="row">
+           <div class="col-xs-12">  <div id="profile">
+            <p id="welcome">Username : <i>
+    <?php  
+                echo  $_SESSION['login_user'];
+                ?> </i></p>
+
+            <p id="welcome">Password : <i>
+    <?php echo  $passdb;;?> </i></p>
+
+
+            <button><a id="logout" href="logout.php">Log Out</a></button>
+             <button><a id="logout" href="">Change Password</a></button>
+           </div></div></div>
 
         <div class="row">
 

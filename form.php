@@ -5,10 +5,11 @@
 
 include('login.php'); // Includes Login Script
 
-if(isset($_SESSION['login_user'])){
-header("Location:search.php");
+/*if(isset($_SESSION['login_user'])){
+header("Location:profile.php");
      
-}
+} else{header("Location:form.php");
+      }*/
  ?>
     <!DOCTYPE html>
     <html>
