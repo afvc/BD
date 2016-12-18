@@ -170,10 +170,10 @@
                                 echo $row["filme"] . "</p>
                                 
                                     </div>
-                                    <div class = " . "row center-xs start-md middle-xs" . ">
-                                        <div class= " . "col-sm-6 col-xs-12" . ">
-                                            <a class = " . "nav__link center-xs menu-selected" . ">
-                                            <img src = " . $row["image"] . " class = " . "logo" . "> </a>
+                                    <div class ='row center-xs start-md middle-xs'>
+                                        <div class ='col-sm-6 col-xs-12'>
+                                            <a class ='nav__link center-xs menu-selected'>
+                                            <img src = " . $row["image"] . " class ='logo'> </a>
                                         </div>";
                             }
                         }
@@ -189,7 +189,7 @@
 
                                         while($row = $result_filme_more->fetch_assoc()) {
 
-                                            echo "<br><b>Release date: </b>" . $row["data_lanc"] . "<br>";
+                                            echo "<b>Release date: </b>" . $row["data_lanc"] . "<br>";
                                             echo "<br><b>Age rating: </b>" . $row["classif"];
                                             echo "<br><b>Director: </b>" . $row["realizador"];
                                             echo "<br><b>IMDB rating: </b>" . $row["imdb_rating"] . "/10";
