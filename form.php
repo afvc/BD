@@ -21,20 +21,22 @@ header("Location:profile.php");
     </head>
 
     <body>
-        <div id="main">
-            <h1>Login </h1>
+        <div class="bg-yellow">
+        <section class="section-resized">
+           <div class="row"><div class="col-xs-12">
+            <p class="title text-lightest">Login </p>
             <div id="login">
-                <h2>Login Form</h2>
+                 
                 <form action="" method="post">
-                    <label>UserName :</label>
+                    <label class="text-light">UserName :</label>
                     <input id="name" name="user" placeholder="username" type="text">
-                    <label>Password :</label>
+                    <label  class="text-light">Password :</label>
                     <input id="password" name="pass" placeholder="**********" type="password">
-                    <input name="submit" type="submit" value=" Login ">
+                    <input name="submit" type="submit" class="btn-dark "value=" Login ">
                      
-                </form>
-            </div>
-        </div>
+                </form></div></div>
+            </section>
+            </div></div>
     </body>
 
     </html>
