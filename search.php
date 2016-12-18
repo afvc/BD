@@ -45,13 +45,68 @@
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="clone.js"></script>
-
+<script src="clone-song.js"></script>
+<script src="clone-act.js"></script>
 </head>
 
 
 <body>
 
-    <?php include 'navbar.php'; ?>
+    <!------------#NAVBAR_BIG------------>
+    <div class="smalltext nav-big">
+
+        <nav class="navbar">
+            <div class="row middle-xs full-height">
+
+                <ul class="smalltext col-xs-8 end-xs  col-sm-10 col-lg-10 text-bold">
+
+                    <li class="navbar__link"><a href="index.php" class="menu-selected">HOME</a></li>
+                    <li class="navbar__link"><a href="tops.php">TOPS</a></li>
+                    <li class="navbar__link"><a href="slist.php">SONG LIST</a></li>
+                    <li class="navbar__link"> <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">CONTACT US</a></li>
+                    <li class="navbar__link"><a href="search.php">SEARCH</a></li>
+
+                </ul>
+
+            </div>
+        </nav>
+    </div>
+
+
+    <!------------#NAVBAR_SMALL------------>
+
+    <div class="nav-small text-bold">
+
+        <input type="checkbox" id="nav-trigger" class="nav-controller" />
+
+        <header class="header-bar">
+            <label class="" for="nav-trigger" tabindex="-1">
+                <div class="button--icon-container">
+                    <span class="icon icon--hamburger"></span>
+                </div>
+            </label>
+
+        </header>
+
+        <aside class="nav">
+            <label class="overlay" for="nav-trigger"></label>
+            <div class="nav__body">
+
+
+                <ul class="  nav__list col-xs-12 subtitle">
+                    <label class="nav__item" for="nav-trigger">
+
+                        <li><a class="nav__link start-xs" href="index.php" class="menu-selected">HOME</a></li>
+                        <li><a class="nav__link start-xs" href="tops.php">TOPS</a></li>
+                        <li><a class="nav__link start-xs" href="slist.php">SONG LIST</a></li>
+                        <li><a class="nav__link start-xs" href="mailto:someone@example.com?Subject=Hello%20again" target="_top">CONTACT US</a></li>
+                        <li><a class="nav__link start-xs" href="search.php">SEARCH</a></li>
+
+                    </label>
+                </ul>
+            </div>
+        </aside>
+    </div>
 
     <section class="section-resized">
 
@@ -164,18 +219,18 @@
 
         <!--------------MODAL---------->
 
-        <div class="row center-xs">
+        <div class="row center-xs ">
 
-            <button class="btn-default  md-trigger  data-modal="modal-1">HELP US GROW</button>
+            <button class="grow  btn-default  md-trigger"  data-modal="modal-1">HELP US GROW</button>
 
             <div class="md-modal-xs md-effect-1" id="modal-1">
                 <div class="md-content-xs">
-                    <button class="md-close btn-default">Close me!</button>
+                    <button class="md-close btn-default-fixed">Close me!</button>
 
                     <div>
-                        <form action="demo_form.asp">
+                      <form action="#" method="post">
                             <label class="input-anim" for="">
-                                <span class="label__info">Movie Name</span>
+                                <br><br><span class="label__info">Movie Name</span>
                                 <input class="input-anim" type="text" name="movie">
                                 <br> </label>
 
@@ -214,23 +269,38 @@
                                 <br>
                             </label>
 
-                            <label class="input-anim" for="">
-                                <span class="label__info">Song</span>
-                                <input type="text" name="song">
-                                <br>
-                            </label>
+                          
 
-                            <label class="input-anim" for="">
-                                <span class="label__info">Singer/Band</span>
-                                <input type="text" name="band">
-                                <br>
-                            </label>
+    <div id="copy1" class="clone">
+        <label for="text" class="test-text-label input-anim">  
+        <span class="label__info">Song</span>
+        <input type="text" id="text" name="nome_musica" class="test-text "/>
+         <br></label>
+         
+             <label for="text" class="test-text-label input-anim">  
+          <span class="label__info"> Artist/Band</span>
+        <input type="text" id="text" name="cantor" class="test-text"/> <br></label>
+      
+    </div>
+   
+    <div id="add-del-buttons">
+        <input type="button" id="btnAddS" class="btn-default" value="ADD SONG">
+        <input type="button" id="btnDelS" class="btn-default" value="REMOVE SONG">
+    </div>
+    
+    <div id="copyC1" class="cloneC">
+        <label for="text" class="test-text-label input-anim">  
+        <span class="label__info">Actor</span>
+        <input type="text" id="text" name="nome_ator" class="test-text "/>
+         <br></label>
 
-                            <label class="input-anim" for="">
-                                <span class="label__info">Actor</span>
-                                <input type="text" name="actor">
-                                <br>
-                            </label>
+    </div>
+   
+    <div id="add-del-buttons">
+        <input type="button" id="btnAddC" class="btn-default" value="ADD ACTOR">
+        <input type="button" id="btnDelC" class="btn-default" value="REMOVE ACTOR">
+    </div>
+ 
 
                             <br>
                             <input type="submit" class="btn-default" value="Submit">
@@ -250,10 +320,24 @@
     <script type="text/javascript" src="assets/js/classie.js"></script>
     <script type="text/javascript" src="assets/js/modalEffects.js"></script>
     <script src="assets/js/cssParser.js"></script>
-
-    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    
+<script>
+$(".grow").click(function() {
 
+$(".md-overlay").css("visibility", "visible");
+    $(".md-overlay").css("opacity", "1");
+    
+});
+    
+    $(".md-close").click(function() {
+
+$(".md-overlay").css("visibility", "hidden");
+    $(".md-overlay").css("opacity", "0");
+    
+});
+    
+    </script>
 
 </body>
 
