@@ -70,6 +70,21 @@
 
     $result_musicas = $conn->query($select_musicas);
 
+    $nome_musica = $_POST["nome_musica"];       //o que foi escrito na música
+    $genero_musica = $_POST["genero"];          //o que foi escrito no género
+    $ano_musica = $_POST["ano"];                //o que foi escrito no ano
+    $cantor = $_POST["cantor"];                 //o que foi escrito no cantor/banda
+
+    $insert = "INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
+
+    VALUES (NULL, '$nome_musica', '$genero_musica', '$ano_musica', '$cantor', '0', 'user')";
+
+    if ($conn->query($insert) == TRUE) {
+        echo "New music inserted";
+    }
+
+    
+
 ?>
 
     <!DOCTYPE html>
@@ -170,10 +185,10 @@
                                 echo $row["filme"] . "</p>
                                 
                                     </div>
-                                    <div class = " . "row center-xs start-md middle-xs" . ">
-                                        <div class= " . "col-sm-6 col-xs-12" . ">
-                                            <a class = " . "nav__link center-xs menu-selected" . ">
-                                            <img src = " . $row["image"] . " class = " . "logo" . "> </a>
+                                    <div class ='row center-xs start-md middle-xs'>
+                                        <div class ='col-sm-6 col-xs-12'>
+                                            <a class ='nav__link center-xs menu-selected'>
+                                            <img src = " . $row["image"] . " class ='logo'> </a>
                                         </div>";
                             }
                         }
@@ -189,7 +204,7 @@
 
                                         while($row = $result_filme_more->fetch_assoc()) {
 
-                                            echo "<br><b>Release date: </b>" . $row["data_lanc"] . "<br>";
+                                            echo "<b>Release date: </b>" . $row["data_lanc"] . "<br>";
                                             echo "<br><b>Age rating: </b>" . $row["classif"];
                                             echo "<br><b>Director: </b>" . $row["realizador"];
                                             echo "<br><b>IMDB rating: </b>" . $row["imdb_rating"] . "/10";
@@ -229,9 +244,9 @@
 
                         while($row = $result_musicas->fetch_assoc()) {
 
-                            echo "<div class=" . "row center-xs start-md" . ">
-                                    <div class=" . "col-xs-12 col-sm-7" . ">
-                                    <p class=" . "text text-left middle-xs" ."><b>Song: </b>" . $row["nome_musica"] . "
+                            echo "<div class='row center-xs start-md'>
+                                    <div class='col-xs-12 col-sm-7'>
+                                    <p class='text text-left middle-xs'><b>Song: </b>" . $row["nome_musica"] . "
                                     <br><b>Singer/Band: </b>" . $row["cantor"] . "</p>
                                     </div>
                                     </div>";
@@ -245,7 +260,7 @@
 
             <!--------------MODAL---------->
 
-            <div class="row">
+            <div class="row center-xs">
 
                 <button class="btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
 
@@ -254,45 +269,36 @@
                         <button class="md-close btn-default">Close me!</button>
 
                         <div>
-                            <!--  <form action="demo_form.asp">  -->
-
                             <form method="post">
-                                <label name="filters" class="input-anim" for="">
-                                    <span class="label__info" value="nome_musica">Song</span>
-                                    <input type="text" name="option">
-                                    <br>
-                                </label>
+                                <label>Song</label>
+                                <input type="text" name="nome_musica">
+                                <br>
 
+                                <label>Genre</label>
+                                <input type="text" name="genero">
+                                <br>
+
+                                <label>Year</label>
+                                <input type="text" pattern="\d*" maxlength="4" name="ano">
+                                <br>
+
+                                <label>Singer/Band</label>
+                                <input type="text" name="cantor">
+                                <br>
+
+                                <!--
                                 <label name="filters" class="input-anim" for="">
                                     <span class="label__info" value="cantor">Singer/Band</span>
                                     <input type="text" name="option">
                                     <br>
                                 </label>
-
+-->
                                 <br>
-                                <input type="submit" class=" btn-default" value="Submit">
+                                <input type="submit" value="Add song">
                             </form>
                         </div>
                     </div>
                 </div>
-
-                <?php
-                    
-                    $filters = $_POST["filters"];   //o filtro usado
-                    $option = $_POST["option"];     //o que foi escrito no filtro
-
-                    /* $max = "SELECT MAX(_id_musica) FROM musicas"; */
-
-                    $insert = "INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
-
-                    VALUES ('20', 'musica', NULL, NULL, 'cantor', '0', 'user')";
-                    
-                    if ($conn->query($insert) === TRUE) {
-                        echo "New music inserted";
-                    }
-
-                    
-                ?>
 
             </div>
 
