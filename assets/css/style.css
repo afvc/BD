@@ -62,9 +62,17 @@
      max-width: 100%;
      margin: auto;
  }
-.bg-yellow{
+.bg-black{
   background: black;
     height: 100vh;
+}
+
+.bg-gray{
+  background: rgba(0, 0, 0, 0.03);
+   
+
+    
+ 
 }
  @media (min-width: 1600px) {
      .section-resized,
@@ -890,7 +898,7 @@
   /*  max-height: calc(100vh - 210px);
     overflow-y: auto;*/
     height: 80vh;
-overflow: scroll;
+overflow-y: scroll;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -1020,7 +1028,7 @@ overflow: scroll;
     height: 6vh;
 }
 .md-content-xs {
-    background-color: #4ca7af;
+    background-color: #b9b217;
 }
 
 /*----------------------------------------------

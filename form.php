@@ -21,7 +21,7 @@ header("Location:profile.php");
     </head>
 
     <body>
-        <div class="bg-yellow">
+        <div class="bg-black">
         <section class="section-resized">
            <div class="row"><div class="col-xs-12">
             <p class="title text-lightest">Login </p>
