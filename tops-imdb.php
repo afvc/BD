@@ -59,7 +59,6 @@
         </nav>
     </div>
 
-
     <!------------#NAVBAR_SMALL------------>
 
     <div class="nav-small text-bold">
