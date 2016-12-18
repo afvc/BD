@@ -86,7 +86,7 @@
     <section class="section-resized">
 
        <div class="row">
-           <div class="col-xs-12">  <div id="profile">
+           <div class="col-xs-12">  <div  >
             <p id="welcome">Username : <i>
     <?php  
                 echo  $_SESSION['login_user'];
@@ -96,8 +96,8 @@
     <?php echo  $passdb;;?> </i></p>
 
 
-            <button><a id="logout" href="logout.php">Log Out</a></button>
-             <button><a id="logout" href="">Change Password</a></button>
+            <button class="btn-default"><a   href="logout.php">Log Out</a></button>
+             <button class="btn-dark"><a   href="">Change Password</a></button>
            </div></div></div>
 
         <div class="row">
