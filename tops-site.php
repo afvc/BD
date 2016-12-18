@@ -5,7 +5,7 @@
 
     //----------------------SELECT FILME------------------------//
 
-    $select_filme = "SELECT _id_filmes, filme, data_lanc, realizador, image
+    $select_filme = "SELECT _id_filmes, filme, image, data_lanc, realizador, imdb_rating, ost_rating
 
     FROM filmes";
     
@@ -98,7 +98,7 @@
         <div class="row">
 
             <div class="subtitle start-xs">
-                <p>MOST POPULAR MOVIES AROUND HERE</p>
+                <p>IMDB RATING TOP 25 MOVIES</p>
             </div>
         </div>
 
@@ -108,31 +108,35 @@
 
                 <?php
 
-                $numrows = 0;
+            $numrows = 0;
 
-                if ($result_filme->num_rows > 0) {
+            if ($result_filme->num_rows > 0) {
+                
+                echo "<div class='row start-md'>";
 
-                    while($row = $result_filme->fetch_assoc()) {
+                    while(($row = $result_filme->fetch_assoc()) && ($num_rows < 25)) {
 
-                        $num_rows++;
+                    $num_rows++;
 
-                        echo "
-                            <div class=" . "row center-xs start-md" . ">
-                                <div class=" . "col-xs-3 col-sm-2" . ">
-                                <div> # $num_rows </div>
-                                    <a class=" . "nav__link center-xs" . " href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
-                                </div>
-                                <div class=" . "col-xs-6" . ">
-                                    <p class=" . "subtitle text-left middle-xs" .">
-                                    <br>" . $row["filme"] . "</p>" .
-                                    "<p class=" . "text text-left middle-xs> <b>Release date: </b>" . $row["data_lanc"] .
-                                    "<br><b>Director: </b>" . $row["realizador"] . "</p>
-                                </div>
-                            </div><br>";  
-                    }
+                    echo "<div class='col-xs-5 col-sm-2'>
+                            <div><b> #$num_rows </b></div>
+                            <a class='nav__link center-xs' href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>                            </div>
+                            <div class='col-xs-7 col-sm-4'>
+                                    <p class='subtitle text-left middle-xs'>" . $row["filme"] . "</p>" .
+                                    "<p class='text text-left middle-xs'>
+                                        <b>Release date: </b>" . $row["data_lanc"] .
+                                        "<br><b>Director: </b>" . $row["realizador"] . "
+                                        <br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10
+                                        <br><b>OST Rating: </b>" . $row["ost_rating"] . "/100
+                                    </p>
+                                </div><br>";
+                    
+                    
+
                 }
+            }
 
-            ?>
+        ?>
 
             </div>
 

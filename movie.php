@@ -229,9 +229,9 @@
 
                         while($row = $result_musicas->fetch_assoc()) {
 
-                            echo "<div class=" . "row center-xs start-md" . ">
-                                    <div class=" . "col-xs-12 col-sm-7" . ">
-                                    <p class=" . "text text-left middle-xs" ."><b>Song: </b>" . $row["nome_musica"] . "
+                            echo "<div class='row center-xs start-md'>
+                                    <div class='col-xs-12 col-sm-7'>
+                                    <p class='text text-left middle-xs'><b>Song: </b>" . $row["nome_musica"] . "
                                     <br><b>Singer/Band: </b>" . $row["cantor"] . "</p>
                                     </div>
                                     </div>";
