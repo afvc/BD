@@ -15,140 +15,83 @@
 
 ?>
 
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
 
-<head>
+    <head>
 
-    <!-- META TAGS -->
-    <meta charset="UTF-8" />
-    <title>Spotlight</title>
-
-
-    <!-- STYLESHEETS -->
-
-    <link rel="stylesheet" href="assets/css/flexboxgrid.min.css" type="text/css">
-
-    <link rel="stylesheet" href="assets/css/_font-awesome.min.css.scss" type="text/css">
-
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-
-</head>
+        <!-- META TAGS -->
+        <meta charset="UTF-8" />
+        <title>Spotlight</title>
 
 
-<body>
+        <!-- STYLESHEETS -->
+
+        <link rel="stylesheet" href="assets/css/flexboxgrid.min.css" type="text/css">
+
+        <link rel="stylesheet" href="assets/css/_font-awesome.min.css.scss" type="text/css">
+
+        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+
+    </head>
 
 
-    <!------------#NAVBAR_BIG------------>
-    <div class="smalltext nav-big">
+    <body>
 
-        <nav class="navbar">
-            <div class="row middle-xs full-height">
+        <?php include 'navbar.php'; ?>
 
-                <ul class="smalltext col-xs-8 end-xs  col-sm-10 col-lg-10 text-bold">
+            <section class="section-resized">
 
-                    <li class="navbar__link"><a href="index.php" class="menu-selected">HOME</a></li>
-                    <li class="navbar__link"><a href="tops.php">TOPS</a></li>
-                    <li class="navbar__link"><a href="slist.php">SONG LIST</a></li>
-                    <li class="navbar__link"> <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">CONTACT US</a></li>
-                    <li class="navbar__link"><a href="search.php">SEARCH</a></li>
+                <div class="row">
 
-                </ul>
-
-            </div>
-        </nav>
-    </div>
-
-    <!------------#NAVBAR_SMALL------------>
-
-    <div class="nav-small text-bold">
-
-        <input type="checkbox" id="nav-trigger" class="nav-controller" />
-
-        <header class="header-bar">
-            <label class="" for="nav-trigger" tabindex="-1">
-                <div class="button--icon-container">
-                    <span class="icon icon--hamburger"></span>
+                    <div class="subtitle start-xs">
+                        <p>IMDB RATING TOP 25 MOVIES</p>
+                    </div>
                 </div>
-            </label>
 
-        </header>
+                <div class="row">
 
-        <aside class="nav">
-            <label class="overlay" for="nav-trigger"></label>
-            <div class="nav__body">
+                    <div class="col-xs-12 start-xs">
 
+                        <?php
 
-                <ul class="  nav__list col-xs-12 subtitle">
-                    <label class="nav__item" for="nav-trigger">
+                        $numrows = 0;
 
-                        <li><a class="nav__link start-xs" href="index.php" class="menu-selected">HOME</a></li>
-                        <li><a class="nav__link start-xs" href="tops.php">TOPS</a></li>
-                        <li><a class="nav__link start-xs" href="slist.php">SONG LIST</a></li>
-                        <li><a class="nav__link start-xs" href="mailto:someone@example.com?Subject=Hello%20again" target="_top">CONTACT US</a></li>
-                        <li><a class="nav__link start-xs" href="search.php">SEARCH</a></li>
+                        echo "<div class='row start-md'>";
 
-                    </label>
-                </ul>
-            </div>
-        </aside>
-    </div>
+                        while(($row = $result_filme->fetch_assoc()) && ($num_rows < 25)) {
 
-    <section class="section-resized">
+                        $num_rows++;
 
-        <div class="row">
+                        echo "<div class='col-xs-5 col-sm-2'>
+                                <div><br><b> #$num_rows </b></div>
+                                <a class='nav__link center-xs' href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>                            </div>
+                                <div class='col-xs-7 col-sm-4'>
+                                        <p class='subtitle text-left middle-xs'>" . $row["filme"] . "</p>" .
+                                        "<p class='text text-left middle-xs'>
+                                            <b>Release date: </b>" . $row["data_lanc"] .
+                                            "<br><b>Director: </b>" . $row["realizador"] . "
+                                            <br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10
+                                            <br><b>OST Rating: </b>" . $row["ost_rating"] . "/100
+                                        </p>
+                                    </div><br>";
 
-            <div class="subtitle start-xs">
-                <p>IMDB RATING TOP 25 MOVIES</p>
-            </div>
-        </div>
+                    }
 
-        <div class="row">
+                ?>
 
-            <div class="col-xs-12 start-xs">
+                    </div>
 
-                <?php
+                </div>
 
-            $numrows = 0;
+            </section>
 
-            if ($result_filme->num_rows > 0) {
-                
-                echo "<div class='row start-md'>";
+            <div class="md-overlay"></div>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+            <script type="text/javascript" src="assets/js/classie.js"></script>
+            <script type="text/javascript" src="assets/js/modalEffects.js"></script>
+            <script src="assets/js/cssParser.js"></script>
 
-                    while(($row = $result_filme->fetch_assoc()) && ($num_rows < 25)) {
+    </body>
 
-                    $num_rows++;
-
-                    echo "<div class='col-xs-5 col-sm-2'>
-                            <div><b> #$num_rows </b></div>
-                            <a class='nav__link center-xs' href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>                            </div>
-                            <div class='col-xs-7 col-sm-4'>
-                                    <p class='subtitle text-left middle-xs'>" . $row["filme"] . "</p>" .
-                                    "<p class='text text-left middle-xs'>
-                                        <b>Release date: </b>" . $row["data_lanc"] .
-                                        "<br><b>Director: </b>" . $row["realizador"] . "
-                                        <br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10
-                                        <br><b>OST Rating: </b>" . $row["ost_rating"] . "/100
-                                    </p>
-                                </div><br>";
-
-                }
-            }
-
-        ?>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <div class="md-overlay"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script type="text/javascript" src="assets/js/classie.js"></script>
-    <script type="text/javascript" src="assets/js/modalEffects.js"></script>
-    <script src="assets/js/cssParser.js"></script>
-
-</body>
-
-</html>
+    </html>
