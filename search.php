@@ -143,7 +143,7 @@
 
             </div>
 
-            <div class="col-xs-12 start-xs">
+            <div class='col-xs-12 start-xs'>
 
                 <?php
 
@@ -158,19 +158,21 @@
                         echo $result_filme->num_rows . " results for <b>" . $_POST["filters"] . " <i>";   //imprime o filtro usado
                         echo $_POST["option"] . "</i></b> :<br>"; //imprime o que foi escrito no filtro
                         
-                        echo "<div class=" . "row center-xs start-md" . ">";
+                        echo "<div class='row center-xs start-md'>";
                         while($row = $result_filme->fetch_assoc()) {
 
                             echo "
-                                    <div class=" . "col-xs-5 col-md-2" . ">
-                                        <a class=" . "nav__link center-xs" . " href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
+                                <div class='col-xs-5 col-md-2'>
+                                        <a class='nav__link center-xs' href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
                                     </div>
-                                    <div class=" . "col-xs-7 col-md-4" . ">
-                                        <p class=" . "subtitle text-left middle-xs" .">" . $row["filme"] . "</p>" .
-                                        "<p class=" . "text text-left middle-xs> <b>Release date: </b>" . $row["data_lanc"] .
-                                        "<br><b>Director: </b>" . $row["realizador"] . "
-                                        <br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10
-                                        <br><b>OST Rating: </b>" . $row["ost_rating"] . "/100</p>
+                                    <div class='col-xs-7 col-md-4'>
+                                        <p class='subtitle text-left middle-xs'>" . $row["filme"] . "</p>" .
+                                        "<p class='text text-left middle-xs'>
+                                            <b>Release date: </b>" . $row["data_lanc"] .
+                                            "<br><b>Director: </b>" . $row["realizador"] . "
+                                            <br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10
+                                            <br><b>OST Rating: </b>" . $row["ost_rating"] . "/100
+                                        </p>
                                     </div>
                                 <br>";
 
