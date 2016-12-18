@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 17, 2016 at 07:47 PM
+-- Generation Time: Dec 18, 2016 at 04:26 PM
 -- Server version: 5.6.28
 -- PHP Version: 7.0.10
 
@@ -255,8 +255,7 @@ INSERT INTO `musicas` (`_id_musica`, `nome_musica`, `m_generos`, `m_ano`, `canto
 (16, 'Heathens', NULL, 2016, 'Twenty One Pilots', 1, 'gestor'),
 (17, 'Hey Jude', NULL, 1968, 'The Beatles', 1, 'gestor'),
 (18, 'My Girl', NULL, 1965, 'The Rolling Stones', 1, 'gestor'),
-(19, 'Everything About You', 'Hard rock', 1991, 'Ugly Kid Joe', 1, 'gestor'),
-(20, 'musica', NULL, NULL, 'cantor', 0, 'user');
+(19, 'Everything About You', 'Hard rock', 1991, 'Ugly Kid Joe', 1, 'gestor');
 
 -- --------------------------------------------------------
 
@@ -274,24 +273,22 @@ CREATE TABLE `topico_forum` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Utilizador`
+-- Table structure for table `utilizador`
 --
 
-CREATE TABLE `Utilizador` (
-  `user_name` varchar(255) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `passw` varchar(255) NOT NULL,
-  `tipo_user` varchar(11) DEFAULT 'user'
+CREATE TABLE `utilizador` (
+  `id` int(10) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `passwd` varchar(255) NOT NULL,
+  `tipo_user` varchar(11) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `Utilizador`
+-- Dumping data for table `utilizador`
 --
 
-INSERT INTO `Utilizador` (`user_name`, `email`, `passw`, `tipo_user`) VALUES
-('afvc', NULL, 'afvc', 'user'),
-('seni', NULL, 'seni', 'user'),
-('1', NULL, '1', 'user');
+INSERT INTO `utilizador` (`id`, `username`, `passwd`, `tipo_user`) VALUES
+(1, 'afvc', 'afvc', 'gestor');
 
 --
 -- Indexes for dumped tables
@@ -322,6 +319,12 @@ ALTER TABLE `musicas`
   ADD UNIQUE KEY `_id_musica` (`_id_musica`);
 
 --
+-- Indexes for table `utilizador`
+--
+ALTER TABLE `utilizador`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -344,4 +347,9 @@ ALTER TABLE `generos`
 -- AUTO_INCREMENT for table `musicas`
 --
 ALTER TABLE `musicas`
-  MODIFY `_id_musica` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `_id_musica` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+--
+-- AUTO_INCREMENT for table `utilizador`
+--
+ALTER TABLE `utilizador`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

@@ -698,7 +698,7 @@ ul .title {
   padding: 0.9375rem;
   background: black;
   color: white;
-  width: 100%;
+  width: 120px;
   transition: all 0.2s ease-in-out;
   text-align: center;
   cursor: pointer; }
