@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 17, 2016 at 07:43 PM
+-- Generation Time: Dec 17, 2016 at 07:47 PM
 -- Server version: 5.6.28
 -- PHP Version: 7.0.10
 
@@ -219,25 +219,6 @@ INSERT INTO `generos` (`_id_genero`, `nome_genero`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
---
-
-CREATE TABLE `login` (
-  `id` int(10) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `passwd` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `login`
---
-
-INSERT INTO `login` (`id`, `username`, `passwd`) VALUES
-(1, 'afvc', 'afvc');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `musicas`
 --
 
@@ -304,6 +285,15 @@ CREATE TABLE `Utilizador` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Dumping data for table `Utilizador`
+--
+
+INSERT INTO `Utilizador` (`user_name`, `email`, `passw`, `tipo_user`) VALUES
+('afvc', NULL, 'afvc', 'user'),
+('seni', NULL, 'seni', 'user'),
+('1', NULL, '1', 'user');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -324,12 +314,6 @@ ALTER TABLE `filmes`
 --
 ALTER TABLE `generos`
   ADD UNIQUE KEY `_id_genero` (`_id_genero`);
-
---
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `musicas`
@@ -356,11 +340,6 @@ ALTER TABLE `filmes`
 --
 ALTER TABLE `generos`
   MODIFY `_id_genero` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT for table `login`
---
-ALTER TABLE `login`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `musicas`
 --
