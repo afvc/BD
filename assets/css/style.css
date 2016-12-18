@@ -1,979 +1,1061 @@
-/* COLOR VARIABLES */
-/*ALERTS */
-/**/
 /*TEXT */
-@font-face {
-  font-family: BoldFont;
-  src: url(Poppins-Bold.ttf); }
-
-@font-face {
-  font-family: SemiBoldFont;
-  src: url(Poppins-SemiBold.ttf); }
-
-@font-face {
-  font-family: MediumFont;
-  src: url(Poppins-Medium.ttf); }
-
-@font-face {
-  font-family: TextFont;
-  src: url(Poppins-Regular.ttf); }
-
-@font-face {
-  font-family: LightFont;
-  src: url(Poppins-Light.ttf); }
-
-/*
+ 
+ @font-face {
+     font-family: BoldFont;
+     src: url(Poppins-Bold.ttf);
+ }
+ 
+ @font-face {
+     font-family: SemiBoldFont;
+     src: url(Poppins-SemiBold.ttf);
+ }
+ 
+ @font-face {
+     font-family: MediumFont;
+     src: url(Poppins-Medium.ttf);
+ }
+ 
+ @font-face {
+     font-family: TextFont;
+     src: url(Poppins-Regular.ttf);
+ }
+ 
+ @font-face {
+     font-family: LightFont;
+     src: url(Poppins-Light.ttf);
+ }
+ /*
  * BASE STYLES
  * ================================ */
-/* line 6, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-*,
-*:before,
-*:after {
-  box-sizing: border-box; }
-
-/* line 12, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-html,
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
-  overflow-x: hidden; }
-
-/* line 23, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-.hidden {
-  display: none; }
-
-/* line 29, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-ul li {
-  list-style-type: none;
-  margin: 5px; }
-
-/*------------------------------------*  #COLOR_SECTIONS
+ 
+ *,
+ *:before,
+ *:after {
+     box-sizing: border-box;
+ }
+ 
+ html,
+ body {
+     width: 100%;
+     height: 100%;
+     margin: 0px;
+     padding: 0px;
+     overflow-x: hidden;
+ }
+ 
+ .hidden {
+     display: none;
+ }
+ 
+ ul li {
+     list-style-type: none;
+     margin: 5px;
+ }
+ /*------------------------------------*  #R_SECTIONS
 \*------------------------------------*/
-/* line 39, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-.section-resized, .section-resized-extra {
-  padding-top: 100px;
-  padding-bottom: 100px;
-  width: 80vw;
-  max-width: 100%;
-  margin: auto; }
-  @media (min-width: 1600px) {
-    /* line 39, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-    .section-resized, .section-resized-extra {
-      width: 1240px;
-      max-width: 100%; } }
-
-/* line 67, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-.section-resized-extra {
-  min-height: 100vh; }
-
-/*------------------------------------*#FONTS
+ 
+ .section-resized,
+ .section-resized-extra {
+     padding-top: 100px;
+     padding-bottom: 100px;
+     width: 80vw;
+     max-width: 100%;
+     margin: auto;
+ }
+ 
+ @media (min-width: 1600px) {
+     .section-resized,
+     .section-resized-extra {
+         width: 1240px;
+         max-width: 100%;
+     }
+ }
+ 
+ .section-resized-extra {
+     min-height: 100vh;
+ }
+ /*------------------------------------*#FONTS
 \*------------------------------------*/
-/* line 79, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-.title {
-  font-family: BoldFont;
-  color: #171719;}
-  @media (max-width: 640px) {
-    /* line 79, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-    .title {
-      font-size: 1.7rem; } }
-  @media screen and (min-width: 641px) and (max-width: 750px) {
-    /* line 79, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-    .title {
-      font-size: 1.9rem; } }
-  @media (min-width: 750px) and (max-width: 1280px) {
-    /* line 79, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-    .title {
-      font-size: 2.1rem; } }
-  @media (min-width: 1280px) and (max-width: 1600px) {
-    /* line 79, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-    .title {
-      font-size: 2.3rem; } }
-  @media (min-width: 1600px) {
-    /* line 79, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-    .title {
-      font-size: 2.3rem; } }
-
-/* line 102, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-.subtitle {
-  font-family: BoldFont;
-  color: #171719; }
-  @media (max-width: 640px) {
-    /* line 102, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-    .subtitle {
-      font-size: 1rem; } }
-  @media screen and (min-width: 641px) and (max-width: 750px) {
-    /* line 102, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-    .subtitle {
-      font-size: 1.05rem; } }
-  @media (min-width: 750px) and (max-width: 1280px) {
-    /* line 102, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-    .subtitle {
-      font-size: 1.1rem; } }
-  @media (min-width: 1280px) and (max-width: 1600px) {
-    /* line 102, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-    .subtitle {
-      font-size: 1.2rem; } }
-
-/* line 119, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-.text, body {
-  font-family: TextFont; }
-  @media (max-width: 640px) {
-    /* line 119, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-    .text, body {
-      font-size: 0.75rem; } }
-  @media screen and (min-width: 641px) and (max-width: 750px) {
-    /* line 119, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-    .text, body {
-      font-size: 0.79rem; } }
-  @media (min-width: 750px) and (max-width: 1280px) {
-    /* line 119, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-    .text, body {
-      font-size: 0.82rem; } }
-  @media (min-width: 1280px) and (max-width: 1600px) {
-    /* line 119, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-    .text, body {
-      font-size: 0.85rem; } }
-
-@media (max-width: 640px) {
-  /* line 136, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-  .smalltext {
-    font-size: 0.72rem; } }
-
-@media screen and (min-width: 641px) and (max-width: 750px) {
-  /* line 136, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-  .smalltext {
-    font-size: 0.75rem; } }
-
-@media (min-width: 750px) and (max-width: 1280px) {
-  /* line 136, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-  .smalltext {
-    font-size: 0.77rem; } }
-
-@media (min-width: 1280px) and (max-width: 1600px) {
-  /* line 136, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-  .smalltext {
-    font-size: 0.78rem; } }
-
-/* line 151, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-.testelinks {
-  color: #4ca7af; }
-
-/*------------------------------------*  #BODY
+ 
+ .title {
+     font-family: BoldFont;
+     color: #171719;
+ }
+ 
+ @media (max-width: 640px) {
+     .title {
+         font-size: 1.7rem;
+     }
+ }
+ 
+ @media screen and (min-width: 641px) and (max-width: 750px) {
+     .title {
+         font-size: 1.9rem;
+     }
+ }
+ 
+ @media (min-width: 750px) and (max-width: 1280px) {
+     .title {
+         font-size: 2.1rem;
+     }
+ }
+ 
+ @media (min-width: 1280px) and (max-width: 1600px) {
+     .title {
+         font-size: 2.3rem;
+     }
+ }
+ 
+ @media (min-width: 1600px) {
+     .title {
+         font-size: 2.3rem;
+     }
+ }
+ 
+ .subtitle {
+     font-family: BoldFont;
+     color: #171719;
+ }
+ 
+ @media (max-width: 640px) {
+     .subtitle {
+         font-size: 1rem;
+     }
+ }
+ 
+ @media screen and (min-width: 641px) and (max-width: 750px) {
+     .subtitle {
+         font-size: 1.05rem;
+     }
+ }
+ 
+ @media (min-width: 750px) and (max-width: 1280px) {
+     .subtitle {
+         font-size: 1.1rem;
+     }
+ }
+ 
+ @media (min-width: 1280px) and (max-width: 1600px) {
+     .subtitle {
+         font-size: 1.2rem;
+     }
+ }
+ 
+ .text,
+ body {
+     font-family: TextFont;
+ }
+ 
+ @media (max-width: 640px) {
+     .text,
+     body {
+         font-size: 0.75rem;
+     }
+ }
+ 
+ @media screen and (min-width: 641px) and (max-width: 750px) {
+     .text,
+     body {
+         font-size: 0.79rem;
+     }
+ }
+ 
+ @media (min-width: 750px) and (max-width: 1280px) {
+     .text,
+     body {
+         font-size: 0.82rem;
+     }
+ }
+ 
+ @media (min-width: 1280px) and (max-width: 1600px) {
+     .text,
+     body {
+         font-size: 0.85rem;
+     }
+ }
+ 
+ @media (max-width: 640px) {
+     .smalltext {
+         font-size: 0.72rem;
+     }
+ }
+ 
+ @media screen and (min-width: 641px) and (max-width: 750px) {
+     .smalltext {
+         font-size: 0.75rem;
+     }
+ }
+ 
+ @media (min-width: 750px) and (max-width: 1280px) {
+     .smalltext {
+         font-size: 0.77rem;
+     }
+ }
+ 
+ @media (min-width: 1280px) and (max-width: 1600px) {
+     .smalltext {
+         font-size: 0.78rem;
+     }
+ }
+ 
+ .testelinks {
+     color: #4ca7af;
+ }
+ /*------------------------------------*  #BODY
 \*------------------------------------*/
-/* line 158, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-body {
-  min-height: 100%;
-  height: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-/*------------------------------------*  #LINKS
+ 
+ body {
+     min-height: 100%;
+     height: auto;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+ }
+ /*------------------------------------*  #LINKS
 \*------------------------------------*/
-/* line 171, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-a {
-  color: #171719;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer; }
-  /* line 176, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-  a:hover {
-    text-decoration: none;
-    opacity: 0.7; }
-
-/* line 182, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-.gitpad {
-  padding: 0; }
-
-/*------------------------------------*  #IMAGE-POSTER_EXTRA
+ 
+ a {
+     color: #171719;
+     text-decoration: none;
+     transition: all 0.2s ease-in-out;
+     cursor: pointer;
+ }
+ 
+ a:hover {
+     text-decoration: none;
+     opacity: 0.7;
+ }
+ /*------------------------------------*  #IMAGE-POSTER_EXTRA
 \*------------------------------------*/
-/* line 190, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-.logo-m {
-  max-width: 800px;
-  width: 100%;
-  height: auto; }
-
-/*------------------------------------*  #TABLES
+ 
+ .logo-m {
+     max-width: 800px;
+     width: 100%;
+     height: auto;
+ }
+ /*------------------------------------*  #TABLES
 \*------------------------------------*/
-/* line 205, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-table {
-  border-collapse: collapse;
-  width: 100%; }
-
-/* line 211, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-td, th {
-  border: 1px solid #dddddd;
-  padding: 8px; }
-
-/* line 217, /Applications/MAMP/htdocs/BD/assets/sass/_base.scss */
-tr:nth-child(even) {
-  background-color: #dddddd; }
-
-/* line 3, /Applications/MAMP/htdocs/BD/assets/sass/_forms.scss */
-.fa {
-  cursor: pointer; }
-
-/* line 5, /Applications/MAMP/htdocs/BD/assets/sass/_forms.scss */
-label {
-  font-size: 0.8rem; }
-
-/* line 10, /Applications/MAMP/htdocs/BD/assets/sass/_forms.scss */
-.input-anim input[type=text], .input-anim input[type=number], .input-anim input[type=email], .input-anim input[type=password], .input-anim textarea {
-  background: none;
-  border: none;
-  border-radius: 0;
-  border-top: 2px solid transparent;
-  border-bottom: 2px solid black;
-  left: 10px;
-  width: 50%; }
-  /* line 18, /Applications/MAMP/htdocs/BD/assets/sass/_forms.scss */
-  .input-anim input[type=text]:focus, .input-anim input[type=number]:focus, .input-anim input[type=email]:focus, .input-anim input[type=password]:focus, .input-anim textarea:focus {
-    outline: 0;
-    box-shadow: none;
-    border: none;
-    border-top: 1px solid transparent;
-    border-bottom: 3px solid white; }
-
-/* line 27, /Applications/MAMP/htdocs/BD/assets/sass/_forms.scss */
-.input-anim input[type=checkbox] {
-  width: 20px;
-  height: 20px; }
-
-/* line 32, /Applications/MAMP/htdocs/BD/assets/sass/_forms.scss */
-form select {
-  margin-top: 17px; }
-
-/* line 35, /Applications/MAMP/htdocs/BD/assets/sass/_forms.scss */
-form .label__info {
-  width: 50px;
-  border-radius: 2px;
-  margin: 10px 0 20px; }
-
-/* line 41, /Applications/MAMP/htdocs/BD/assets/sass/_forms.scss */
-form .label__text {
-  margin: 0px;
-  padding: 0px;
-  color: #E0E0E0;
-  display: none; }
-
-/* line 48, /Applications/MAMP/htdocs/BD/assets/sass/_forms.scss */
-form .label__info {
-  margin: 10px 10px 20px; }
-  /* line 50, /Applications/MAMP/htdocs/BD/assets/sass/_forms.scss */
-  form .label__info .subtitle {
-    padding: 0;
-    margin: 0;
-    font-size: 16px; }
-
-/* line 56, /Applications/MAMP/htdocs/BD/assets/sass/_forms.scss */
-form .label__info:focus {
-  background-color: rgba(78, 217, 185, 0.2); }
-  /* line 59, /Applications/MAMP/htdocs/BD/assets/sass/_forms.scss */
-  form .label__info:focus .label__text {
-    display: block; }
-
-/* line 64, /Applications/MAMP/htdocs/BD/assets/sass/_forms.scss */
-.set {
-  margin: 40px 0; }
-
-/* line 68, /Applications/MAMP/htdocs/BD/assets/sass/_forms.scss */
-.form__block textarea {
-  width: 100%;
-  height: auto;
-  border-color: #E0E0E0; }
-  /* line 72, /Applications/MAMP/htdocs/BD/assets/sass/_forms.scss */
-  .form__block textarea:focus {
-    outline: none;
-    border: 1px solid rgba(23, 23, 25, 0.5);
-    box-shadow: inset 0 1px 1px rgba(23, 23, 25, 0.3); }
-
-/*----------#MOBILE_NAVBAR--------------------------*/
-/*----------#ICON------------*/
-/* line 9, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.icon {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1; }
-
-/* line 16, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.icon--hamburger {
-  margin: 10px 20px 10px; }
-
-/* line 19, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.icon--hamburger,
-.icon--hamburger:before,
-.icon--hamburger:after {
-  width: 18px;
-  height: 2px;
-  background: #E0E0E0;
-  transition: all 0.2s; }
-
-/* line 28, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.icon--hamburger:before,
-.icon--hamburger:after {
-  content: " ";
-  position: absolute;
-  left: 0;
-  display: block; }
-
-/* line 36, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.icon--hamburger:before {
-  top: -5px; }
-
-/* line 40, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.icon--hamburger:after {
-  top: 5px; }
-
-/*----------#BUTTON-ICON------------*/
-/* line 48, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.button--icon-container {
-  position: relative;
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  display: inline-block;
-  vertical-align: middle; }
-
-/* line 57, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.button--icon-container:before {
-  content: " ";
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.12);
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  transition: all 0.2s;
-  transform: scale(0); }
-
-/* line 70, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.button--icon-container:focus:before {
-  transform: scale(1.2); }
-
-/*----------#HEADER------------*/
-/* line 83, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.header-bar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #101010;
-  height: 56px;
-  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.12);
-  font-size: 0.875rem;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-      align-items: center;
-  z-index: 100;
-  padding: 0 8px;
-  -ms-flex-pack: justify;
-      justify-content: space-between; }
-
-/* line 98, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.header-bar__block {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-      align-items: center; }
-
-/* line 103, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.header-bar__heading {
-  background: #2645ff;
-  color: white;
-  margin: 0; }
-
-/*----------#SIDEBAR------------*/
-/* line 113, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 110; }
-
-/* line 119, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.nav__body {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 304px;
-  background: white;
-  opacity: 0;
-  transform: translateX(-100%);
-  transition-property: all;
-  transition-timing-function: ease;
-  transition-duration: 0.2s;
-  transform-origin: top left; }
-
-/* line 136, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.nav__header {
-  background: #f4f4f4;
-  padding: 16px; }
-
-/* line 141, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.nav__list {
-  list-style: none;
-  margin: 0;
-  padding: 0; }
-
-/* line 147, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.nav__link {
-  display: block;
-  padding: 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: 400;
-  color: #171719; }
-  /* line 155, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-  .nav__link .logo {
-    display: inline;
-    max-width: 200px;
-    width: 100%; }
-
-/* line 164, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.overlay {
-  position: fixed;
-  display: block;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.45);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.2s 0s ease, visibility 0.2s 0.2s ease;
-  z-index: 0; }
-
-/* line 180, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.overlay--inner {
-  position: absolute;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto; }
-
-/*----------#NAV-CONTROLER------------*/
-/* line 194, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.nav-controller {
-  position: fixed;
-  opacity: 0; }
-
-/* line 199, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.nav-controller:checked ~ .nav .overlay {
-  transition-delay: 0s;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto; }
-
-/* line 206, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.nav-controller:checked ~ .nav .nav__body {
-  transform: translateX(0);
-  opacity: 1; }
-
-/* line 211, /Applications/MAMP/htdocs/BD/assets/sass/_mobileNavigation.scss */
-.nav-controller:checked ~ .main {
-  transform-origin: top right;
-  transform: translateX(304px); }
-
-/*------------------------------------*  #TEXT_COLOR
+ 
+ table {
+     border-collapse: collapse;
+     width: 100%;
+ }
+ 
+ td,
+ th {
+     border: 1px solid #dddddd;
+     padding: 8px;
+ }
+ 
+ tr:nth-child(even) {
+     background-color: #dddddd;
+ }
+ 
+ .fa {
+     cursor: pointer;
+ }
+ 
+ label {
+     font-size: 0.8rem;
+ }
+ 
+ .input-anim input[type=text],
+ .input-anim input[type=number],
+ .input-anim input[type=email],
+ .input-anim input[type=password],
+ .input-anim textarea {
+     background: none;
+     border: none;
+     border-radius: 0;
+     border-top: 2px solid transparent;
+     border-bottom: 2px solid black;
+     left: 10px;
+     width: 50%;
+ }
+ 
+ .input-anim input[type=text]:focus,
+ .input-anim input[type=number]:focus,
+ .input-anim input[type=email]:focus,
+ .input-anim input[type=password]:focus,
+ .input-anim textarea:focus {
+     outline: 0;
+     box-shadow: none;
+     border: none;
+     border-top: 1px solid transparent;
+     border-bottom: 3px solid white;
+ }
+ 
+ .input-anim input[type=checkbox] {
+     width: 20px;
+     height: 20px;
+ }
+ 
+ form select {
+     margin-top: 17px;
+ }
+ 
+ form .label__info {
+     width: 50px;
+     border-radius: 2px;
+     margin: 10px 0 20px;
+ }
+ 
+ form .label__text {
+     margin: 0px;
+     padding: 0px;
+     color: #E0E0E0;
+     display: none;
+ }
+ 
+ form .label__info {
+     margin: 10px 10px 20px;
+ }
+ 
+ form .label__info .subtitle {
+     padding: 0;
+     margin: 0;
+     font-size: 16px;
+ }
+ 
+ form .label__info:focus {
+     background-color: rgba(78, 217, 185, 0.2);
+ }
+ 
+ form .label__info:focus .label__text {
+     display: block;
+ }
+ 
+ .set {
+     margin: 40px 0;
+ }
+ 
+ .form__block textarea {
+     width: 100%;
+     height: auto;
+     border-color: #E0E0E0;
+ }
+ 
+ .form__block textarea:focus {
+     outline: none;
+     border: 1px solid rgba(23, 23, 25, 0.5);
+     box-shadow: inset 0 1px 1px rgba(23, 23, 25, 0.3);
+ }
+ /*----------#MOBILE_NAVBAR--------------------------*/
+ /*----------#ICON------------*/
+ 
+ .icon {
+     position: relative;
+     display: inline-block;
+     vertical-align: middle;
+     line-height: 1;
+ }
+ 
+ .icon--hamburger {
+     margin: 10px 20px 10px;
+ }
+ 
+ .icon--hamburger,
+ .icon--hamburger:before,
+ .icon--hamburger:after {
+     width: 18px;
+     height: 2px;
+     background: #E0E0E0;
+     transition: all 0.2s;
+ }
+ 
+ .icon--hamburger:before,
+ .icon--hamburger:after {
+     content: " ";
+     position: absolute;
+     left: 0;
+     display: block;
+ }
+ 
+ .icon--hamburger:before {
+     top: -5px;
+ }
+ 
+ .icon--hamburger:after {
+     top: 5px;
+ }
+ /*----------#BUTTON-ICON------------*/
+ 
+ .button--icon-container {
+     position: relative;
+     width: 24px;
+     height: 24px;
+     padding: 0;
+     display: inline-block;
+     vertical-align: middle;
+ }
+ 
+ .button--icon-container:before {
+     content: " ";
+     position: absolute;
+     top: 0;
+     left: 0;
+     background: rgba(0, 0, 0, 0.12);
+     width: 100%;
+     height: 100%;
+     border-radius: 50%;
+     transition: all 0.2s;
+     transform: scale(0);
+ }
+ 
+ .button--icon-container:focus:before {
+     transform: scale(1.2);
+ }
+ /*----------#HEADER------------*/
+ 
+ .header-bar {
+     position: fixed;
+     top: 0;
+     width: 100%;
+     background: #101010;
+     height: 56px;
+     box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.12);
+     font-size: 0.875rem;
+     display: -ms-flexbox;
+     display: flex;
+     -ms-flex-align: center;
+     align-items: center;
+     z-index: 100;
+     padding: 0 8px;
+     -ms-flex-pack: justify;
+     justify-content: space-between;
+ }
+ 
+ .header-bar__block {
+     display: -ms-flexbox;
+     display: flex;
+     -ms-flex-align: center;
+     align-items: center;
+ }
+ 
+ .header-bar__heading {
+     background: #2645ff;
+     color: white;
+     margin: 0;
+ }
+ /*----------#SIDEBAR------------*/
+ 
+ .nav {
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 110;
+ }
+ 
+ .nav__body {
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100vh;
+     width: 304px;
+     background: white;
+     opacity: 0;
+     transform: translateX(-100%);
+     transition-property: all;
+     transition-timing-function: ease;
+     transition-duration: 0.2s;
+     transform-origin: top left;
+ }
+ 
+ .nav__header {
+     background: #f4f4f4;
+     padding: 16px;
+ }
+ 
+ .nav__list {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+ }
+ 
+ .nav__link {
+     display: block;
+     padding: 16px;
+     text-decoration: none;
+     text-transform: uppercase;
+     font-weight: 400;
+     color: #171719;
+ }
+ 
+ .nav__link .logo {
+     display: inline;
+     max-width: 200px;
+     width: 100%;
+ }
+ 
+ .overlay {
+     position: fixed;
+     display: block;
+     top: 0;
+     left: 0;
+     width: 100vw;
+     height: 100vh;
+     background: rgba(0, 0, 0, 0.45);
+     opacity: 0;
+     visibility: hidden;
+     pointer-events: none;
+     transition: opacity 0.2s 0s ease, visibility 0.2s 0.2s ease;
+     z-index: 0;
+ }
+ 
+ .overlay--inner {
+     position: absolute;
+     opacity: 1;
+     visibility: visible;
+     pointer-events: auto;
+ }
+ /*----------#NAV-CONTROLER------------*/
+ 
+ .nav-controller {
+     position: fixed;
+     opacity: 0;
+ }
+ 
+ .nav-controller:checked ~ .nav .overlay {
+     transition-delay: 0s;
+     opacity: 1;
+     visibility: visible;
+     pointer-events: auto;
+ }
+ 
+ .nav-controller:checked ~ .nav .nav__body {
+     transform: translateX(0);
+     opacity: 1;
+ }
+ 
+ .nav-controller:checked ~ .main {
+     transform-origin: top right;
+     transform: translateX(304px);
+ }
+ /*------------------------------------*  #TEXT_COLOR
 \*------------------------------------*/
-/* line 9, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.text-blue {
-  color: #4ca7af; }
-
-/* line 13, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.text-darkest {
-  color: black; }
-
-/* line 17, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.text-light {
-  color: #E0E0E0; }
-
-/* line 21, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.text-lightest {
-  color: white; }
-
-/* line 29, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.text-grey {
-  color: #696969; }
-
-/* line 33, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.text-bold {
-  font-weight: 600; }
-
-/* line 37, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.text-left {
-  text-align: left; }
-
-/* line 41, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.text-right {
-  text-align: right; }
-
-/* line 45, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.text-note {
-  color: #696969;
-  font-style: italic;
-  font-size: 0.9286rem; }
-
-/* line 51, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.text-by {
-  margin: 20px 0px 0px; }
-
-/* line 56, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.break-word {
-  word-wrap: break-word; }
-
-/*------------------------------------*  #ALIGNMENTS_AND_MARGINS
+ 
+ .text-blue {
+     color: #4ca7af;
+ }
+ 
+ .text-darkest {
+     color: black;
+ }
+ 
+ .text-light {
+     color: #E0E0E0;
+ }
+ 
+ .text-lightest {
+     color: white;
+ }
+ 
+ .text-grey {
+     color: #696969;
+ }
+ 
+ .text-bold {
+     font-weight: 600;
+ }
+ 
+ .text-left {
+     text-align: left;
+ }
+ 
+ .text-right {
+     text-align: right;
+ }
+ 
+ .text-note {
+     color: #696969;
+     font-style: italic;
+     font-size: 0.9286rem;
+ }
+ 
+ .text-by {
+     margin: 20px 0px 0px;
+ }
+ 
+ .break-word {
+     word-wrap: break-word;
+ }
+ /*------------------------------------*  #ALIGNMENTS_AND_MARGINS
 \*------------------------------------*/
-/* line 61, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.full-height {
-  height: 100%; }
-
-/* line 65, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.full-width {
-  width: 100%; }
-
-/* line 69, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.u-blockify {
-  display: block;
-  margin-top: 10px; }
-
-/* line 74, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.no-padding {
-  padding: 0px; }
-
-/* line 78, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.padding-big {
-  padding: 10vh 0 10vh 0; }
-
-/* line 82, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.no-margin {
-  margin: 0px; }
-
-/* line 86, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.no-margin-top {
-  margin-top: 0px; }
-
-@media (min-width: 1600px) {
-  /* line 90, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-  .margin-bottom-lg {
-    margin-bottom: 25px; } }
-
-@media (max-width: 640px) {
-  /* line 96, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-  .col-xxs-12 {
-    -ms-flex-preferred-size: 100%;
-        flex-basis: 100%;
-    max-width: 100%; } }
-
-/* line 103, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.order-xs-1st {
-  -ms-flex-order: 1;
-      order: 1; }
-  @media (min-width: 768px) {
-    /* line 103, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-    .order-xs-1st {
-      -ms-flex-order: 2;
-          order: 2; } }
-
-/* line 110, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.order-xs-2nd {
-  -ms-flex-order: 2;
-      order: 2; }
-  @media (min-width: 768px) {
-    /* line 110, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-    .order-xs-2nd {
-      -ms-flex-order: 1;
-          order: 1; } }
-
-/* line 117, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.inline-d {
-  display: inline; }
-
-/* line 121, /Applications/MAMP/htdocs/BD/assets/sass/_details.scss */
-.flex-d {
-  display: -ms-flexbox;
-  display: flex; }
-
-/*----------#NAVBAR--------------------------*/
-/* line 3, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-.nav-big {
-  display: inline;
-  margin-left: auto; }
-  @media only screen and (min-width: 200px) and (max-width: 800px) {
-    /* line 3, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-    .nav-big {
-      display: none; } }
-  /* line 9, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-  .nav-big .navbar {
-    position: fixed;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-bottom: solid 0.5px rgba(255, 255, 255, 0.2);
-    box-shadow: 0px 2px 6px 0px rgba(23, 23, 25, 0.2);
-    padding: 20px 0.9375rem 20px;
-    z-index: 3;
-    font-family: Textfont;
-    height: 50px; }
-  /* line 21, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-  .nav-big .navbar__header {
-    display: none; }
-  /* line 24, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-  .nav-big .navbar__link {
-    display: inline;
-    padding: 0.3125rem;
-    font-weight: 500; }
-  /* line 29, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-  .nav-big .logo {
-    display: inline;
-    max-width: 150px;
-    width: 100%;
-    margin-left: 0.625rem; }
-    @media (max-width: 640px) {
-      /* line 29, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-      .nav-big .logo {
-        max-width: 100px;
-        width: 100%; } }
-    /* line 39, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-    .nav-big .logo .navbar a {
-      color: #FFFFFF; }
-
-/* line 43, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-ul .title {
-  padding: 0; }
-
-/* line 46, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-.nav-small {
-  display: none; }
-  @media only screen and (min-width: 200px) and (max-width: 800px) {
-    /* line 46, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-    .nav-small {
-      display: inline; } }
-
-/*----------#FOOTER--------------------------*/
-/* line 53, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-.footer {
-  background-color: rgba(0, 0, 0, 0.4);
-  border-top: solid 0.5px rgba(255, 255, 255, 0.2);
-  box-shadow: 0px -3px 6px 0px rgba(23, 23, 25, 0.2);
-  padding: 0px 0.9375rem;
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  height: 50px; }
-  /* line 63, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-  .footer p {
-    margin: 0px; }
-  /* line 66, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-  .footer a {
-    margin-top: 1vh; }
-    /* line 69, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-    .footer a svg {
-      fill: white;
-      height: 11px;
-      width: 75px; }
-
-/* line 76, /Applications/MAMP/htdocs/BD/assets/sass/_navigation.scss */
-.footer__links {
-  text-align: right; }
-
-/*------------------------------------* #BUTTONS
+ 
+ .full-height {
+     height: 100%;
+ }
+ 
+ .full-width {
+     width: 100%;
+ }
+ 
+ .u-blockify {
+     display: block;
+     margin-top: 10px;
+ }
+ 
+ .no-padding {
+     padding: 0px;
+ }
+ 
+ .padding-big {
+     padding: 10vh 0 10vh 0;
+ }
+ 
+ .no-margin {
+     margin: 0px;
+ }
+ 
+ .no-margin-top {
+     margin-top: 0px;
+ }
+ 
+ @media (min-width: 1600px) {
+     .margin-bottom-lg {
+         margin-bottom: 25px;
+     }
+ }
+ 
+ @media (max-width: 640px) {
+     .col-xxs-12 {
+         -ms-flex-preferred-size: 100%;
+         flex-basis: 100%;
+         max-width: 100%;
+     }
+ }
+ 
+ .order-xs-1st {
+     -ms-flex-order: 1;
+     order: 1;
+ }
+ 
+ @media (min-width: 768px) {
+     .order-xs-1st {
+         -ms-flex-order: 2;
+         order: 2;
+     }
+ }
+ 
+ .order-xs-2nd {
+     -ms-flex-order: 2;
+     order: 2;
+ }
+ 
+ @media (min-width: 768px) {
+     .order-xs-2nd {
+         -ms-flex-order: 1;
+         order: 1;
+     }
+ }
+ 
+ .inline-d {
+     display: inline;
+ }
+ 
+ .flex-d {
+     display: -ms-flexbox;
+     display: flex;
+ }
+ /*----------#NAVBAR--------------------------*/
+ 
+ .nav-big {
+     display: inline;
+     margin-left: auto;
+ }
+ 
+ @media only screen and (min-width: 200px) and (max-width: 800px) {
+     .nav-big {
+         display: none;
+     }
+ }
+ 
+ .nav-big .navbar {
+     position: fixed;
+     width: 100%;
+     background-color: rgba(0, 0, 0, 0.4);
+     border-bottom: solid 0.5px rgba(255, 255, 255, 0.2);
+     box-shadow: 0px 2px 6px 0px rgba(23, 23, 25, 0.2);
+     padding: 20px 0.9375rem 20px;
+     z-index: 3;
+     font-family: Textfont;
+     height: 50px;
+ }
+ 
+ .nav-big .navbar__header {
+     display: none;
+ }
+ 
+ .nav-big .navbar__link {
+     display: inline;
+     padding: 0.3125rem;
+     font-weight: 500;
+ }
+ 
+ .nav-big .logo {
+     display: inline;
+     max-width: 150px;
+     width: 100%;
+     margin-left: 0.625rem;
+ }
+ 
+ @media (max-width: 640px) {
+     .nav-big .logo {
+         max-width: 100px;
+         width: 100%;
+     }
+ }
+ 
+ .nav-big .logo .navbar a {
+     color: #FFFFFF;
+ }
+ 
+ ul .title {
+     padding: 0;
+ }
+ 
+ .nav-small {
+     display: none;
+ }
+ 
+ @media only screen and (min-width: 200px) and (max-width: 800px) {
+     .nav-small {
+         display: inline;
+     }
+ }
+ /*----------#FOOTER--------------------------*/
+ 
+ .footer {
+     background-color: rgba(0, 0, 0, 0.4);
+     border-top: solid 0.5px rgba(255, 255, 255, 0.2);
+     box-shadow: 0px -3px 6px 0px rgba(23, 23, 25, 0.2);
+     padding: 0px 0.9375rem;
+     position: fixed;
+     bottom: 0px;
+     left: 0px;
+     width: 100%;
+     height: 50px;
+ }
+ 
+ .footer p {
+     margin: 0px;
+ }
+ 
+ .footer a {
+     margin-top: 1vh;
+ }
+ 
+ .footer a svg {
+     fill: white;
+     height: 11px;
+     width: 75px;
+ }
+ 
+ .footer__links {
+     text-align: right;
+ }
+ /*------------------------------------* #BUTTONS
  \*------------------------------------*/
-/* line 6, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
-*:focus {
-  outline: none; }
+ 
+ *:focus {
+     outline: none;
+ }
+ 
+ .btn-modal {
+     max-width: 200px;
+     width: 100%;
+ }
+ 
+ .btn-default-fixed {
+     position: fixed;
+     top:0;
+     left:0;
+     width: 100%;
+     border: none;
+     padding: 0.9375rem;
+     background: black;
+     color: white;
+     transition: all 0.2s ease-in-out;
+     text-align: center;
+     cursor: pointer;
+ }
 
-/* line 10, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
-.btn-modal {
-  max-width: 200px;
-  width: 100%; }
-
-/* line 17, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
-.btn-default, .btn-modal, .btn-dark, .btn-danger {
-  border: none;
+.btn-default,
+.btn-modal,
+.btn-dark,
+.btn-danger {
+    border: none;
     margin-top: 20px;
-  padding: 0.9375rem;
-  background: black;
-  color: white;
-  width:120px;
-  transition: all 0.2s ease-in-out;
-  text-align: center;
-  cursor: pointer; }
-  /* line 27, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
-  .btn-default:hover, .btn-modal:hover, .btn-dark:hover, .btn-danger:hover {
+    padding: 0.9375rem;
+    background: black;
+    color: white;
+    width: 150px;
     transition: all 0.2s ease-in-out;
-    opacity: 0.7; }
-  /* line 31, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
-  .btn-default *:focus, .btn-modal *:focus, .btn-dark *:focus, .btn-danger *:focus {
-    outline: none; }
-
-/* line 39, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
+    text-align: center;
+    cursor: pointer;
+}
+.btn-default:hover,
+.btn-modal:hover,
+.btn-dark:hover,
+.btn-danger:hover {
+    transition: all 0.2s ease-in-out;
+    opacity: 0.7;
+}
+.btn-default *:focus,
+.btn-modal *:focus,
+.btn-dark *:focus,
+.btn-danger *:focus {
+    outline: none;
+}
 .btn-dark {
-  background: #f5ec0e; 
-color: black;
+    background: #f5ec0e;
+    color: black;
     font-weight: 600;
 }
-  /* line 42, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
-  .btn-dark:hover {
+.btn-dark:hover {
     background: white;
-  }
-
-/* line 48, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
+}
 .btn-danger {
-  background: #a94442; }
-  /* line 51, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
-  .btn-danger:hover {
-    background: rgba(169, 68, 66, 0.8); }
-
-/* line 58, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
+    background: #a94442;
+}
+.btn-danger:hover {
+    background: rgba(169, 68, 66, 0.8);
+}
 .url_btn {
-  margin: 0;
-  padding: 0; }
-  /* line 62, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
-  .url_btn button:first-child {
+    margin: 0;
+    padding: 0;
+}
+.url_btn button:first-child {
     border-right: 1px solid #E0E0E0;
-    background: #4ca7af; }
-
-/* line 70, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
+    background: #4ca7af;
+}
 .hoverable:hover {
-  transition: all 0.2s ease-in-out;
-  opacity: 0.7; }
-
-/* line 76, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
+    transition: all 0.2s ease-in-out;
+    opacity: 0.7;
+}
 .btn-none {
-  top: 20px;
-  right: 20px;
-  position: absolute;
-  background: none;
-  border: none;
-  z-index: 1; }
+    top: 20px;
+    right: 20px;
+    position: absolute;
+    background: none;
+    border: none;
+    z-index: 1;
+}
 
 /*------------------------------------*  #DROPDOWN
 \*------------------------------------*/
-/* line 92, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
 .dropbtn {
-  background-color: #e3dc1c;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer; }
-
-/* line 101, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
+    background-color: #e3dc1c;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
 .dropdown {
-  position: relative;
-  display: inline-block; }
-
-/* line 106, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
+    position: relative;
+    display: inline-block;
+}
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #E0E0E0;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); }
-
-/* line 114, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
+    display: none;
+    position: absolute;
+    background-color: #E0E0E0;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block; }
-
-/* line 121, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
 .dropdown-content a:hover {
-  background-color: #E0E0E0; }
-
-/* line 123, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
+    background-color: #E0E0E0;
+}
 .dropdown:hover .dropdown-content {
-  display: block; }
-
-/* line 127, /Applications/MAMP/htdocs/BD/assets/sass/_buttons.scss */
+    display: block;
+}
 .dropdown:hover .dropbtn {
-  background-color: #696969; }
+    background-color: #696969;
+}
 
-/* General styles for the modal */
-/* 
-Styles for the html/body for special modal where we want 3d effects
-Note that we need a container wrapping all content on the page for the 
-perspective effects (not including the modals and the overlay).
-*/
-/* line 10, /Applications/MAMP/htdocs/BD/assets/sass/_modal.scss */
-.md-modal, .md-modal-xs {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70vw;
-  margin: 0 auto;
-  z-index: 2000;
-  visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
-  @media (max-width: 640px) {
-    /* line 10, /Applications/MAMP/htdocs/BD/assets/sass/_modal.scss */
-    .md-modal, .md-modal-xs {
-      width: 80vw; } }
-
-/* line 31, /Applications/MAMP/htdocs/BD/assets/sass/_modal.scss */
+/*------------------------------------*  
+                #MODAL
+\*------------------------------------*/
+.md-modal,
+.md-modal-xs {
+    position: fixed;
+  /*  max-height: calc(100vh - 210px);
+    overflow-y: auto;*/
+    height: 80vh;
+overflow: scroll;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vw;
+    margin: 0 auto;
+    z-index: 2000;
+    visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
 .md-show {
-  visibility: visible; }
-
-/* line 35, /Applications/MAMP/htdocs/BD/assets/sass/_modal.scss */
+    visibility: visible;
+}
 .md-overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  visibility: hidden;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  opacity: 0;
-  background: rgba(0, 0, 0, 0.3);
-  transition: all 0.3s; }
-
-/* line 50, /Applications/MAMP/htdocs/BD/assets/sass/_modal.scss */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity:0;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.78);
+    transition: all 0.3s;
+}
 .md-show ~ .md-overlay {
-  opacity: 1;
-  visibility: visible; }
+    opacity: 1;
+    visibility: visible;
+}
 
 /* Content styles */
 @keyframes example {
-  from {
-    width: 10%; }
-  to {
-    width: 90%; } }
-
-/* line 68, /Applications/MAMP/htdocs/BD/assets/sass/_modal.scss */
-.md-content, .md-content-xs {
-  color: #E0E0E0;
-  background: #696969;
-  position: relative;
-  border-radius: 3px;
-  margin: 0 auto;
-  max-width: 800px;
-  width: 100%; }
-
-/* line 80, /Applications/MAMP/htdocs/BD/assets/sass/_modal.scss */
-.md-content h3, .md-content-xs h3 {
-  margin: 0;
-  padding: 0.4em;
-  text-align: center;
-  opacity: 0.8;
-  border-radius: 3px 3px 0 0; }
-
-/* line 89, /Applications/MAMP/htdocs/BD/assets/sass/_modal.scss */
-.md-content p, .md-content-xs p {
-  text-align: left; }
-
-/* line 94, /Applications/MAMP/htdocs/BD/assets/sass/_modal.scss */
-.md-content > div, .md-content-xs > div {
-  padding: 15px 22px 30px;
-  margin: 0; }
-
-/* line 100, /Applications/MAMP/htdocs/BD/assets/sass/_modal.scss */
-.md-content > div p, .md-content-xs > div p {
-  margin: 0;
-  padding: 10px 0;
-  font-size: 0.8rem; }
-
-/* line 108, /Applications/MAMP/htdocs/BD/assets/sass/_modal.scss */
+    from {
+        width: 10%;
+    }
+    
+    to {
+        width: 90%;
+    }
+}
+.md-content,
+.md-content-xs {
+    color: #E0E0E0;
+    background: #696969;
+    position: relative;
+    border-radius: 3px;
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+}
+.md-content h3,
+.md-content-xs h3 {
+    margin: 0;
+    padding: 0.4em;
+    text-align: center;
+    opacity: 0.8;
+    border-radius: 3px 3px 0 0;
+}
+.md-content p,
+.md-content-xs p {
+    text-align: left;
+}
+.md-content > div,
+.md-content-xs > div {
+    padding: 15px 22px 30px;
+    margin: 0;
+}
+.md-content > div p,
+.md-content-xs > div p {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 0.8rem;
+}
 .btn-modal {
-  max-width: 200px;
-  width: 100%;
-  margin-top: 7vh; }
-  @media screen and (min-width: 641px) and (max-width: 750px) {
-    /* line 108, /Applications/MAMP/htdocs/BD/assets/sass/_modal.scss */
+    max-width: 200px;
+    width: 100%;
+    margin-top: 7vh;
+}
+@media screen and (min-width: 641px) and (max-width: 750px) {
     .btn-modal {
-      margin-top: 2vh; } }
-
-/* Individual modal styles with animations/transitions */
-/* Effect 1: Fade in and scale up */
-/* line 131, /Applications/MAMP/htdocs/BD/assets/sass/_modal.scss */
-.md-effect-1 .md-content, .md-effect-1 .md-content-xs {
-  transform: scale(0.7);
-  opacity: 0;
-  transition: all 0.3s; }
-
-/* line 142, /Applications/MAMP/htdocs/BD/assets/sass/_modal.scss */
-.md-show.md-effect-1 .md-content, .md-show.md-effect-1 .md-content-xs {
-  transform: scale(1);
-  opacity: 1; }
+        margin-top: 2vh;
+    }
+}
+.md-effect-1 .md-content,
+.md-effect-1 .md-content-xs {
+    transform: scale(0.7);
+    opacity: 0;
+    transition: all 0.3s;
+}
+.md-show.md-effect-1 .md-content,
+.md-show.md-effect-1 .md-content-xs {
+    transform: scale(1);
+    opacity: 1;
+}
 
 /*---------------MODAL_XS---------------*/
-/* line 3, /Applications/MAMP/htdocs/BD/assets/sass/_modalxs.scss */
 .md-modal-xs {
-  width: 27vw;
-  margin: 0 auto 0; }
-  @media (max-width: 640px) {
-    /* line 3, /Applications/MAMP/htdocs/BD/assets/sass/_modalxs.scss */
+    width: 27vw;
+    margin: 0 auto 0;
+}
+@media (max-width: 640px) {
     .md-modal-xs {
-      width: 90vw; } }
-  @media (min-width: 750px) and (max-width: 1280px) {
-    /* line 3, /Applications/MAMP/htdocs/BD/assets/sass/_modalxs.scss */
+        width: 90vw;
+    }
+}
+@media (min-width: 750px) and (max-width: 1280px) {
     .md-modal-xs {
-      width: 50vw; } }
-  @media screen and (min-width: 641px) and (max-width: 750px) {
-    /* line 3, /Applications/MAMP/htdocs/BD/assets/sass/_modalxs.scss */
+        width: 50vw;
+    }
+}
+@media screen and (min-width: 641px) and (max-width: 750px) {
     .md-modal-xs {
-      width: 45vw; } }
-  /* line 19, /Applications/MAMP/htdocs/BD/assets/sass/_modalxs.scss */
-  .md-modal-xs li {
-    list-style: none; }
-  /* line 22, /Applications/MAMP/htdocs/BD/assets/sass/_modalxs.scss */
-  .md-modal-xs .title {
-    margin-bottom: 0; }
-  /* line 26, /Applications/MAMP/htdocs/BD/assets/sass/_modalxs.scss */
-  .md-modal-xs .btn-default, .md-modal-xs .btn-modal, .md-modal-xs .btn-dark, .md-modal-xs .btn-danger {
+        width: 45vw;
+    }
+}
+.md-modal-xs li {
+    list-style: none;
+}
+.md-modal-xs .title {
+    margin-bottom: 0;
+}
+.md-modal-xs .btn-default,
+.md-modal-xs .btn-modal,
+.md-modal-xs .btn-dark,
+.md-modal-xs .btn-danger {
     padding: 0 0 0;
-    height: 6vh; }
-
-/* line 36, /Applications/MAMP/htdocs/BD/assets/sass/_modalxs.scss */
+    height: 6vh;
+}
 .md-content-xs {
-  background-color: #4ca7af; }
- 
+    background-color: #4ca7af;
+}
+
 /*----------------------------------------------
 CSS Settings For HTML Div ExactCenter
 ------------------------------------------------*/
- 
- 
 hr {
-border:0;
-border-bottom:1px solid #ccc;
-margin:10px -40px;
-margin-bottom:30px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 10px -40px;
+    margin-bottom: 30px;
 }
 #login {
-width:300px;
-float:left;
-border-radius:10px;
-font-family:raleway;
-border:2px solid #ccc;
-padding:10px 40px 25px;
-margin-top:70px;
+    width: 300px;
+    float: left;
+    border-radius: 10px;
+    font-family: raleway;
+    border: 2px solid #ccc;
+    padding: 10px 40px 25px;
+    margin-top: 70px;
 }
-input[type=text],input[type=password] {
-width:99.5%;
-padding:10px;
-margin-top:8px;
-border:1px solid #ccc;
-padding-left:5px;
-font-size:16px;
-font-family:raleway;
+input[type=text],
+input[type=password] {
+    width: 99.5%;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+    font-size: 16px;
+    font-family: raleway;
 }
- 
 #profile {
-padding:50px;
-border:1px dashed grey;
-font-size:20px;
-background-color:#DCE6F7;
+    padding: 50px;
+    border: 1px dashed grey;
+    font-size: 20px;
+    background-color: #DCE6F7;
 }
 #logout {
-float:right;
-padding:5px;
-border:dashed 1px gray;
+    float: right;
+    padding: 5px;
+    border: dashed 1px gray;
 }
- 
