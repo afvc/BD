@@ -22,7 +22,7 @@ $passdb=$_POST['pass'];
 // Selecting Database
   
     
-$log = $conn->query("select * from Utilizador where passw='$passdb' AND user_name='$userdb'");
+$log = $conn->query("select * from Utilizador where passwd='$passdb' AND username='$userdb'");
     
 if ($log->num_rows ==1) {
                    echo $passdb;      
