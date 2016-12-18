@@ -4,6 +4,7 @@
     //para usar nos selects
     $filters = $_POST["filters"];   //o filtro usado
     $option = $_POST["option"];     //o que foi escrito no filtro
+  
     
     include 'connection.php';  
 
@@ -42,6 +43,8 @@
     <link rel="stylesheet" href="assets/css/_font-awesome.min.css.scss" type="text/css">
 
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="clone.js"></script>
 
 </head>
 
@@ -118,11 +121,21 @@
 
             <div class="col-xs-12 start-xs">
 
-                <form method="post">
-
-                    <label>FILTER</label>
-                    <select name="filters">
-                        <option value="filme" selected>Movie Name</option>
+       
+                
+                <form action="#" method="post">
+  
+    <!--
+    ########################################## -->
+    <!-- START CLONED SECTION -->
+    <!-- ########################################## -->
+    <div id="testingDiv1" class="clonedInput">
+         <h2 id="reference" name="reference" class="heading-reference"></h2>
+  
+            <label  for="select" class="test-select-label">FILTER</label>
+                    <select id="select" name="filters" class="test-select">
+                     <option value="filme" selected> </option>
+                        <option value="filme" >Movie Name</option>
                         <option value="classif">Age rating</option>
                         <option value="realizador">Director</option>
                         <option value="nome_ator">Actor</option>
@@ -132,14 +145,31 @@
                         <option value="imdb_rating">Imdb Rating</option>
                         <option value="ost_rating">OST Rating</option>
                     </select>
-
-                    <br>Your Option:
-                    <input type="text" name="option">
-                    <br>
-                    <input type="submit" value="Search">
-                    <br>
-                    <br>
-                </form>
+                    
+                      <label for="option" class="test-option-label">Your Option:</label>
+        <input type="option" id="option" name="option" class="test-option"
+        />
+      
+                  
+                   
+        
+      
+        
+    </div>
+    <!--/clonedInput-->
+    <!-- ########################################## -->
+    <!-- END CLONED SECTION -->
+    <!-- ########################################## -->
+    <!-- ADD - DELETE BUTTONS -->
+    <div class="row">
+    <div id="add-del-buttons" class="col-xs-12 center-xs start-sm">
+        <input type="button" id="btnAdd" class="btn-default col-xs-5 col-sm-4" value="ADD FILTER">
+        <input type="button" id="btnDel" class="btn-default col-xs-5 col-sm-4" value="REMOVE FILTER">
+   
+      <input type="submit" class="col-xs-12 col-sm-3 btn-dark" value="SEARCH">
+       </div></div>
+    <!-- /ADD - DELETE BUTTONS -->
+</form>
 
             </div>
 
@@ -190,7 +220,7 @@
 
         <div class="row center-xs">
 
-            <button class="btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
+            <button class="btn-default  md-trigger  data-modal="modal-1">HELP US GROW</button>
 
             <div class="md-modal-xs md-effect-1" id="modal-1">
                 <div class="md-content-xs">
