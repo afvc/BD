@@ -188,7 +188,7 @@
 
         <!--------------MODAL---------->
 
-        <div class="row">
+        <div class="row center-xs">
 
             <button class="btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
 
