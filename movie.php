@@ -75,15 +75,21 @@
     $ano_musica = $_POST["ano"];                //o que foi escrito no ano
     $cantor = $_POST["cantor"];                 //o que foi escrito no cantor/banda
 
-    $insert = "INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
 
-    VALUES (NULL, '$nome_musica', '$genero_musica', '$ano_musica', '$cantor', '0', 'user')";
+    $insert_song = "INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
 
-    if ($conn->query($insert) == TRUE) {
+    VALUES ('$id_musica', '$nome_musica', '$genero_musica', '$ano_musica', '$cantor', '0', 'user')";
+
+    if ($conn->query($insert_song) == TRUE) {
         echo "New music inserted";
     }
-
     
+    echo $id_musica;
+
+    $insert_movie_song = "INSERT INTO filmes_musicas (filmes_id_filmes, musicas_id_musica)
+    
+    VALUES ('$movieid', '$id_musica')";
+
 
 ?>
 
@@ -185,7 +191,7 @@
                                 echo $row["filme"] . "</p>
                                 
                                     </div>
-                                    <div class ='row center-xs start-md middle-xs'>
+                                    
                                         <div class ='col-sm-6 col-xs-12'>
                                             <a class ='nav__link center-xs menu-selected'>
                                             <img src = " . $row["image"] . " class ='logo'> </a>
@@ -227,7 +233,6 @@
                                 
                                     ?>
                                 </p>
-                            </div>
                 </div>
 
             </div>

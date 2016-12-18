@@ -164,57 +164,7 @@
             </div>
             </div>
 
-            <div class="row">
-
-                <div class="subtitle start-xs">
-                    <p>MOST POPULAR MOVIES AROUND HERE</p>
-                </div>
-            </div>
-
-            <div class="row">
-
-                <div class="col-xs-12 start-xs">
-
-                    <?php
-                        $numrows_rating = 0;
-
-                        if ($result_filme_rating->num_rows > 0) {
-
-                            echo "<div class='row start-md'>";
-
-                                while(($row = $result_filme_rating->fetch_assoc()) && ($numrows_rating < 2)) {
-
-                                $numrows_rating++;
-
-                                echo "<div class='col-xs-5 col-sm-2'>
-                                        <div><b> #$numrows_rating </b></div>
-                                        <a class='nav__link center-xs' href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>                            </div>
-                                        <div class='col-xs-7 col-sm-4'>
-                                                <p class='subtitle text-left middle-xs'>" . $row["filme"] . "</p>" .
-                                                "<p class='text text-left middle-xs'>
-                                                    <b>Release date: </b>" . $row["data_lanc"] .
-                                                    "<br><b>Director: </b>" . $row["realizador"] . "
-                                                    <br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10
-                                                    <br><b>OST Rating: </b>" . $row["ost_rating"] . "/100
-                                                </p>
-                                            </div><br>";
-
-                            }
-                        }
-
-                    ?>
-
-                </div>
-
-            </div>
-
-            <div class="end-xs col-xs-12">
-                <a href="tops-site.php">
-                    <button class="btn-modal">SHOW MORE</button>
-                </a>
-            </div>
-            </div>
-
+            
             <div class="row">
 
                 <div class="subtitle start-xs">

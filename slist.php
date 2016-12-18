@@ -108,12 +108,12 @@
                 <div class="col-xs-6 start-xs">
 
                     <form method="post">
-                        <label>ORDER BY</label>
+                        <label>Order by</label>
                         <select name="orders">
                             <option value="nome_musica" selected>Song name</option>
                             <option value="cantor">Band/Singer name</option>
                         </select>
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="GO">
                     </form>
 
                 </div>
@@ -121,21 +121,25 @@
 
             <?php 
         
-            
-            //--------------------------RESULTADOS - MUSICAS--------------------------//
-        
+                $numrows = 0;
+
+                //--------------------------RESULTADOS - MUSICAS--------------------------//
+                echo "<div class='row center-xs start-md'>";
+
                 while($row = $result_musicas->fetch_assoc()) {
-                    echo "<div class=" . "row center-xs start-md" . ">
-                            <div class=" . "col-xs-6" . ">
-                            <p class=" . "text text-left middle-xs" .
-                            "<br><b>Song: </b>" . $row["nome_musica"] .
-                            "<br><b>Singer/Band: </b>" . $row["cantor"] . "</p>
-                            </div>
-                            </div>";
+
+                    $num_rows++;
+
+                    echo "<div class='col-xs-6'>
+                            <div><br><b> #$num_rows </b></div>
+                            <p class='text text-left middle-xs'
+                            <br><b>Song: </b> " . $row["nome_musica"] .
+                            "<br><b>Singer/Band: </b> " . $row["cantor"] . "</p>
+                         </div>";
                 }
 
             ?>
-
+                </div>
         </section>
 
         <div class="md-overlay"></div>
