@@ -2,7 +2,7 @@
 <?php
 
     include 'connection.php';  
-
+ include('logx.php');
     //----------------------SELECT FILME------------------------//
 
     $select_filme_imdb = "SELECT _id_filmes, filme, image, data_lanc, realizador, imdb_rating, ost_rating

@@ -7,7 +7,7 @@
   
     
     include 'connection.php';  
-
+ include('logx.php');
     //----------------------SELECT FILME------------------------//
 
     $select_filme = "SELECT DISTINCT _id_filmes, filme, image, data_lanc, realizador, imdb_rating, ost_rating
@@ -45,12 +45,12 @@
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="clone.js"></script>
-
+<script src="clone-song.js"></script>
+<script src="clone-act.js"></script>
 </head>
 
 
 <body>
-
     <?php include 'navbar.php'; ?>
 
     <section class="section-resized">
@@ -164,18 +164,18 @@
 
         <!--------------MODAL---------->
 
-        <div class="row center-xs">
+        <div class="row center-xs ">
 
-            <button class="btn-default  md-trigger  data-modal="modal-1">HELP US GROW</button>
+            <button class="grow  btn-default  md-trigger"  data-modal="modal-1">HELP US GROW</button>
 
             <div class="md-modal-xs md-effect-1" id="modal-1">
                 <div class="md-content-xs">
-                    <button class="md-close btn-default">Close me!</button>
+                    <button class="md-close btn-default-fixed">Close me!</button>
 
                     <div>
-                        <form action="demo_form.asp">
+                      <form action="#" method="post">
                             <label class="input-anim" for="">
-                                <span class="label__info">Movie Name</span>
+                                <br><br><span class="label__info">Movie Name</span>
                                 <input class="input-anim" type="text" name="movie">
                                 <br> </label>
 
@@ -214,23 +214,38 @@
                                 <br>
                             </label>
 
-                            <label class="input-anim" for="">
-                                <span class="label__info">Song</span>
-                                <input type="text" name="song">
-                                <br>
-                            </label>
+                          
 
-                            <label class="input-anim" for="">
-                                <span class="label__info">Singer/Band</span>
-                                <input type="text" name="band">
-                                <br>
-                            </label>
+    <div id="copy1" class="clone">
+        <label for="text" class="test-text-label input-anim">  
+        <span class="label__info">Song</span>
+        <input type="text" id="text" name="nome_musica" class="test-text "/>
+         <br></label>
+         
+             <label for="text" class="test-text-label input-anim">  
+          <span class="label__info"> Artist/Band</span>
+        <input type="text" id="text" name="cantor" class="test-text"/> <br></label>
+      
+    </div>
+   
+    <div id="add-del-buttons">
+        <input type="button" id="btnAddS" class="btn-default" value="ADD SONG">
+        <input type="button" id="btnDelS" class="btn-default" value="REMOVE SONG">
+    </div>
+    
+    <div id="copyC1" class="cloneC">
+        <label for="text" class="test-text-label input-anim">  
+        <span class="label__info">Actor</span>
+        <input type="text" id="text" name="nome_ator" class="test-text "/>
+         <br></label>
 
-                            <label class="input-anim" for="">
-                                <span class="label__info">Actor</span>
-                                <input type="text" name="actor">
-                                <br>
-                            </label>
+    </div>
+   
+    <div id="add-del-buttons">
+        <input type="button" id="btnAddC" class="btn-default" value="ADD ACTOR">
+        <input type="button" id="btnDelC" class="btn-default" value="REMOVE ACTOR">
+    </div>
+ 
 
                             <br>
                             <input type="submit" class="btn-default" value="Submit">
@@ -250,10 +265,24 @@
     <script type="text/javascript" src="assets/js/classie.js"></script>
     <script type="text/javascript" src="assets/js/modalEffects.js"></script>
     <script src="assets/js/cssParser.js"></script>
-
-    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    
+<script>
+$(".grow").click(function() {
 
+$(".md-overlay").css("visibility", "visible");
+    $(".md-overlay").css("opacity", "1");
+    
+});
+    
+    $(".md-close").click(function() {
+
+$(".md-overlay").css("visibility", "hidden");
+    $(".md-overlay").css("opacity", "0");
+    
+});
+    
+    </script>
 
 </body>
 
