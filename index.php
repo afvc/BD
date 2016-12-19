@@ -29,7 +29,7 @@
         <?php include 'navbar.php'; ?>
             <section class="section-resized">
 
-<<<<<<< HEAD
+ 
        <div class="row">
            <div class="col-xs-12 bg-gray">   <br> 
                <p id="welcome" class="text-bold">Username :   
