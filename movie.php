@@ -242,7 +242,7 @@
                               <label class="input-anim">
                             <span class="label__info">Singer/Band</span>
                             <input type="text" name="cantor"></label>
-                               <br>
+                               <br></div>
  <div id="add-del-buttons">
         <input type="button" id="btnAddS" class="btn-default" value="ADD SONG">
         <input type="button" id="btnDelS" class="btn-default" value="REMOVE SONG">
@@ -256,7 +256,7 @@
                             
                             
                         </form>
-                    </div>
+                    
                 </div>
             </div>
 

@@ -88,12 +88,10 @@
        <div class="row">
            <div class="col-xs-12 bg-gray">  <div>
                <p id="welcome" class="text-bold">Username :   
-    <?php  
-                echo  $_SESSION['login_user'];
-                ?>   </p>
+    <?php  echo  $_SESSION['login_user'];?></p>
 
-            <p id="welcome" class=" text-bold">Password : <i>
-    <?php echo  $passdb;;?> </i></p>
+            <p id="welcome" class=" text-bold">Password :
+    <?php echo  $_SESSION['login_pass'];?></p>
 
 
             <button class="btn-default"><a   class="text-light" href="logout.php">Log Out</a></button>
