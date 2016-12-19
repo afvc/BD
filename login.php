@@ -1,7 +1,6 @@
 <?php
 session_start(); // Starting Session
-$error=''; // Variable To Store Error Message
- $_SESSION['erros']=false; 
+$mensagemerro=''; // Variable To Store Error Message
 if (isset($_POST['submit'])) {
 if (empty($_POST['user']) || empty($_POST['pass'])) {
  echo "<script>  alert('Username or Password is invalid')</script>";
@@ -30,11 +29,10 @@ if ($log->num_rows ==1) {
 
 } else {
     
-/*$error = 'Username or Password is invalid';*/
-   
-  echo "alert('Username or Password is invalid')";    
-     header("Location:form.php"); 
-  
+/*  echo "<script>  alert('Username or Password is invalid')</script>";  */  
+      
+ 
+     header("Location:form.php");
 }
     
 mysql_close($conn); // Closing Connection
