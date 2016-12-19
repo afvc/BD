@@ -1,4 +1,5 @@
 <?php
+
     session_start(); // Starting Session
 
     $error=''; // Variable To Store Error Message
@@ -40,4 +41,5 @@
 
         }
     }
+ 
 ?>

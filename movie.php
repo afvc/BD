@@ -110,7 +110,8 @@
     <link rel="stylesheet" href="assets/css/_font-awesome.min.css.scss" type="text/css">
 
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="clone-song.js"></script>
 
 </head>
 
@@ -183,89 +184,115 @@
 
         </div>
 
-        <div class="row center-xs start-md">
-            <div class="col-xs-12 col-sm-6 order-xs-1st">
+    <div class="row center-xs start-md">
+                        <div class="col-xs-12  ">
 
-                <div class="subtitle  center-xs start-sm">
-                    <p>OFFICIAL SOUNDTRACK</p>
-                </div>
-                <?php 
+                            <div class="subtitle  center-xs start-sm">
+                                <p>OFFICIAL SOUNDTRACK</p>
+                            </div>
+                        </div>
+                        <?php 
 
                 //--------------------------RESULTADOS - MUSICAS--------------------------//
 
                     while($row = $result_musicas->fetch_assoc()) {
 
-                        echo "<div class='row center-xs start-md'>
-                                <div class='col-xs-12 col-sm-7'>
+                        echo " 
+                                <div class='col-xs-12 col-sm-6  '>
                                 <p class='text text-left middle-xs'><b>Song: </b>" . $row["nome_musica"] . "
                                 <br><b>Singer/Band: </b>" . $row["cantor"] . "</p>
-                                </div>
                                 </div>";
                     }
 
                 ?>
-
-            </div>
-
-        </div>
+ </div>
+                </div
 
         <!--------------MODAL---------->
 
         <div class="row center-xs">
 
-            <button class="btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
+            <button class="grow btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
 
             <div class="md-modal-xs md-effect-1" id="modal-1">
                 <div class="md-content-xs">
-                    <button class="md-close btn-default">Close me!</button>
+                    <button class="md-close btn-default-fixed">Close me!</button>
 
                     <div>
-                        <form method="post">
-                            <label>Song</label>
-                            <input type="text" name="nome_musica">
-                            <br>
-
-                            <label>Genre</label>
-                            <input type="text" name="genero">
-                            <br>
-
-                            <label>Year</label>
-                            <input type="text" pattern="\d*" maxlength="4" name="ano">
-                            <br>
-
-                            <label>Singer/Band</label>
-                            <input type="text" name="cantor">
-                            <br>
+                         <form action="#" method="post">
+                             <div id="copy1" class="clone">
+                            <br><br><!--<label for="text" class="input-anim test-text-label">
+                            <span class="label__info">Song</span>
+                            <input id="text" class="test-text" type="text" name="nome_musica"></label>   <br>-->
+                            
+                             <label for="text" class="test-text-label input-anim">  
+        <span class="label__info">Song</span>
+        <input type="text" id="text" name="nome_musica" class="test-text "/>
+         <br></label>
+                            
+                               <label class="input-anim">
+                            <span class="label__info">Genre</span>
+                            <input type="text" name="genero"></label>   <br>
+                              <label class="input-anim">
+                            <span class="label__info">Year</span>
+                            <input type="text" pattern="\d*" maxlength="4" name="ano"></label>
+                               <br>
+                               
+                               
+                              <label class="input-anim">
+                            <span class="label__info">Singer/Band</span>
+                            <input type="text" name="cantor"></label>
+                               <br></div>
+ <div id="add-del-buttons">
+        <input type="button" id="btnAddS" class="btn-default" value="ADD SONG">
+        <input type="button" id="btnDelS" class="btn-default" value="REMOVE SONG">
+    </div>
 
                             <!--
-                            <label name="filters" class="input-anim" for="">
-                                <span class="label__info" value="cantor">Singer/Band</span>
-                                <input type="text" name="option">
-                                <br>
-                            </label>
--->
+                            
+
                             <br>
-                            <input type="submit" value="Add song">
+                            <input type="submit" value="Add song">-->
+                            
+                            
                         </form>
-                    </div>
+                    
                 </div>
             </div>
 
-        </div>
+            </div></div></div>
 
+   
+   
+       
     </section>
 
     <div class="md-overlay"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script type="text/javascript" src="assets/js/classie.js"></script>
-    <script type="text/javascript" src="assets/js/modalEffects.js"></script>
-    <script src="assets/js/cssParser.js"></script>
-
-    <!-- jQuery -->
+<  <script type="text/javascript" src="assets/js/modalEffects.js"></script>
+   <script src="assets/js/cssParser.js"></script> 
+ <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+   
 
     <script src="assets/js/script-movie.js"></script>
 
+ <script>
+                $(".grow").click(function () {
+
+                    $(".md-overlay").css("visibility", "visible");
+                    $(".md-overlay").css("opacity", "1");
+
+                });
+
+                $(".md-close").click(function () {
+
+                    $(".md-overlay").css("visibility", "hidden");
+                    $(".md-overlay").css("opacity", "0");
+
+                });
+            </script>
 </body>
 
 
