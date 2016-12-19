@@ -44,43 +44,44 @@
 
         <?php include 'navbar.php'; ?>
 
-        <section class="section-resized">
+            <section class="section-resized">
 
-            <div class="row">
+                <div class="row">
 
-                <div class="subtitle col-xs-12  start-xs">
-                    <p>SONG LIST</p>
+                    <div class="subtitle col-xs-12  start-xs">
+                        <p>SONG LIST</p>
+                    </div>
+
+                    <div class="col-xs-6 start-xs">
+
+                        <form method="post">
+                            <label>Order by</label>
+                            <select name="orders" onchange="this.form.submit()">
+                                <option value="" selected></option>
+                                <option value="nome_musica">Song name</option>
+                                <option value="cantor">Band/Singer name</option>
+                            </select>
+                        </form>
+
+                    </div>
                 </div>
 
-                <div class="col-xs-6 start-xs">
-
-                    <form method="post">
-                        <label>Order by</label>
-                        <select name="orders">
-                            <option value="nome_musica" selected>Song name</option>
-                            <option value="cantor">Band/Singer name</option>
-                        </select>
-                        <input type="submit" value="GO">
-                    </form>
-
-                </div>
-            </div>
-
-            <?php 
-        
-                $numrows = 0;
-
+                <?php 
+ 
                 //--------------------------RESULTADOS - MUSICAS--------------------------//
-                echo "<div class='row center-xs start-md'>";
+
+                $numrows = 0;
+            
+                echo "<div class='row start-md'>";
 
                 while($row = $result_musicas->fetch_assoc()) {
 
                     $num_rows++;
-
-                    echo "<div class='col-xs-6'>
-                            <div><br><b> #$num_rows </b></div>
+                        
+                    echo "<div class='col-xs-12 col-sm-6'>
+                            <p class='subtitle text-left middle-xs'
+                            <br>  #$num_rows<br>" . $row["nome_musica"] . "
                             <p class='text text-left middle-xs'
-                            <br><b>Song: </b> " . $row["nome_musica"] . "
                             <br><b>Genre: </b>" . $row["m_generos"] . "
                             <br><b>Year: </b>" . $row["m_ano"] . "
                             <br><b>Singer/Band: </b>" . $row["cantor"] . "</p>
@@ -88,12 +89,12 @@
                 }
 
             ?>
-                </div>
-        </section>
+                    </div>
+            </section>
 
-        <div class="md-overlay"></div>
+            <div class="md-overlay"></div>
 
-        <!--
+            <!--
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script type="text/javascript" src="assets/js/classie.js"></script>
