@@ -75,7 +75,7 @@
     $ano_musica = $_POST["ano"];                //o que foi escrito no ano
     $cantor = $_POST["cantor"];                 //o que foi escrito no cantor/banda
 
-/*
+
     $insert_song = "INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
 
     VALUES ('$id_musica', '$nome_musica', '$genero_musica', '$ano_musica', '$cantor', '0', 'user')";
@@ -88,47 +88,47 @@
 
     $insert_movie_song = "INSERT INTO filmes_musicas (filmes_id_filmes, musicas_id_musica)
     
-    VALUES ('$movieid', '$id_musica')";*/
+    VALUES ('$movieid', '$id_musica')";
 
 
 ?>
 
-    <!DOCTYPE html>
-    <html>
+<!DOCTYPE html>
+<html>
 
-    <head>
+<head>
 
-        <!-- META TAGS -->
-        <meta charset="UTF-8" />
-        <title>Spotlight</title>
-
-
-        <!-- STYLESHEETS -->
-
-        <link rel="stylesheet" href="assets/css/flexboxgrid.min.css" type="text/css">
-
-        <link rel="stylesheet" href="assets/css/_font-awesome.min.css.scss" type="text/css">
-
-        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="clone-song.js"></script>
-         
-    </head>
+    <!-- META TAGS -->
+    <meta charset="UTF-8" />
+    <title>Spotlight</title>
 
 
-    <body>
+    <!-- STYLESHEETS -->
 
-        <?php include 'navbar.php'; ?>
+    <link rel="stylesheet" href="assets/css/flexboxgrid.min.css" type="text/css">
 
-            <section class="section-resized">
+    <link rel="stylesheet" href="assets/css/_font-awesome.min.css.scss" type="text/css">
+
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="clone-song.js"></script>
+
+</head>
 
 
-                <div class="row">
+<body>
 
-                    <div class="title col-xs-12 start-xs">
-                        <p>
+    <?php include 'navbar.php'; ?>
 
-                            <?php 
+    <section class="section-resized">
+
+
+        <div class="row">
+
+            <div class="title col-xs-12 start-xs">
+                <p>
+
+                    <?php 
 
                     //-----------------------RESULTADOS - NOME DO FILME e IMAGEM-----------------------//
 
@@ -147,11 +147,11 @@
                     }
                 ?>
 
-                                <div class="col-sm-6 col-xs-12">
+                        <div class="col-sm-6 col-xs-12">
 
-                                    <p class="text text-left middle-xs">
+                            <p class="text text-left middle-xs">
 
-                                        <?php 
+                                <?php 
 
                                 //--------------RESULTADOS - INFO FILME e ATORES e GÉNERO----------------//
 
@@ -179,12 +179,12 @@
                                     }
 
                                 ?>
-                                    </p>
-                                </div>
+                            </p>
+            </div>
 
-                    </div>
+        </div>
 
-                    <div class="row center-xs start-md">
+    <div class="row center-xs start-md">
                         <div class="col-xs-12  ">
 
                             <div class="subtitle  center-xs start-sm">
@@ -198,85 +198,87 @@
                     while($row = $result_musicas->fetch_assoc()) {
 
                         echo " 
-                                <div class='col-xs-6  '>
+                                <div class='col-xs-12 col-sm-6  '>
                                 <p class='text text-left middle-xs'><b>Song: </b>" . $row["nome_musica"] . "
                                 <br><b>Singer/Band: </b>" . $row["cantor"] . "</p>
-                                </div>
-                                 ";
+                                </div>";
                     }
 
                 ?>
+ </div>
+                </div
 
+        <!--------------MODAL---------->
 
+        <div class="row center-xs">
 
+            <button class="grow btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
+
+            <div class="md-modal-xs md-effect-1" id="modal-1">
+                <div class="md-content-xs">
+                    <button class="md-close btn-default-fixed">Close me!</button>
+
+                    <div>
+                         <form action="#" method="post">
+                             <div id="copy1" class="clone">
+                            <br><br><!--<label for="text" class="input-anim test-text-label">
+                            <span class="label__info">Song</span>
+                            <input id="text" class="test-text" type="text" name="nome_musica"></label>   <br>-->
+                            
+                             <label for="text" class="test-text-label input-anim">  
+        <span class="label__info">Song</span>
+        <input type="text" id="text" name="nome_musica" class="test-text "/>
+         <br></label>
+                            
+                               <label class="input-anim">
+                            <span class="label__info">Genre</span>
+                            <input type="text" name="genero"></label>   <br>
+                              <label class="input-anim">
+                            <span class="label__info">Year</span>
+                            <input type="text" pattern="\d*" maxlength="4" name="ano"></label>
+                               <br>
+                               
+                               
+                              <label class="input-anim">
+                            <span class="label__info">Singer/Band</span>
+                            <input type="text" name="cantor"></label>
+                               <br>
+ <div id="add-del-buttons">
+        <input type="button" id="btnAddS" class="btn-default" value="ADD SONG">
+        <input type="button" id="btnDelS" class="btn-default" value="REMOVE SONG">
+    </div>
+
+                            <!--
+                            
+
+                            <br>
+                            <input type="submit" value="Add song">-->
+                            
+                            
+                        </form>
                     </div>
                 </div>
-                <!--------------MODAL---------->
+            </div>
 
-                <div class="row center-xs">
+            </div></div></div>
 
-                    <button class="grow btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
+   
+   
+       
+    </section>
 
-                    <div class="md-modal-xs md-effect-1" id="modal-1">
-                        <div class="md-content-xs">
-                            <button class="md-close btn-default-fixed">Close me!</button>
-                            <form action="#" method="post">
-                                <div id="copy1" class="clone">
+    <div class="md-overlay"></div>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script type="text/javascript" src="assets/js/classie.js"></script>
+<  <script type="text/javascript" src="assets/js/modalEffects.js"></script>
+   <script src="assets/js/cssParser.js"></script> 
+ <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+   
 
+    <script src="assets/js/script-movie.js"></script>
 
-                                    <label for="text" class="test-text-label input-anim">
-                                        <span class="label__info">Song</span>
-                                        <input type="text" id="text" name="nome_musica" class="test-text " />
-                                        <br>
-                                    </label>
-
-                                    <label for="text" class="test-text-label input-anim">
-                                        <span class="label__info">Genre</span>
-                                        <input type="text" id="text" name="genero" class="test-text " />
-                                        <br>
-                                    </label>
-
-                                    <label for="text" class="test-text-label input-anim">
-                                        <span class="label__info">Year</span>
-                                        <input type="text" id="text" pattern="\d*" maxlength="4" class="test-text " />
-                                        <br>
-                                    </label>
-                                    
-                                      <label for="text" class="test-text-label input-anim">
-                                        <span class="label__info">Singer/Band</span>
-                                        <input type="text" id="text"   name="cantor" class="test-text " />
-                                        <br>
-                                    </label>
-                                     
-                                    
- 
-                                   <!-- <br>
-                                    <input type="submit" value="Add song">-->
-                            </form>
-                            </div>
-                         
-                    </div>
-
-                </div>
-
-           
-           
-            </section>
-
-            <div class="md-overlay"></div>
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-            <script type="text/javascript" src="assets/js/classie.js"></script>
-            <script type="text/javascript" src="assets/js/modalEffects.js"></script>
-            <script src="assets/js/cssParser.js"></script>
-
-            <!-- jQuery -->
-            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
-            <script src="assets/js/script-movie.js"></script>
-
-
-
-            <script>
+ <script>
                 $(".grow").click(function () {
 
                     $(".md-overlay").css("visibility", "visible");
@@ -291,8 +293,7 @@
 
                 });
             </script>
+</body>
 
-    </body>
 
-
-    </html>
+</html>

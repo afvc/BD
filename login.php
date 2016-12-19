@@ -33,8 +33,11 @@ if ($log->num_rows ==1) {
 
 } else {
     
-$error = 'Username or Password is invalid';
-     echo $error;
+/*$error = 'Username or Password is invalid';*/
+    sleep(2);
+     echo "<script>  alert('Username or Password is invalid')</script>";
+    sleep(5);
+     header("Location:form.php");
 }
     
 mysql_close($conn); // Closing Connection
