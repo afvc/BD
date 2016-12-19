@@ -29,6 +29,7 @@
                                 <input id="name" name="user" placeholder="username" type="text">
                                 <label class="text-light">Password :</label>
                                 <input id="password" name="pass" placeholder="**********" type="password">
+                                
                                 <input name="submit" type="submit" class="btn-dark " value=" Login ">
 
                             </form>
