@@ -292,6 +292,13 @@
                     $(".md-overlay").css("opacity", "0");
 
                 });
+     
+     $(".md-overlay").click(function() {
+         
+$(".md-overlay").css("visibility", "hidden");
+    $(".md-overlay").css("opacity", "0");
+    
+});
             </script>
 </body>
 
