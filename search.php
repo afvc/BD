@@ -291,21 +291,30 @@
             <script src="assets/js/cssParser.js"></script>
             <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-            <script>
-                $(".grow").click(function () {
+              
+<script>
+$(".grow").click(function() {
 
-                    $(".md-overlay").css("visibility", "visible");
-                    $(".md-overlay").css("opacity", "1");
+$(".md-overlay").css("visibility", "visible");
+    $(".md-overlay").css("opacity", "1");
+    
+});
+    
+    $(".md-close").click(function() {
 
-                });
-
-                $(".md-close").click(function () {
-
-                    $(".md-overlay").css("visibility", "hidden");
-                    $(".md-overlay").css("opacity", "0");
-
-                });
-            </script>
+$(".md-overlay").css("visibility", "hidden");
+    $(".md-overlay").css("opacity", "0");
+    
+});
+    
+     $(".md-overlay").click(function() {
+         
+$(".md-overlay").css("visibility", "hidden");
+    $(".md-overlay").css("opacity", "0");
+    
+});
+    
+    </script>
 
     </body>
 
