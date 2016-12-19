@@ -7,7 +7,7 @@
         
     //---------------------------------SELECT-------------------------------//
 
-    $select_musicas = "SELECT nome_musica, cantor, _id_musica
+    $select_musicas = "SELECT nome_musica, m_generos, m_ano, cantor
 
     FROM musicas
     
@@ -25,7 +25,7 @@
 
         <!-- META TAGS -->
         <meta charset="UTF-8" />
-        <title>Spotlight</title>
+        <title>Spotlight Song List</title>
 
 
         <!-- STYLESHEETS -->
@@ -80,8 +80,10 @@
                     echo "<div class='col-xs-6'>
                             <div><br><b> #$num_rows </b></div>
                             <p class='text text-left middle-xs'
-                            <br><b>Song: </b> " . $row["nome_musica"] .
-                            "<br><b>Singer/Band: </b> " . $row["cantor"] . "</p>
+                            <br><b>Song: </b> " . $row["nome_musica"] . "
+                            <br><b>Genre: </b>" . $row["m_generos"] . "
+                            <br><b>Year: </b>" . $row["m_ano"] . "
+                            <br><b>Singer/Band: </b>" . $row["cantor"] . "</p>
                          </div>";
                 }
 

@@ -20,7 +20,7 @@
 
     <!-- META TAGS -->
     <meta charset="UTF-8" />
-    <title>Spotlight</title>
+    <title>Spotlight Top Movies</title>
 
 
     <!-- STYLESHEETS -->
