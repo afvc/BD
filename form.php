@@ -15,7 +15,7 @@ header("Location:profile.php");
     <html>
 
     <head>
-        <title>Login Form in PHP with Session</title>
+        <title>Spotlight Login</title>
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     </head>

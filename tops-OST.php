@@ -22,7 +22,7 @@
 
     <!-- META TAGS -->
     <meta charset="UTF-8" />
-    <title>Spotlight</title>
+    <title>Spotlight Top OST</title>
 
 
     <!-- STYLESHEETS -->

@@ -38,7 +38,7 @@
 
         <!-- META TAGS -->
         <meta charset="UTF-8" />
-        <title>Spotlight</title>
+        <title>Spotlight Tops</title>
 
 
         <!-- STYLESHEETS -->

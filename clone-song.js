@@ -41,7 +41,7 @@ $(function () {
                 // if only one element remains, disable the "remove" button
                 if (num - 1 === 1) $('#btnDelS').attr('disabled', true);
                 // enable the "add" button
-                $('#btnAddS').attr('disabled', false).prop('value', "ADD SONG");
+                $('#btnAddS').attr('disabled', false).prop('value', "1 MORE SONG");
             });
         }
         return false;

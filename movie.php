@@ -20,6 +20,15 @@
         
     //---------------------------------SELECT-------------------------------//
 
+    $select_filme_title = "SELECT filme
+
+    FROM filmes
+
+    WHERE _id_filmes LIKE '$movieid'";
+
+    $result_filme_title = $conn->query($select_filme_title);
+
+    
     $select_filme = "SELECT filme, image
 
     FROM filmes
@@ -60,7 +69,7 @@
     $result_generos = $conn->query($select_generos);
 
 
-    $select_musicas = "SELECT nome_musica, cantor
+    $select_musicas = "SELECT nome_musica, m_generos, m_ano, cantor
 
     FROM filmes, filmes_musicas, musicas
 
@@ -78,17 +87,17 @@
 
     $insert_song = "INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
 
-    VALUES ('$id_musica', '$nome_musica', '$genero_musica', '$ano_musica', '$cantor', '0', 'user')";
+    VALUES ('$id_musica', '$nome_musica', '$genero_musica', '$ano_musica', '$cantor', '0', 'user');
+    
+    
+    INSERT INTO filmes_musicas (filmes_id_filmes, musicas_id_musica)
+    
+    VALUES ('$movieid', @lastid);
+    ";
 
     if ($conn->query($insert_song) == TRUE) {
         echo "New music inserted";
     }
-    
-    echo $id_musica;
-
-    $insert_movie_song = "INSERT INTO filmes_musicas (filmes_id_filmes, musicas_id_musica)
-    
-    VALUES ('$movieid', '$id_musica')";
 
 
 ?>
@@ -100,7 +109,15 @@
 
     <!-- META TAGS -->
     <meta charset="UTF-8" />
-    <title>Spotlight</title>
+    <title>
+        <?php
+
+$row = $result_filme_title->fetch_assoc();
+
+echo $row["filme"];
+
+?>
+    </title>
 
 
     <!-- STYLESHEETS -->
@@ -110,8 +127,8 @@
     <link rel="stylesheet" href="assets/css/_font-awesome.min.css.scss" type="text/css">
 
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="clone-song.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="clone-song.js"></script>
 
 </head>
 
@@ -120,180 +137,185 @@
 
     <?php include 'navbar.php'; ?>
 
-    <section class="section-resized">
+        <section class="section-resized">
 
 
-        <div class="row">
+            <div class="row">
 
-            <div class="title col-xs-12 start-xs">
-                <p>
+                <div class="title col-xs-12 start-xs">
+                    <p>
 
-                    <?php 
-
-                    //-----------------------RESULTADOS - NOME DO FILME e IMAGEM-----------------------//
-
-                    if ($result_filme->num_rows > 0) {
-                        while($row = $result_filme->fetch_assoc()) {
-
-                            echo $row["filme"] . "</p>
-
-                                </div>
-
-                                    <div class ='col-sm-6 col-xs-12'>
-                                        <a class ='nav__link center-xs menu-selected'>
-                                        <img src = " . $row["image"] . " class ='logo'> </a>
-                                    </div>";
-                        }
-                    }
-                ?>
-
-                        <div class="col-sm-6 col-xs-12">
-
-                            <p class="text text-left middle-xs">
-
-                                <?php 
-
-                                //--------------RESULTADOS - INFO FILME e ATORES e GÉNERO----------------//
-
-                                    while($row = $result_filme_more->fetch_assoc()) {
-
-                                        echo "<b>Release date: </b>" . $row["data_lanc"] . "<br>";
-                                        echo "<br><b>Age rating: </b>" . $row["classif"];
-                                        echo "<br><b>Director: </b>" . $row["realizador"];
-                                        echo "<br><b>IMDB rating: </b>" . $row["imdb_rating"] . "/10";
-                                        echo "<br><b>OST rating: </b>" . $row["ost_rating"] . "/100" . "<br><br>";
-                                    }
-
-                                    echo "<b>Main actors: </b>";
-
-                                    while($row = $result_atores->fetch_assoc()) {
-
-                                        echo "<br>" . $row["nome_ator"];
-                                    }
-
-                                    echo "<br><br><b>Genres: </b>";
-
-                                    while($row = $result_generos->fetch_assoc()) {
-
-                                        echo "<br>" . $row["nome_genero"];
-                                    }
-
-                                ?>
-                            </p>
-            </div>
-
-        </div>
-
-    <div class="row center-xs start-md">
-                        <div class="col-xs-12  ">
-
-                            <div class="subtitle  center-xs start-sm">
-                                <p>OFFICIAL SOUNDTRACK</p>
-                            </div>
-                        </div>
                         <?php 
 
-                //--------------------------RESULTADOS - MUSICAS--------------------------//
+        //-----------------------RESULTADOS - NOME DO FILME e IMAGEM-----------------------//
 
-                    while($row = $result_musicas->fetch_assoc()) {
+        if ($result_filme->num_rows > 0) {
+            while($row = $result_filme->fetch_assoc()) {
 
-                        echo " 
-                                <div class='col-xs-12 col-sm-6  '>
-                                <p class='text text-left middle-xs'><b>Song: </b>" . $row["nome_musica"] . "
-                                <br><b>Singer/Band: </b>" . $row["cantor"] . "</p>
-                                </div>";
-                    }
+                echo $row["filme"] . "</p>
 
-                ?>
- </div>
-                </div
+                    </div>
 
-        <!--------------MODAL---------->
+                        <div class ='col-sm-6 col-xs-12'>
+                            <a class ='nav__link center-xs menu-selected'>
+                            <img src = " . $row["image"] . " class ='logo'> </a>
+                        </div>";
+            }
+        }
+    ?>
 
-        <div class="row center-xs">
+                            <div class="col-sm-6 col-xs-12">
 
-            <button class="grow btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
+                                <p class="text text-left middle-xs">
 
-            <div class="md-modal-xs md-effect-1" id="modal-1">
-                <div class="md-content-xs">
-                    <button class="md-close btn-default-fixed">Close me!</button>
+                                    <?php 
 
-                    <div>
-                         <form action="#" method="post">
-                             <div id="copy1" class="clone">
-                            <br><br><!--<label for="text" class="input-anim test-text-label">
-                            <span class="label__info">Song</span>
-                            <input id="text" class="test-text" type="text" name="nome_musica"></label>   <br>-->
-                            
-                             <label for="text" class="test-text-label input-anim">  
-        <span class="label__info">Song</span>
-        <input type="text" id="text" name="nome_musica" class="test-text "/>
-         <br></label>
-                            
-                               <label class="input-anim">
-                            <span class="label__info">Genre</span>
-                            <input type="text" name="genero"></label>   <br>
-                              <label class="input-anim">
-                            <span class="label__info">Year</span>
-                            <input type="text" pattern="\d*" maxlength="4" name="ano"></label>
-                               <br>
-                               
-                               
-                              <label class="input-anim">
-                            <span class="label__info">Singer/Band</span>
-                            <input type="text" name="cantor"></label>
-                               <br></div>
- <div id="add-del-buttons">
-        <input type="button" id="btnAddS" class="btn-default" value="ADD SONG">
-        <input type="button" id="btnDelS" class="btn-default" value="REMOVE SONG">
-    </div>
+                    //--------------RESULTADOS - INFO FILME e ATORES e GÉNERO----------------//
 
-                            <!--
-                            
+                        while($row = $result_filme_more->fetch_assoc()) {
 
-                            <br>
-                            <input type="submit" value="Add song">-->
-                            
-                            
-                        </form>
-                    
+                            echo "<b>Release date: </b>" . $row["data_lanc"] . "<br>";
+                            echo "<br><b>Age rating: </b>" . $row["classif"];
+                            echo "<br><b>Director: </b>" . $row["realizador"];
+                            echo "<br><b>IMDB rating: </b>" . $row["imdb_rating"] . "/10";
+                            echo "<br><b>OST rating: </b>" . $row["ost_rating"] . "/100" . "<br><br>";
+                        }
+
+                        echo "<b>Main actors: </b>";
+
+                        while($row = $result_atores->fetch_assoc()) {
+
+                            echo "<br>" . $row["nome_ator"];
+                        }
+
+                        echo "<br><br><b>Genres: </b>";
+
+                        while($row = $result_generos->fetch_assoc()) {
+
+                            echo "<br>" . $row["nome_genero"];
+                        }
+
+                    ?>
+                                </p>
+                            </div>
+
+                </div>
+
+                <div class="row center-xs start-md">
+                    <div class="col-xs-12  ">
+
+                        <div class="subtitle  center-xs start-sm">
+                            <p>OFFICIAL SOUNDTRACK</p>
+                        </div>
+                    </div>
+                    <?php 
+
+    //--------------------------RESULTADOS - MUSICAS--------------------------//
+
+        while($row = $result_musicas->fetch_assoc()) {
+
+            echo " 
+                    <div class='col-xs-12 col-sm-6  '>
+                    <p class='text text-left middle-xs'><b>Song: </b>" . $row["nome_musica"] . "
+                    <br><b>Genre: </b>" . $row["m_generos"] . "
+                    <br><b>Year: </b>" . $row["m_ano"] . "
+                    <br><b>Singer/Band: </b>" . $row["cantor"] . "</p>
+                    </div>";
+        }
+
+    ?>
                 </div>
             </div>
 
-            </div></div></div>
+            <!--------------MODAL---------->
 
-   
-   
-       
-    </section>
+            <div class="row center-xs">
 
-    <div class="md-overlay"></div>
-   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script type="text/javascript" src="assets/js/classie.js"></script>
-<  <script type="text/javascript" src="assets/js/modalEffects.js"></script>
-   <script src="assets/js/cssParser.js"></script> 
- <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-   
+                <button class="grow btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
 
-    <script src="assets/js/script-movie.js"></script>
+                <div class="md-modal-xs md-effect-1" id="modal-1">
+                    <div class="md-content-xs">
+                        <button class="md-close btn-default-fixed">Close me!</button>
 
- <script>
-                $(".grow").click(function () {
+                        <div>
+                            <form action="#" method="post">
+                                <div id="copy1" class="clone">
+                                    <br>
+                                    <br>
+                                    <label for="text" class="test-text-label input-anim">
+                                        <span class="label__info">Song</span>
+                                        <input type="text" id="text" name="nome_musica" class="test-text " />
+                                        <br>
+                                    </label>
 
-                    $(".md-overlay").css("visibility", "visible");
-                    $(".md-overlay").css("opacity", "1");
+                                    <label class="input-anim">
+                                        <span class="label__info">Genre</span>
+                                        <input type="text" name="genero">
+                                    </label>
+                                    <br>
+                                    <label class="input-anim">
+                                        <span class="label__info">Year</span>
+                                        <input type="text" pattern="\d*" maxlength="4" name="ano">
+                                    </label>
+                                    <br>
 
-                });
 
-                $(".md-close").click(function () {
+                                    <label class="input-anim">
+                                        <span class="label__info">Singer/Band</span>
+                                        <input type="text" name="cantor">
+                                    </label>
+                                    <br>
+                                </div>
+                                <div id="add-del-buttons">
+                                    <input type="button" id="btnAddS" class="btn-default" value="1 MORE SONG">
+                                    <input type="button" id="btnDelS" class="btn-default" value="REMOVE LAST SONG">
+                                </div>
 
-                    $(".md-overlay").css("visibility", "hidden");
-                    $(".md-overlay").css("opacity", "0");
+                                <br>
+                                <input type="submit" class="btn-default btn_add_song" value="ADD SONGS">
 
-                });
-            </script>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+
+    <script>
+
+    </script> 
+
+
+        </section>
+
+        <div class="md-overlay"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script type="text/javascript" src="assets/js/classie.js"></script>
+        <script type="text/javascript" src="assets/js/modalEffects.js"></script>
+        <script src="assets/js/cssParser.js"></script>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+        <script src="assets/js/script-movie.js"></script>
+
+        <script>
+            $(".grow").click(function () {
+
+                $(".md-overlay").css("visibility", "visible");
+                $(".md-overlay").css("opacity", "1");
+
+            });
+
+            $(".md-close").click(function () {
+
+                $(".md-overlay").css("visibility", "hidden");
+                $(".md-overlay").css("opacity", "0");
+
+            });
+        </script>
 </body>
-
 
 </html>

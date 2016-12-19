@@ -40,7 +40,7 @@ $(function () {
                 // if only one element remains, disable the "remove" button
                 if (num - 1 === 1) $('#btnDelC').attr('disabled', true);
                 // enable the "add" button
-                $('#btnAddC').attr('disabled', false).prop('value', "ADD ACTOR");
+                $('#btnAddC').attr('disabled', false).prop('value', "1 MORE ACTOR");
             });
         }
         return false;
