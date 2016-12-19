@@ -31,25 +31,7 @@
     AND $filters LIKE '%$option%'
 ";
 
-    echo $select_filme;
-
     $result_filme = $conn->query($select_filme);
-
-
-//----------------------INSERT FILME------------------------//
-
-    $filme = $_POST["filme"];       //o que foi escrito no filme
-    $classif = $_POST["classif"];          //o que foi escrito na classificação
-    $data_lanc = $_POST["data_lanc"];                //o que foi escrito na data de lançamento
-    $realizador = $_POST["realizador"];                 //o que foi escrito no realizador
-
-    $insert_filme= "INSERT INTO filmes (_id_filmes, filme, image, classif, data_lanc, realizador, imdb_rating, ost_rating, flag_filme_add, flag_filme_estreia, Utilizadoruser_name)
-    
-    VALUES (NULL, '$filme', NULL, '$classif', '2016-12-19', '$realizador', '10', '100', '1', '1', 'user');";
-
-    if ($conn->query($insert_filme) == TRUE) {
-        echo "<br>New movie inserted";
-    }
 
 ?>
 
@@ -82,68 +64,88 @@
 
             <section class="section-resized">
 
-                <div class="row">
+                <?php
+                //----------------------INSERT FILME------------------------//
+                    if(isset($_REQUEST['addmovie'])) {  
+                        
+                        $filme = $_POST["filme"];       //o que foi escrito no filme
+                        $classif = $_POST["classif"];          //o que foi escrito na classificação
+                        $data_lanc = $_POST["data_lanc"];                //o que foi escrito na data de lançamento
+                        $realizador = $_POST["realizador"];                 //o que foi escrito no realizador
 
-                    <div class=" col-xs-12 subtitle start-xs">
-                        <p>SEARCH</p>
+                        $mov=$conn->query("INSERT INTO filmes (_id_filmes, filme, image, classif, data_lanc, realizador, imdb_rating, ost_rating, flag_filme_add, flag_filme_estreia, Utilizadoruser_name)
 
+                        VALUES (NULL , '$filme', 'NULL', '$classif', '2016-12-19', '$realizador', '10', '100', '1', '1', 'user')");
+
+                        echo "New movie inserted";
+
+                    }
+                ?>
+
+                    <div class="row">
+
+                        <div class=" col-xs-12 subtitle start-xs">
+                            <p>SEARCH</p>
+
+                        </div>
                     </div>
-                </div>
 
-                <div class="row">
+                    <div class="row">
 
-                    <div class="col-xs-12 start-xs">
+                        <div class="col-xs-12 start-xs">
 
-                        <form action="#" method="post">
+                            <form action="#" method="post">
 
-                            <!--
+                                <!--
 ########################################## -->
-                            <!-- START CLONED SECTION -->
-                            <!-- ########################################## -->
-                            <div id="testingDiv1" class="clonedInput">
-                                <h2 id="reference" name="reference" class="heading-reference"></h2>
+                                <!-- START CLONED SECTION -->
+                                <!-- ########################################## -->
+                                <div id="testingDiv1" class="clonedInput">
+                                    <h2 id="reference" name="reference" class="heading-reference"></h2>
 
-                                <label for="select" class="test-select-label">FILTER</label>
-                                <select id="select" name="filters" class="test-select">
-                                    <option selected> </option>
-                                    <option value="filme">Movie Name</option>
-                                    <option value="classif">Age rating</option>
-                                    <option value="realizador">Director</option>
-                                    <option value="nome_ator">Actor</option>
-                                    <option value="nome_genero">Genre</option>
-                                    <option value="nome_musica">Song</option>
-                                    <option value="cantor">Singer/Band</option>
-                                    <option value="imdb_rating">Imdb Rating</option>
-                                    <option value="ost_rating">OST Rating</option>
-                                </select>
+                                    <label for="select" class="test-select-label">FILTER</label>
+                                    <select id="select" name="filters" class="test-select">
+                                        <option selected> </option>
+                                        <option value="filme">Movie Name</option>
+                                        <option value="classif">Age rating</option>
+                                        <option value="realizador">Director</option>
+                                        <option value="nome_ator">Actor</option>
+                                        <option value="nome_genero">Genre</option>
+                                        <option value="nome_musica">Song</option>
+                                        <option value="cantor">Singer/Band</option>
+                                        <option value="imdb_rating">Imdb Rating</option>
+                                        <option value="ost_rating">OST Rating</option>
+                                    </select>
 
-                                <label for="option" class="test-option-label">Your Option:</label>
-                                <input type="option" id="option" name="option" class="test-option" />
+                                    <label for="option" class="test-option-label">Your Option:</label>
+                                    <input type="option" id="option" name="option" class="test-option" />
 
-                            </div>
-                            <!--/clonedInput-->
-                            <!-- ########################################## -->
-                            <!-- END CLONED SECTION -->
-                            <!-- ########################################## -->
-                            <!-- ADD - DELETE BUTTONS -->
-                            <div class="row">
-                                <div id="add-del-buttons" class="col-xs-12 center-xs start-sm">
-                                    <input type="button" id="btnAdd" class="btn-default col-xs-5 col-sm-4" value="ADD FILTER">
-                                    <input type="button" id="btnDel" class="btn-default col-xs-5 col-sm-4" value="REMOVE FILTER">
-
-                                    <input type="submit" class="col-xs-12 col-sm-3 btn-dark" value="SEARCH">
                                 </div>
-                            </div>
-                            <!-- /ADD - DELETE BUTTONS -->
-                        </form>
+                                <!--/clonedInput-->
+                                <!-- ########################################## -->
+                                <!-- END CLONED SECTION -->
+                                <!-- ########################################## -->
+                                <!-- ADD - DELETE BUTTONS -->
+                                <div class="row">
+                                    <div id="add-del-buttons" class="col-xs-12 center-xs start-sm">
+                                        <input type="button" id="btnAdd" class="btn-default col-xs-5 col-sm-4" value="ADD FILTER">
+                                        <input type="button" id="btnDel" class="btn-default col-xs-5 col-sm-4" value="REMOVE FILTER">
 
-                    </div>
+                                        <input type="submit" class="col-xs-12 col-sm-3 btn-dark" value="SEARCH">
+                                    </div>
+                                </div>
+                                <!-- /ADD - DELETE BUTTONS -->
+                            </form>
 
-                    <div class='col-xs-12 start-xs'>
+                        </div>
 
-                        <?php
+                        <div class='col-xs-12 start-xs'>
+
+                            <?php
 
                 //-------------------------------RESULTADOS-----------------------------//
+
+                $numrows = 0;
 
                 if ($result_filme->num_rows == 0) {
                     echo " No results";
@@ -156,6 +158,8 @@
 
                     echo "<div class='row center-xs start-md'>";
                     while($row = $result_filme->fetch_assoc()) {
+
+                        $numrows++;
 
                         echo "
                             <div class='col-xs-5 col-md-2'>
@@ -177,109 +181,109 @@
                 }
             ?>
 
-                    </div>
-                </div>
-
-                </div>
-
-                <!--------------MODAL---------->
-
-                <div class="row center-xs ">
-
-                    <button class="grow  btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
-
-                    <div class="md-modal-xs md-effect-1" id="modal-1">
-                        <div class="md-content-xs">
-                            <button class="md-close btn-default-fixed">Close me!</button>
-
-                            <div>
-                                <form action="#" method="post">
-                                    <label class="input-anim" for="">
-                                        <br>
-                                        <br><span class="label__info">Movie Name</span>
-                                        <input class="input-anim" type="text" name="movie">
-                                        <br> </label>
-
-                                    <label class="input-anim" for="">
-                                        <span class="label__info">Age rating</span>
-                                        <input type="text" pattern="\d*" maxlength="2" name="agerating">
-                                        <br>
-                                    </label>
-
-                                    <label class="input-anim" for="">
-                                        <span class="label__info">Release date</span>
-                                        <input type="text" name="year">
-                                        <br>
-                                    </label>
-
-                                    <label class="input-anim" for="">
-                                        <span class="label__info">Director</span>
-                                        <input type="text" name="director">
-                                        <br>
-                                    </label>
-
-                                    <label class="input-anim" for="">
-                                        <span class="label__info">IMDB Rating</span>
-                                        <input type="text" pattern="\d*" maxlength="3" name="imdb">
-                                        <br>
-                                    </label>
-
-                                    <label class="input-anim" for="">
-                                        <span class="label__info">OST Rating</span>
-                                        <input type="text" pattern="\d*" maxlength="4" name="ost">
-                                        <br>
-                                    </label>
-                                    <label class="input-anim" for="">
-                                        <span class="label__info">Genre</span>
-                                        <input type="text" name="genre">
-                                        <br>
-                                    </label>
-
-
-                                    <div id="copy1" class="clone">
-                                        <label for="text" class="test-text-label input-anim">
-                                            <span class="label__info">Song</span>
-                                            <input type="text" id="text" name="nome_musica" class="test-text " />
-                                            <br>
-                                        </label>
-
-                                        <label for="text" class="test-text-label input-anim">
-                                            <span class="label__info"> Artist/Band</span>
-                                            <input type="text" id="text" name="cantor" class="test-text" />
-                                            <br>
-                                        </label>
-
-                                    </div>
-
-                                    <div id="add-del-buttons">
-                                        <input type="button" id="btnAddS" class="btn-default" value="1 MORE SONG">
-                                        <input type="button" id="btnDelS" class="btn-default" value="REMOVE LAST SONG">
-                                    </div>
-
-                                    <div id="copyC1" class="cloneC">
-                                        <label for="text" class="test-text-label input-anim">
-                                            <span class="label__info">Actor</span>
-                                            <input type="text" id="text" name="nome_ator" class="test-text " />
-                                            <br>
-                                        </label>
-
-                                    </div>
-
-                                    <div id="add-del-buttons">
-                                        <input type="button" id="btnAddC" class="btn-default" value="1 MORE ACTOR">
-                                        <input type="button" id="btnDelC" class="btn-default" value="REMOVE LAST ACTOR">
-                                    </div>
-
-
-                                    <br>
-                                    <input type="submit" class="btn-default" value="ADD MOVIE">
-                                </form>
-
-                            </div>
-
                         </div>
                     </div>
-                </div>
+
+                    </div>
+
+                    <!--------------MODAL---------->
+
+                    <div class="row center-xs ">
+
+                        <button class="grow  btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
+
+                        <div class="md-modal-xs md-effect-1" id="modal-1">
+                            <div class="md-content-xs">
+                                <button class="md-close btn-default-fixed">Close me!</button>
+
+                                <div>
+                                    <form action="#" method="post">
+                                        <label class="input-anim" for="">
+                                            <br>
+                                            <br><span class="label__info">Movie Name</span>
+                                            <input class="input-anim" type="text" name="filme">
+                                            <br> </label>
+
+                                        <label class="input-anim" for="">
+                                            <span class="label__info">Age rating</span>
+                                            <input type="text" pattern="\d*" maxlength="2" name="classif">
+                                            <br>
+                                        </label>
+
+                                        <label class="input-anim" for="">
+                                            <span class="label__info">Release date</span>
+                                            <input type="text" name="data_lanc">
+                                            <br>
+                                        </label>
+
+                                        <label class="input-anim" for="">
+                                            <span class="label__info">Director</span>
+                                            <input type="text" name="realizador">
+                                            <br>
+                                        </label>
+
+                                        <label class="input-anim" for="">
+                                            <span class="label__info">IMDB Rating</span>
+                                            <input type="text" pattern="\d*" maxlength="3" name="imdb_rating">
+                                            <br>
+                                        </label>
+
+                                        <label class="input-anim" for="">
+                                            <span class="label__info">OST Rating</span>
+                                            <input type="text" pattern="\d*" maxlength="4" name="ost_rating">
+                                            <br>
+                                        </label>
+                                        <label class="input-anim" for="">
+                                            <span class="label__info">Genre</span>
+                                            <input type="text" name="genre">
+                                            <br>
+                                        </label>
+
+
+                                        <div id="copy1" class="clone">
+                                            <label for="text" class="test-text-label input-anim">
+                                                <span class="label__info">Song</span>
+                                                <input type="text" id="text" name="nome_musica" class="test-text " />
+                                                <br>
+                                            </label>
+
+                                            <label for="text" class="test-text-label input-anim">
+                                                <span class="label__info"> Artist/Band</span>
+                                                <input type="text" id="text" name="cantor" class="test-text" />
+                                                <br>
+                                            </label>
+
+                                        </div>
+
+                                        <div id="add-del-buttons">
+                                            <input type="button" id="btnAddS" class="btn-default" value="1 MORE SONG">
+                                            <input type="button" id="btnDelS" class="btn-default" value="REMOVE LAST SONG">
+                                        </div>
+
+                                        <div id="copyC1" class="cloneC">
+                                            <label for="text" class="test-text-label input-anim">
+                                                <span class="label__info">Actor</span>
+                                                <input type="text" id="text" name="nome_ator" class="test-text " />
+                                                <br>
+                                            </label>
+
+                                        </div>
+
+                                        <div id="add-del-buttons">
+                                            <input type="button" id="btnAddC" class="btn-default" value="1 MORE ACTOR">
+                                            <input type="button" id="btnDelC" class="btn-default" value="REMOVE LAST ACTOR">
+                                        </div>
+
+
+                                        <br>
+                                        <input type="submit" class="btn-default" value="ADD MOVIE" name="addmovie">
+                                    </form>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
 
 
             </section>
@@ -291,30 +295,29 @@
             <script src="assets/js/cssParser.js"></script>
             <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-              
-<script>
-$(".grow").click(function() {
 
-$(".md-overlay").css("visibility", "visible");
-    $(".md-overlay").css("opacity", "1");
-    
-});
-    
-    $(".md-close").click(function() {
+            <script>
+                $(".grow").click(function () {
 
-$(".md-overlay").css("visibility", "hidden");
-    $(".md-overlay").css("opacity", "0");
-    
-});
-    
-     $(".md-overlay").click(function() {
-         
-$(".md-overlay").css("visibility", "hidden");
-    $(".md-overlay").css("opacity", "0");
-    
-});
-    
-    </script>
+                    $(".md-overlay").css("visibility", "visible");
+                    $(".md-overlay").css("opacity", "1");
+
+                });
+
+                $(".md-close").click(function () {
+
+                    $(".md-overlay").css("visibility", "hidden");
+                    $(".md-overlay").css("opacity", "0");
+
+                });
+
+                $(".md-overlay").click(function () {
+
+                    $(".md-overlay").css("visibility", "hidden");
+                    $(".md-overlay").css("opacity", "0");
+
+                });
+            </script>
 
     </body>
 
