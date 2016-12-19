@@ -26,63 +26,7 @@
 
 
 <body>
-
-    <!------------#NAVBAR_BIG------------>
-    <div class="smalltext nav-big">
-
-        <nav class="navbar">
-            <div class="row middle-xs full-height">
-
-                <ul class="smalltext col-xs-8 end-xs  col-sm-10 col-lg-10 text-bold">
-
-                    <li class="navbar__link"><a href="index.php" class="menu-selected">HOME</a></li>
-                    <li class="navbar__link"><a href="tops.php">TOPS</a></li>
-                    <li class="navbar__link"><a href="slist.php">SONG LIST</a></li>
-                    <li class="navbar__link"> <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">CONTACT US</a></li>
-                    <li class="navbar__link"><a href="search.php">SEARCH</a></li>
-
-                </ul>
-
-            </div>
-        </nav>
-    </div>
-
-
-    <!------------#NAVBAR_SMALL------------>
-
-    <div class="nav-small text-bold">
-
-        <input type="checkbox" id="nav-trigger" class="nav-controller" />
-
-        <header class="header-bar">
-            <label class="" for="nav-trigger" tabindex="-1">
-                <div class="button--icon-container">
-                    <span class="icon icon--hamburger"></span>
-                </div>
-            </label>
-
-        </header>
-
-        <aside class="nav">
-            <label class="overlay" for="nav-trigger"></label>
-            <div class="nav__body">
-
-
-                <ul class="  nav__list col-xs-12 subtitle">
-                    <label class="nav__item" for="nav-trigger">
-
-                        <li><a class="nav__link start-xs" href="index.php" class="menu-selected">HOME</a></li>
-                        <li><a class="nav__link start-xs" href="tops.php">TOPS</a></li>
-                        <li><a class="nav__link start-xs" href="slist.php">SONG LIST</a></li>
-                        <li><a class="nav__link start-xs" href="mailto:someone@example.com?Subject=Hello%20again" target="_top">CONTACT US</a></li>
-                        <li><a class="nav__link start-xs" href="search.php">SEARCH</a></li>
-
-                    </label>
-                </ul>
-            </div>
-        </aside>
-    </div>
-
+    <?php include 'navbar.php'; ?>
     <section class="section-resized">
 
        <div class="row">
@@ -107,8 +51,8 @@
             <p class="text text-darkest text-justify">
                 If you're not only a movie fan but also a music addicted this is the right place for you!
                 <br>
-                <br> You can check out below the movies with the best Original Soundtracks (OST) based on the ratings made by all of our users and you can also go check out IMDB Rating Top 25 Movies and the Most Popular Movies Around Here on the Tops tab.
-                <br>
+                <br> You can check out the movies with the <a href="tops-OST.php"><b>best Original Soundtracks (OST)</b></a> from Soundtrack Geek ratings and also the <a href="tops-imdb.php"><b>IMDB Rating Top 25 Movies</b></a> <!--and the Most Popular Movies Around Here--> on the Tops tab.
+
                 <br> If you're looking for something a little more specific you can go to Search and look for what you what. If you think there's a movie we're missing here, feel free to suggest it to us on 'Help Us Grow' by adding the informations you have about it, we'll then confirm them and add it to our website.
                 <br> If you think there's some missing or wrong information on a movie we have here, you can help us with that too.
                 <br>
