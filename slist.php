@@ -81,10 +81,20 @@
                     echo "<div class='col-xs-12 col-sm-6'>
                             <p class='subtitle text-left middle-xs'
                             <br>  #$num_rows<br>" . $row["nome_musica"] . "
-                            <p class='text text-left middle-xs'
-                            <br><b>Genre: </b>" . $row["m_generos"] . "
-                            <br><b>Year: </b>" . $row["m_ano"] . "
-                            <br><b>Singer/Band: </b>" . $row["cantor"] . "</p>
+                            <p class='text text-left middle-xs'";
+                    
+                            if (!(!isset($row["m_generos"]) || empty(trim($row["m_generos"])))){ //se tiver género definido
+                                echo "<br><b>Genre: </b>" . $row["m_generos"];
+                            }
+                    
+                            if (!(!isset($row["m_ano"]) || empty(trim($row["m_ano"])))){ //se tiver ano definido
+                                echo "<br><b>Year: </b>" . $row["m_ano"];
+                            }  
+                    
+                            if (!(!isset($row["cantor"]) || empty(trim($row["cantor"])))){ //se tiver cantor definido
+                                echo "<br><b>Singer/Band: </b>" . $row["cantor"];
+                            }
+                            echo "</p>
                          </div>";
                 }
 

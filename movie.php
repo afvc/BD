@@ -162,23 +162,30 @@ echo $row["filme"];
                         while($row = $result_filme_more->fetch_assoc()) {
 
                             echo "<b>Release date: </b>" . $row["data_lanc"] . "<br>";
-                            echo "<br><b>Age rating: </b>" . $row["classif"];
-                            echo "<br><b>Director: </b>" . $row["realizador"];
-                            echo "<br><b>IMDB rating: </b>" . $row["imdb_rating"] . "/10";
-                            echo "<br><b>OST rating: </b>" . $row["ost_rating"] . "/100" . "<br><br>";
+                            
+                            if (!(!isset($row["classif"]) || empty(trim($row["classif"])))){ //se tiver classif etária definido
+                                echo "<br><b>Age rating: </b>" . $row["classif"];
+                            }
+                            if (!(!isset($row["realizador"]) || empty(trim($row["realizador"])))){ //se tiver realizador definido
+                                echo "<br><b>Director: </b>" . $row["realizador"];
+                            }
+                            if (!(!isset($row["imdb_rating"]) || empty(trim($row["imdb_rating"])))){ //se tiver imdb_rating definido
+                                echo "<br><b>IMDB rating: </b>" . $row["imdb_rating"] . "/10";
+                            }
+                            if (!(!isset($row["ost_rating"]) || empty(trim($row["ost_rating"])))){ //se tiver ost_rating definido
+                                echo "<br><b>OST rating: </b>" . $row["ost_rating"] . "/100";
+                            }
                         }
 
-                        echo "<b>Main actors: </b>";
+                        echo "<br><br><b>Main actors: </b>";
 
                         while($row = $result_atores->fetch_assoc()) {
-
                             echo "<br>" . $row["nome_ator"];
                         }
 
                         echo "<br><br><b>Genres: </b>";
 
-                        while($row = $result_generos->fetch_assoc()) {
-
+                        while($row = $result_generos->fetch_assoc()) {                            
                             echo "<br>" . $row["nome_genero"];
                         }
 
@@ -203,11 +210,21 @@ echo $row["filme"];
 
             echo " 
                     <div class='col-xs-12 col-sm-6  '>
-                    <p class='text text-left middle-xs'><b>Song: </b>" . $row["nome_musica"] . "
-                    <br><b>Genre: </b>" . $row["m_generos"] . "
-                    <br><b>Year: </b>" . $row["m_ano"] . "
-                    <br><b>Singer/Band: </b>" . $row["cantor"] . "</p>
-                    </div>";
+                    <p class='text text-left middle-xs'><b>Song: </b>" . $row["nome_musica"];
+            
+                    if (!(!isset($row["m_generos"]) || empty(trim($row["m_generos"])))){ //se tiver género definido
+                        echo "<br><b>Genre: </b>" . $row["m_generos"];
+                    }
+
+                    if (!(!isset($row["m_ano"]) || empty(trim($row["m_ano"])))){ //se tiver ano definido
+                        echo "<br><b>Year: </b>" . $row["m_ano"];
+                    }  
+
+                    if (!(!isset($row["cantor"]) || empty(trim($row["cantor"])))){ //se tiver cantor definido
+                        echo "<br><b>Singer/Band: </b>" . $row["cantor"];
+                    }
+                    echo "</p>
+                         </div>";
         }
 
     ?>
