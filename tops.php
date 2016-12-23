@@ -81,18 +81,29 @@
 
                                 $numrows_imdb++;
 
-                                echo "<div class='col-xs-5 col-sm-2'>
+                                echo "<div class='col-xs-5 col-md-2'>
                                         <div><br><b> #$numrows_imdb </b></div>
-                                        <a class='nav__link center-xs' href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>                            </div>
-                                        <div class='col-xs-7 col-sm-4'>
-                                                <p class='subtitle text-left middle-xs'>" . $row["filme"] . "</p>" .
-                                                "<p class='text text-left middle-xs'>
-                                                    <b>Release date: </b>" . $row["data_lanc"] .
-                                                    "<br><b>Director: </b>" . $row["realizador"] . "
-                                                    <br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10
-                                                    <br><b>OST Rating: </b>" . $row["ost_rating"] . "/100
-                                                </p>
-                                            </div><br>";
+                                    <a class='nav__link center-xs' href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
+                                </div>
+                                <div class='col-xs-7 col-md-4'>
+                                    <p class='subtitle text-left middle-xs'>" . $row["filme"] . "</p>" .
+                                    "<p class='text text-left middle-xs'>";
+                        
+                        if (!(!isset($row["data_lanc"]) || empty(trim($row["data_lanc"])))){ //se tiver data_lanc definido
+                            echo "<b>Release date: </b>" . $row["data_lanc"];
+                        }
+                        if (!(!isset($row["realizador"]) || empty(trim($row["realizador"])))){ //se tiver realizador definido
+                            echo "<br><b>Director: </b>" . $row["realizador"];
+                        }
+                        if (!(!isset($row["imdb_rating"]) || empty(trim($row["imdb_rating"])))){ //se tiver imdb_rating definido
+                            echo "<br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10";
+                        }
+                        if (!(!isset($row["ost_rating"]) || empty(trim($row["ost_rating"])))){ //se tiver ost_rating definido
+                            echo "<br><b>OST Rating: </b>" . $row["ost_rating"] . "/100";
+                        }
+                        echo "  </p>
+                            </div>
+                        <br>";
 
                             }
                         }
@@ -133,18 +144,29 @@
 
                                 $numrows_ost++;
 
-                                echo "<div class='col-xs-5 col-sm-2'>
+                                echo "<div class='col-xs-5 col-md-2'>
                                         <div><br><b> #$numrows_ost </b></div>
-                                        <a class='nav__link center-xs' href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>                            </div>
-                                        <div class='col-xs-7 col-sm-4'>
-                                                <p class='subtitle text-left middle-xs'>" . $row["filme"] . "</p>" .
-                                                "<p class='text text-left middle-xs'>
-                                                    <b>Release date: </b>" . $row["data_lanc"] .
-                                                    "<br><b>Director: </b>" . $row["realizador"] . "
-                                                    <br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10
-                                                    <br><b>OST Rating: </b>" . $row["ost_rating"] . "/100
-                                                </p>
-                                            </div><br>";
+                                    <a class='nav__link center-xs' href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
+                                </div>
+                                <div class='col-xs-7 col-md-4'>
+                                    <p class='subtitle text-left middle-xs'>" . $row["filme"] . "</p>" .
+                                    "<p class='text text-left middle-xs'>";
+                        
+                        if (!(!isset($row["data_lanc"]) || empty(trim($row["data_lanc"])))){ //se tiver data_lanc definido
+                            echo "<b>Release date: </b>" . $row["data_lanc"];
+                        }
+                        if (!(!isset($row["realizador"]) || empty(trim($row["realizador"])))){ //se tiver realizador definido
+                            echo "<br><b>Director: </b>" . $row["realizador"];
+                        }
+                        if (!(!isset($row["imdb_rating"]) || empty(trim($row["imdb_rating"])))){ //se tiver imdb_rating definido
+                            echo "<br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10";
+                        }
+                        if (!(!isset($row["ost_rating"]) || empty(trim($row["ost_rating"])))){ //se tiver ost_rating definido
+                            echo "<br><b>OST Rating: </b>" . $row["ost_rating"] . "/100";
+                        }
+                        echo "  </p>
+                            </div>
+                        <br>";
 
                             }
                         }
