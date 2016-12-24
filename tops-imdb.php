@@ -5,7 +5,7 @@
  include('logx.php');
     //----------------------SELECT FILME------------------------//
 
-    $select_filme = "SELECT _id_filmes, filme, image, data_lanc, realizador, imdb_rating, ost_rating
+    $select_filme = "SELECT _id_filmes, filme, image, classif, data_lanc, realizador, imdb_rating, ost_rating
 
     FROM filmes
     
@@ -74,7 +74,9 @@
                         if (!(!isset($row["data_lanc"]) || empty(trim($row["data_lanc"])))){ //se tiver data_lanc definido
                             echo "<b>Release date: </b>" . $row["data_lanc"];
                         }
-                        if (!(!isset($row["realizador"]) || empty(trim($row["realizador"])))){ //se tiver realizador definido
+                        if (!(!isset($row["classif"]) || empty(trim($row["classif"])))){ //se tiver classif etária definido
+                            echo "<br><b>Age Rating: </b>" . $row["classif"];
+                        }if (!(!isset($row["realizador"]) || empty(trim($row["realizador"])))){ //se tiver realizador definido
                             echo "<br><b>Director: </b>" . $row["realizador"];
                         }
                         if (!(!isset($row["imdb_rating"]) || empty(trim($row["imdb_rating"])))){ //se tiver imdb_rating definido
