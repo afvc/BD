@@ -10,6 +10,7 @@
     $filters_6 = $_POST["ID6_filters"];   //o filtro usado
     $filters_7 = $_POST["ID7_filters"];   //o filtro usado
     $filters_8 = $_POST["ID8_filters"];   //o filtro usado
+    $filters_9 = $_POST["ID9_filters"];   //o filtro usado
 
     $option = $_POST["option"];           //o que foi escrito no filtro
     $option_2 = $_POST["ID2_option"];     //o que foi escrito no filtro
@@ -19,6 +20,7 @@
     $option_6 = $_POST["ID6_option"];     //o que foi escrito no filtro
     $option_7 = $_POST["ID7_option"];     //o que foi escrito no filtro
     $option_8 = $_POST["ID8_option"];     //o que foi escrito no filtro
+    $option_9 = $_POST["ID9_option"];     //o que foi escrito no filtro
   
     
     include 'connection.php';
@@ -66,6 +68,10 @@
 
     if($filters_8 != '') {
         $select_filme = $select_filme . " AND $filters_8 LIKE '%$option_8%'";
+    }
+
+    if($filters_9 != '') {
+        $select_filme = $select_filme . " AND $filters_9 LIKE '%$option_9%'";
     }
 
     $result_filme = $conn->query($select_filme);
