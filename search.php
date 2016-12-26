@@ -2,15 +2,25 @@
 <?php
 
     //para usar nos selects
-    $filters = $_POST["filters"];   //o filtro usado
+    $filters = $_POST["filters"];         //o filtro usado
     $filters_2 = $_POST["ID2_filters"];   //o filtro usado
     $filters_3 = $_POST["ID3_filters"];   //o filtro usado
     $filters_4 = $_POST["ID4_filters"];   //o filtro usado
+    $filters_5 = $_POST["ID5_filters"];   //o filtro usado
+    $filters_6 = $_POST["ID6_filters"];   //o filtro usado
+    $filters_7 = $_POST["ID7_filters"];   //o filtro usado
+    $filters_8 = $_POST["ID8_filters"];   //o filtro usado
+    $filters_9 = $_POST["ID9_filters"];   //o filtro usado
 
-    $option = $_POST["option"];     //o que foi escrito no filtro
+    $option = $_POST["option"];           //o que foi escrito no filtro
     $option_2 = $_POST["ID2_option"];     //o que foi escrito no filtro
     $option_3 = $_POST["ID3_option"];     //o que foi escrito no filtro
     $option_4 = $_POST["ID4_option"];     //o que foi escrito no filtro
+    $option_5 = $_POST["ID5_option"];     //o que foi escrito no filtro
+    $option_6 = $_POST["ID6_option"];     //o que foi escrito no filtro
+    $option_7 = $_POST["ID7_option"];     //o que foi escrito no filtro
+    $option_8 = $_POST["ID8_option"];     //o que foi escrito no filtro
+    $option_9 = $_POST["ID9_option"];     //o que foi escrito no filtro
   
     
     include 'connection.php';
@@ -18,7 +28,7 @@
     
 //----------------------SELECT FILME------------------------//
 
-    $select_filme = "SELECT DISTINCT _id_filmes, filme, image, data_lanc, realizador, imdb_rating, ost_rating
+    $select_filme = "SELECT DISTINCT _id_filmes, filme, image, classif, data_lanc, realizador, imdb_rating, ost_rating
 
     FROM filmes, filmes_atores, atores, filmes_generos, generos, filmes_musicas, musicas
 
@@ -28,8 +38,41 @@
 
     filmes._id_filmes = filmes_musicas.filmes_id_filmes AND _id_musica = musicas_id_musica
 
-    AND $filters LIKE '%$option%'
-";
+    AND $filters LIKE '%$option%' 
+
+    ";
+
+    if($filters_2 != '') {
+        $select_filme = $select_filme . " AND $filters_2 LIKE '%$option_2%'";
+    }
+
+    if($filters_3 != '') {
+        $select_filme = $select_filme . " AND $filters_3 LIKE '%$option_3%'";
+    }
+
+    if($filters_4 != '') {
+        $select_filme = $select_filme . " AND $filters_4 LIKE '%$option_4%'";
+    }
+
+    if($filters_5 != '') {
+        $select_filme = $select_filme . " AND $filters_5 LIKE '%$option_5%'";
+    }
+
+    if($filters_6 != '') {
+        $select_filme = $select_filme . " AND $filters_6 LIKE '%$option_6%'";
+    }
+
+    if($filters_7 != '') {
+        $select_filme = $select_filme . " AND $filters_7 LIKE '%$option_7%'";
+    }
+
+    if($filters_8 != '') {
+        $select_filme = $select_filme . " AND $filters_8 LIKE '%$option_8%'";
+    }
+
+    if($filters_9 != '') {
+        $select_filme = $select_filme . " AND $filters_9 LIKE '%$option_9%'";
+    }
 
     $result_filme = $conn->query($select_filme);
 
@@ -97,7 +140,7 @@
                             <form action="#" method="post">
 
                                 <!--
-########################################## -->
+                                ########################################## -->
                                 <!-- START CLONED SECTION -->
                                 <!-- ########################################## -->
                                 <div id="testingDiv1" class="clonedInput">
@@ -107,6 +150,7 @@
                                     <select id="select" name="filters" class="test-select">
                                         <option selected> </option>
                                         <option value="filme">Movie Name</option>
+                                        <option value="data_lanc">Release date</option>
                                         <option value="classif">Age rating</option>
                                         <option value="realizador">Director</option>
                                         <option value="nome_ator">Actor</option>
@@ -148,13 +192,19 @@
                 $numrows = 0;
 
                 if ($result_filme->num_rows == 0) {
-                    echo " No results";
+                    echo "No results";
                 }
 
                 if ($result_filme->num_rows > 0) {
                 // output data of each row
-                    echo $result_filme->num_rows . " results for <b>" . $_POST["filters"] . " <i>";   //imprime o filtro usado
-                    echo $_POST["option"] . "</i></b> :<br>"; //imprime o que foi escrito no filtro
+                    if ($result_filme->num_rows == 1) {
+                        echo "<br>" . $result_filme->num_rows . " result";   //imprime o nº de resultados - 1
+                    } else {
+                        echo "<br>" . $result_filme->num_rows . " result";   //imprime o nº de resultados
+                    }
+                    
+                    //echo $result_filme->num_rows . " results for <b>" . $_POST["filters"] . " <i>";   //imprime o filtro usado
+                    //echo $_POST["option"] . "</i></b> :<br>"; //imprime o que foi escrito no filtro
 
                     echo "<div class='row center-xs start-md'>";
                     while($row = $result_filme->fetch_assoc()) {
@@ -167,14 +217,26 @@
                                 </div>
                                 <div class='col-xs-7 col-md-4'>
                                     <p class='subtitle text-left middle-xs'>" . $row["filme"] . "</p>" .
-                                    "<p class='text text-left middle-xs'>
-                                        <b>Release date: </b>" . $row["data_lanc"] .
-                                        "<br><b>Director: </b>" . $row["realizador"] . "
-                                        <br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10
-                                        <br><b>OST Rating: </b>" . $row["ost_rating"] . "/100
-                                    </p>
-                                </div>
-                            <br>";
+                                    "<p class='text text-left middle-xs'>";
+                        
+                        if (!(!isset($row["data_lanc"]) || empty(trim($row["data_lanc"])))){ //se tiver data_lanc definido
+                            echo "<b>Release date: </b>" . $row["data_lanc"];
+                        }
+                        if (!(!isset($row["classif"]) || empty(trim($row["classif"])))){ //se tiver classif etária definido
+                            echo "<br><b>Age Rating: </b>" . $row["classif"];
+                        }
+                        if (!(!isset($row["realizador"]) || empty(trim($row["realizador"])))){ //se tiver realizador definido
+                            echo "<br><b>Director: </b>" . $row["realizador"];
+                        }
+                        if (!(!isset($row["imdb_rating"]) || empty(trim($row["imdb_rating"])))){ //se tiver imdb_rating definido
+                            echo "<br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10";
+                        }
+                        if (!(!isset($row["ost_rating"]) || empty(trim($row["ost_rating"])))){ //se tiver ost_rating definido
+                            echo "<br><b>OST Rating: </b>" . $row["ost_rating"] . "/100";
+                        }
+                        echo "  </p>
+                            </div>
+                        <br>";
 
                     }
 
