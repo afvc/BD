@@ -99,11 +99,11 @@
 
                 <div class="row">
 
-                    <div class="subtitle start-xs">
+                    <div class="subtitle col-xs-12 start-xs">
                         <p id="about">ABOUT</p>
                     </div>
 
-                    <p class="text text-darkest text-justify">
+                    <p class="text text-darkest text-justify col-xs-12">
                         If you're not only a movie fan but also a music addicted this is the right place for you!
                         <br>
                         <br> You can check out the movies with the <a href="tops-OST.php"><b>best Original Soundtracks (OST)</b></a> from
@@ -120,8 +120,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="subtitle start-xs">
-                        <p class="subtitle start-xs">CALENDAR</p>
+                    <div class="subtitle col-xs-12 start-xs">
+                        <p id="calendar">CALENDAR</p>
                         <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;height=600&amp;wkst=1&amp;hl=en&amp;bgcolor=%23ffffff&amp;src=anafilipavc%40gmail.com&amp;color=%23e3e5a9&amp;ctz=Europe%2FLisbon" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
                     </div>
 
