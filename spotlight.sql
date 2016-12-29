@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 19, 2016 at 06:44 PM
+-- Generation Time: Dec 29, 2016 at 05:36 PM
 -- Server version: 5.6.28
 -- PHP Version: 7.0.10
 
@@ -11,10 +11,8 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `bd`
+-- Database: `spotlight`
 --
-CREATE DATABASE IF NOT EXISTS `bd` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `bd`;
 
 -- --------------------------------------------------------
 
@@ -32,6 +30,55 @@ CREATE TABLE `a` (
 
 INSERT INTO `a` (`a`) VALUES
 ('2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `atores`
+--
+
+CREATE TABLE `atores` (
+  `_id_ator` bigint(20) UNSIGNED NOT NULL,
+  `nome_ator` varchar(255) DEFAULT NULL,
+  `nasc_ator` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `atores`
+--
+
+INSERT INTO `atores` (`_id_ator`, `nome_ator`, `nasc_ator`) VALUES
+(1, 'Marlon Brando', '1924-04-03'),
+(2, 'Al Pacino', '1940-04-25'),
+(3, 'James Caan', '1940-03-26'),
+(4, 'Robert De Niro', '1943-07-17'),
+(5, 'Robert Duvall', '1931-01-05'),
+(6, 'Will Smith', '1968-09-25'),
+(7, 'Jared Leto', '1971-12-26'),
+(8, 'Margot Robbie', '1990-08-02'),
+(9, 'Jane Fonda', '1937-12-21'),
+(10, 'Jon Voight', '1938-12-29'),
+(11, 'Bruce Dern', '1936-06-04'),
+(12, 'Mike Myers', '1963-05-25'),
+(13, 'Dana Carvey', '1955-06-02'),
+(14, 'Rob Lowe', '1964-03-17'),
+(15, 'Tim Robbins', NULL),
+(16, 'Morgan Freeman', NULL),
+(17, 'Bob Gunton', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comentario_forum`
+--
+
+CREATE TABLE `comentario_forum` (
+  `ID` int(11) NOT NULL,
+  `user_coment` varchar(255) DEFAULT NULL,
+  `flag_report` tinyint(1) DEFAULT NULL,
+  `topico_forumnome_topico` varchar(255) NOT NULL,
+  `Utilizadoruser_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -114,106 +161,6 @@ INSERT INTO `emp` (`nemp`, `nome`, `funcao`, `encar`, `data_entrada`, `sal`, `pr
 ('1900', 'Tome Ribeiro', 'Continuo', '1698', '1994-03-05', '56950', NULL, '30'),
 ('1902', 'Catarina Silva', 'Analista', '1566', '1993-04-13', '435000', NULL, '20'),
 ('1934', 'Olga Costa', 'Continuo', '1782', '1986-06-22', '68300', NULL, '10');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `projecto`
---
-
-CREATE TABLE `projecto` (
-  `nprojecto` decimal(7,0) NOT NULL,
-  `nome` varchar(50) DEFAULT NULL,
-  `gestor` decimal(10,0) DEFAULT NULL,
-  `data_inicio` date DEFAULT NULL,
-  `data_fim` date DEFAULT NULL,
-  `cliente` varchar(50) DEFAULT NULL,
-  `ndep` decimal(2,0) DEFAULT NULL,
-  `custo` decimal(10,0) DEFAULT NULL,
-  `valor` decimal(10,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `dep`
---
-ALTER TABLE `dep`
-  ADD PRIMARY KEY (`ndep`);
-
---
--- Indexes for table `descontos`
---
-ALTER TABLE `descontos`
-  ADD PRIMARY KEY (`escalao`);
-
---
--- Indexes for table `emp`
---
-ALTER TABLE `emp`
-  ADD PRIMARY KEY (`nemp`);
-
---
--- Indexes for table `projecto`
---
-ALTER TABLE `projecto`
-  ADD PRIMARY KEY (`nprojecto`);
---
--- Database: `spotlight`
---
-CREATE DATABASE IF NOT EXISTS `spotlight` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `spotlight`;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `atores`
---
-
-CREATE TABLE `atores` (
-  `_id_ator` bigint(20) UNSIGNED NOT NULL,
-  `nome_ator` varchar(255) DEFAULT NULL,
-  `nasc_ator` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `atores`
---
-
-INSERT INTO `atores` (`_id_ator`, `nome_ator`, `nasc_ator`) VALUES
-(1, 'Marlon Brando', '1924-04-03'),
-(2, 'Al Pacino', '1940-04-25'),
-(3, 'James Caan', '1940-03-26'),
-(4, 'Robert De Niro', '1943-07-17'),
-(5, 'Robert Duvall', '1931-01-05'),
-(6, 'Will Smith', '1968-09-25'),
-(7, 'Jared Leto', '1971-12-26'),
-(8, 'Margot Robbie', '1990-08-02'),
-(9, 'Jane Fonda', '1937-12-21'),
-(10, 'Jon Voight', '1938-12-29'),
-(11, 'Bruce Dern', '1936-06-04'),
-(12, 'Mike Myers', '1963-05-25'),
-(13, 'Dana Carvey', '1955-06-02'),
-(14, 'Rob Lowe', '1964-03-17'),
-(15, 'Tim Robbins', NULL),
-(16, 'Morgan Freeman', NULL),
-(17, 'Bob Gunton', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `comentario_forum`
---
-
-CREATE TABLE `comentario_forum` (
-  `ID` int(11) NOT NULL,
-  `user_coment` varchar(255) DEFAULT NULL,
-  `flag_report` tinyint(1) DEFAULT NULL,
-  `topico_forumnome_topico` varchar(255) NOT NULL,
-  `Utilizadoruser_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -427,6 +374,24 @@ INSERT INTO `musicas` (`_id_musica`, `nome_musica`, `m_generos`, `m_ano`, `canto
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `projecto`
+--
+
+CREATE TABLE `projecto` (
+  `nprojecto` decimal(7,0) NOT NULL,
+  `nome` varchar(50) DEFAULT NULL,
+  `gestor` decimal(10,0) DEFAULT NULL,
+  `data_inicio` date DEFAULT NULL,
+  `data_fim` date DEFAULT NULL,
+  `cliente` varchar(50) DEFAULT NULL,
+  `ndep` decimal(2,0) DEFAULT NULL,
+  `custo` decimal(10,0) DEFAULT NULL,
+  `valor` decimal(10,0) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `topico_forum`
 --
 
@@ -467,6 +432,24 @@ ALTER TABLE `atores`
   ADD UNIQUE KEY `_id_ator` (`_id_ator`);
 
 --
+-- Indexes for table `dep`
+--
+ALTER TABLE `dep`
+  ADD PRIMARY KEY (`ndep`);
+
+--
+-- Indexes for table `descontos`
+--
+ALTER TABLE `descontos`
+  ADD PRIMARY KEY (`escalao`);
+
+--
+-- Indexes for table `emp`
+--
+ALTER TABLE `emp`
+  ADD PRIMARY KEY (`nemp`);
+
+--
 -- Indexes for table `filmes`
 --
 ALTER TABLE `filmes`
@@ -483,6 +466,12 @@ ALTER TABLE `generos`
 --
 ALTER TABLE `musicas`
   ADD UNIQUE KEY `_id_musica` (`_id_musica`);
+
+--
+-- Indexes for table `projecto`
+--
+ALTER TABLE `projecto`
+  ADD PRIMARY KEY (`nprojecto`);
 
 --
 -- AUTO_INCREMENT for dumped tables
