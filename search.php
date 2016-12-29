@@ -6,44 +6,46 @@
     session_start();
     
     //---------------------------------- SELECT FILME ----------------------------------//
-    if(isset($_POST['search'])) {
+
+    if (isset($_GET["page"])) {
+        $page = $_GET["page"];
+    } else {
+        $page = 1;
+    };
+    
+    if(isset($_POST['search'])) { //depois de carregar no botão - atribuir novamente as variáveis de sessão e página 1
         
         //PARA USAR NO SELECT:
 
         //os filtros usados
         
         $_SESSION['filters'] = $_POST["filters"];
-        $filters_2 = $_POST["ID2_filters"];
-        $filters_3 = $_POST["ID3_filters"];
-        $filters_4 = $_POST["ID4_filters"];
-        $filters_5 = $_POST["ID5_filters"];
-        $filters_6 = $_POST["ID6_filters"];
-        $filters_7 = $_POST["ID7_filters"];
-        $filters_8 = $_POST["ID8_filters"];
-        $filters_9 = $_POST["ID9_filters"];
+        $_SESSION['filters_2'] = $_POST["ID2_filters"];
+        $_SESSION['filters_3'] = $_POST["ID3_filters"];
+        $_SESSION['filters_4'] = $_POST["ID4_filters"];
+        $_SESSION['filters_5'] = $_POST["ID5_filters"];
+        $_SESSION['filters_6'] = $_POST["ID6_filters"];
+        $_SESSION['filters_7'] = $_POST["ID7_filters"];
+        $_SESSION['filters_8'] = $_POST["ID8_filters"];
+        $_SESSION['filters_9'] = $_POST["ID9_filters"];
 
         //o que foi escrito nos filtros
         $_SESSION['option'] = $_POST["option"];
-        $option_2 = $_POST["ID2_option"];
-        $option_3 = $_POST["ID3_option"];
-        $option_4 = $_POST["ID4_option"];
-        $option_5 = $_POST["ID5_option"];
-        $option_6 = $_POST["ID6_option"];
-        $option_7 = $_POST["ID7_option"];
-        $option_8 = $_POST["ID8_option"];
-        $option_9 = $_POST["ID9_option"];
+        $_SESSION['option_2'] = $_POST["ID2_option"];
+        $_SESSION['option_3'] = $_POST["ID3_option"];
+        $_SESSION['option_4'] = $_POST["ID4_option"];
+        $_SESSION['option_5'] = $_POST["ID5_option"];
+        $_SESSION['option_6'] = $_POST["ID6_option"];
+        $_SESSION['option_7'] = $_POST["ID7_option"];
+        $_SESSION['option_8'] = $_POST["ID8_option"];
+        $_SESSION['option_9'] = $_POST["ID9_option"];
 
-        echo $_SESSION['filters'];
-        echo $_SESSION['option'];
+        $page = 1;
+    }
+        
         //SELECT FILME COM AS RESPETIVAS REFERÊNCIAS ENTRE TABELAS + O QUE FOI PESQUISADO 
 
-        $results_per_page = 2;
-
-        if (isset($_GET["page"])) {
-            $page = $_GET["page"];
-        } else {
-            $page = 1;
-        }; 
+        $results_per_page = 4;
 
         $start_from = ($page-1) * $results_per_page;
 
@@ -62,38 +64,38 @@
         ";
 
         if($filters_2 != '') {
-            $select_filme = $select_filme . " AND $filters_2 LIKE '%$option_2%'";
+            $select_filme = $select_filme . " AND " . $_SESSION['filters_2'] . " LIKE '%" . $_SESSION['option_2'] . "%'";
         }
 
         if($filters_3 != '') {
-            $select_filme = $select_filme . " AND $filters_3 LIKE '%$option_3%'";
+            $select_filme = $select_filme . " AND " . $_SESSION['filters_3'] . " LIKE '%" . $_SESSION['option_3'] . "%'";
         }
 
         if($filters_4 != '') {
-            $select_filme = $select_filme . " AND $filters_4 LIKE '%$option_4%'";
+            $select_filme = $select_filme . " AND " . $_SESSION['filters_4'] . " LIKE '%" . $_SESSION['option_4'] . "%'";
         }
 
         if($filters_5 != '') {
-            $select_filme = $select_filme . " AND $filters_5 LIKE '%$option_5%'";
+            $select_filme = $select_filme . " AND " . $_SESSION['filters_5'] . " LIKE '%" . $_SESSION['option_5'] . "%'";
         }
 
         if($filters_6 != '') {
-            $select_filme = $select_filme . " AND $filters_6 LIKE '%$option_6%'";
+            $select_filme = $select_filme . " AND " . $_SESSION['filters_6'] . " LIKE '%" . $_SESSION['option_6'] . "%'";
         }
 
         if($filters_7 != '') {
-            $select_filme = $select_filme . " AND $filters_7 LIKE '%$option_7%'";
+            $select_filme = $select_filme . " AND " . $_SESSION['filters_7'] . " LIKE '%" . $_SESSION['option_7'] . "%'";
         }
 
         if($filters_8 != '') {
-            $select_filme = $select_filme . " AND $filters_8 LIKE '%$option_8%'";
+            $select_filme = $select_filme . " AND " . $_SESSION['filters_8'] . " LIKE '%" . $_SESSION['option_8'] . "%'";
         }
 
         if($filters_9 != '') {
-            $select_filme = $select_filme . " AND $filters_9 LIKE '%$option_9%'";
+            $select_filme = $select_filme . " AND " . $_SESSION['filters_9'] . " LIKE '%" . $_SESSION['option_9'] . "%'";
         }
 
-        //resultado do SELECT antes do "LIMIT" - para saber e utilizar o nº de resultados
+        //resultado do SELECT antes do "LIMIT" - apenas para guardar o nº de resultados total
         $result_filme = $conn->query($select_filme);
         $results = ($result_filme->num_rows);
 
@@ -102,8 +104,7 @@
 
         //resultado do SELECT - depois do LIMIT
         $result_filme = $conn->query($select_filme);
-        echo $select_filme;
-    }
+            
 
     //---------------------------------- INSERT FILME ----------------------------------//
     if(isset($_REQUEST['addmovie'])) {  
@@ -121,7 +122,6 @@
 
     }
 ?>
-
     <!DOCTYPE html>
     <html>
 
@@ -143,6 +143,8 @@
         <script src="clone.js"></script>
         <script src="clone-song.js"></script>
         <script src="clone-act.js"></script>
+
+
     </head>
 
 
@@ -161,7 +163,7 @@
 
                     <div class="col-xs-12 start-xs">
 
-                        <form method="post">
+                        <form name="search_form" method="post">
 
                             <!--
                         ########################################## -->
@@ -171,21 +173,21 @@
                                 <h2 id="reference" name="reference" class="heading-reference"></h2>
 
                                 <label for="select" class="test-select-label">FILTER</label>
-                                <select id="select" name="filters"  class="test-select">
-                                    <option value="filme" <?php if ($_SESSION['filters']=="filme") {echo selected;} ?> >Movie Name</option>
-                                    <option value="data_lanc" <?php if ($_SESSION['filters']=="data_lanc") {echo selected;} ?> >Release date</option>
-                                    <option value="classif" <?php if ($_SESSION['filters']=="classif") {echo selected;} ?> >Age rating</option>
-                                    <option value="realizador" <?php if ($_SESSION['filters']=="realizador") {echo selected;} ?> >Director</option>
-                                    <option value="nome_ator" <?php if ($_SESSION['filters']=="nome_ator") {echo selected;} ?> >Actor</option>
-                                    <option value="nome_genero" <?php if ($_SESSION['filters']=="nome_genero") {echo selected;} ?> >Genre</option>
-                                    <option value="nome_musica" <?php if ($_SESSION['filters']=="nome_musica") {echo selected;} ?> >Song</option>
-                                    <option value="cantor" <?php if ($_SESSION['filters']=="cantor") {echo selected;} ?> >Singer/Band</option>
-                                    <option value="imdb_rating" <?php if ($_SESSION['filters']=="imdb_rating") {echo selected;} ?> >Imdb Rating</option>
-                                    <option value="ost_rating" <?php if ($_SESSION['filters']=="ost_rating") {echo selected;} ?> >OST Rating</option>
+                                <select id="select" name="filters" class="test-select">
+                                    <option value="filme" <?php if ($_SESSION[ 'filters']=="filme" ) {echo selected;} ?> >Movie Name</option>
+                                    <option value="data_lanc" <?php if ($_SESSION[ 'filters']=="data_lanc" ) {echo selected;} ?> >Release date</option>
+                                    <option value="classif" <?php if ($_SESSION[ 'filters']=="classif" ) {echo selected;} ?> >Age rating</option>
+                                    <option value="realizador" <?php if ($_SESSION[ 'filters']=="realizador" ) {echo selected;} ?> >Director</option>
+                                    <option value="nome_ator" <?php if ($_SESSION[ 'filters']=="nome_ator" ) {echo selected;} ?> >Actor</option>
+                                    <option value="nome_genero" <?php if ($_SESSION[ 'filters']=="nome_genero" ) {echo selected;} ?> >Genre</option>
+                                    <option value="nome_musica" <?php if ($_SESSION[ 'filters']=="nome_musica" ) {echo selected;} ?> >Song</option>
+                                    <option value="cantor" <?php if ($_SESSION[ 'filters']=="cantor" ) {echo selected;} ?> >Singer/Band</option>
+                                    <option value="imdb_rating" <?php if ($_SESSION[ 'filters']=="imdb_rating" ) {echo selected;} ?> >Imdb Rating</option>
+                                    <option value="ost_rating" <?php if ($_SESSION[ 'filters']=="ost_rating" ) {echo selected;} ?> >OST Rating</option>
                                 </select>
 
                                 <label for="option" class="test-option-label">Your Option:</label>
-                                <input type="option" id="option" name="option" class="test-option" value="<?php echo $_SESSION['option']; ?>"/>
+                                <input type="option" id="option" name="option" class="test-option" value="<?php echo $_SESSION['option']; ?>" />
 
                             </div>
                             <!--/clonedInput-->
@@ -220,59 +222,50 @@
 
             if ($result_filme->num_rows > 0) {
             // output data of each row
-                if ($result_filme->num_rows == 1) {
-                    echo "<br>" . $results . " result";   //imprime o nº de resultados - 1
-                } else {
-                    echo "<br>" . $results . " results";   //imprime o nº de resultados
-                }
-
-                //echo $result_filme->num_rows . " results for <b>" . $_POST["filters"] . " <i>";   //imprime o filtro usado
-                //echo $_POST["option"] . "</i></b> :<br>"; //imprime o que foi escrito no filtro
-
-                
-                echo "<br>" . $results_per_page . " results per page";
+                echo "<br>" . $results . " results<br>";   //imprime o nº de resultados
                 
                 $num_pages = ceil($results / $results_per_page);
-                echo "<br>" . $num_pages  . " pages <br>";
+                //ceil() retorna o inteiro maior mais próximo arrendondano o valor para cima se necessário
+                
+                echo "<div class='row center-xs'>";
                 
                 //next pages
                 for ($i = 1; $i <= $num_pages; $i ++) {  // print links for all pages
-                    echo "<a href='search.php?page=" . $i . "'";
-                    //echo "<a href=' ". $_SERVER['REQUEST_URI'] . "?page=" . $i . "'";
+                    echo "<a href='search.php?page=" . $i . "' class='pages";
 
                     if ($i == $page) {
-                        echo " class='curPage'";
+                        echo " curPage";
                     }
-                    echo ">Page ".$i."</a> ";
+                    echo "'>Page " . $i . "</a>";
                 }
+                echo "</div>";
 
                 echo "<div class='row center-xs start-md'>";
                 while($row = $result_filme->fetch_assoc()) {
-                //while($row = $result_filme->fetch_assoc()) {
 
                     $numrows++;
 
                     echo "
-                        <div class='col-xs-5 col-md-2'>
+                        <div class='col-xs-4 col-md-2'>
                                 <a class='nav__link center-xs' href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
                             </div>
                             <div class='col-xs-7 col-md-4'>
                                 <p class='subtitle text-left middle-xs'>" . $row["filme"] . "</p>" .
                                 "<p class='text text-left middle-xs'>";
 
-                    if (!(!isset($row["data_lanc"]) || empty(trim($row["data_lanc"])))){ //se tiver data_lanc definido
+                    if (!(!isset($row["data_lanc"]) || empty(trim($row["data_lanc"])))){     //se tiver data_lanc definido
                         echo "<b>Release date: </b>" . $row["data_lanc"];
                     }
-                    if (!(!isset($row["classif"]) || empty(trim($row["classif"])))){ //se tiver classif etária definido
+                    if (!(!isset($row["classif"]) || empty(trim($row["classif"])))){         //se tiver classif etária definido
                         echo "<br><b>Age Rating: </b>" . $row["classif"];
                     }
-                    if (!(!isset($row["realizador"]) || empty(trim($row["realizador"])))){ //se tiver realizador definido
+                    if (!(!isset($row["realizador"]) || empty(trim($row["realizador"])))){   //se tiver realizador definido
                         echo "<br><b>Director: </b>" . $row["realizador"];
                     }
                     if (!(!isset($row["imdb_rating"]) || empty(trim($row["imdb_rating"])))){ //se tiver imdb_rating definido
                         echo "<br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10";
                     }
-                    if (!(!isset($row["ost_rating"]) || empty(trim($row["ost_rating"])))){ //se tiver ost_rating definido
+                    if (!(!isset($row["ost_rating"]) || empty(trim($row["ost_rating"])))){   //se tiver ost_rating definido
                         echo "<br><b>OST Rating: </b>" . $row["ost_rating"] . "/100";
                     }
                     echo "  </p>
