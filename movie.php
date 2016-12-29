@@ -215,9 +215,10 @@ echo $row["filme"];
 
         while($row = $result_musicas->fetch_assoc()) {
 
-            echo " 
-                    <div class='col-xs-12 col-sm-6  '>
-                    <p class='text text-left middle-xs'><b>Song: </b>" . $row["nome_musica"];
+            echo "<div class='col-xs-12 col-sm-6 col-md-4 blue'>
+                    <p class='subtitle text-left middle-xs'
+                    <br>" . $row["nome_musica"] . "
+                    <p class='text text-left middle-xs'";
             
                     if (!(!isset($row["m_generos"]) || empty(trim($row["m_generos"])))){ //se tiver género definido
                         echo "<br><b>Genre: </b>" . $row["m_generos"];

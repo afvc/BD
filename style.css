@@ -999,3 +999,11 @@ color:black;
 i {
 color:#6495ed;
 }
+
+.pages{
+    padding-left: 1rem;
+}
+
+.curPage {
+    color: red;
+}
