@@ -1,6 +1,7 @@
-<?php  include('login.php');
+<?php  
 
  include('logx.php');
+include 'connection.php';
 
 ?>
     <!DOCTYPE html>
@@ -34,7 +35,8 @@
                     <div class="col-xs-12 bg-gray">
                         <br>
                         <p id="welcome" class="text-bold">Username :
-                            <?php  echo  $_SESSION['login_user'];?>
+                            <?php  echo  $_SESSION['login_user'];
+                           ?>
                         </p>
 
                         <button class="btn-default"><a class="text-light" href="logout.php">Log Out</a></button>
@@ -71,11 +73,12 @@
                                     <input class="btn-default" type="submit" value="Submit" name="submitpass">
                                     <?php if(isset($_REQUEST['submitpass'])) {
      $pass = $_POST['passwd'];
-     //echo strlen($pass);
+     $user= $_SESSION['login_user'];
+      //echo strlen($pass);
     
     if (($pass!=='' ) && ( strlen($pass) >= 3 )) {
         
-         $update=$conn->query("UPDATE `utilizador` SET `passwd` = '$pass' WHERE `utilizador`.`username` = 'afvc'");
+          $update=$conn->query("UPDATE utilizador SET passwd = '$pass' WHERE utilizador.username= '$user'"); 
            
          
      echo '<script>alert("Password Changed"); </script>'; 
