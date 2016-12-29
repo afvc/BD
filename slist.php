@@ -1,7 +1,7 @@
 <!---- Acesso à base de bados --->
 <?php
 
-    $order = $_POST["orders"];
+    $_SESSION['order'] = $_POST["order"];
 
     include 'connection.php';
         
@@ -11,7 +11,7 @@
 
     FROM musicas
     
-    ORDER BY $order";
+    ORDER BY " . $_SESSION['order'] . "";
 
 
     $result_musicas = $conn->query($select_musicas)
@@ -56,10 +56,10 @@
 
                         <form method="post">
                             <label>Order by</label>
-                            <select name="orders" onchange="this.form.submit()">
-                                <option value="" selected></option>
-                                <option value="nome_musica">Song name</option>
-                                <option value="cantor">Band/Singer name</option>
+                            <select name="order" onchange="this.form.submit()">
+                                <option value="" selected>none</option>
+                                <option value="nome_musica" <?php if ($_SESSION['order']=="nome_musica") {echo selected;} ?> >Song</option>
+                                <option value="cantor" <?php if ($_SESSION['order']=="cantor") {echo selected;} ?> >Band/Singer</option>
                             </select>
                         </form>
 
