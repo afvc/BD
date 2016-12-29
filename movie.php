@@ -110,19 +110,26 @@ echo $row["filme"];
 
                 <?php
                     if(isset($_REQUEST['addsong'])) {
-
+                        
+   
+                        
+                        $newsong=$conn->query("SET autocommit=0;") or die (mysqli_error());
+     
+                        $newsong=$conn->query("START TRANSACTION;") or die (mysqli_error());                    
                         $nome_musica = $_POST["nome_musica"];       //o que foi escrito na música
                         $genero_musica = $_POST["genero"];          //o que foi escrito no género
                         $ano_musica = $_POST["ano"];                //o que foi escrito no ano
                         $cantor = $_POST["cantor"];                 //o que foi escrito no cantor/banda
 
 
-                        $update=$conn->query("INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
+                        $update=("INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
 
                         VALUES ('$id_musica', '$nome_musica', '$genero_musica', '$ano_musica', '$cantor', '0', 'user');
 
                         ");
 
+                        $newsong=$conn->query($update) or die (mysqli_error()); 
+                        $newsong=$conn->query("COMMIT") or die (mysqli_error());  
                         echo "New music inserted";
 
                     }

@@ -1,5 +1,6 @@
 <?php  
- 
+
+ include('logx.php');
 include 'connection.php';
 
 ?>
@@ -29,7 +30,73 @@ include 'connection.php';
         <?php include 'navbar.php'; ?>
             <section class="section-resized">
 
-  
+ 
+                <div class="row">
+                    <div class="col-xs-12 bg-gray">
+                        <br>
+                        <p id="welcome" class="text-bold">Username :
+                            <?php  echo  $_SESSION['login_user'];
+                           ?>
+                        </p>
+
+                        <button class="btn-default"><a class="text-light" href="logout.php">Log Out</a></button>
+                        <button class="grow btn-dark  md-trigger" data-modal="modal-1"> Change Password</button>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+
+ 
+                <!--------------MODAL---------->
+
+                <div class="row center-xs">
+
+
+
+                    <div class="md-modal-xs md-effect-1" id="modal-1">
+                        <div class="md-content-xs">
+                            <button class="md-close btn-default-fixed">Close me!</button>
+
+                            <div>
+                                <form action="#" method="post">
+
+                                    <br>
+                                    <br>
+
+                                    <label for="text" class="input-anim">
+                                        <span class="label__info">New Password</span>
+                                        <input type="password" name="passwd" />
+                                        <br>
+                                    </label>
+
+                                    <input class="btn-default" type="submit" value="Submit" name="submitpass">
+                                    <?php if(isset($_REQUEST['submitpass'])) {
+     $pass = $_POST['passwd'];
+     $user= $_SESSION['login_user'];
+      //echo strlen($pass);
+    
+    if (($pass!=='' ) && ( strlen($pass) >= 3 )) {
+        
+          $update=$conn->query("UPDATE utilizador SET passwd = '$pass' WHERE utilizador.username= '$user'"); 
+           
+         
+     echo '<script>alert("Password Changed"); </script>'; 
+    }
+     else
+     {
+        echo '<script>alert("Passwords must contain at least 3 characters");</script>';
+     } 
+ }?>
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+
 
 
 
@@ -49,12 +116,10 @@ include 'connection.php';
                         <br> If you're looking for something a little more specific you can go to <a href="search.php"><b>Search</b></a> and look for what you what. If you think there's a movie we're missing here, feel free to suggest it to us on 'Help Us Grow' by adding the informations you have about it, we'll then confirm them and add it to our website.
                         <br> If you think there's some missing or wrong information on a movie we have here, you can help us with that too.
                         <br>
-                        <br> Want to find out more?
-<a class="subtitle " href="forms.php">Login</a> 
+                        <br> Enjoy!
+
 
                     </p>
-                    
-                     
                 </div>
 
                 <div class="row">

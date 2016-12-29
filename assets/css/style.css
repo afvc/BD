@@ -576,19 +576,14 @@
      text-align: right;
  }
  
- .text-note {
-     color: #696969;
-     font-style: italic;
-     font-size: 0.9286rem;
+ 
+ 
+ .text-danger {
+   color:#e6920a;
+     font-weight: 800;
  }
  
- .text-by {
-     margin: 20px 0px 0px;
- }
  
- .break-word {
-     word-wrap: break-word;
- }
  /*------------------------------------*  #ALIGNMENTS_AND_MARGINS
 \*------------------------------------*/
  
@@ -1032,19 +1027,12 @@ overflow-y: scroll;
 }
 
 /*----------------------------------------------
-CSS Settings For HTML Div ExactCenter
+LOGIN_FORM
 ------------------------------------------------*/
-hr {
-    border: 0;
-    border-bottom: 1px solid #ccc;
-    margin: 10px -40px;
-    margin-bottom: 30px;
-}
-#login {
+ 
+.login {
     width: 300px;
-    float: left;
     border-radius: 10px;
-    font-family: raleway;
     border: 2px solid #ccc;
     padding: 10px 40px 25px;
     margin-top: 70px;
@@ -1054,19 +1042,9 @@ input[type=password] {
     width: 99.5%;
     padding: 10px;
     margin-top: 8px;
+     margin-bottom: 8px;
     border: 1px solid #ccc;
     padding-left: 5px;
-    font-size: 16px;
-    font-family: raleway;
+     
 }
-#profile {
-    padding: 50px;
-    border: 1px dashed grey;
-    font-size: 20px;
-    background-color: #DCE6F7;
-}
-#logout {
-    float: right;
-    padding: 5px;
-    border: dashed 1px gray;
-}
+ 
