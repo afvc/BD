@@ -13,15 +13,23 @@
 		$userN = trim($_POST['usern']);
 		$passN = trim($_POST['passn']);
 	
-		
+		$verify = $conn->query("SELECT username FROM utilizador WHERE username LIKE '$userN'");
+        $count=mysqli_num_rows($verify);
+         
 		 // userame validation
+        
 		if (empty($userN)) {
 			$error = true;
 			$usernameError = "Please enter your full name.";
+            
 		} else if (strlen($userN) < 3) {
 			$error = true;
 			$usernameError = "Name must have at least 3 characters.";
-		} 
+            
+		} else if ($count!= 0){
+            $error = true;
+            $usernameError = "Username already exists";
+        }
 		
 	 
 		// password validation

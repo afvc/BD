@@ -30,17 +30,19 @@ if( !$Lerror ) {
 $log = $conn->query("select * from Utilizador where passwd='$passdb' AND username='$userdb'");
     
 if ($log->num_rows ==1) {
-                   
+     
+    $LerrTyp = "success";
+    $LerrMSG = "Successfully registered";
     $_SESSION['login_user']=$userdb;
     $_SESSION['login_pass']=$passdb;// Initializing Session
          
-    header("Location:index.php"); // Redirecting To Other Page 
+    header("Location:home.php"); // Redirecting To Other Page 
   
 
 }   else {
     
-    $errTyp = "danger";
-    $errMSG = "Something went wrong, try again later..."; 
+    $LerrTyp = "danger";
+    $LerrMSG = "Something went wrong, try again later..."; 
       
 }
     
