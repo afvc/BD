@@ -8,7 +8,7 @@ echo "
 
                 <ul class='smalltext col-xs-8 end-xs  col-sm-10 col-lg-10 text-bold'>
 
-                    <li class='navbar__link'><a href='index.php'>HOME</a></li>
+                    <li class='navbar__link'><a href='home.php'>HOME</a></li>
                     <li class='navbar__link'><a href='tops.php'>TOPS</a></li>
                     <li class='navbar__link'><a href='slist.php'>SONG LIST</a></li>
                     <li class='navbar__link'><a href='search.php'>SEARCH</a></li>
@@ -44,7 +44,7 @@ echo "
                 <ul class='nav__list col-xs-12 subtitle'>
                     <label class='nav__item' for='nav-trigger'>
 
-                        <li><a class='nav__link start-xs' href='index.php' class='menu-selected'>HOME</a></li>
+                        <li><a class='nav__link start-xs' href='home.php' class='menu-selected'>HOME</a></li>
                         <li><a class='nav__link start-xs' href='tops.php'>TOPS</a></li>
                         <li><a class='nav__link start-xs' href='slist.php'>SONG LIST</a></li>
                         <li><a class='nav__link start-xs' href='mailto:someone@example.com?Subject=Hello%20again' target='_top'>CONTACT US</a></li>
