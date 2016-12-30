@@ -77,15 +77,15 @@ echo $row["filme"];
                                             <input type="text" id="genre" name="genero" class="test-genre">
                                         </label>
                                         <br>
-                                        <label class="input-anim">
+                                        <label class="input-anim" class="test-year-label">
                                             <span class="label__info">Year</span>
-                                            <input type="text" pattern="\d*" maxlength="4" name="ano">
+                                            <input type="text" id="year" pattern="\d*" maxlength="4" name="ano" class="test-year">
                                         </label>
                                         <br>
 
                                         <label class="input-anim">
-                                            <span class="label__info">Singer/Band</span>
-                                            <input type="text" name="cantor">
+                                            <span class="label__info test-band-label">Singer/Band</span>
+                                            <input type="text" class="test-band" id="band" name="cantor">
                                         </label>
                                         <br>
                                     </div>
