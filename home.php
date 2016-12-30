@@ -1,7 +1,8 @@
 <?php  
 
- include('logx.php');
+include 'logx.php';  
 include 'connection.php';
+include  'change-pass.php'
 
 ?>
     <!DOCTYPE html>
@@ -38,8 +39,9 @@ include 'connection.php';
                             <?php  echo  $_SESSION['login_user'];
                            ?>
                         </p>
-
-                        <button class="btn-default"><a class="text-light" href="logout.php">Log Out</a></button>
+                        
+            <span class="text"><br><?php echo $NewpassError; ?><br></span>
+                        <a class="text-light" href="logout.php"><button class="btn-default">Log Out</button></a>
                         <button class="grow btn-dark  md-trigger" data-modal="modal-1"> Change Password</button>
                         <br>
                         <br>
@@ -60,6 +62,7 @@ include 'connection.php';
 
                             <div>
                                 <form action="#" method="post">
+                                    
 
                                     <br>
                                     <br>
@@ -67,27 +70,12 @@ include 'connection.php';
                                     <label for="text" class="input-anim">
                                         <span class="label__info">New Password</span>
                                         <input type="password" name="passwd" />
-                                        <br>
+                                      
+                                           <br>
                                     </label>
 
                                     <input class="btn-default" type="submit" value="Submit" name="submitpass">
-                                    <?php if(isset($_REQUEST['submitpass'])) {
-     $pass = $_POST['passwd'];
-     $user= $_SESSION['login_user'];
-      //echo strlen($pass);
-    
-    if (($pass!=='' ) && ( strlen($pass) >= 3 )) {
-        
-          $update=$conn->query("UPDATE utilizador SET passwd = '$pass' WHERE utilizador.username= '$user'"); 
-           
-         
-     echo '<script>alert("Password Changed"); </script>'; 
-    }
-     else
-     {
-        echo '<script>alert("Passwords must contain at least 3 characters");</script>';
-     } 
- }?>
+                                    
                                 </form>
 
                             </div>

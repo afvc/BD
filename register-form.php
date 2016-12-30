@@ -15,7 +15,7 @@
 			?>
             
             <label class="text-light">UserName :</label>
-                <input type="text" name="usern" class="" placeholder="Enter Name" maxlength="50"value="<?php echo $name ?>" />
+                <input type="text" name="usern" class="" placeholder="Enter username" maxlength="50"/>
  
                 <span class="text-danger"><br><?php echo $usernameError; ?><br></span>
              

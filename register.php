@@ -6,6 +6,10 @@
 	include  'connection.php';
 
 	$error = false;
+    $usernameError ="";
+    $passError ="";
+    $errTyp = "";
+    $errMSG = "";
 
 	if (isset($_REQUEST['btn-signup']) ) {
 		
@@ -20,7 +24,7 @@
         
 		if (empty($userN)) {
 			$error = true;
-			$usernameError = "Please enter your full name.";
+			$usernameError = "Please enter your full username.";
             
 		} else if (strlen($userN) < 3) {
 			$error = true;
@@ -36,9 +40,9 @@
 		if (empty($passN)){
 			$error = true;
 			$passError = "Please enter password.";
-		} else if(strlen($passN) < 6) {
+		} else if(strlen($passN) < 4) {
 			$error = true;
-			$passError = "Password must have at least 6 characters.";
+			$passError = "Password must have at least 4 characters.";
 		}
 		
 		 

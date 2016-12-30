@@ -11,14 +11,15 @@ $(function () {
             newElem = $('#copy' + num).clone().attr('id', 'copy' + newNum).fadeIn('slow'); // create the new element via clone(), and manipulate it's ID using newNum value
         // manipulate the name/id values of the input inside the new element
 
-        // reference
-        newElem.find('.heading-reference').attr('id', 'ID' + newNum + '_reference').attr('name', 'ID' + newNum + '_reference').html('');
-
+        
        
-        // text
-        newElem.find('.test-text-label').attr('for', 'ID' + newNum + '_text');
-        newElem.find('.test-text').attr('id', 'ID' + newNum + '_text').attr('name', 'ID' + newNum + '_text').val('');
+        // musica
+        newElem.find('.song').attr('for', 'ID' + newNum + '_musicas');
+        newElem.find('.song-text').attr('id', 'ID' + newNum + '_musicas').attr('name', 'ID' + newNum + '_musica').val('');
 
+        // banda
+        newElem.find('.test-text-label').attr('for', 'ID' + newNum + '_cantor');
+        newElem.find('.test-text').attr('id', 'ID' + newNum + '_cantor').attr('name', 'ID' + newNum + '_cantor').val('');
         
 
         // insert the new element after the last "duplicatable" input field

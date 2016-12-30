@@ -1,12 +1,12 @@
 <!---- Acesso à base de bados --->
 <?php
-
     include 'connection.php'; //para a ligação à base de dados
     include 'logx.php'; //para o login do site
 
     session_start();
 
-    //---------------------------------SELECT-------------------------------//
+    
+     //---------------------------------SELECT-------------------------------//
 
     if (isset($_GET["page"])) {
         $page = $_GET["page"];
