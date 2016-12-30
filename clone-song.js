@@ -13,13 +13,10 @@ $(function () {
 
         
        
-        // musica
-        newElem.find('.song').attr('for', 'ID' + newNum + '_musicas');
-        newElem.find('.song-text').attr('id', 'ID' + newNum + '_musicas').attr('name', 'ID' + newNum + '_musica').val('');
+ // text
+        newElem.find('.test-text-label').attr('for', 'ID' + newNum + '_text');
+        newElem.find('.test-text').attr('id', 'ID' + newNum + '_text').attr('name', 'ID' + newNum + '_text').val('');
 
-        // banda
-        newElem.find('.test-text-label').attr('for', 'ID' + newNum + '_cantor');
-        newElem.find('.test-text').attr('id', 'ID' + newNum + '_cantor').attr('name', 'ID' + newNum + '_cantor').val('');
         
 
         // insert the new element after the last "duplicatable" input field
@@ -28,7 +25,7 @@ $(function () {
         // enable the "remove" button
         $('#btnDelS').attr('disabled', false);
 
-        // right now you can only add 5 sections. change '5' below to the max number of times the form can be duplicated
+        // right now you can only add 13 sections. change '13' below to the max number of times the form can be duplicated
         if (newNum == 13) $('#btnAddS').attr('disabled', true).prop('value', "You've reached the limit");
     });
 

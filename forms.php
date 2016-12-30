@@ -3,10 +3,7 @@
 
    include 'login.php'; 
    include 'register.php'; 
-  
- 
-  
- ?>
+?>
     <!DOCTYPE html>
     <html>
 
@@ -59,23 +56,19 @@
                         </div>
                       
                     </div>
-          <!--<div class="col-sm-9 col-xs-12 end-xs"> <br><br><a class="subtitle text-lightest" href="register.php">Register</a> </div>-->
+          
             </div>
             <div class="row col-xs-12 col-lg-offset-4 col-lg-3 col-md-offset-3 col-md-2 col-sm-2 col-sm-offset-2">
                     <div class="col-xs-12">
                         <p class="title text-lightest">Register </p>
                         <div class="login">
 
-                       <?php 
-
-   include 'register-form.php'; 
-  
- ?>     
+                       <?php  include 'register-form.php';  ?>     
                             
                         </div>
                       
                     </div>
-          <!-- <div class=" col-xs-12 col-sm-9 end-xs"> <br><br><a class="subtitle text-lightest" href="register.php">Register</a> </div>--> 
+          
             </div>
                 </div>
              </section>

@@ -14,10 +14,7 @@ $(function () {
             newElem = $('#testingDiv' + num).clone().attr('id', 'testingDiv' + newNum).fadeIn('slow'); // create the new element via clone(), and manipulate it's ID using newNum value
         // manipulate the name/id values of the input inside the new element
 
-        
-
-        // button
-     
+         
         // select
         newElem.find('.test-select-label').attr('for', 'ID' + newNum + '_filters');
         newElem.find('.test-select').attr('id', 'ID' + newNum + '_filters').attr('name', 'ID' + newNum + '_filters').val('');
@@ -41,7 +38,7 @@ $(function () {
         // enable the "remove" button
         $('#btnDel').attr('disabled', false);
 
-        // right now you can only add 5 sections. change '5' below to the max number of times the form can be duplicated
+        // right now you can only add 9 sections. change '9' below to the max number of times the form can be duplicated
         if (newNum == 9) $('#btnAdd').attr('disabled', true).prop('value', "You've reached the limit");
     });
 

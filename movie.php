@@ -182,14 +182,15 @@ echo $row["filme"];
                             </div>
                         </div>
 
-                        <?php 
-                        //--------------------------RESULTADOS - MUSICAS--------------------------//
+                        
+                       <!-- //--------------------------RESULTADOS - MUSICAS--------------------------//-->
 
-                            while($row = $result_musicas->fetch_assoc()) {
+                           <?php  while($row = $result_musicas->fetch_assoc()) {
 
                                 echo "<div class='col-xs-12 col-sm-6 col-md-4 blue'>
                                         <p class='subtitle text-left middle-xs'
                                         <br>" . $row["nome_musica"] . "
+                                        
                                         <p class='text text-left middle-xs'";
 
                                         if (!(!isset($row["m_generos"]))){ //se tiver género definido
@@ -210,62 +211,9 @@ echo $row["filme"];
                     </div>
                 </div>
                 
-                <?php
-                //--------------------------INSERT MUSICAS--------------------------//
-
-                    if(isset($_REQUEST['addsong'])) {
-                        
-                        $newsong=$conn->query("SET autocommit=0;") or die (mysqli_error());
-                        $newsong=$conn->query("START TRANSACTION;") or die (mysqli_error());
-                        
-                        $newsong_movie=$conn->query("SET autocommit=0;") or die (mysqli_error());
-                        $newsong_movie=$conn->query("START TRANSACTION;") or die (mysqli_error());
-                        
-                        
-                        //VARIÁVEIS PARA USAR NO INSERT:
-
-                        $nome_musica = $_POST["nome_musica"];       //o que foi escrito na música
-                        $genero_musica = $_POST["genero"];          //o que foi escrito no género
-                        $ano_musica = $_POST["ano"];                //o que foi escrito no ano
-                        $cantor = $_POST["cantor"];                 //o que foi escrito no cantor/banda
-
-                        $nome_musica_2 = $_POST["nome_musica"];       //o que foi escrito na música
-                        $genero_musica_2 = $_POST["genero"];          //o que foi escrito no género
-                        $ano_musica_2 = $_POST["ano"];                //o que foi escrito no ano
-                        $cantor_2 = $_POST["cantor"];                 //o que foi escrito no cantor/banda
-
-                        $nome_musica_3 = $_POST["nome_musica"];       //o que foi escrito na música
-                        $genero_musica_3 = $_POST["genero"];          //o que foi escrito no género
-                        $ano_musica_3 = $_POST["ano"];                //o que foi escrito no ano
-                        $cantor_3 = $_POST["cantor"];                 //o que foi escrito no cantor/banda
-
-
- 
-            echo " 
-                    <div class='col-xs-12 col-sm-6  '>
-                    <p class='text text-left middle-xs'><b>Song: </b>" . $row["nome_musica"];
-            
-                    if (!(!isset($row["m_generos"]) || empty(trim($row["m_generos"])))){ //se tiver género definido
-                        echo "<br><b>Genre: </b>" . $row["m_generos"];
-                    }
- 
-                        $addsong=("INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
- 
-
-                        VALUES (' ', '$nome_musica', '$genero_musica', '$ano_musica', '$cantor', '0', 'user');");
-    
-                        $addsong_movie=("INSERT INTO filmes_musicas (filmes_id_filmes, musicas_id_musica)
-    
-                        VALUES ('$movieid', last_insert_id())");
-
-                        $newsong=$conn->query($addsong) or die (mysqli_error());                        
-                        $newsong=$conn->query("COMMIT") or die (mysqli_error());
-
-                        $newsong_movie=$conn->query($addsong_movie) or die (mysqli_error());
-                        $newsong_movie=$conn->query("COMMIT") or die (mysqli_error());
-
-                    }
-                ?>
+              
+                <!--//--------------------------INSERT MUSICAS--------------------------//-->
+                <?php  include 'insert-song.php'; ?>
                 
                 <!--------------MODAL---------->
 
@@ -305,6 +253,7 @@ echo $row["filme"];
                                         </label>
                                         <br>
                                     </div>
+                                    
                                     <div id="add-del-buttons">
                                         <input type="button" id="btnAddS" class="btn-default" value="1 MORE SONG">
                                         <input type="button" id="btnDelS" class="btn-default" value="REMOVE LAST SONG">
@@ -324,36 +273,7 @@ echo $row["filme"];
 
             </section>
 
-            <div class="md-overlay"></div>
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-            <script type="text/javascript" src="assets/js/classie.js"></script>
-            <script type="text/javascript" src="assets/js/modalEffects.js"></script>
-            <script src="assets/js/cssParser.js"></script>
-            <!-- jQuery -->
-            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
-            <script>
-                $(".grow").click(function () {
-
-                    $(".md-overlay").css("visibility", "visible");
-                    $(".md-overlay").css("opacity", "1");
-
-
-                });
-
-                $(".md-overlay").click(function () {
-
-                    $(".md-overlay").css("visibility", "hidden");
-                    $(".md-overlay").css("opacity", "0");
-
-                });
-
-                $(".md-close").click(function () {
-                    $(".md-overlay").css("visibility", "hidden");
-                    $(".md-overlay").css("opacity", "0");
-
-                });
-            </script>
+             <?php  include 'modal-js.php'; ?>
     </body>
 
     </html>
