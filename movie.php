@@ -141,16 +141,16 @@ echo $row["filme"];
 
                                         echo "<b>Release date: </b>" . $row["data_lanc"] . "<br>";
 
-                                        if (!(!isset($row["classif"]) || empty(trim($row["classif"])))){ //se tiver classif etária definido
+                                        if (!(!isset($row["classif"]))){ //se tiver classif etária definido
                                             echo "<br><b>Age rating: </b>" . $row["classif"];
                                         }
-                                        if (!(!isset($row["realizador"]) || empty(trim($row["realizador"])))){ //se tiver realizador definido
+                                        if (!(!isset($row["realizador"]))){ //se tiver realizador definido
                                             echo "<br><b>Director: </b>" . $row["realizador"];
                                         }
-                                        if (!(!isset($row["imdb_rating"]) || empty(trim($row["imdb_rating"])))){ //se tiver imdb_rating definido
+                                        if (!(!isset($row["imdb_rating"]))){ //se tiver imdb_rating definido
                                             echo "<br><b>IMDB rating: </b>" . $row["imdb_rating"] . "/10";
                                         }
-                                        if (!(!isset($row["ost_rating"]) || empty(trim($row["ost_rating"])))){ //se tiver ost_rating definido
+                                        if (!(!isset($row["ost_rating"]))){ //se tiver ost_rating definido
                                             echo "<br><b>OST rating: </b>" . $row["ost_rating"] . "/100";
                                         }
                                     }
@@ -190,15 +190,15 @@ echo $row["filme"];
                                         <br>" . $row["nome_musica"] . "
                                         <p class='text text-left middle-xs'";
 
-                                        if (!(!isset($row["m_generos"]) || empty(trim($row["m_generos"])))){ //se tiver género definido
+                                        if (!(!isset($row["m_generos"]))){ //se tiver género definido
                                             echo "<br><b>Genre: </b>" . $row["m_generos"];
                                         }
 
-                                        if (!(!isset($row["m_ano"]) || empty(trim($row["m_ano"])))){ //se tiver ano definido
+                                        if (!(!isset($row["m_ano"]))){ //se tiver ano definido
                                             echo "<br><b>Year: </b>" . $row["m_ano"];
                                         }  
 
-                                        if (!(!isset($row["cantor"]) || empty(trim($row["cantor"])))){ //se tiver cantor definido
+                                        if (!(!isset($row["cantor"]))){ //se tiver cantor definido
                                             echo "<br><b>Singer/Band: </b>" . $row["cantor"];
                                         }
                                         echo "</p>

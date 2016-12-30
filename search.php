@@ -253,19 +253,19 @@
                             <p class='subtitle text-left middle-xs'><a href=" . "movie.php?movieid=" . $row["_id_filmes"] . ">" . $row["filme"] . "</a></p>" .
                             "<p class='text text-left middle-xs'>";
 
-                    if (!(!isset($row["data_lanc"]) || empty(trim($row["data_lanc"])))){     //se tiver data_lanc definido
+                    if (!(!isset($row["data_lanc"]))){     //se tiver data_lanc definido
                         echo "<b>Release date: </b>" . $row["data_lanc"];
                     }
-                    if (!(!isset($row["classif"]) || empty(trim($row["classif"])))){         //se tiver classif etária definido
+                    if (!(!isset($row["classif"]))){         //se tiver classif etária definido
                         echo "<br><b>Age Rating: </b>" . $row["classif"];
                     }
-                    if (!(!isset($row["realizador"]) || empty(trim($row["realizador"])))){   //se tiver realizador definido
+                    if (!(!isset($row["realizador"]))){   //se tiver realizador definido
                         echo "<br><b>Director: </b>" . $row["realizador"];
                     }
-                    if (!(!isset($row["imdb_rating"]) || empty(trim($row["imdb_rating"])))){ //se tiver imdb_rating definido
+                    if (!(!isset($row["imdb_rating"]))){ //se tiver imdb_rating definido
                         echo "<br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10";
                     }
-                    if (!(!isset($row["ost_rating"]) || empty(trim($row["ost_rating"])))){   //se tiver ost_rating definido
+                    if (!(!isset($row["ost_rating"]))){   //se tiver ost_rating definido
                         echo "<br><b>OST Rating: </b>" . $row["ost_rating"] . "/100";
                     }
                     echo "  </p>
