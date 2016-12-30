@@ -30,10 +30,11 @@ $passdb=$_POST['pass'];
 if( !$Lerror ) {
     
 $log = $conn->query("SELECT * FROM utilizador where passwd LIKE'$passdb' AND username LIKE'$userdb'");
+    
 $count1=mysqli_num_rows($log);  
     
 if ($count1!= 0) {
-    echo "success";    
+       
     $LerrTyp = "success";
     $LerrMSG = "Successfully logged";
     $_SESSION['login_user']=$userdb;
@@ -43,7 +44,7 @@ if ($count1!= 0) {
   
 
 }   else {
-    /*header("Location:forms.php"); // Redirecting To Other Page */
+     
     $LerrTyp = "danger";
     $LerrMSG = "Something went wrong, try again later..."; 
   

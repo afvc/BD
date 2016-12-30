@@ -6,7 +6,7 @@
 				
 				?>
 				<div class="">
-            	<div class=" text-bold text-light alert alert-<?php echo ($errTyp=="success") ? "success" : $errTyp; ?>">
+            	<div class=" text-bold text-light <?php echo ($errTyp=="success") ? "success" : $errTyp; ?>">
 				<span class=""></span> <?php echo $errMSG; ?>
                 </div>
             	</div>
@@ -29,6 +29,4 @@
   <div class="end-xs"> <input name="btn-signup" type="submit" class="btn-dark" value= "Register">
                                 </div>   
                 
-
-
         </form> 

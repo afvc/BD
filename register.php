@@ -1,8 +1,6 @@
 <?php
 	session_start();
-	/* if( isset($_SESSION['usern'])!="" ){
-		header("Location: index.php");
-	} */
+	 
 	include  'connection.php';
 
 	$error = false;
@@ -18,6 +16,7 @@
 		$passN = trim($_POST['passn']);
 	
 		$verify = $conn->query("SELECT username FROM utilizador WHERE username LIKE '$userN'");
+        
         $count=mysqli_num_rows($verify);
          
 		 // userame validation
@@ -49,7 +48,9 @@
 		 
 		// if there's no error, continue to signup
 		if( !$error ) {
+            
       	$queryn = "INSERT INTO utilizador(username,passwd,tipo_user) VALUES('$userN','$passN','user')";
+            
 			$res = $conn->query($queryn);
 				
 		 	if ($res) {

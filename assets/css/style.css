@@ -1083,7 +1083,7 @@ input[type=password] {
  }
 
 .blue {
-    background-color: aqua;
+    background-color: rgba(75, 75, 75, 0.08);
     border-style: none;
     padding-left: 1rem;
     padding-right: 1rem;

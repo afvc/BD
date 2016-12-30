@@ -1,12 +1,12 @@
 <!---- Acesso à base de bados --->
 <?php
+
     include 'connection.php'; //para a ligação à base de dados
     include 'logx.php'; //para o login do site
 
     session_start();
 
-    
-     //---------------------------------SELECT-------------------------------//
+    //---------------------------------SELECT-------------------------------//
 
     if (isset($_GET["page"])) {
         $page = $_GET["page"];
@@ -143,18 +143,7 @@
 
             </section>
 
-            <div class="md-overlay"></div>
-
-            <!--
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script type="text/javascript" src="assets/js/classie.js"></script>
-    <script type="text/javascript" src="assets/js/modalEffects.js"></script>
-    <script src="assets/js/cssParser.js"></script>
-    <script src="assets/js/css-filters-polyfill.js"></script>
-
--->
-
+            
     </body>
 
     </html>
