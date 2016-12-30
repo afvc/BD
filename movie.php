@@ -271,7 +271,7 @@ echo $row["filme"];
 
                 <div class="row center-xs">
 
-                    <button class="grow btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
+                    <button class="grow btn-default  md-trigger" data-modal="modal-1">IS THERE A MISING SONG?</button>
 
                     <div class="md-modal-xs md-effect-1" id="modal-1">
                         <div class="md-content-xs">
