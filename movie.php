@@ -129,9 +129,11 @@ echo $row["filme"];
                                 }
                             }
                         ?>
+ 
 
                         <div class="col-sm-6 col-xs-12">
 
+ 
                             <p class="text text-left middle-xs">
 
                                 <?php 
@@ -238,7 +240,7 @@ echo $row["filme"];
                         $cantor_3 = $_POST["cantor"];                 //o que foi escrito no cantor/banda
 
 
-<<<<<<< HEAD
+ 
             echo " 
                     <div class='col-xs-12 col-sm-6  '>
                     <p class='text text-left middle-xs'><b>Song: </b>" . $row["nome_musica"];
@@ -246,9 +248,9 @@ echo $row["filme"];
                     if (!(!isset($row["m_generos"]) || empty(trim($row["m_generos"])))){ //se tiver género definido
                         echo "<br><b>Genre: </b>" . $row["m_generos"];
                     }
-=======
+ 
                         $addsong=("INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
->>>>>>> master
+ 
 
                         VALUES (' ', '$nome_musica', '$genero_musica', '$ano_musica', '$cantor', '0', 'user');");
     

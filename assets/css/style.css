@@ -82,157 +82,151 @@ ul li {
     height: 100vh;
 }
 
-
+ 
 .bg-gray{
-
     background: rgba(0, 0, 0, 0.04);
     padding-left: 1rem;
 }
 
 @media (min-width: 1600px) {
-    .section-resized,
-    .section-resized-extra {
+    .section-resized{
         width: 1240px;
         max-width: 100%;
     }
 }
  
- .section-resized-extra {
-     min-height: 100vh;
- }
- /*------------------------------------*#FONTS
+
+/*------------------------------------*#FONTS
 \*------------------------------------*/
- 
- 
- .title {
-     font-family: BoldFont;
-     color: #171719;
- }
- 
- @media (max-width: 640px) {
-     .title {
-         font-size: 1.7rem;
-     }
- }
- 
- @media screen and (min-width: 641px) and (max-width: 750px) {
-     .title {
-         font-size: 1.9rem;
-     }
- }
- 
- @media (min-width: 750px) and (max-width: 1280px) {
-     .title {
-         font-size: 2.1rem;
-     }
- }
- 
- @media (min-width: 1280px) and (max-width: 1600px) {
-     .title {
-         font-size: 2.3rem;
-     }
- }
- 
- @media (min-width: 1600px) {
-     .title {
-         font-size: 2.3rem;
-     }
- }
- 
- .subtitle {
-     font-family: BoldFont;
-     color: #171719;
- }
- 
- @media (max-width: 640px) {
-     .subtitle {
-         font-size: 1rem;
-     }
- }
- 
- @media screen and (min-width: 641px) and (max-width: 750px) {
-     .subtitle {
-         font-size: 1.05rem;
-     }
- }
- 
- @media (min-width: 750px) and (max-width: 1280px) {
-     .subtitle {
-         font-size: 1.1rem;
-     }
- }
- 
- @media (min-width: 1280px) and (max-width: 1600px) {
-     .subtitle {
-         font-size: 1.2rem;
-     }
- }
- 
- .text,
- body {
-     font-family: TextFont;
- }
- 
- @media (max-width: 640px) {
-     .text,
-     body {
-         font-size: 0.75rem;
-     }
- }
- 
- @media screen and (min-width: 641px) and (max-width: 750px) {
-     .text,
-     body {
-         font-size: 0.79rem;
-     }
- }
- 
- @media (min-width: 750px) and (max-width: 1280px) {
-     .text,
-     body {
-         font-size: 0.82rem;
-     }
- }
- 
- @media (min-width: 1280px) and (max-width: 1600px) {
-     .text,
-     body {
-         font-size: 0.85rem;
-     }
- }
- 
- @media (max-width: 640px) {
-     .smalltext {
-         font-size: 0.72rem;
-     }
- }
- 
- @media screen and (min-width: 641px) and (max-width: 750px) {
-     .smalltext {
-         font-size: 0.75rem;
-     }
- }
- 
- @media (min-width: 750px) and (max-width: 1280px) {
-     .smalltext {
-         font-size: 0.77rem;
-     }
- }
- 
- @media (min-width: 1280px) and (max-width: 1600px) {
-     .smalltext {
-         font-size: 0.78rem;
-     }
- }
- 
- .testelinks {
-     color: #4ca7af;
- }
- 
- 
+
+.title {
+    font-family: BoldFont;
+    color: #171719;
+}
+
+@media (max-width: 640px) {
+    .title {
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (min-width: 641px) and (max-width: 750px) {
+    .title {
+        font-size: 1.9rem;
+    }
+}
+
+@media (min-width: 750px) and (max-width: 1280px) {
+    .title {
+        font-size: 2.1rem;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1600px) {
+    .title {
+        font-size: 2.3rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .title {
+        font-size: 2.3rem;
+    }
+}
+
+.subtitle {
+    font-family: BoldFont;
+    color: #171719;
+}
+
+@media (max-width: 640px) {
+    .subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 641px) and (max-width: 750px) {
+    .subtitle {
+        font-size: 1.05rem;
+    }
+}
+
+@media (min-width: 750px) and (max-width: 1280px) {
+    .subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1600px) {
+    .subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+.text,
+body {
+    font-family: TextFont;
+}
+
+@media (max-width: 640px) {
+    .text,
+    body {
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (min-width: 641px) and (max-width: 750px) {
+    .text,
+    body {
+        font-size: 0.79rem;
+    }
+}
+
+@media (min-width: 750px) and (max-width: 1280px) {
+    .text,
+    body {
+        font-size: 0.82rem;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1600px) {
+    .text,
+    body {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .smalltext {
+        font-size: 0.72rem;
+    }
+}
+
+@media screen and (min-width: 641px) and (max-width: 750px) {
+    .smalltext {
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 750px) and (max-width: 1280px) {
+    .smalltext {
+        font-size: 0.77rem;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1600px) {
+    .smalltext {
+        font-size: 0.78rem;
+    }
+}
+
+.testelinks {
+    color: #4ca7af;
+}
+
 /*------------------------------------*  
-#LINKS
- 
+    #LINKS
+
 \*------------------------------------*/
  
  a {
@@ -247,7 +241,7 @@ ul li {
      opacity: 0.7;
  }
  /*------------------------------------*  
-#IMAGE-POSTER_EXTRA
+    #IMAGE-POSTER_EXTRA
 \*------------------------------------*/
  
  .logo-m {
@@ -256,7 +250,7 @@ ul li {
      height: auto;
  }
  /*------------------------------------*  
-#TABLES
+    #TABLES
 \*------------------------------------*/
  
  table {
@@ -1071,12 +1065,17 @@ input[type=password] {
     padding: 10px;
     margin-top: 8px;
      margin-bottom: 8px;
+<<<<<<< HEAD
     border: 1px solid #ccc;
     padding-left: 5px;
      
 }
  
 
+=======
+    border: 1px solid #ccc;     
+}
+>>>>>>> master
 
 .pages {
      padding-left: 1rem;
@@ -1105,4 +1104,4 @@ input[type=password] {
         flex-basis: 31.333%;
     }
 }
-
+ 
