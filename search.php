@@ -4,123 +4,12 @@
     include 'logx.php'; //para o login do site
 
     session_start();
-    
-    //---------------------------------- SELECT FILME ----------------------------------//
 
-    if (isset($_GET["page"])) {
-        $page = $_GET["page"];
-    } else {
-        $page = 1;
-    };
-    
-    if(isset($_POST['search'])) { //depois de carregar no botão - atribuir novamente as variáveis de sessão e página 1
-        
-        //VARIÁVEIS PARA USAR NO SELECT:
+   
+    //------------------------- SELECT FILME ----------------------------------//
 
-        //os filtros usados
-        
-        $_SESSION['filters'] = $_POST["filters"];
-        $_SESSION['filters_2'] = $_POST["ID2_filters"];
-        $_SESSION['filters_3'] = $_POST["ID3_filters"];
-        $_SESSION['filters_4'] = $_POST["ID4_filters"];
-        $_SESSION['filters_5'] = $_POST["ID5_filters"];
-        $_SESSION['filters_6'] = $_POST["ID6_filters"];
-        $_SESSION['filters_7'] = $_POST["ID7_filters"];
-        $_SESSION['filters_8'] = $_POST["ID8_filters"];
-        $_SESSION['filters_9'] = $_POST["ID9_filters"];
-
-        //o que foi escrito nos filtros
-        $_SESSION['option'] = $_POST["option"];
-        $_SESSION['option_2'] = $_POST["ID2_option"];
-        $_SESSION['option_3'] = $_POST["ID3_option"];
-        $_SESSION['option_4'] = $_POST["ID4_option"];
-        $_SESSION['option_5'] = $_POST["ID5_option"];
-        $_SESSION['option_6'] = $_POST["ID6_option"];
-        $_SESSION['option_7'] = $_POST["ID7_option"];
-        $_SESSION['option_8'] = $_POST["ID8_option"];
-        $_SESSION['option_9'] = $_POST["ID9_option"];
-
-        $page = 1;
-    }
-        
-        //SELECT FILME COM AS RESPETIVAS REFERÊNCIAS ENTRE TABELAS + O QUE FOI PESQUISADO 
-
-        $results_per_page = 4;
-
-        $start_from = ($page-1) * $results_per_page;
-
-        $select_filme = "SELECT DISTINCT _id_filmes, filme, image, classif, data_lanc, realizador, imdb_rating, ost_rating
-
-        FROM filmes, filmes_atores, atores, filmes_generos, generos, filmes_musicas, musicas
-
-        WHERE filmes._id_filmes = filmes_atores.filmes_id_filmes AND _id_ator = atores_id_ator
-
-        AND filmes._id_filmes = filmes_generos.filmes_id_filmes AND _id_genero = generos_id_genero
-
-        AND filmes._id_filmes = filmes_musicas.filmes_id_filmes AND _id_musica = musicas_id_musica
-
-        AND " . $_SESSION['filters'] ." LIKE '%" . $_SESSION['option'] . "%'
-
-        ";
-
-        if($filters_2 != '') {
-            $select_filme = $select_filme . " AND " . $_SESSION['filters_2'] . " LIKE '%" . $_SESSION['option_2'] . "%'";
-        }
-
-        if($filters_3 != '') {
-            $select_filme = $select_filme . " AND " . $_SESSION['filters_3'] . " LIKE '%" . $_SESSION['option_3'] . "%'";
-        }
-
-        if($filters_4 != '') {
-            $select_filme = $select_filme . " AND " . $_SESSION['filters_4'] . " LIKE '%" . $_SESSION['option_4'] . "%'";
-        }
-
-        if($filters_5 != '') {
-            $select_filme = $select_filme . " AND " . $_SESSION['filters_5'] . " LIKE '%" . $_SESSION['option_5'] . "%'";
-        }
-
-        if($filters_6 != '') {
-            $select_filme = $select_filme . " AND " . $_SESSION['filters_6'] . " LIKE '%" . $_SESSION['option_6'] . "%'";
-        }
-
-        if($filters_7 != '') {
-            $select_filme = $select_filme . " AND " . $_SESSION['filters_7'] . " LIKE '%" . $_SESSION['option_7'] . "%'";
-        }
-
-        if($filters_8 != '') {
-            $select_filme = $select_filme . " AND " . $_SESSION['filters_8'] . " LIKE '%" . $_SESSION['option_8'] . "%'";
-        }
-
-        if($filters_9 != '') {
-            $select_filme = $select_filme . " AND " . $_SESSION['filters_9'] . " LIKE '%" . $_SESSION['option_9'] . "%'";
-        }
-
-        //resultado do SELECT antes do "LIMIT" - apenas para guardar o nº de resultados total
-        $result_filme = $conn->query($select_filme);
-        $results = ($result_filme->num_rows);
-
-        //adição do LIMIT ao SELECT para mostrar resultados por páginas
-        $select_filme = $select_filme . " LIMIT $start_from, $results_per_page";
-
-        //resultado do SELECT - depois do LIMIT
-        $result_filme = $conn->query($select_filme);
-            
-
-    //---------------------------------- INSERT FILME ----------------------------------//
-    if(isset($_REQUEST['addmovie'])) {  
-
-        $filme = $_POST["filme"];           //o que foi escrito no filme
-        $classif = $_POST["classif"];       //o que foi escrito na classificação
-        $data_lanc = $_POST["data_lanc"];   //o que foi escrito na data de lançamento
-        $realizador = $_POST["realizador"]; //o que foi escrito no realizador
-
-        $mov=$conn->query("INSERT INTO filmes (_id_filmes, filme, image, classif, data_lanc, realizador, imdb_rating, ost_rating, flag_filme_add, flag_filme_estreia, Utilizadoruser_name)
-
-        VALUES (NULL , '$filme', 'NULL', '$classif', '2016-12-19', '$realizador', '10', '100', '1', '1', 'user')");
-
-        echo "New movie inserted";
-
-    }
+ include 'search-select.php';
+   
 ?>
 
     <!DOCTYPE html>
@@ -153,7 +42,7 @@
             <section class="section-resized">
                 <div class="row">
 
-                    <div class=" col-xs-12 subtitle start-xs">
+                    <div class="col-xs-12 subtitle start-xs">
                         <p>SEARCH</p>
                     </div>
                 </div>
@@ -164,10 +53,9 @@
 
                         <form name="search_form" method="post">
 
-                            <!--
-                        ########################################## -->
+                       
                             <!-- START CLONED SECTION -->
-                            <!-- ########################################## -->
+                         
                             <div id="testingDiv1" class="clonedInput">
                                
                                 <label for="select" class="test-select-label">FILTER</label>
@@ -188,10 +76,10 @@
                                 <input type="option" id="option" name="option" class="test-option" value="<?php echo $_SESSION['option']; ?>"/>
 
                             </div>
-                            <!--/clonedInput-->
-                            <!-- ########################################## -->
+                   
+                       
                             <!-- END CLONED SECTION -->
-                            <!-- ########################################## -->
+                          
                             <!-- ADD - DELETE BUTTONS -->
                             <div class="row">
                                 <div id="add-del-buttons" class="col-xs-12 center-xs start-sm">
@@ -207,73 +95,9 @@
                     </div>
 
                     <div class='col-xs-12 start-xs'>
-
-                        <?php
-
-           //-------------------------------RESULTADOS-----------------------------//
-            
-            $numrows = 0;
-
-            if ($result_filme->num_rows == 0) {
-                echo "No results";
-            }
-
-            if ($result_filme->num_rows > 0) {
-            // output data of each row
-                echo "<br>" . $results . " results<br>";   //imprime o nº de resultados
-                
-                $num_pages = ceil($results / $results_per_page);
-                //ceil() retorna o inteiro maior mais próximo arrendondano o valor para cima se necessário
-                
-                echo "<div class='row center-xs'>";
-                
-                //next pages
-                for ($i = 1; $i <= $num_pages; $i ++) {  // print links for all pages
-                    echo "<a href='search.php?page=" . $i . "' class='pages";
-
-                    if ($i == $page) {
-                        echo " curPage";
-                    }
-                    echo "'>Page " . $i . "</a>";
-                }
-                echo "</div><br>";
-
-                echo "<div class='row center-xs start-md'>";
-                while($row = $result_filme->fetch_assoc()) {
-
-                    $numrows++;
-
-                    echo "
-                        <div class='col-xs-4 col-md-2'>
-                            <a class='nav__link center-xs' href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
-                        </div>
-                        <div class='col-xs-7 col-md-4'>
-                            <p class='subtitle text-left middle-xs'><a href=" . "movie.php?movieid=" . $row["_id_filmes"] . ">" . $row["filme"] . "</a></p>" .
-                            "<p class='text text-left middle-xs'>";
-
-                    if (!(!isset($row["data_lanc"]))){     //se tiver data_lanc definido
-                        echo "<b>Release date: </b>" . $row["data_lanc"];
-                    }
-                    if (!(!isset($row["classif"]))){         //se tiver classif etária definido
-                        echo "<br><b>Age Rating: </b>" . $row["classif"];
-                    }
-                    if (!(!isset($row["realizador"]))){   //se tiver realizador definido
-                        echo "<br><b>Director: </b>" . $row["realizador"];
-                    }
-                    if (!(!isset($row["imdb_rating"]))){ //se tiver imdb_rating definido
-                        echo "<br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10";
-                    }
-                    if (!(!isset($row["ost_rating"]))){   //se tiver ost_rating definido
-                        echo "<br><b>OST Rating: </b>" . $row["ost_rating"] . "/100";
-                    }
-                    echo "  </p>
-                        </div>
-                    <br>";
-
-                }
-    
-            }
-        ?>
+                    
+<!---------------------------------RESULTADOS-------------------------------> 
+                     <?php include 'search-resultados.php';?>
 
                     </div>
                 </div>
@@ -287,36 +111,7 @@
 
             </section>
 
-            <div class="md-overlay"></div>
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-            <script type="text/javascript" src="assets/js/classie.js"></script>
-            <script type="text/javascript" src="assets/js/modalEffects.js"></script>
-            <script src="assets/js/cssParser.js"></script>
-            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
-
-            <script>
-                $(".grow").click(function () {
-
-                    $(".md-overlay").css("visibility", "visible");
-                    $(".md-overlay").css("opacity", "1");
-
-                });
-
-                $(".md-close").click(function () {
-
-                    $(".md-overlay").css("visibility", "hidden");
-                    $(".md-overlay").css("opacity", "0");
-
-                });
-
-                $(".md-overlay").click(function () {
-
-                    $(".md-overlay").css("visibility", "hidden");
-                    $(".md-overlay").css("opacity", "0");
-
-                });
-            </script>
+             <?php include 'modal-js.php';?>
 
     </body>
 
