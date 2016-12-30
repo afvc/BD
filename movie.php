@@ -29,7 +29,7 @@ echo $row["filme"];
 
         <link rel="stylesheet" href="assets/css/style.css" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="clone-Insertsong.js"></script>
+        <script src="assets/js/clone-Insertsong.js"></script>
 
     </head>
 
