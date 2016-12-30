@@ -29,7 +29,7 @@ echo $row["filme"];
 
         <link rel="stylesheet" href="assets/css/style.css" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="clone-song.js"></script>
+        <script src="clone-Insertsong.js"></script>
 
     </head>
 
@@ -66,15 +66,15 @@ echo $row["filme"];
                                     <div id="copy1" class="clone">
                                         <br>
                                         <br>
-                                        <label for="text" class="test-text-label input-anim">
+                                        <label for="text" class="test-song-label input-anim">
                                             <span class="label__info">Song</span>
-                                            <input type="text" id="text" name="nome_musica" class="test-text " />
+                                            <input type="text" id="song" name="nome_musica" class="test-song " />
                                             <br>
                                         </label>
 
-                                        <label class="input-anim">
+                                        <label  for="text" class="input-anim test-genre-label">
                                             <span class="label__info">Genre</span>
-                                            <input type="text" name="genero">
+                                            <input type="text" id="genre" name="genero" class="test-genre">
                                         </label>
                                         <br>
                                         <label class="input-anim">

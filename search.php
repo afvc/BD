@@ -72,7 +72,7 @@
                                     <option value="ost_rating" <?php if ($_SESSION['filters']=="ost_rating") {echo selected;} ?> >OST Rating</option>
                                 </select>
 
-                                <label for="option" class="test-option-label">Your Option:</label>
+                                <label for="text" class="test-option-label">Your Option:</label>
                                 <input type="option" id="option" name="option" class="test-option" value="<?php echo $_SESSION['option']; ?>"/>
 
                             </div>
