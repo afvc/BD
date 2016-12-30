@@ -14,15 +14,21 @@ $(function () {
         
        
  // song
-        newElem.find('.test-musica-label').attr('for', 'ID' + newNum + '_musica');
-        newElem.find('.test-musica').attr('id', 'ID' + newNum + '_musica').attr('name', 'ID' + newNum + '_musica').val('');
+        newElem.find('.test-song-label').attr('for', 'ID' + newNum + '_song');
+        newElem.find('.test-song').attr('id', 'ID' + newNum + '_song').attr('name', 'ID' + newNum + '_song').val('');
 
-        
-      
+          
+ // genre
+        newElem.find('.test-genre-label').attr('for', 'ID' + newNum + '_genre');
+        newElem.find('.test-genre').attr('id', 'ID' + newNum + '_genre').attr('name', 'ID' + newNum + '_genre').val('');
+     
+ // year
+        newElem.find('.test-year-label').attr('for', 'ID' + newNum + '_year');
+        newElem.find('.test-year').attr('id', 'ID' + newNum + '_year').attr('name', 'ID' + newNum + '_year').val('');     
        
  // band
-        newElem.find('.test-cantor-label').attr('for', 'ID' + newNum + '_cantor');
-        newElem.find('.test-cantor').attr('id', 'ID' + newNum + '_cantor').attr('name', 'ID' + newNum + '_cantor').val('');
+        newElem.find('.test-band-label').attr('for', 'ID' + newNum + '_band');
+        newElem.find('.test-band').attr('id', 'ID' + newNum + '_band').attr('name', 'ID' + newNum + '_band').val('');
         
         
         // insert the new element after the last "duplicatable" input field

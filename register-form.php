@@ -6,7 +6,7 @@
 				
 				?>
 				<div class="">
-            	<div class=" text-bold text-light alert alert-<?php echo ($errTyp=="success") ? "success" : $errTyp; ?>">
+            	<div class=" text-bold text-light <?php echo ($errTyp=="success") ? "success" : $errTyp; ?>">
 				<span class=""></span> <?php echo $errMSG; ?>
                 </div>
             	</div>
@@ -15,7 +15,7 @@
 			?>
             
             <label class="text-light">UserName :</label>
-                <input type="text" name="usern" class="" placeholder="Enter Name" maxlength="50"value="<?php echo $name ?>" />
+                <input type="text" name="usern" class="" placeholder="Enter username" maxlength="50"/>
  
                 <span class="text-danger"><br><?php echo $usernameError; ?><br></span>
              
@@ -29,6 +29,4 @@
   <div class="end-xs"> <input name="btn-signup" type="submit" class="btn-dark" value= "Register">
                                 </div>   
                 
-
-
         </form> 

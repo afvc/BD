@@ -1,11 +1,13 @@
 <?php
 	session_start();
-	/* if( isset($_SESSION['usern'])!="" ){
-		header("Location: index.php");
-	} */
+	 
 	include  'connection.php';
 
 	$error = false;
+    $usernameError ="";
+    $passError ="";
+    $errTyp = "";
+    $errMSG = "";
 
 	if (isset($_REQUEST['btn-signup']) ) {
 		
@@ -14,13 +16,14 @@
 		$passN = trim($_POST['passn']);
 	
 		$verify = $conn->query("SELECT username FROM utilizador WHERE username LIKE '$userN'");
+        
         $count=mysqli_num_rows($verify);
          
 		 // userame validation
         
 		if (empty($userN)) {
 			$error = true;
-			$usernameError = "Please enter your full name.";
+			$usernameError = "Please enter your full username.";
             
 		} else if (strlen($userN) < 3) {
 			$error = true;
@@ -36,16 +39,18 @@
 		if (empty($passN)){
 			$error = true;
 			$passError = "Please enter password.";
-		} else if(strlen($passN) < 6) {
+		} else if(strlen($passN) < 4) {
 			$error = true;
-			$passError = "Password must have at least 6 characters.";
+			$passError = "Password must have at least 4 characters.";
 		}
 		
 		 
 		 
 		// if there's no error, continue to signup
 		if( !$error ) {
+            
       	$queryn = "INSERT INTO utilizador(username,passwd,tipo_user) VALUES('$userN','$passN','user')";
+            
 			$res = $conn->query($queryn);
 				
 		 	if ($res) {

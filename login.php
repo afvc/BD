@@ -1,11 +1,13 @@
 <?php
+ include 'connection.php';
 
-$Lerror = false; // Variable To Store Error Message
-session_start(); // Starting Session
+session_start();
 
- include 'connection.php'; 
 $Lerror = false;
-
+$LusernameError ="";
+$LpassError ="";
+$LerrTyp = "";
+$LerrMSG = "";
 if (isset($_POST['submit'])) {
 
 // Save $username and $password
@@ -27,12 +29,14 @@ $passdb=$_POST['pass'];
     
 if( !$Lerror ) {
     
-$log = $conn->query("select * from Utilizador where passwd='$passdb' AND username='$userdb'");
+$log = $conn->query("SELECT * FROM utilizador where passwd LIKE'$passdb' AND username LIKE'$userdb'");
     
-if ($log->num_rows ==1) {
-     
+$count1=mysqli_num_rows($log);  
+    
+if ($count1!= 0) {
+       
     $LerrTyp = "success";
-    $LerrMSG = "Successfully registered";
+    $LerrMSG = "Successfully logged";
     $_SESSION['login_user']=$userdb;
     $_SESSION['login_pass']=$passdb;// Initializing Session
          
@@ -40,17 +44,18 @@ if ($log->num_rows ==1) {
   
 
 }   else {
-    
+     
     $LerrTyp = "danger";
     $LerrMSG = "Something went wrong, try again later..."; 
-      
+  
 }
     
-mysql_close($conn); // Closing Connection
-    
-}
-}
 
+ 
+}
+   
+}
+mysqli_close($conn);   
 
 
 ?>
