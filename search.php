@@ -2,7 +2,7 @@
 <?php
     include 'connection.php'; //para a ligação à base de dados
     include 'logx.php'; //para o login do site
-
+    include 'search-InsertMovie.php';
     session_start();
 
    

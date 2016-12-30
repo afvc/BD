@@ -54,7 +54,7 @@ echo $row["filme"];
                 <!--------------MODAL---------->
 
                 <div class="row center-xs">
-
+ <span class="text col-xs-12"><?php echo $OuterError; ?><br></span>
                     <button class="grow btn-default  md-trigger" data-modal="modal-1">IS THERE A MISING SONG?</button>
 
                     <div class="md-modal-xs md-effect-1" id="modal-1">
@@ -79,9 +79,11 @@ echo $row["filme"];
                                         <br>
                                         <label class="input-anim" class="test-year-label">
                                             <span class="label__info">Year</span>
-                                            <input type="text" id="year" pattern="\d*" maxlength="4" name="ano" class="test-year">
+                                            <input type="text" id="year"  maxlength="4" name="ano" class="test-year">
+                                            <br>
+                                            <span class="text"><?php echo $YearError; ?><br></span>
                                         </label>
-                                        <br>
+                                        
 
                                         <label class="input-anim">
                                             <span class="label__info test-band-label">Singer/Band</span>

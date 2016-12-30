@@ -28,8 +28,16 @@
                         $cantor_3 = $_POST["cantor"];                 //o que foi escrito no cantor/banda
 
 
- 
-                        $addsong=("INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
+    $YearError ="";
+    $OuterError="";
+    $yearnum = $_POST['ano'];
+      
+    
+      
+     
+     if( (is_numeric($yearnum)) ){
+        
+          $addsong=("INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
  
 
                         VALUES (' ', '$nome_musica', '$genero_musica', '$ano_musica', '$cantor', '0', 'user');");
@@ -43,8 +51,21 @@
 
                         $newsong_movie=$conn->query($addsong_movie) or die (mysqli_error());
                         $newsong_movie=$conn->query("COMMIT") or die (mysqli_error());
-
-                    }
+         
+    	 $OuterError = "Song submited with success";
+         
+		 	  }
+        
+    else {
+         
+            
+            $OuterError = "Song not submited, try again";
+            $YearError = "Please enter a number."; 
+			} 
+				
+		
+      
+      }
                 ?>
                 
                 

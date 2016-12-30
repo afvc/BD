@@ -3,7 +3,8 @@
                 <!--------------MODAL---------->
 
                 <div class="row center-xs ">
-
+                
+<span class="text col-xs-12"><?php echo $MovieOuterError; ?><br></span>
                     <button class="grow  btn-default  md-trigger" data-modal="modal-1">HELP US GROW</button>
 
                     <div class="md-modal-xs md-effect-1" id="modal-1">
