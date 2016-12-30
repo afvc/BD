@@ -14,9 +14,9 @@ $(function () {
          
 
        
-        // text
-        newElem.find('.test-text-label').attr('for', 'ID' + newNum + '_text');
-        newElem.find('.test-text').attr('id', 'ID' + newNum + '_text').attr('name', 'ID' + newNum + '_text').val('');
+        // actor
+        newElem.find('.test-ator-label').attr('for', 'ID' + newNum + '_ator');
+        newElem.find('.test-ator').attr('id', 'ID' + newNum + '_ator').attr('name', 'ID' + newNum + '_ator').val('');
 
         
 

@@ -55,15 +55,15 @@
 
 
                                     <div id="copy1" class="clone">
-                                        <label for="text" class="test-text-label input-anim">
+                                        <label for="text" class="test-musica-label input-anim">
                                             <span class="label__info">Song</span>
-                                            <input type="text" id="text" name="nome_musica" class="test-text " />
+                                            <input type="text" id="musica" name="nome_musica" class="test-musica" />
                                             <br>
                                         </label>
 
-                                        <label for="text" class="test-text-label input-anim">
+                                        <label for="text" class="test-cantor-label input-anim">
                                             <span class="label__info"> Artist/Band</span>
-                                            <input type="text" id="text" name="cantor" class="test-text" />
+                                            <input type="text" id="cantor" name="cantor" class="test-cantor" />
                                             <br>
                                         </label>
 
@@ -75,12 +75,15 @@
                                     </div>
 
                                     <div id="copyC1" class="cloneC">
-                                        <label for="text" class="test-text-label input-anim">
+                                       
+                                        <label for="text" class="test-ator-label input-anim">
                                             <span class="label__info">Actor</span>
-                                            <input type="text" id="text" name="nome_ator" class="test-text " />
+                                            <input type="text" id="ator" name="nome_ator" class="test-ator" />
                                             <br>
                                         </label>
 
+                                   
+                                    
                                     </div>
 
                                     <div id="add-del-buttons">

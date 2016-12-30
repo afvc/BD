@@ -13,12 +13,18 @@ $(function () {
 
         
        
- // text
-        newElem.find('.test-text-label').attr('for', 'ID' + newNum + '_text');
-        newElem.find('.test-text').attr('id', 'ID' + newNum + '_text').attr('name', 'ID' + newNum + '_text').val('');
+ // song
+        newElem.find('.test-musica-label').attr('for', 'ID' + newNum + '_musica');
+        newElem.find('.test-musica').attr('id', 'ID' + newNum + '_musica').attr('name', 'ID' + newNum + '_musica').val('');
 
         
-
+      
+       
+ // band
+        newElem.find('.test-cantor-label').attr('for', 'ID' + newNum + '_cantor');
+        newElem.find('.test-cantor').attr('id', 'ID' + newNum + '_cantor').attr('name', 'ID' + newNum + '_cantor').val('');
+        
+        
         // insert the new element after the last "duplicatable" input field
         $('#copy' + num).after(newElem);
 
