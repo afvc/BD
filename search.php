@@ -15,7 +15,7 @@
     
     if(isset($_POST['search'])) { //depois de carregar no botão - atribuir novamente as variáveis de sessão e página 1
         
-        //PARA USAR NO SELECT:
+        //VARIÁVEIS PARA USAR NO SELECT:
 
         //os filtros usados
         
@@ -238,7 +238,7 @@
                     }
                     echo "'>Page " . $i . "</a>";
                 }
-                echo "</div>";
+                echo "</div><br>";
 
                 echo "<div class='row center-xs start-md'>";
                 while($row = $result_filme->fetch_assoc()) {
@@ -247,11 +247,11 @@
 
                     echo "
                         <div class='col-xs-4 col-md-2'>
-                                <a class='nav__link center-xs' href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
-                            </div>
-                            <div class='col-xs-7 col-md-4'>
-                                <p class='subtitle text-left middle-xs'>" . $row["filme"] . "</p>" .
-                                "<p class='text text-left middle-xs'>";
+                            <a class='nav__link center-xs' href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
+                        </div>
+                        <div class='col-xs-7 col-md-4'>
+                            <p class='subtitle text-left middle-xs'><a href=" . "movie.php?movieid=" . $row["_id_filmes"] . ">" . $row["filme"] . "</a></p>" .
+                            "<p class='text text-left middle-xs'>";
 
                     if (!(!isset($row["data_lanc"]) || empty(trim($row["data_lanc"])))){     //se tiver data_lanc definido
                         echo "<b>Release date: </b>" . $row["data_lanc"];

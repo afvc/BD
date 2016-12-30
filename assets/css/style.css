@@ -36,6 +36,17 @@
     box-sizing: border-box;
 }
 
+/*------------------------------------*  #BODY
+\*------------------------------------*/
+
+body {
+    min-height: 100%;
+    height: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #F5F5F5;
+}
+
 html,
 body {
     width: 100%;
@@ -73,7 +84,8 @@ ul li {
 }
 
 .bg-gray {
-    background: rgba(0, 0, 0, 0.03);
+    background: rgba(0, 0, 0, 0.04);
+    padding-left: 1rem;
 }
 
 @media (min-width: 1600px) {
@@ -216,18 +228,6 @@ body {
 .testelinks {
     color: #4ca7af;
 }
-
-
-/*------------------------------------*  #BODY
-\*------------------------------------*/
-
-body {
-    min-height: 100%;
-    height: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
 
 /*------------------------------------*  #LINKS
 \*------------------------------------*/
@@ -834,6 +834,8 @@ ul .title {
     transition: all 0.2s ease-in-out;
     text-align: center;
     cursor: pointer;
+    margin-left: 0;
+    margin-right: 1rem;    
 }
 
 .btn-default:hover,
@@ -893,6 +895,9 @@ ul .title {
     z-index: 1;
 }
 
+#orderby {
+    margin-left: 1rem;
+}
 
 /*------------------------------------*  #DROPDOWN
 \*------------------------------------*/
@@ -1108,8 +1113,7 @@ ul .title {
 /*----------------------------------------------
 LOGIN_FORM
 ------------------------------------------------*/
- 
- 
+
 .login {
     width: 300px;
     border-radius: 10px;
@@ -1124,12 +1128,8 @@ input[type=password] {
     padding: 10px;
     margin-top: 8px;
      margin-bottom: 8px;
-    border: 1px solid #ccc;
- 
-     
+    border: 1px solid #ccc;     
 }
- 
- 
 
 .pages {
      padding-left: 1rem;
@@ -1158,4 +1158,3 @@ input[type=password] {
         flex-basis: 31.333%;
     }
 }
- 

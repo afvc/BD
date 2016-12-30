@@ -84,7 +84,7 @@
                                 <option value="nome_musica" <?php if ($_SESSION[ 'order']=="nome_musica" ) {echo selected;} ?> >Song</option>
                                 <option value="cantor" <?php if ($_SESSION[ 'order']=="cantor" ) {echo selected;} ?> >Band/Singer</option>
                             </select>
-                            <input type="submit" class="col-xs-12 col-sm-3 btn-dark" value="SEARCH" name="search">
+                            <input type="submit" id="orderby" class="col-xs-12 col-sm-3 btn-dark" value="SEARCH" name="search">
                         </form>
 
                     </div>
