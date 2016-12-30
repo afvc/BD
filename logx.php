@@ -1,5 +1,6 @@
 <?php
- include('login.php');
+ include 'login.php';
+ include 'connection.php';
 
     $logged = $_SESSION['login_user'];
 
@@ -8,5 +9,7 @@
     }else{
         
         header("Location:forms.php");
-    }
+    } 
 ?>
+
+
