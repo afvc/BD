@@ -81,10 +81,10 @@
                         <form method="post">
                             <label>Order by</label>
                             <select name="order">
-                                <option value="nome_musica" <?php if ($_SESSION[ 'order']=="nome_musica" ) {echo selected;} ?> >Song</option>
-                                <option value="cantor" <?php if ($_SESSION[ 'order']=="cantor" ) {echo selected;} ?> >Band/Singer</option>
+                                <option value="nome_musica" <?php if ($_SESSION['order']=="nome_musica") {echo selected;} ?> >Song</option>
+                                <option value="cantor" <?php if ($_SESSION['order']=="cantor") {echo selected;} ?> >Band/Singer</option>
                             </select>
-                            <input type="submit" class="col-xs-12 col-sm-3 btn-dark" value="SEARCH" name="search">
+                            <input type="submit" id="orderby" class="col-xs-12 col-sm-3 btn-dark" value="SEARCH" name="search">
                         </form>
 
                     </div>
@@ -115,29 +115,28 @@
                     echo "</div><br>";
 
                     echo "<div class='row start-md'>";
-
+                    
+                    
                     while($row = $result_musicas_limit->fetch_assoc()) {
-
                         echo "<div class='col-xs-12 col-sm-6 col-md-4 blue'>
                                 <p class='subtitle text-left middle-xs'
                                 <br>" . $row["nome_musica"] . "
                                 <p class='text text-left middle-xs'";
 
-                                if (!(!isset($row["m_generos"]) || empty(trim($row["m_generos"])))){ //se tiver género definido
+                                if (!(!isset($row["m_generos"]))){ //se tiver género definido
                                     echo "<br><b>Genre: </b>" . $row["m_generos"];
                                 }
 
-                                if (!(!isset($row["m_ano"]) || empty(trim($row["m_ano"])))){ //se tiver ano definido
+                                if (!(!isset($row["m_ano"]))){ //se tiver ano definido
                                     echo "<br><b>Year: </b>" . $row["m_ano"];
                                 }  
 
-                                if (!(!isset($row["cantor"]) || empty(trim($row["cantor"])))){ //se tiver cantor definido
+                                if (!(!isset($row["cantor"]))){ //se tiver cantor definido
                                     echo "<br><b>Singer/Band: </b>" . $row["cantor"];
                                 }
                                 echo "</p><br>
                              </div>";
                     }
- 
                 }
             ?>
 

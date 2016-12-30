@@ -34,7 +34,7 @@ include 'connection.php';
                 <div class="row">
                     <div class="col-xs-12 bg-gray">
                         <br>
-                        <p id="welcome" class="text-bold">Username :
+                        <p id="welcome" class="text-bold">Username:
                             <?php  echo  $_SESSION['login_user'];
                            ?>
                         </p>

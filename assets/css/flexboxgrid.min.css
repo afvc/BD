@@ -87,7 +87,7 @@
 }
 
 .col-xs-4 {
-    -ms-flex-preferred-size: 33.333%;
+    -ms-flex-preferred-size: 32.333%;
     flex-basis: 33.333%;
     max-width: 33.333%
 }
