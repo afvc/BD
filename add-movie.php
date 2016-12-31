@@ -27,7 +27,7 @@
 
                                     <label class="input-anim" for="">
                                         <span class="label__info" >Release date</span>
-                                        <input  class="lighter" placeholder="dd-mm-yy" type="text" name="data_lanc" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d">
+                                        <input  class="lighter" placeholder="yyyy-mm-dd" type="text" name="data_lanc" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d">
                                         <br>
                                     </label>
 
