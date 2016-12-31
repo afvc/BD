@@ -59,35 +59,35 @@
 
         ";
 
-        if($filters_2 != '') {
+        if($_SESSION['filters_2'] != '') {
             $select_filme = $select_filme . " AND " . $_SESSION['filters_2'] . " LIKE '%" . $_SESSION['option_2'] . "%'";
         }
 
-        if($filters_3 != '') {
+        if($_SESSION['filters_3'] != '') {
             $select_filme = $select_filme . " AND " . $_SESSION['filters_3'] . " LIKE '%" . $_SESSION['option_3'] . "%'";
         }
 
-        if($filters_4 != '') {
+        if($_SESSION['filters_4'] != '') {
             $select_filme = $select_filme . " AND " . $_SESSION['filters_4'] . " LIKE '%" . $_SESSION['option_4'] . "%'";
         }
 
-        if($filters_5 != '') {
+        if($_SESSION['filters_5'] != '') {
             $select_filme = $select_filme . " AND " . $_SESSION['filters_5'] . " LIKE '%" . $_SESSION['option_5'] . "%'";
         }
 
-        if($filters_6 != '') {
+        if($_SESSION['filters_6'] != '') {
             $select_filme = $select_filme . " AND " . $_SESSION['filters_6'] . " LIKE '%" . $_SESSION['option_6'] . "%'";
         }
 
-        if($filters_7 != '') {
+        if($_SESSION['filters_7'] != '') {
             $select_filme = $select_filme . " AND " . $_SESSION['filters_7'] . " LIKE '%" . $_SESSION['option_7'] . "%'";
         }
 
-        if($filters_8 != '') {
+        if($_SESSION['filters_8'] != '') {
             $select_filme = $select_filme . " AND " . $_SESSION['filters_8'] . " LIKE '%" . $_SESSION['option_8'] . "%'";
         }
 
-        if($filters_9 != '') {
+        if($_SESSION['filters_9'] != '') {
             $select_filme = $select_filme . " AND " . $_SESSION['filters_9'] . " LIKE '%" . $_SESSION['option_9'] . "%'";
         }
 
