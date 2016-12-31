@@ -1,6 +1,5 @@
 <?php
 
-    
     $MovieOuterError="";
     $newMovie="";
     //---------------------------------- INSERT FILME ----------------------------------//
@@ -31,5 +30,6 @@
             $newMovie=$conn->query("ROLLBACK");
             $MovieOuterError = "Movie not submited, try again";
            
-            } }
-    ?>
+        }
+    }
+?>

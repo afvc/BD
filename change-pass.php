@@ -1,6 +1,7 @@
 <?php  
-	session_start();
-include  'connection.php';
+    include 'connection.php';
+
+    session_start(); //para usar variáveis de sessão
 
 	$CPerror = false;
     $NewpassError ="";

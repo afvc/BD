@@ -1,24 +1,25 @@
 <?php
-echo "
-<!------------#NAVBAR_BIG------------>
-    <div class='smalltext nav-big'>
+    echo "
+    
+    <!------------#NAVBAR_BIG------------>
+        <div class='smalltext nav-big'>
 
-        <nav class='navbar'>
-            <div class='row middle-xs full-height'>
+            <nav class='navbar'>
+                <div class='row middle-xs full-height'>
 
-                <ul class='smalltext col-xs-8 end-xs  col-sm-10 col-lg-10 text-bold'>
+                    <ul class='smalltext col-xs-8 end-xs  col-sm-10 col-lg-10 text-bold'>
 
-                    <li class='navbar__link'><a href='home.php'>HOME</a></li>
-                    <li class='navbar__link'><a href='tops.php'>TOPS</a></li>
-                    <li class='navbar__link'><a href='slist.php'>SONG LIST</a></li>
-                    <li class='navbar__link'><a href='search.php'>SEARCH</a></li>
-                    <li class='navbar__link'><a href='mailto:someone@example.com?Subject=Hello%20again' target='_top'>CONTACT US</a></li>
+                        <li class='navbar__link'><a href='home.php'>HOME</a></li>
+                        <li class='navbar__link'><a href='tops.php'>TOPS</a></li>
+                        <li class='navbar__link'><a href='slist.php'>SONG LIST</a></li>
+                        <li class='navbar__link'><a href='search.php'>SEARCH</a></li>
+                        <li class='navbar__link'><a href='mailto:someone@example.com?Subject=Hello%20again' target='_top'>CONTACT US</a></li>
 
-                </ul>
+                    </ul>
 
-            </div>
-        </nav>
-    </div>
+                </div>
+            </nav>
+        </div>
 
 
     <!------------#NAVBAR_SMALL------------>
@@ -54,6 +55,8 @@ echo "
                 </ul>
             </div>
         </aside>
-    </div>";
+    </div>
+    
+    ";
         
 ?>

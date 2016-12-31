@@ -1,16 +1,15 @@
 <!---- Acesso à base de bados --->
-<?php 
-$servername = "localhost";
+<?php
+    $servername = "localhost";
     $username = "root";
     $password = "root";
-    $dbname = "spotlight"; // Pasta do sql
+    $dbname = "spotlight"; //Nome da base de dados
     
-    // Create connection
+    // Criar conexão
     $conn = new mysqli($servername, $username, $password,$dbname);
 
-    // Check connection
+    // Se não ligar à base de dados
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 
-    //echo "Connected successfully" . "<br>";
 ?>
