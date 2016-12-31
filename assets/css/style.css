@@ -1101,3 +1101,11 @@ input[type=password] {
     }
 }
  
+/*----------------------------------------------
+PLACEHOLDER
+------------------------------------------------*/
+ 
+::-webkit-input-placeholder { color:rgba(0, 0, 0, 0.63); }
+::-moz-placeholder { color:rgba(0, 0, 0, 0.63); } /* firefox 19+ */
+:-ms-input-placeholder { color:rgba(0, 0, 0, 0.63); } /* ie */
+input:-moz-placeholder { color:rgba(0, 0, 0, 0.63); }
