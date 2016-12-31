@@ -2,7 +2,7 @@
 
 include 'logx.php';  
 include 'connection.php';
-include  'change-pass.php'
+include  'change-pass.php';
 
 ?>
     <!DOCTYPE html>
@@ -53,10 +53,7 @@ include  'change-pass.php'
                 <!--------------MODAL---------->
 
                 <div class="row center-xs">
-
-
-
-                    <div class="md-modal-xs md-effect-1" id="modal-1">
+          <div class="md-modal-xs md-effect-1" id="modal-1">
                         <div class="md-content-xs">
                             <button class="md-close btn-default-fixed">Close me!</button>
 
@@ -100,7 +97,7 @@ include  'change-pass.php'
 
             </section>
 
- 
+  <?php include 'modal-js.php'; ?>
 
     </body>
 

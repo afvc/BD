@@ -54,7 +54,7 @@ echo $row["filme"];
                 <!--------------MODAL---------->
 
                 <div class="row center-xs">
- <span class="text col-xs-12"><?php echo $OuterError; ?><br></span>
+ <span class="text col-xs-12 text-danger"><?php echo $OuterError; ?><br></span>
                     <button class="grow btn-default  md-trigger" data-modal="modal-1">IS THERE A MISING SONG?</button>
 
                     <div class="md-modal-xs md-effect-1" id="modal-1">

@@ -20,16 +20,15 @@
 
         VALUES (NULL , '$filme', 'NULL', '$classif', '2016-12-19', '$realizador', '10', '100', '1', '1', 'user')");
         
-        $newMovie=$conn->query($mov) or die (mysqli_error());
-        
-        $newMovie=$conn->query("COMMIT") or die (mysqli_error());
+      
         
         if($mov){
 
-        $MovieOuterError = "Movie submited with success";
+            $MovieOuterError = "Movie submited with success";
+            $newMovie=$conn->query("COMMIT");
         
         } else{
-
+            $newMovie=$conn->query("ROLLBACK");
             $MovieOuterError = "Movie not submited, try again";
            
             } }

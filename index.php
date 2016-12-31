@@ -30,7 +30,7 @@ include 'connection.php';
             <section class="section-resized">
 
           <?php include 'texto-in.php'; ?>
-
+<p>Want to know more?<a href="forms.php" class="col-xs-6  subtitle">Login</a></p>
                 <div class="row">
                     <div class="subtitle col-xs-12 start-xs">
                         <p id="calendar">CALENDAR</p>
