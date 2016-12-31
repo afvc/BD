@@ -9,7 +9,8 @@
 
         <meta charset="UTF-8">
         
-        <title> <!--título da página é o nome do filme-->
+        <!--título da página é o nome do filme-->
+        <title>
             <?php
 
                 $row = $result_filme_title->fetch_assoc();
