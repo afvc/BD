@@ -14,7 +14,7 @@
                     <label class="input-anim" for="">
                         <br>
                         <br><span class="label__info">Movie Name</span>
-                        <input class="input-anim" type="text" name="filme">
+                        <input class="input-anim" type="text" name="filme" required>
                         <br> </label>
 
                     <label class="input-anim" for="">
@@ -37,18 +37,18 @@
 
                     <label class="input-anim" for="">
                         <span class="label__info">IMDB Rating</span>
-                        <input type="text" pattern="\d*" maxlength="3" name="imdb_rating">
+                        <input placeholder="0-10" type="number" step="any" max="10" name="imdb_rating">
                         <br>
                     </label>
 
                     <label class="input-anim" for="">
                         <span class="label__info">OST Rating</span>
-                        <input type="text" pattern="\d*" maxlength="4" name="ost_rating">
+                        <input placeholder="0-100" type="number" step="any" max="100" name="ost_rating">
                         <br>
                     </label>
                     <label class="input-anim" for="">
                         <span class="label__info">Genre</span>
-                        <input type="text" name="genre">
+                        <input type="text" name="nome_genero" required>
                         <br>
                     </label>
 
@@ -56,13 +56,13 @@
                     <div id="copy1" class="clone">
                         <label for="text" class="test-musica-label input-anim">
                             <span class="label__info">Song</span>
-                            <input type="text" id="musica" name="nome_musica" class="test-musica" />
+                            <input type="text" id="musica" name="nome_musica" class="test-musica" required>
                             <br>
                         </label>
 
                         <label for="text" class="test-cantor-label input-anim">
                             <span class="label__info"> Artist/Band</span>
-                            <input type="text" id="cantor" name="cantor" class="test-cantor" />
+                            <input type="text" id="cantor" name="cantor" class="test-cantor">
                             <br>
                         </label>
 
@@ -77,12 +77,9 @@
 
                         <label for="text" class="test-ator-label input-anim">
                             <span class="label__info">Actor</span>
-                            <input type="text" id="ator" name="nome_ator" class="test-ator" />
+                            <input type="text" id="ator" name="nome_ator" class="test-ator" required>
                             <br>
                         </label>
-
-
-
                     </div>
 
                     <div id="add-del-buttons">

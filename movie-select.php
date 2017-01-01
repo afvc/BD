@@ -3,8 +3,8 @@
 
     $url = $_SERVER['REQUEST_URI']; //vai buscar URL
 
-    $movieid = substr($url, -1); //vai buscar ao URL o id do filme (último caracter)
-            
+    $movieid = substr($url, strrpos($url, '=') + 1); //vai buscar ao URL o id do filme (caracteres depois do =)
+   
     //---------------------------------SELECTS-------------------------------//
 
     //SECLECT nome do filme - apenas para dar título à pagina

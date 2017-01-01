@@ -100,4 +100,4 @@
         //resultado do SELECT - depois do LIMIT
         $result_filme = $conn->query($select_filme);
             
-
+?>

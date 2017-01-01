@@ -1,5 +1,5 @@
 <?php
-    include 'select-movie.php';
+    include 'movie-select.php';
 ?>
 
     <!DOCTYPE html>
@@ -77,7 +77,7 @@
                                             <br><br>
                                             <label class="input-anim" class="test-year-label">
                                                 <span class="label__info">Year</span>
-                                                <input type="text" id="year" maxlength="4" name="ano" class="test-year">
+                                                <input type="number" id="year" max="3000" name="ano" class="test-year">
                                                 <br>
                                                 <span class="text"><?php echo $YearError; ?><br></span>
                                             </label>

@@ -2,14 +2,14 @@
 
     if(isset($_POST['addsong'])) {
 
-        $newsong=$conn->query("SET autocommit=0;") or die (mysqli_error());
-        $newsong=$conn->query("START TRANSACTION;") or die (mysqli_error());
+        $new_song=$conn->query("SET autocommit=0;") or die (mysqli_error());
+        $new_song=$conn->query("START TRANSACTION;") or die (mysqli_error());
 
-        $newsong_movie=$conn->query("SET autocommit=0;") or die (mysqli_error());
-        $newsong_movie=$conn->query("START TRANSACTION;") or die (mysqli_error());
+        $new_song_movie=$conn->query("SET autocommit=0;") or die (mysqli_error());
+        $new_song_movie=$conn->query("START TRANSACTION;") or die (mysqli_error());
 
 
-        //VARIÁVEIS PARA USAR NO INSERT:
+        //VARIÁVEIS PARA USAR NO INSERT
 
         $nome_musica = $_POST["nome_musica"];       //o que foi escrito na música
         $genero_musica = $_POST["genero"];          //o que foi escrito no género
@@ -40,11 +40,11 @@
     
             VALUES ('$movieid', last_insert_id())");
 
-            $newsong=$conn->query($addsong) or die (mysqli_error());
-            $newsong=$conn->query("COMMIT") or die (mysqli_error());
+            $new_song=$conn->query($addsong) or die (mysqli_error());
+            $new_song=$conn->query("COMMIT") or die (mysqli_error());
             
-            $newsong_movie=$conn->query($addsong_movie) or die (mysqli_error());
-            $newsong_movie=$conn->query("COMMIT") or die (mysqli_error());
+            $new_song_movie=$conn->query($addsong_movie) or die (mysqli_error());
+            $new_song_movie=$conn->query("COMMIT") or die (mysqli_error());
             
             $OuterError = "Song submited with success";
         }
