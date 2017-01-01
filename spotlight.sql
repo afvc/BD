@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 29, 2016 at 05:36 PM
+-- Generation Time: Jan 01, 2017 at 06:27 PM
 -- Server version: 5.6.28
 -- PHP Version: 7.0.10
 
@@ -13,23 +13,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `spotlight`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `a`
---
-
-CREATE TABLE `a` (
-  `a` decimal(10,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `a`
---
-
-INSERT INTO `a` (`a`) VALUES
-('2');
 
 -- --------------------------------------------------------
 
@@ -65,102 +48,6 @@ INSERT INTO `atores` (`_id_ator`, `nome_ator`, `nasc_ator`) VALUES
 (15, 'Tim Robbins', NULL),
 (16, 'Morgan Freeman', NULL),
 (17, 'Bob Gunton', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `comentario_forum`
---
-
-CREATE TABLE `comentario_forum` (
-  `ID` int(11) NOT NULL,
-  `user_coment` varchar(255) DEFAULT NULL,
-  `flag_report` tinyint(1) DEFAULT NULL,
-  `topico_forumnome_topico` varchar(255) NOT NULL,
-  `Utilizadoruser_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `dep`
---
-
-CREATE TABLE `dep` (
-  `ndep` decimal(2,0) NOT NULL,
-  `nome` varchar(15) DEFAULT NULL,
-  `localidade` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `dep`
---
-
-INSERT INTO `dep` (`ndep`, `nome`, `localidade`) VALUES
-('10', 'Contabilidade', 'Condeixa'),
-('20', 'InvestigaÁ„o', 'Mealhada'),
-('30', 'Vendas', 'Coimbra'),
-('40', 'Planeamento', 'Montemor');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `descontos`
---
-
-CREATE TABLE `descontos` (
-  `escalao` decimal(2,0) NOT NULL,
-  `salinf` decimal(7,0) DEFAULT NULL,
-  `salsup` decimal(7,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `descontos`
---
-
-INSERT INTO `descontos` (`escalao`, `salinf`, `salsup`) VALUES
-('1', '55000', '99999'),
-('2', '100000', '210000'),
-('3', '210001', '350000'),
-('4', '350001', '550000'),
-('5', '550001', '9999999');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `emp`
---
-
-CREATE TABLE `emp` (
-  `nemp` decimal(4,0) NOT NULL,
-  `nome` varchar(20) DEFAULT NULL,
-  `funcao` varchar(12) DEFAULT NULL,
-  `encar` decimal(10,0) DEFAULT NULL,
-  `data_entrada` date DEFAULT NULL,
-  `sal` decimal(7,0) DEFAULT NULL,
-  `premios` decimal(7,0) DEFAULT NULL,
-  `ndep` decimal(2,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `emp`
---
-
-INSERT INTO `emp` (`nemp`, `nome`, `funcao`, `encar`, `data_entrada`, `sal`, `premios`, `ndep`) VALUES
-('1369', 'Antonio Silva', 'Continuo', '1902', '1996-12-22', '70800', NULL, '20'),
-('1499', 'Joana Mendes', 'Vendedor', '1698', '1984-10-04', '145600', '56300', '30'),
-('1521', 'Nelson Neves', 'Vendedor', '1698', '1983-02-27', '212250', '98500', '30'),
-('1566', 'Augusto Reis', 'Encarregado', '1839', '1985-02-13', '450975', NULL, '20'),
-('1654', 'Ana Rodrigues', 'Vendedor', '1698', '1990-12-17', '221250', '81400', '30'),
-('1698', 'Duarte Guedes', 'Encarregado', '1839', '1991-11-25', '380850', NULL, '30'),
-('1782', 'Silvia Teles', 'Encarregado', '1839', '1986-11-03', '279450', NULL, '10'),
-('1788', 'Maria Dias', 'Analista', '1566', '1982-11-07', '565000', NULL, '20'),
-('1839', 'Jorge Sampaio', 'Presidente', NULL, '1984-02-11', '890000', NULL, '10'),
-('1844', 'Manuel Madeira', 'Vendedor', '1698', '1985-04-21', '157800', '0', '30'),
-('1876', 'Rita Pereira', 'Continuo', '1788', '1996-02-07', '65100', NULL, '20'),
-('1900', 'Tome Ribeiro', 'Continuo', '1698', '1994-03-05', '56950', NULL, '30'),
-('1902', 'Catarina Silva', 'Analista', '1566', '1993-04-13', '435000', NULL, '20'),
-('1934', 'Olga Costa', 'Continuo', '1782', '1986-06-22', '68300', NULL, '10');
 
 -- --------------------------------------------------------
 
@@ -324,8 +211,7 @@ INSERT INTO `generos` (`_id_genero`, `nome_genero`) VALUES
 (5, 'Fantasy'),
 (6, 'Romance'),
 (7, 'War'),
-(8, 'Comedy'),
-(9, 'Music');
+(8, 'Comedy');
 
 -- --------------------------------------------------------
 
@@ -374,37 +260,6 @@ INSERT INTO `musicas` (`_id_musica`, `nome_musica`, `m_generos`, `m_ano`, `canto
 -- --------------------------------------------------------
 
 --
--- Table structure for table `projecto`
---
-
-CREATE TABLE `projecto` (
-  `nprojecto` decimal(7,0) NOT NULL,
-  `nome` varchar(50) DEFAULT NULL,
-  `gestor` decimal(10,0) DEFAULT NULL,
-  `data_inicio` date DEFAULT NULL,
-  `data_fim` date DEFAULT NULL,
-  `cliente` varchar(50) DEFAULT NULL,
-  `ndep` decimal(2,0) DEFAULT NULL,
-  `custo` decimal(10,0) DEFAULT NULL,
-  `valor` decimal(10,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `topico_forum`
---
-
-CREATE TABLE `topico_forum` (
-  `nome_topico` varchar(255) NOT NULL,
-  `user_name` varchar(255) NOT NULL,
-  `Utilizadoremail` varchar(255) NOT NULL,
-  `Utilizadoruser_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `utilizador`
 --
 
@@ -419,7 +274,8 @@ CREATE TABLE `utilizador` (
 --
 
 INSERT INTO `utilizador` (`username`, `passwd`, `tipo_user`) VALUES
-('afvc', 'afvc', 'gestor');
+('afvc', 'afvc', 'gestor'),
+('1', '1', 'gestor');
 
 --
 -- Indexes for dumped tables
@@ -430,24 +286,6 @@ INSERT INTO `utilizador` (`username`, `passwd`, `tipo_user`) VALUES
 --
 ALTER TABLE `atores`
   ADD UNIQUE KEY `_id_ator` (`_id_ator`);
-
---
--- Indexes for table `dep`
---
-ALTER TABLE `dep`
-  ADD PRIMARY KEY (`ndep`);
-
---
--- Indexes for table `descontos`
---
-ALTER TABLE `descontos`
-  ADD PRIMARY KEY (`escalao`);
-
---
--- Indexes for table `emp`
---
-ALTER TABLE `emp`
-  ADD PRIMARY KEY (`nemp`);
 
 --
 -- Indexes for table `filmes`
@@ -468,12 +306,6 @@ ALTER TABLE `musicas`
   ADD UNIQUE KEY `_id_musica` (`_id_musica`);
 
 --
--- Indexes for table `projecto`
---
-ALTER TABLE `projecto`
-  ADD PRIMARY KEY (`nprojecto`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -491,7 +323,7 @@ ALTER TABLE `filmes`
 -- AUTO_INCREMENT for table `generos`
 --
 ALTER TABLE `generos`
-  MODIFY `_id_genero` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `_id_genero` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `musicas`
 --

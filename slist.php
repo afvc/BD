@@ -1,10 +1,8 @@
-<!---- Acesso à base de bados --->
 <?php
+    include 'login-check.php'; //verificar se login foi feito
+    include 'connection.php'; //ligação à base de dados
 
-    include 'connection.php'; //para a ligação à base de dados
-    include 'logx.php'; //para o login do site
-
-    session_start();
+    session_start(); //para usar variáveis de sessão
 
     //---------------------------------SELECT-------------------------------//
 

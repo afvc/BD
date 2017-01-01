@@ -1,8 +1,7 @@
-<!---- Acesso à base de bados --->
 <?php
+    include 'login-check.php'; //verificar se login foi feito
+    include 'connection.php'; //ligação à base de dados
 
-    include 'connection.php';  
- include('logx.php');
     //----------------------SELECT FILME------------------------//
 
     $select_filme_imdb = "SELECT _id_filmes, filme, image, classif, data_lanc, realizador, imdb_rating, ost_rating
@@ -36,8 +35,8 @@
 
     <head>
 
-        <!-- META TAGS -->
-        <meta charset="UTF-8" />
+        <meta charset="UTF-8">
+
         <title>Spotlight Tops</title>
 
 
@@ -146,36 +145,38 @@
                                 while(($row = $result_filme_ost->fetch_assoc()) && ($numrows_ost < 2)) {
 
                                 $numrows_ost++;
-
+                                    
+                                //-------------------------RESULTADOS - FILME -----------------------//
                                 echo "<div class='col-xs-5 col-md-2'>
                                         <div><br><b> #$numrows_ost </b></div>
                                     <a class='nav__link center-xs' href=" . "movie.php?movieid=" . $row["_id_filmes"] . "><img src=" . $row["image"] . " class=" ." logo" . "> </a>
-                                </div>
-                                <div class='col-xs-7 col-md-4'>
+                                    </div>
+                                    
+                                    <div class='col-xs-7 col-md-4'>
                                     <p class='subtitle text-left middle-xs'>" . $row["filme"] . "</p>" .
                                     "<p class='text text-left middle-xs'>";
                         
-                        if (!(!isset($row["data_lanc"]) || empty(trim($row["data_lanc"])))){ //se tiver data_lanc definido
-                            echo "<b>Release date: </b>" . $row["data_lanc"];
-                        }
-                        if (!(!isset($row["classif"]) || empty(trim($row["classif"])))){ //se tiver classif etária definido
-                            echo "<br><b>Age Rating: </b>" . $row["classif"];
-                        }
-                        if (!(!isset($row["realizador"]) || empty(trim($row["realizador"])))){ //se tiver realizador definido
-                            echo "<br><b>Director: </b>" . $row["realizador"];
-                        }
-                        if (!(!isset($row["imdb_rating"]) || empty(trim($row["imdb_rating"])))){ //se tiver imdb_rating definido
-                            echo "<br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10";
-                        }
-                        if (!(!isset($row["ost_rating"]) || empty(trim($row["ost_rating"])))){ //se tiver ost_rating definido
-                            echo "<br><b>OST Rating: </b>" . $row["ost_rating"] . "/100";
-                        }
-                        echo "  </p>
-                            </div>
-                        <br>";
+                                    if (!(!isset($row["data_lanc"]) || empty(trim($row["data_lanc"])))){ //se tiver data_lanc definido
+                                        echo "<b>Release date: </b>" . $row["data_lanc"];
+                                    }
+                                    if (!(!isset($row["classif"]) || empty(trim($row["classif"])))){ //se tiver classif etária definido
+                                        echo "<br><b>Age Rating: </b>" . $row["classif"];
+                                    }
+                                    if (!(!isset($row["realizador"]) || empty(trim($row["realizador"])))){ //se tiver realizador definido
+                                        echo "<br><b>Director: </b>" . $row["realizador"];
+                                    }
+                                    if (!(!isset($row["imdb_rating"]) || empty(trim($row["imdb_rating"])))){ //se tiver imdb_rating definido
+                                        echo "<br><b>IMDB Rating: </b>" . $row["imdb_rating"] . "/10";
+                                    }
+                                    if (!(!isset($row["ost_rating"]) || empty(trim($row["ost_rating"])))){ //se tiver ost_rating definido
+                                        echo "<br><b>OST Rating: </b>" . $row["ost_rating"] . "/100";
+                                    }
+                                    echo "  </p>
+                                        </div>
+                                    <br>";
 
-                            }
-                        }
+                                        }
+                                    }
 
                     ?>
 

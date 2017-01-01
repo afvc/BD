@@ -1,4 +1,3 @@
-<!---- Acesso à base de bados --->
 <?php
     
     //---------------------------------- SELECT FILME ----------------------------------//
@@ -101,4 +100,4 @@
         //resultado do SELECT - depois do LIMIT
         $result_filme = $conn->query($select_filme);
             
-
+?>
