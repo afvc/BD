@@ -5,7 +5,7 @@
     //---------------------------------- INSERT FILME ----------------------------------//
     if(isset($_POST['addmovie'])) {
         
-        
+    //---------------------------------- COMEÇAR TRANSAÇÃO  ----------------------------------//      
         try {
             
             
@@ -81,6 +81,7 @@
     
         VALUES ('$last_movie', '$last_ator')");
             
+       //---------------------------------- COMMIT  ----------------------------------//           
               
             $insert_movie=$conn->query("COMMIT;");
             
@@ -102,6 +103,7 @@
             $MovieOuterError = "Movie submited with success";
         }
         
+               //---------------------------------- CASO ERRO -> ROLLBACK  ----------------------------------//           
          }   catch (Exception $e) {
            
              $insert_movie=$conn->query("ROLLBACK;");
