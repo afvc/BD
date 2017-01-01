@@ -47,7 +47,7 @@
                         <br>
                     </label>
 
-                    <div id="copyG" class="cloneG">
+                    <div id="copyG1" class="cloneG">
                         <label class="input-anim test-mgenre-label" for="">
                             <span class="label__info">Genre</span>
                             <input type="text" id="mgenre" class="test-mgenre" name="nome_genero" required>

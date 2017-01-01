@@ -48,8 +48,8 @@ $(function () {
         // remove the last element
 
         // enable the "add" button
-        $('#btnAddS').attr('disabled', false);
+        $('#btnAddG').attr('disabled', false);
     });
 
-    $('#btnDelS').attr('disabled', true);
+    $('#btnDelG').attr('disabled', true);
 });
