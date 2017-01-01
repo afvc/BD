@@ -1,13 +1,13 @@
 <?php
     include 'connection.php'; //para a ligação à base de dados
     include 'logx.php'; //para o login do site
-    include 'search-InsertMovie.php';
+    include 'search-insert-code.php';
 
     session_start(); //para usar variáveis de sessão
    
     //------------------------- SELECT FILME ----------------------------------//
 
- include 'search-select.php';
+    include 'search-select.php';
    
 ?>
 
@@ -50,6 +50,7 @@
 
                     <div class="col-xs-12 start-xs">
 
+                        <!------FILTROS DE PESQUISA------>
                         <form name="search_form" method="post">
 
 
@@ -93,7 +94,7 @@
 
                     <div class='col-xs-12 start-xs'>
 
-                        <!----------------------- RESULTADOS ------------------------->
+                        <!------------------- RESULTADOS --------------------->
                         <?php include 'search-resultados.php';?>
 
                     </div>
@@ -103,7 +104,7 @@
 
                 <!----------- MODAL - ADD MOVIE ---------->
 
-                <?php include 'add-movie.php';?>
+                <?php include 'search-insert-form.php';?>
 
 
             </section>

@@ -31,7 +31,7 @@
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         
-        <script src="assets/js/clone-Insertsong.js"></script>
+        <script src="assets/js/clone-insert-song.js"></script>
 
     </head>
 
@@ -48,10 +48,9 @@
                     <?php  include 'resultados-movie.php'; ?>
 
                     <!--------------------------INSERT MUSICAS-------------------------->
-                    <?php  include 'insert-song.php'; ?>
+                    <?php  include 'movie-insert-song.php'; ?>
 
-                    <!--------------MODAL---------->
-
+                    <!--------------FORM - INSERT MUSICAS---------->
                     <div class="row center-xs">
                         <span class="text col-xs-12 text-danger"><?php echo $OuterError; ?><br></span>
                         <button class="grow btn-default  md-trigger" data-modal="modal-1">IS THERE A MISING SONG?</button>
@@ -75,14 +74,13 @@
                                                 <span class="label__info">Genre</span>
                                                 <input type="text" id="genre" name="genero" class="test-genre">
                                             </label>
-                                            <br>
+                                            <br><br>
                                             <label class="input-anim" class="test-year-label">
                                                 <span class="label__info">Year</span>
                                                 <input type="text" id="year" maxlength="4" name="ano" class="test-year">
                                                 <br>
                                                 <span class="text"><?php echo $YearError; ?><br></span>
                                             </label>
-
 
                                             <label class="input-anim">
                                                 <span class="label__info test-band-label">Singer/Band</span>
