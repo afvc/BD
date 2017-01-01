@@ -27,7 +27,7 @@ $(function () {
         $('#btnDelC').attr('disabled', false);
 
         // right now you can only add 5 sections. change '5' below to the max number of times the form can be duplicated
-        if (newNum == 40) $('#btnAddC').attr('disabled', true).prop('value', "You've reached the limit");
+        if (newNum == 3) $('#btnAddC').attr('disabled', true).prop('value', "You've reached the limit");
     });
 
     $('#btnDelC').click(function () {
