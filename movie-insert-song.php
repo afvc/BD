@@ -1,12 +1,16 @@
 <?php
 
     if(isset($_POST['addsong'])) {
+        
+try {
+    
+        $new_song=$conn->query("SET autocommit=0;");
+    
+        $new_song=$conn->query("START TRANSACTION;");
 
-        $new_song=$conn->query("SET autocommit=0;") or die (mysqli_error());
-        $new_song=$conn->query("START TRANSACTION;") or die (mysqli_error());
-
-        $new_song_movie=$conn->query("SET autocommit=0;") or die (mysqli_error());
-        $new_song_movie=$conn->query("START TRANSACTION;") or die (mysqli_error());
+        $new_song_movie=$conn->query("SET autocommit=0;");
+    
+        $new_song_movie=$conn->query("START TRANSACTION;");
 
 
         //VARIÁVEIS PARA USAR NO INSERT
@@ -30,8 +34,11 @@
         $OuterError="";
         $yearnum = $_POST['ano'];
       
-        if( (is_numeric($yearnum)) ){
+        if( !(is_numeric($yearnum)) ){
             
+             $OuterError = "Song not submited, try again";
+            $YearError = "Please enter a number.";}
+           
             $addsong=("INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
             
             VALUES (' ', '$nome_musica', '$genero_musica', '$ano_musica', '$cantor', '0', 'user');");
@@ -40,20 +47,34 @@
     
             VALUES ('$movieid', last_insert_id())");
 
-            $new_song=$conn->query($addsong) or die (mysqli_error());
-            $new_song=$conn->query("COMMIT") or die (mysqli_error());
+            $new_song=$conn->query($addsong);
+    
+            $new_song=$conn->query("COMMIT");
             
-            $new_song_movie=$conn->query($addsong_movie) or die (mysqli_error());
-            $new_song_movie=$conn->query("COMMIT") or die (mysqli_error());
+            $new_song_movie=$conn->query($addsong_movie);
+    
+            $new_song_movie=$conn->query("COMMIT");
+        
+        
+        if (($new_song_movie) && ($new_song)){
             
             $OuterError = "Song submited with success";
         }
-        
-        else {
-         
-            $OuterError = "Song not submited, try again";
-            $YearError = "Please enter a number.";
+                
 
-        }
+        }   catch (Exception $e) {
+           
+            
+            $new_song=$conn->query("ROLLBACK;");
+           
+            $new_song_movie=$conn->query("ROLLBACK;");
+    
+        $OuterError = "Song not submited, try again";
+       
+       }
+    
+    
+    
+    
     }
 ?>

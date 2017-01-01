@@ -4,6 +4,24 @@
     $newMovie="";
     //---------------------------------- INSERT FILME ----------------------------------//
     if(isset($_POST['addmovie'])) {
+        
+        
+        try {
+            
+            
+        $insert_movie=$conn->query("SET autocommit=0;");            
+        $insert_movie=$conn->query("START TRANSACTION;");
+            
+        $insert_actor_movie=$conn->query("SET autocommit=0;");        
+        $insert_actor=$conn->query("START TRANSACTION;");
+            
+        $insert_song_movie=$conn->query("SET autocommit=0;");            
+        $insert_song=$conn->query("START TRANSACTION;");
+            
+        $insert_genre_movie=$conn->query("SET autocommit=0;");        
+        $insert_genre=$conn->query("START TRANSACTION;");
+            
+
 
         //----VARIÁVEIS PARA USAR NO INSERT
 
@@ -62,6 +80,48 @@
         $insert_actor_movie=$conn->query("INSERT INTO filmes_atores (filmes_id_filmes, atores_id_ator)
     
         VALUES ('$last_movie', '$last_ator')");
+            
+              
+            $insert_movie=$conn->query("COMMIT;");
+            
+            $insert_actor_movie=$conn->query("COMMIT;");
+           
+            $insert_actor=$conn->query("COMMIT;");
+          
+            $insert_song_movie=$conn->query("COMMIT;");
+           
+            $insert_song=$conn->query("COMMIT;");
+             
+            $insert_genre_movie=$conn->query("COMMIT;");
+           
+            $insert_genre=$conn->query("COMMIT;");
+            
+            
+         if (($insert_movie)){
+            
+            $MovieOuterError = "Movie submited with success";
+        }
+        
+         }   catch (Exception $e) {
+           
+             $insert_movie=$conn->query("ROLLBACK;");
+            
+             $insert_actor_movie=$conn->query("ROLLBACK;");
+           
+             $insert_actor=$conn->query("ROLLBACK;");
+        
+             $insert_song_movie=$conn->query("ROLLBACK;");
+           
+             $insert_song=$conn->query("ROLLBACK;");
+               
+             $insert_genre_movie=$conn->query("ROLLBACK;");
+           
+             $insert_genre=$conn->query("ROLLBACK;");
+       
+        $MovieOuterError = "Movie not submited, try again";
+       
+       }
+    
 
     }
 ?>

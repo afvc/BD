@@ -5,47 +5,43 @@ Ver: 0.9.1
 Date: Dec 8, 2012
 */
 $(function () {
-    $('#btnAddS').click(function () {
-        var num = $('.clone').length, // how many "duplicatable" input fields we currently have
+    $('#btnAddG').click(function () {
+        var num = $('.cloneG').length, // how many "duplicatable" input fields we currently have
             newNum = new Number(num + 1), // the numeric ID of the new input field being added
-            newElem = $('#copy' + num).clone().attr('id', 'copy' + newNum).fadeIn('slow'); // create the new element via clone(), and manipulate it's ID using newNum value
+            newElem = $('#copyG' + num).clone().attr('id', 'copyG' + newNum).fadeIn('slow'); // create the new element via clone(), and manipulate it's ID using newNum value
         // manipulate the name/id values of the input inside the new element
 
         
        
- // song
-        newElem.find('.test-musica-label').attr('for', 'ID' + newNum + '_musica');
-        newElem.find('.test-musica').attr('id', 'ID' + newNum + '_musica').attr('name', 'ID' + newNum + '_musica').val('');
 
+        // genre
         
-      
-       
- // band
-        newElem.find('.test-cantor-label').attr('for', 'ID' + newNum + '_cantor');
-        newElem.find('.test-cantor').attr('id', 'ID' + newNum + '_cantor').attr('name', 'ID' + newNum + '_cantor').val('');
+        newElem.find('.test-mgenre-label').attr('for', 'ID' + newNum + '_mgenre');
+        newElem.find('.test-mgenre').attr('id', 'ID' + newNum + '_mgenre').attr('name', 'ID' + newNum + '_mgenre').val('');    
+        
         
         
         // insert the new element after the last "duplicatable" input field
-        $('#copy' + num).after(newElem);
+        $('#copyG' + num).after(newElem);
 
         // enable the "remove" button
-        $('#btnDelS').attr('disabled', false);
+        $('#btnDelG').attr('disabled', false);
 
         // right now you can only add 13 sections. change '13' below to the max number of times the form can be duplicated
-        if (newNum == 13) $('#btnAddS').attr('disabled', true).prop('value', "You've reached the limit");
+        if (newNum == 3) $('#btnAddG').attr('disabled', true).prop('value', "You've reached the limit");
     });
 
-    $('#btnDelS').click(function () {
+    $('#btnDelG').click(function () {
         // confirmation
         if (confirm("Are you sure you wish to remove this section of the form? Any information it contains will be lost!")) {
-            var num = $('.clone').length;
+            var num = $('.cloneG').length;
             // how many "duplicatable" input fields we currently have
-            $('#copy' + num).slideUp('slow', function () {
+            $('#copyG' + num).slideUp('slow', function () {
                 $(this).remove();
                 // if only one element remains, disable the "remove" button
-                if (num - 1 === 1) $('#btnDelS').attr('disabled', true);
+                if (num - 1 === 1) $('#btnDelG').attr('disabled', true);
                 // enable the "add" button
-                $('#btnAddS').attr('disabled', false).prop('value', "1 MORE SONG");
+                $('#btnAddG').attr('disabled', false).prop('value', "1 MORE GENRE");
             });
         }
         return false;

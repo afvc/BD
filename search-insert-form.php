@@ -46,32 +46,51 @@
                         <input placeholder="0-100" type="number" step="any" max="100" name="ost_rating">
                         <br>
                     </label>
-                    <label class="input-anim" for="">
-                        <span class="label__info">Genre</span>
-                        <input type="text" name="nome_genero" required>
-                        <br>
-                    </label>
 
-
-                    <div id="copy1" class="clone">
-                        <label for="text" class="test-musica-label input-anim">
-                            <span class="label__info">Song</span>
-                            <input type="text" id="musica" name="nome_musica" class="test-musica" required>
+                    <div id="copyG" class="cloneG">
+                        <label class="input-anim test-mgenre-label" for="">
+                            <span class="label__info">Genre</span>
+                            <input type="text" id="mgenre" class="test-mgenre" name="nome_genero" required>
                             <br>
                         </label>
-
-                        <label for="text" class="test-cantor-label input-anim">
-                            <span class="label__info"> Artist/Band</span>
-                            <input type="text" id="cantor" name="cantor" class="test-cantor">
-                            <br>
-                        </label>
-
                     </div>
 
                     <div id="add-del-buttons">
-                        <input type="button" id="btnAddS" class="btn-default" value="1 MORE SONG">
-                        <input type="button" id="btnDelS" class="btn-default" value="REMOVE LAST SONG">
+                        <input type="button" id="btnAddG" class="btn-default" value="1 MORE GENRE">
+                        <input type="button" id="btnDelG" class="btn-default" value="REMOVE LAST GENRE">
                     </div>
+                    
+                     <div id="copy1" class="clone">
+                                             
+                                            <label for="text" class="test-song-label input-anim">
+                                                <span class="label__info">Song</span>
+                                                <input type="text" id="song" name="nome_musica" class="test-song " />
+                                                <br>
+                                            </label>
+
+                                            <label for="text" class="input-anim test-genre-label">
+                                                <span class="label__info">Genre</span>
+                                                <input type="text" id="genre" name="genero" class="test-genre">
+                                            </label>
+                                            <br>
+                                            <label class="input-anim" class="test-year-label">
+                                                <span class="label__info">Year</span>
+                                                <input type="number" id="year" max="3000" name="ano" class="test-year">
+                                                <br>
+                                                
+                                            </label>
+
+                                            <label class="input-anim">
+                                                <span class="label__info test-band-label">Singer/Band</span>
+                                                <input type="text" class="test-band" id="band" name="cantor">
+                                            </label>
+                                            <br>
+                                        </div>
+
+                                        <div id="add-del-buttons">
+                                            <input type="button" id="btnAddS" class="btn-default" value="1 MORE SONG">
+                                            <input type="button" id="btnDelS" class="btn-default" value="REMOVE LAST SONG">
+                                        </div>
 
                     <div id="copyC1" class="cloneC">
 
