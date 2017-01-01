@@ -1,5 +1,4 @@
 <?php
-    include 'connection.php';
 
     $url = $_SERVER['REQUEST_URI']; //vai buscar URL
 

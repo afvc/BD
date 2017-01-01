@@ -1,12 +1,8 @@
 <?php
     include 'connection.php'; //para a ligação à base de dados
     include 'logx.php'; //para o login do site
+
     include 'search-insert-code.php';
-
-    session_start(); //para usar variáveis de sessão
-   
-    //------------------------- SELECT FILME ----------------------------------//
-
     include 'search-select.php';
    
 ?>

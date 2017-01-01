@@ -1,5 +1,6 @@
 <?php
-    
+    session_start(); //para usar variáveis de sessão
+
     //---------------------------------- SELECT FILME ----------------------------------//
 
     if (isset($_GET["page"])) {

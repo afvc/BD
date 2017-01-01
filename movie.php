@@ -1,5 +1,8 @@
 <?php
+    include 'connection.php'; //para a ligação à base de dados
+
     include 'movie-select.php';
+    include 'movie-insert-song.php';
 ?>
 
     <!DOCTYPE html>
@@ -45,10 +48,10 @@
                 <div class="row">
 
                     <!-----------------------RESULTADOS - FILME----------------------->
-                    <?php  include 'resultados-movie.php'; ?>
+                    <?php  include 'movie-resultados.php'; ?>
 
                     <!--------------------------INSERT MUSICAS-------------------------->
-                    <?php  include 'movie-insert-song.php'; ?>
+                    
 
                     <!--------------FORM - INSERT MUSICAS---------->
                     <div class="row center-xs">
