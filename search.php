@@ -1,14 +1,13 @@
-<!---- Acesso à base de bados --->
 <?php
     include 'connection.php'; //para a ligação à base de dados
     include 'logx.php'; //para o login do site
-    include 'search-InsertMovie.php';
-    session_start();
+    include 'search-insert-code.php';
 
+    session_start(); //para usar variáveis de sessão
    
     //------------------------- SELECT FILME ----------------------------------//
 
- include 'search-select.php';
+    include 'search-select.php';
    
 ?>
 
@@ -51,36 +50,34 @@
 
                     <div class="col-xs-12 start-xs">
 
+                        <!------FILTROS DE PESQUISA------>
                         <form name="search_form" method="post">
 
-                       
+
                             <!-- START CLONED SECTION -->
-                         
                             <div id="testingDiv1" class="clonedInput">
-                               
+
                                 <label for="select" class="test-select-label">FILTER</label>
-                                <select id="select" name="filters"  class="test-select">
-                                    <option value="filme" <?php if ($_SESSION['filters']=="filme") {echo selected;} ?> >Movie Name</option>
-                                    <option value="data_lanc" <?php if ($_SESSION['filters']=="data_lanc") {echo selected;} ?> >Release date</option>
-                                    <option value="classif" <?php if ($_SESSION['filters']=="classif") {echo selected;} ?> >Age rating</option>
-                                    <option value="realizador" <?php if ($_SESSION['filters']=="realizador") {echo selected;} ?> >Director</option>
-                                    <option value="nome_ator" <?php if ($_SESSION['filters']=="nome_ator") {echo selected;} ?> >Actor</option>
-                                    <option value="nome_genero" <?php if ($_SESSION['filters']=="nome_genero") {echo selected;} ?> >Genre</option>
-                                    <option value="nome_musica" <?php if ($_SESSION['filters']=="nome_musica") {echo selected;} ?> >Song</option>
-                                    <option value="cantor" <?php if ($_SESSION['filters']=="cantor") {echo selected;} ?> >Singer/Band</option>
-                                    <option value="imdb_rating" <?php if ($_SESSION['filters']=="imdb_rating") {echo selected;} ?> >Imdb Rating</option>
-                                    <option value="ost_rating" <?php if ($_SESSION['filters']=="ost_rating") {echo selected;} ?> >OST Rating</option>
+                                <select id="select" name="filters" class="test-select">
+                                    <option value="filme" <?php if ($_SESSION[ 'filters']=="filme" ) {echo selected;} ?> >Movie Name</option>
+                                    <option value="data_lanc" <?php if ($_SESSION[ 'filters']=="data_lanc" ) {echo selected;} ?> >Release date</option>
+                                    <option value="classif" <?php if ($_SESSION[ 'filters']=="classif" ) {echo selected;} ?> >Age rating</option>
+                                    <option value="realizador" <?php if ($_SESSION[ 'filters']=="realizador" ) {echo selected;} ?> >Director</option>
+                                    <option value="nome_ator" <?php if ($_SESSION[ 'filters']=="nome_ator" ) {echo selected;} ?> >Actor</option>
+                                    <option value="nome_genero" <?php if ($_SESSION[ 'filters']=="nome_genero" ) {echo selected;} ?> >Genre</option>
+                                    <option value="nome_musica" <?php if ($_SESSION[ 'filters']=="nome_musica" ) {echo selected;} ?> >Song</option>
+                                    <option value="cantor" <?php if ($_SESSION[ 'filters']=="cantor" ) {echo selected;} ?> >Singer/Band</option>
+                                    <option value="imdb_rating" <?php if ($_SESSION[ 'filters']=="imdb_rating" ) {echo selected;} ?> >Imdb Rating</option>
+                                    <option value="ost_rating" <?php if ($_SESSION[ 'filters']=="ost_rating" ) {echo selected;} ?> >OST Rating</option>
                                 </select>
 
                                 <label for="text" class="test-option-label">Your Option:</label>
-                                <input type="option" id="option" name="option" class="test-option" value="<?php echo $_SESSION['option']; ?>"/>
+                                <input type="option" id="option" name="option" class="test-option" value="<?php echo $_SESSION['option']; ?>" />
 
                             </div>
-                   
-                       
                             <!-- END CLONED SECTION -->
-                          
-                            <!-- ADD - DELETE BUTTONS -->
+
+                            <!-- ADD / DELETE BUTTONS -->
                             <div class="row">
                                 <div id="add-del-buttons" class="col-xs-12 center-xs start-sm">
                                     <input type="button" id="btnAdd" class="btn-default col-xs-5 col-sm-4" value="ADD FILTER">
@@ -89,29 +86,30 @@
                                     <input type="submit" class="col-xs-12 col-sm-3 btn-dark" value="SEARCH" name="search">
                                 </div>
                             </div>
-                            <!-- /ADD - DELETE BUTTONS -->
+                            <!-- END ADD / DELETE BUTTONS -->
+                            
                         </form>
 
                     </div>
 
                     <div class='col-xs-12 start-xs'>
-                    
-<!---------------------------------RESULTADOS-------------------------------> 
-                     <?php include 'search-resultados.php';?>
+
+                        <!------------------- RESULTADOS --------------------->
+                        <?php include 'search-resultados.php';?>
 
                     </div>
                 </div>
 
                 </div>
 
-                <!--------------MODAL---------->
+                <!----------- MODAL - ADD MOVIE ---------->
 
-                 <?php include 'add-movie.php';?>
+                <?php include 'search-insert-form.php';?>
 
 
             </section>
 
-             <?php include 'modal-js.php';?>
+            <?php include 'modal-js.php';?>
 
     </body>
 

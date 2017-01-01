@@ -1,8 +1,7 @@
-<!---- Acesso à base de bados --->
 <?php
+    include 'login-check.php'; //verificar se login foi feito
+    include 'connection.php'; //ligação à base de dados
 
-    include 'connection.php';  
- include('logx.php');
     //----------------------SELECT FILME------------------------//
 
     $select_filme = "SELECT _id_filmes, filme, image, classif, data_lanc, realizador, imdb_rating, ost_rating

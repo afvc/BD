@@ -1,14 +1,13 @@
- 
 <?php
-
-    $url = $_SERVER['REQUEST_URI'];
-
-    $movieid = substr($url, -1);
-    
     include 'connection.php';
-        
-    //---------------------------------SELECT-------------------------------//
 
+    $url = $_SERVER['REQUEST_URI']; //vai buscar URL
+
+    $movieid = substr($url, strrpos($url, '=') + 1); //vai buscar ao URL o id do filme (caracteres depois do =)
+   
+    //---------------------------------SELECTS-------------------------------//
+
+    //SECLECT nome do filme - apenas para dar título à pagina
     $select_filme_title = "SELECT filme
 
     FROM filmes
@@ -17,7 +16,7 @@
 
     $result_filme_title = $conn->query($select_filme_title);
 
-    
+    //SELECT nome do filme e da imagem
     $select_filme = "SELECT filme, image
 
     FROM filmes
@@ -26,7 +25,7 @@
 
     $result_filme = $conn->query($select_filme);
 
-
+    //SELECT outros dados do filme - mostrados noutra div do HTML
     $select_filme_more = "SELECT data_lanc, realizador, classif, imdb_rating, ost_rating
 
     FROM filmes
@@ -35,7 +34,7 @@
 
     $result_filme_more = $conn->query($select_filme_more);
 
-
+    //SELECT atores do filme
     $select_atores = "SELECT nome_ator
 
     FROM filmes, filmes_atores, atores
@@ -46,7 +45,7 @@
 
     $result_atores = $conn->query($select_atores);
 
-
+    //SELECT géneros do filme
     $select_generos = "SELECT nome_genero
 
     FROM filmes, filmes_generos, generos
@@ -57,7 +56,7 @@
 
     $result_generos = $conn->query($select_generos);
 
-
+    //SELECT músicas da banda sonora
     $select_musicas = "SELECT nome_musica, m_generos, m_ano, cantor
 
     FROM filmes, filmes_musicas, musicas
@@ -68,6 +67,4 @@
 
     $result_musicas = $conn->query($select_musicas);
 
-
-?>
- 
+?> 
