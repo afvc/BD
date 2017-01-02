@@ -88,7 +88,7 @@
 
        //----------------- COMMITS  -----------------// 
 
-     /*  mysqli_commit($conn);*/
+     mysqli_commit($conn); 
                 
 
         //Alerta de que commits foram feitos
