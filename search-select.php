@@ -96,7 +96,9 @@
         $results = ($result_filme->num_rows);
 
         //adição do LIMIT ao SELECT para mostrar resultados por páginas
-        $select_filme = $select_filme . " LIMIT $start_from, $results_per_page";
+        $select_filme = $select_filme . " ORDER BY filme
+        
+        LIMIT $start_from, $results_per_page";
 
         //resultado do SELECT - depois do LIMIT
         $result_filme = $conn->query($select_filme);

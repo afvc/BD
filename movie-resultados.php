@@ -11,7 +11,7 @@
                     </div>
 
                         <div class ='col-sm-6 col-xs-12'>
-                            <a class ='nav__link center-xs menu-selected'>
+                            <a class ='nav__link menu-selected'>
                             <img src = " . $row["image"] . " class ='logo'> </a>";
             }
         }

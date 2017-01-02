@@ -2,10 +2,10 @@
 -- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Jan 01, 2017 at 06:27 PM
--- Server version: 5.6.28
--- PHP Version: 7.0.10
+-- Host: localhost
+-- Generation Time: Jan 02, 2017 at 09:29 PM
+-- Server version: 5.6.33
+-- PHP Version: 7.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -47,7 +47,19 @@ INSERT INTO `atores` (`_id_ator`, `nome_ator`, `nasc_ator`) VALUES
 (14, 'Rob Lowe', '1964-03-17'),
 (15, 'Tim Robbins', NULL),
 (16, 'Morgan Freeman', NULL),
-(17, 'Bob Gunton', NULL);
+(17, 'Bob Gunton', NULL),
+(18, 'Christian Bale', NULL),
+(19, 'Heath Ledger', NULL),
+(20, 'Aaron Eckhart', NULL),
+(21, 'Henry Fonda', NULL),
+(22, 'Lee J. Cobb', NULL),
+(23, 'Martin Balsam ', NULL),
+(24, 'Tom Hanks', NULL),
+(25, 'Robin Wright', NULL),
+(26, 'Gary Sinise', NULL),
+(27, 'John Travolta', NULL),
+(28, 'Uma Thurman', NULL),
+(29, 'Samuel L. Jackson', NULL);
 
 -- --------------------------------------------------------
 
@@ -79,7 +91,11 @@ INSERT INTO `filmes` (`_id_filmes`, `filme`, `image`, `classif`, `data_lanc`, `r
 (3, 'Suicide Squad', 'assets/images/suicide_squad.jpg', '14', '2016-08-04', 'David Ayer', 6.5, 91.3, 1, 1, 'gestor'),
 (4, 'Coming Home', 'assets/images/coming_home.jpg', NULL, '1978-02-15', 'Hal Ashby', 7.3, NULL, 1, 1, 'gestor'),
 (5, 'Wayne\'s World', 'assets/images/waynes_world.jpg', '12', '1992-02-22', 'Penelope Spheeris', 7, NULL, 1, 1, 'gestor'),
-(6, 'The Shawshank Redemption', 'assets/images/shawshank_redemption.jpg', '16', '1995-03-31', 'Frank Derabont', 9.3, NULL, 1, 1, 'gestor');
+(6, 'The Shawshank Redemption', 'assets/images/shawshank_redemption.jpg', '16', '1995-03-31', 'Frank Derabont', 9.3, NULL, 1, 1, 'gestor'),
+(7, 'The Dark Knight', 'assets/images/the_dark_knight.jpg', '12', '2008-07-24', 'Christopher Nolan', 9, 100, 1, 1, 'gestor'),
+(8, '12 Angry Men', 'assets/images/12_angry_men.jpg', '12', '1959-10-28', 'Sidney Lumet', 8.9, NULL, 1, 1, 'gestor'),
+(9, 'Forrest Gump', 'assets/images/forrest_gump.jpg', '12', '1994-10-24', 'Robert Zemeckis', 8.8, 99, 1, 1, 'gestor'),
+(10, 'Pulp Fiction', 'assets/images/pulp_fiction.jpg', '16', '1994-11-25', 'Quentin Tarantino', 8.9, NULL, 1, 1, 'gestor');
 
 -- --------------------------------------------------------
 
@@ -114,7 +130,19 @@ INSERT INTO `filmes_atores` (`filmes_id_filmes`, `atores_id_ator`) VALUES
 ('5', '14'),
 ('6', '15'),
 ('6', '16'),
-('6', '17');
+('6', '17'),
+('7', '18'),
+('7', '19'),
+('7', '20'),
+('8', '21'),
+('8', '22'),
+('8', '23'),
+('9', '24'),
+('9', '25'),
+('9', '26'),
+('10', '27'),
+('10', '28'),
+('10', '29');
 
 -- --------------------------------------------------------
 
@@ -145,7 +173,16 @@ INSERT INTO `filmes_generos` (`filmes_id_filmes`, `generos_id_genero`) VALUES
 ('5', 8),
 ('5', 9),
 ('6', 1),
-('6', 2);
+('6', 2),
+('7', 1),
+('7', 2),
+('7', 3),
+('8', 1),
+('8', 2),
+('9', 1),
+('9', 8),
+('10', 1),
+('10', 2);
 
 -- --------------------------------------------------------
 
@@ -186,7 +223,16 @@ INSERT INTO `filmes_musicas` (`filmes_id_filmes`, `musicas_id_musica`) VALUES
 ('5', 19),
 ('6', 20),
 ('6', 21),
-('6', 22);
+('6', 22),
+('7', 23),
+('7', 24),
+('8', 25),
+('9', 26),
+('9', 27),
+('9', 28),
+('10', 29),
+('10', 30),
+('10', 31);
 
 -- --------------------------------------------------------
 
@@ -255,7 +301,16 @@ INSERT INTO `musicas` (`_id_musica`, `nome_musica`, `m_generos`, `m_ano`, `canto
 (19, 'Everything About You', 'Hard rock', 1991, 'Ugly Kid Joe', 1, 'gestor'),
 (20, 'May', NULL, NULL, 'Thomas Newman', 1, 'gestor'),
 (21, 'If I Didn\'t Care', NULL, NULL, 'The Ink Spots', 1, 'gestor'),
-(22, 'Brooks Was Here', NULL, NULL, 'The Hollywood Studio Symphony', 1, 'gestor');
+(22, 'Brooks Was Here', NULL, NULL, 'The Hollywood Studio Symphony', 1, 'gestor'),
+(23, 'Scatterin\' Monkey', NULL, 1998, 'Boom Boom Satellites', 1, 'gestor'),
+(24, '4 A Moment of Silence', NULL, 1998, 'Boom Boom Satellites', 1, 'gestor'),
+(25, 'Dance of the Cuckoos', NULL, 1998, NULL, 1, 'gestor'),
+(26, 'Lovesick Blues', NULL, 1922, 'Hank Williams', 1, 'gestor'),
+(27, 'Hound Dog', NULL, 1952, 'Elvis Presley', 1, 'gestor'),
+(28, 'Rebel-\'Rouser', NULL, 1958, 'Duane Eddy', 1, 'gestor'),
+(29, 'Misirlou', NULL, NULL, 'Dick Dale', 1, 'gestor'),
+(30, 'Jungle Boogie', NULL, NULL, 'Kool & The Gang', 1, 'gestor'),
+(31, 'Strawberry Letter 23', NULL, NULL, 'Brothers Johnson', 1, 'gestor');
 
 -- --------------------------------------------------------
 
@@ -313,12 +368,12 @@ ALTER TABLE `musicas`
 -- AUTO_INCREMENT for table `atores`
 --
 ALTER TABLE `atores`
-  MODIFY `_id_ator` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `_id_ator` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `filmes`
 --
 ALTER TABLE `filmes`
-  MODIFY `_id_filmes` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `_id_filmes` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `generos`
 --
@@ -328,4 +383,4 @@ ALTER TABLE `generos`
 -- AUTO_INCREMENT for table `musicas`
 --
 ALTER TABLE `musicas`
-  MODIFY `_id_musica` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `_id_musica` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;

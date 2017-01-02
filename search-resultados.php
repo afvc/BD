@@ -28,7 +28,7 @@
         }
         echo "</div><br>";
 
-        echo "<div class='row center-xs start-md'>";
+        echo "<div class='row start-md'>";
         while($row = $result_filme->fetch_assoc()) {
 
             $numrows++;
