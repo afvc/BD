@@ -1,6 +1,6 @@
 <?php
+    include 'login-check.php'; //verificar se login foi feito
     include 'connection.php'; //para a ligação à base de dados
-    include 'logx.php'; //para o login do site
 
     include 'search-insert-code.php';
     include 'search-select.php';
@@ -26,9 +26,9 @@
         <link rel="stylesheet" href="assets/css/style.css" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="assets/js/clone-filter.js"></script>
-      <script src="assets/js/clone-insert-song.js"></script>
+        <script src="assets/js/clone-insert-song.js"></script>
         <script src="assets/js/clone-act.js"></script>
-         <script src="assets/js/clone-gen.js"></script>
+        <script src="assets/js/clone-gen.js"></script>
     </head>
 
 
@@ -84,22 +84,20 @@
                                 </div>
                             </div>
                             <!-- END ADD / DELETE BUTTONS -->
-                            
+
                         </form>
 
                     </div>
 
-                    <div class='col-xs-12 start-xs'>
 
-                        <!------------------- RESULTADOS --------------------->
-                        <?php include 'search-resultados.php';?>
-
-                    </div>
-                </div>
+                    <!--------- RESULTADOS - SEARCH --------->
+                    <?php include 'search-resultados.php';?>
 
                 </div>
 
-                <!----------- MODAL - ADD MOVIE ---------->
+                </div>
+
+                <!----------- FORM - INSERT MOVIE ---------->
 
                 <?php include 'search-insert-form.php';?>
 
