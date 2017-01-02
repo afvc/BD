@@ -1,4 +1,6 @@
-<?php
+<div class='col-xs-12 start-xs'>
+
+    <?php
 
     $numrows = 0;
 
@@ -62,3 +64,5 @@
 
     }
 ?>
+    
+</div>

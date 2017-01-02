@@ -17,7 +17,7 @@ $(function () {
         // genre
         
         newElem.find('.test-mgenre-label').attr('for', 'ID' + newNum + '_mgenre');
-        newElem.find('.test-mgenre').attr('id', 'ID' + newNum + '_mgenre').attr('name', 'ID' + newNum + '_mgenre').val('');    
+        newElem.find('.test-mgenre').attr('id', 'ID' + newNum + '_mgenre').attr('name', 'ID' + newNum + '_nome_genero').val('');    
         
         
         
