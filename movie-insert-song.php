@@ -7,26 +7,23 @@
     
     //------------------ COMEÇAR TRANSAÇÃO  -----------------// 
     try {
+        
+       mysqli_autocommit($conn, FALSE);
     
-        $insert_song=$conn->query("SET autocommit=0;");
-        $insert_song=$conn->query("START TRANSACTION;");
-
-        $insert_song_movie=$conn->query("SET autocommit=0;");
+        
+        $insert_song=$conn->query("START TRANSACTION;");   
         $insert_song_movie=$conn->query("START TRANSACTION;");
+       
     
-        //música 2
-        $insert_song_2=$conn->query("SET autocommit=0;");
-        $insert_song_2=$conn->query("START TRANSACTION;");
-
-        $insert_song_2_movie=$conn->query("SET autocommit=0;");
+        //música 2    
+        $insert_song_2=$conn->query("START TRANSACTION;");            
         $insert_song_2_movie=$conn->query("START TRANSACTION;");
+        
     
         //música 3    
-        $insert_song_3=$conn->query("SET autocommit=0;");
         $insert_song_3=$conn->query("START TRANSACTION;");
-
-        $insert_song_3_movie=$conn->query("SET autocommit=0;");
         $insert_song_3_movie=$conn->query("START TRANSACTION;");
+    
 
 
         //VARIÁVEIS PARA USAR NO INSERT
@@ -91,16 +88,7 @@
 
        //----------------- COMMITS  -----------------// 
 
-        $insert_song=$conn->query("COMMIT");
-        $insert_song_movie=$conn->query("COMMIT");
-        
-
-        $insert_song_2=$conn->query("COMMIT");
-        $insert_song_2_movie=$conn->query("COMMIT");       
-                
-
-        $insert_song_3=$conn->query("COMMIT");
-        $insert_song_3_movie=$conn->query("COMMIT");
+     /*  mysqli_commit($conn);*/
                 
 
         //Alerta de que commits foram feitos
@@ -109,14 +97,7 @@
        //--------- CASO ERRO -> ROLLBACK  ------------//
     }   catch (Exception $e) {
 
-        $insert_song=$conn->query("ROLLBACK;");
-        $insert_song_movie=$conn->query("ROLLBACK;");
-        
-        $insert_song_2=$conn->query("ROLLBACK;");
-        $insert_song_2_movie=$conn->query("ROLLBACK;");
-
-        $insert_song_3=$conn->query("ROLLBACK;");
-        $insert_song_3_movie=$conn->query("ROLLBACK;");
+       mysqli_rollback($conn);
         
         $OuterError = "Song not submited, try again";
     }

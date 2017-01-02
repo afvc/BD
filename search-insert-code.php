@@ -7,27 +7,22 @@
 
     //------------------ COMEÇAR TRANSAÇÃO  -----------------// 
     try {
+        
+          mysqli_autocommit($conn, FALSE);
+    
 
-        $insert_movie=$conn->query("SET autocommit=0;");
+        
         $insert_movie=$conn->query("START TRANSACTION;");
-
-        $insert_actor=$conn->query("SET autocommit=0;");
-        $insert_actor=$conn->query("START TRANSACTION;");
         
-        $insert_actor_movie=$conn->query("SET autocommit=0;");
+        $insert_actor=$conn->query("START TRANSACTION;"); 
         $insert_actor_movie=$conn->query("START TRANSACTION;");
-
-        $insert_song=$conn->query("SET autocommit=0;");
-        $insert_song=$conn->query("START TRANSACTION;");
         
-        $insert_song_movie=$conn->query("SET autocommit=0;");
+        $insert_song=$conn->query("START TRANSACTION;"); 
         $insert_song_movie=$conn->query("START TRANSACTION;");
-
-        $insert_genre=$conn->query("SET autocommit=0;");
+     
         $insert_genre=$conn->query("START TRANSACTION;");
-        
-        $insert_genre_movie=$conn->query("SET autocommit=0;");
         $insert_genre_movie=$conn->query("START TRANSACTION;");
+       
 
 
         //----VARIÁVEIS PARA USAR NO INSERT
@@ -193,39 +188,7 @@
         
         //----------------- COMMITS -----------------// 
 
-        $insert_movie=$conn->query("COMMIT;");
-
-        
-        $insert_actor=$conn->query("COMMIT;");
-        $insert_actor_movie=$conn->query("COMMIT;");
-        
-        $insert_actor_2=$conn->query("COMMIT;");
-        $insert_actor_2_movie=$conn->query("COMMIT;");
-        
-        $insert_actor_3=$conn->query("COMMIT;");
-        $insert_actor_3_movie=$conn->query("COMMIT;");
-
-        
-        $insert_song=$conn->query("COMMIT;");
-        $insert_song_movie=$conn->query("COMMIT;");
-
-        $insert_song_2=$conn->query("COMMIT");
-        $insert_song_2_movie=$conn->query("COMMIT");       
-                
-        $insert_song_3=$conn->query("COMMIT");
-        $insert_song_3_movie=$conn->query("COMMIT");
-        
-        
-        $insert_genre=$conn->query("COMMIT;");
-        $insert_genre_movie=$conn->query("COMMIT;");       
-        
-        $insert_genre_2=$conn->query("COMMIT;");
-        $insert_genre_2_movie=$conn->query("COMMIT;");
-        
-        $insert_genre_3=$conn->query("COMMIT;");
-        $insert_genre_3_movie=$conn->query("COMMIT;");
-
-    
+        mysqli_commit($conn);    
 
         //Alerta de que os commits foram feitos
         $MovieOuterError = "Movie submited with success";
@@ -233,37 +196,7 @@
        //--------- CASO ERRO -> ROLLBACK  ------------//
     }   catch (Exception $e) {
                    
-        $insert_movie=$conn->query("ROLLBACK;");
-
-        
-        $insert_actor=$conn->query("ROLLBACK;");
-        $insert_actor_movie=$conn->query("ROLLBACK;");
-        
-        $insert_actor_2=$conn->query("ROLLBACK;");
-        $insert_actor_2_movie=$conn->query("ROLLBACK;");
-        
-        $insert_actor_3=$conn->query("ROLLBACK;");
-        $insert_actor_3_movie=$conn->query("ROLLBACK;");
-
-        
-        $insert_song=$conn->query("ROLLBACK;");
-        $insert_song_movie=$conn->query("ROLLBACK;");
-
-        $insert_song_2=$conn->query("ROLLBACK");
-        $insert_song_2_movie=$conn->query("ROLLBACK");       
-                
-        $insert_song_3=$conn->query("ROLLBACK");
-        $insert_song_3_movie=$conn->query("ROLLBACK");
-        
-        
-        $insert_genre=$conn->query("ROLLBACK;");
-        $insert_genre_movie=$conn->query("ROLLBACK;");       
-        
-        $insert_genre_2=$conn->query("ROLLBACK;");
-        $insert_genre_2_movie=$conn->query("ROLLBACK;");
-        
-        $insert_genre_3=$conn->query("ROLLBACK;");
-        $insert_genre_3_movie=$conn->query("ROLLBACK;");
+        mysqli_rollback($conn);
         
         $MovieOuterError = "Movie not submited, try again";
 
