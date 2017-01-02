@@ -1,16 +1,32 @@
 <?php
 
-    if(isset($_POST['addsong'])) {
-        
-try {
-    
-        $new_song=$conn->query("SET autocommit=0;");
-    
-        $new_song=$conn->query("START TRANSACTION;");
+    $OuterError="";
 
-        $new_song_movie=$conn->query("SET autocommit=0;");
+    //---------------- INSERT MÚSICA -------------------//
+    if(isset($_POST['addsong'])) {
     
-        $new_song_movie=$conn->query("START TRANSACTION;");
+    //------------------ COMEÇAR TRANSAÇÃO  -----------------// 
+    try {
+    
+        $insert_song=$conn->query("SET autocommit=0;");
+        $insert_song=$conn->query("START TRANSACTION;");
+
+        $insert_song_movie=$conn->query("SET autocommit=0;");
+        $insert_song_movie=$conn->query("START TRANSACTION;");
+    
+        //música 2
+        $insert_song_2=$conn->query("SET autocommit=0;");
+        $insert_song_2=$conn->query("START TRANSACTION;");
+
+        $insert_song_2_movie=$conn->query("SET autocommit=0;");
+        $insert_song_2_movie=$conn->query("START TRANSACTION;");
+    
+        //música 3    
+        $insert_song_3=$conn->query("SET autocommit=0;");
+        $insert_song_3=$conn->query("START TRANSACTION;");
+
+        $insert_song_3_movie=$conn->query("SET autocommit=0;");
+        $insert_song_3_movie=$conn->query("START TRANSACTION;");
 
 
         //VARIÁVEIS PARA USAR NO INSERT
@@ -20,61 +36,90 @@ try {
         $ano_musica = $_POST["ano"];                //o que foi escrito no ano
         $cantor = $_POST["cantor"];                 //o que foi escrito no cantor/banda
 
-        $nome_musica_2 = $_POST["nome_musica"];     //o que foi escrito na música
-        $genero_musica_2 = $_POST["genero"];        //o que foi escrito no género
-        $ano_musica_2 = $_POST["ano"];              //o que foi escrito no ano
-        $cantor_2 = $_POST["cantor"];               //o que foi escrito no cantor/banda
+        //música 2
+        $nome_musica_2 = $_POST["ID2_nome_musica"];     //o que foi escrito na música
+        $genero_musica_2 = $_POST["ID2_genero"];        //o que foi escrito no género
+        $ano_musica_2 = $_POST["ID2_ano"];              //o que foi escrito no ano
+        $cantor_2 = $_POST["ID2_cantor"];               //o que foi escrito no cantor/banda
 
-        $nome_musica_3 = $_POST["nome_musica"];     //o que foi escrito na música
-        $genero_musica_3 = $_POST["genero"];        //o que foi escrito no género
-        $ano_musica_3 = $_POST["ano"];              //o que foi escrito no ano
-        $cantor_3 = $_POST["cantor"];               //o que foi escrito no cantor/banda
+        //música 3
+        $nome_musica_3 = $_POST["ID3_nome_musica"];     //o que foi escrito na música
+        $genero_musica_3 = $_POST["ID3_genero"];        //o que foi escrito no género
+        $ano_musica_3 = $_POST["ID3_ano"];              //o que foi escrito no ano
+        $cantor_3 = $_POST["ID3_cantor"];               //o que foi escrito no cantor/banda
 
-        $YearError ="";
-        $OuterError="";
-        $yearnum = $_POST['ano'];
+        $yearnum = $_POST['ID3_ano'];
       
-        if( !(is_numeric($yearnum)) ){
-            
-             $OuterError = "Song not submited, try again";
-            $YearError = "Please enter a number.";}
-           
-            $addsong=("INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
-            
-            VALUES (' ', '$nome_musica', '$genero_musica', '$ano_musica', '$cantor', '0', 'user');");
-            
-            $addsong_movie=("INSERT INTO filmes_musicas (filmes_id_filmes, musicas_id_musica)
-    
-            VALUES ('$movieid', last_insert_id())");
+        
+        $insert_song=$conn->query("INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
 
-            $new_song=$conn->query($addsong);
-    
-            $new_song=$conn->query("COMMIT");
-            
-            $new_song_movie=$conn->query($addsong_movie);
-    
-            $new_song_movie=$conn->query("COMMIT");
+        VALUES (' ', '$nome_musica', '$genero_musica', '$ano_musica', '$cantor', '0', 'user');");
+
+        $last_song = mysqli_insert_id($conn);
+
+        $insert_song_movie=$conn->query("INSERT INTO filmes_musicas (filmes_id_filmes, musicas_id_musica)
+
+        VALUES ('$movieid', '$last_song')");
+
         
-        
-        if (($new_song_movie) && ($new_song)){
-            
-            $OuterError = "Song submited with success";
+        if($nome_musica_2 != '') { //música 2
+
+            $insert_song_2=$conn->query("INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
+
+            VALUES (' ', '$nome_musica_2', '$genero_musica_2', '$ano_musica_2', '$cantor_2', '0', 'user');");
+
+            $last_song_2 = mysqli_insert_id($conn);
+
+            $insert_song_2_movie=$conn->query("INSERT INTO filmes_musicas (filmes_id_filmes, musicas_id_musica)
+
+            VALUES ('$movieid', '$last_song_2')");
         }
+        
+        if($nome_musica_3 != '') { //música 3
+
+            $insert_song_3=$conn->query("INSERT INTO musicas (_id_musica, nome_musica, m_generos, m_ano, cantor, flag_musicas_novas, Utilizadoruser_name)
+
+            VALUES (' ', '$nome_musica_3', '$genero_musica_3', '$ano_musica_3', '$cantor_3', '0', 'user');");
+
+            $last_song_3 = mysqli_insert_id($conn);
+
+            $insert_song_3_movie=$conn->query("INSERT INTO filmes_musicas (filmes_id_filmes, musicas_id_musica)
+
+            VALUES ('$movieid', '$last_song_3')");
+        }
+
+
+       //----------------- COMMITS  -----------------// 
+
+        $insert_song=$conn->query("COMMIT");
+        $insert_song_movie=$conn->query("COMMIT");
+        
+
+        $insert_song_2=$conn->query("COMMIT");
+        $insert_song_2_movie=$conn->query("COMMIT");       
                 
 
-        }   catch (Exception $e) {
-           
-            
-            $new_song=$conn->query("ROLLBACK;");
-           
-            $new_song_movie=$conn->query("ROLLBACK;");
-    
+        $insert_song_3=$conn->query("COMMIT");
+        $insert_song_3_movie=$conn->query("COMMIT");
+                
+
+        //Alerta de que commits foram feitos
+        $OuterError = "Song submited with success";
+
+       //--------- CASO ERRO -> ROLLBACK  ------------//
+    }   catch (Exception $e) {
+
+        $insert_song=$conn->query("ROLLBACK;");
+        $insert_song_movie=$conn->query("ROLLBACK;");
+        
+        $insert_song_2=$conn->query("ROLLBACK;");
+        $insert_song_2_movie=$conn->query("ROLLBACK;");
+
+        $insert_song_3=$conn->query("ROLLBACK;");
+        $insert_song_3_movie=$conn->query("ROLLBACK;");
+        
         $OuterError = "Song not submited, try again";
-       
-       }
-    
-    
-    
-    
+    }
+
     }
 ?>

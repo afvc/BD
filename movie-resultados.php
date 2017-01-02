@@ -1,4 +1,3 @@
-
 <div class='title col-xs-12 start-xs'>
 
     <?php 
