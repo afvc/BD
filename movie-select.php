@@ -1,8 +1,5 @@
 <?php
 
-    $url = $_SERVER['REQUEST_URI']; //vai buscar URL
-
-    $movieid = substr($url, strrpos($url, '=') + 1); //vai buscar ao URL o id do filme (caracteres depois do =)
    
     //---------------------------------SELECTS-------------------------------//
 

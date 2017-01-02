@@ -1,6 +1,12 @@
 <?php
     include 'connection.php'; //para a ligação à base de dados
 
+
+    $url = $_SERVER['REQUEST_URI']; //vai buscar URL
+
+    $movieid = substr($url, strrpos($url, '=') + 1); //vai buscar ao URL o id do filme (caracteres depois do =)
+
+
     include 'movie-insert-song.php';
     include 'movie-select.php';
 ?>
