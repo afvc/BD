@@ -15,7 +15,7 @@
                         <br>
                         <label for="text" class="test-song-label input-anim">
                             <span class="label__info">Song</span>
-                            <input type="text" id="song" name="nome_musica" class="test-song " />
+                            <input type="text" id="song" name="nome_musica" class="test-song " required>
                             <br>
                         </label>
 
@@ -24,12 +24,10 @@
                             <input type="text" id="genre" name="genero" class="test-genre">
                         </label>
                         <br>
-                        <br>
                         <label class="input-anim" class="test-year-label">
                             <span class="label__info">Year</span>
                             <input type="number" id="year" max="3000" name="ano" class="test-year">
-                            <br>
-                            <span class="text"><?php echo $YearError; ?><br></span>
+                            <br></span>
                         </label>
 
                         <label class="input-anim">

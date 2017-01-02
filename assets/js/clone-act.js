@@ -16,7 +16,7 @@ $(function () {
        
         // actor
         newElem.find('.test-ator-label').attr('for', 'ID' + newNum + '_ator');
-        newElem.find('.test-ator').attr('id', 'ID' + newNum + '_ator').attr('name', 'ID' + newNum + '_ator').val('');
+        newElem.find('.test-ator').attr('id', 'ID' + newNum + '_ator').attr('name', 'ID' + newNum + '_nome_ator').val('');
 
         
 
